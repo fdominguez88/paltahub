@@ -85,11 +85,11 @@ nav ul li a:hover {
     transform: translateY(-2px);
 }
 .hero {
-    background: linear-gradient(180deg, #1A202C 90%, #FFFFFF); /* Adjusted gradient to make dark blue larger */
+    background: linear-gradient(180deg, #1A202C 90%, #FFFFFF);
     color: var(--palta-white);
-    padding: 80px 20px;
-    border-radius: 0 0 25px 25px; /* Added border-radius */
-    margin: 0 auto 0 auto; /* Removed margin-bottom */
+    padding: 120px 20px; /* Increased padding to make it longer */
+    border-radius: 0; /* Removed border-radius for a sharp edge */
+    margin: 0 auto 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -157,7 +157,6 @@ nav ul li a:hover {
     padding: 15px 30px;
     font-size: 1.1em;
 }
-
 .stats-section {
     background-color: var(--palta-white);
     min-height: 150px;
@@ -166,7 +165,7 @@ nav ul li a:hover {
     justify-content: center;
     margin: 0 auto 20px auto;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    border-bottom: none; /* Removed border-bottom */
+    border-bottom: none;
     padding: 0;
 }
 .stats-section .container {
