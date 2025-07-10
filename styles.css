@@ -693,7 +693,10 @@ footer ul li a:hover {
     padding: 32px 20px 18px 20px; /* Added horizontal padding */
   }
   .hero h1 {
-    font-size: 1.4em;
+    font-size: 2.5em; /* Adjusted font size for mobile hero h1 */
+  }
+  .hero p {
+    font-size: 1.3em; /* Adjusted font size for mobile hero p */
   }
   .hero-form {
     flex-direction: column;
@@ -890,10 +893,32 @@ footer ul li a:hover {
     display: flex;
     justify-content: center;
   }
+  .nav-links .cta-button,
+  .nav-links .nav-cta {
+    width: 90vw;
+    max-width: 350px;
+    font-size: 1.15em;
+    margin: 14px auto 0 auto;
+    display: block;
+    padding: 16px 0;
+    text-align: center;
+  }
+  .cta-button, .nav-cta {
+    display: none !important;
+  }
+  .nav-links.show .cta-button, .nav-links.show .nav-cta {
+    display: block !important;
+  }
 }
 
 /* On desktop, show CTA as usual, but hide it in nav-links */
 @media (min-width: 801px) {
+  .nav-links .cta-button, .nav-links .nav-cta {
+    display: none !important;
+  }
+  .cta-button, .nav-cta {
+    display: inline-block !important;
+  }
 }
 
 :root {
