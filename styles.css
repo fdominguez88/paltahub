@@ -755,7 +755,7 @@ footer ul li a:hover {
     padding: 0 3vw;
   }
   .hero h1, .section-title, .why-love-palta h2, .call-to-action h2 {
-    font-size: 2em;
+    font-size: 2.2em; /* Changed from 1.1em to 2.2em */
   }
 }
 
