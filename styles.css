@@ -19,16 +19,6 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-/* Text Selection Styling */
-::selection {
-  background: var(--palta-accent-green);
-  color: var(--palta-dark-bg);
-}
-::-moz-selection {
-  background: var(--palta-accent-green);
-  color: var(--palta-dark-bg);
-}
-
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -75,6 +65,7 @@ nav ul li a:hover {
     border-radius: 8px;
     text-decoration: none;
     font-weight: normal; /* Changed from 600 to normal */
+    font-family: 'Inter', sans-serif; /* Explicitly set to Inter */
     transition: background-color 0.3s ease, transform 0.2s ease;
     display: inline-block;
     border: none;
@@ -87,9 +78,9 @@ nav ul li a:hover {
 .hero {
     background-color: var(--palta-dark-bg); /* Changed from gradient to solid color */
     color: var(--palta-white);
-    padding: 150px 20px; /* Kept longer as requested */
-    border-radius: 0;
-    margin: 0 auto 0 auto;
+    padding: 150px 20px; /* Made taller */
+    border-radius: 0; /* Removed round effect */
+    margin: 0 auto 0 auto; /* Removed margin-bottom */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -123,6 +114,7 @@ nav ul li a:hover {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 .hero h1 {
+    font-family: 'Open Sans', sans-serif; /* Set to Open Sans */
     font-size: 4.5em;
     color: var(--palta-white);
     margin-bottom: 25px;
@@ -157,6 +149,8 @@ nav ul li a:hover {
     padding: 15px 30px;
     font-size: 1.1em;
 }
+
+/* COMPACT, VERTICALLY CENTERED STATS SECTION + CENTERED h3 & LABEL */
 .stats-section {
     background-color: var(--palta-white);
     min-height: 150px;
@@ -165,7 +159,7 @@ nav ul li a:hover {
     justify-content: center;
     margin: 0 auto 20px auto;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    border-bottom: none;
+    border-bottom: none; /* Removed border-bottom */
     padding: 0;
 }
 .stats-section .container {
@@ -385,7 +379,7 @@ nav ul li a:hover {
 .call-to-action .cta-button {
     background-color: var(--palta-accent-green);
     color: #0C0A08;
-    box-shadow: none; /* Removed shadow */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
 }
 .call-to-action .cta-button:hover {
     background-color: #00c260;
@@ -697,10 +691,10 @@ footer ul li a:hover {
     padding-right: 0;
   }
   .hero {
-    padding: 32px 20px 18px 20px !important; /* Added padding here */
+    padding: 32px 0 18px 0;
   }
   .hero h1 {
-    font-size: 2.5em;
+    font-size: 1.4em;
   }
   .hero-form {
     flex-direction: column;
@@ -753,14 +747,14 @@ footer ul li a:hover {
     padding: 0 3vw;
   }
   .hero h1, .section-title, .why-love-palta h2, .call-to-action h2 {
-    font-size: 2.2em; /* Changed from 1.1em to 2.2em */
+    font-size: 1.1em;
   }
 }
 
 @media (max-width: 600px) {
   .hero, .hero .container {
     flex-direction: column !important;
-    /* padding: 22px 0 14px 0 !important; Removed this line since a more specific padding is added above */
+    padding: 22px 0 14px 0 !important;
     gap: 0 !important;
     min-height: unset !important;
     height: unset !important;
@@ -937,11 +931,12 @@ footer ul li a:hover {
   --palta-accent-green: #E4F223;
 }
 
+/* Ensure .btn-primary and .navbar are branded */
 .btn-primary {
   background-color: var(--palta-accent-green) !important;
   color: #0C0A08 !important;
   border: none !important;
-  font-weight: normal; /* Changed from 600 to normal */
+  font-weight: 600;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(228, 242, 35, 0.3);
 }
