@@ -137,10 +137,10 @@ nav ul li a:hover {
 }
 .hero-form input[type="email"] {
     flex: 1;
-    padding: 15px 20px; /* Matched vertical padding to CTA's vertical padding */
+    padding: 10px 18px; /* Adjusted padding to make it smaller than CTA */
     border-radius: 8px;
     border: 1px solid var(--palta-border);
-    font-size: 1.2em; /* Matched font size to CTA's font size */
+    font-size: 1.0em; /* Adjusted font size to make it smaller than CTA */
     background-color: var(--palta-white);
     color: var(--palta-text-dark);
     min-width: 200px;
