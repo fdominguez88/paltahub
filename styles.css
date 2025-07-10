@@ -78,7 +78,7 @@ nav ul li a:hover {
     transition: background-color 0.3s ease, transform 0.2s ease;
     display: inline-block;
     border: none;
-    box-shadow: 0 4px 12px rgba(228, 242, 35, 0.3);
+    box-shadow: none; /* Removed shadow */
 }
 .cta-button:hover {
     background-color: #D3E01E;
@@ -387,7 +387,7 @@ nav ul li a:hover {
 .call-to-action .cta-button {
     background-color: var(--palta-accent-green);
     color: #0C0A08;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+    box-shadow: none; /* Removed shadow */
 }
 .call-to-action .cta-button:hover {
     background-color: #00c260;
@@ -699,7 +699,7 @@ footer ul li a:hover {
     padding-right: 0;
   }
   .hero {
-    padding: 32px 20px 18px 20px; /* Adjusted padding */
+    padding: 32px 20px 18px 20px;
   }
   .hero h1 {
     font-size: 1.4em;
@@ -762,7 +762,7 @@ footer ul li a:hover {
 @media (max-width: 600px) {
   .hero, .hero .container {
     flex-direction: column !important;
-    padding: 22px 20px 14px 20px !important; /* Adjusted padding */
+    padding: 22px 20px 14px 20px !important;
     gap: 0 !important;
     min-height: unset !important;
     height: unset !important;
@@ -771,7 +771,7 @@ footer ul li a:hover {
   .hero-content {
     width: 100%;
     text-align: center;
-    padding: 0 20px; /* Added horizontal padding */
+    padding: 0 20px;
     margin-bottom: 18px;
   }
   .hero-form {
@@ -945,8 +945,8 @@ footer ul li a:hover {
   color: #0C0A08 !important;
   border: none !important;
   font-weight: 600;
+  box-shadow: none; /* Removed shadow */
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(228, 242, 35, 0.3);
 }
 .btn-primary:hover {
   background-color: #D3E01E !important;
@@ -967,16 +967,4 @@ footer ul li a:hover {
 }
 .nav-link:hover {
   color: var(--palta-blue) !important;
-}
-
-@media (max-width: 600px) {
-  h1.display-4.fw-bold, 
-  h1.display-4, 
-  .display-4.fw-bold, 
-  .display-4 {
-    font-size: 2.4em !important;
-    line-height: 1.13 !important;
-    font-weight: 900 !important;
-    letter-spacing: -0.01em !important;
-  }
 }
