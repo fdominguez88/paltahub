@@ -85,7 +85,7 @@ nav ul li a:hover {
     transform: translateY(-2px);
 }
 .hero {
-    background: linear-gradient(to right, #00707F, #1A202C);
+    background: linear-gradient(to bottom, #1A202C, #FFFFFF);
     color: var(--palta-white);
     padding: 80px 20px;
     border-radius: 0;
