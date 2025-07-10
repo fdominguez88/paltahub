@@ -146,14 +146,16 @@ nav ul li a:hover {
 }
 .hero-form input[type="email"] {
     flex: 1;
-    padding: 8px 18px; /* Reduced padding */
+    padding: 8px 18px !important; /* Reduced padding with !important */
     border-radius: 8px;
     border: 1px solid var(--palta-border);
-    font-size: 1.0em; /* Reduced font size */
+    font-size: 1.0em !important; /* Reduced font size with !important */
     background-color: var(--palta-white);
     color: var(--palta-text-dark);
     min-width: 200px;
     box-sizing: border-box;
+    height: auto !important; /* Ensure height is determined by content and padding */
+    line-height: normal !important; /* Reset line-height to normal */
 }
 .hero-form .cta-button {
     padding: 15px 30px; /* Original padding */
@@ -177,8 +179,10 @@ nav ul li a:hover {
 }
 @media (max-width: 600px) {
     .hero-form input[type="email"] {
-        padding: 6px 12px; /* Further reduced padding for mobile */
-        font-size: 0.9em; /* Further reduced font size for mobile */
+        padding: 6px 12px !important; /* Further reduced padding for mobile with !important */
+        font-size: 0.9em !important; /* Further reduced font size for mobile with !important */
+        height: auto !important; /* Ensure height is determined by content and padding */
+        line-height: normal !important; /* Reset line-height to normal */
     }
     .hero-form .cta-button {
         padding: 10px 20px; /* Adjusted padding for mobile */
