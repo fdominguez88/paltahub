@@ -6,7 +6,7 @@
     --palta-bg-light: #F8F9FA;
     --palta-white: #FFFFFF;
     --palta-border: #DEE2E6;
-    --palta-dark-bg: #1A202C;
+    --palta-dark-bg: #1A202C; /* This variable will still exist, but not used for hero background */
 }
 body {
     font-family: 'Inter', sans-serif;
@@ -28,7 +28,7 @@ header {
     background-color: var(--palta-white);
     padding: 20px 0;
     border-bottom: 1px solid var(--palta-border);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    box-shadow: none; /* Removed shadow per instructions */
 }
 nav {
     display: flex;
@@ -75,7 +75,7 @@ nav ul li a:hover {
     transform: translateY(-2px);
 }
 .hero {
-    background-color: var(--palta-dark-bg);
+    background-color: var(--palta-blue); /* Changed to Palta Blue */
     color: var(--palta-white);
     padding: 80px 20px;
     border-radius: 0;
@@ -810,8 +810,9 @@ footer ul li a:hover {
     flex-wrap: nowrap;
     position: relative;
   }
+  /* Remove custom nav-links display logic, let Bootstrap handle it */
   .nav-links {
-    position: absolute;
+    position: absolute; /* Keep positioning for overall menu */
     top: 60px;
     left: 0;
     width: 100vw;
@@ -822,22 +823,22 @@ footer ul li a:hover {
     padding: 36px 0 16px 0;
     margin: 0;
     box-shadow: 0 2px 16px rgba(30,41,59,.07);
-    display: none;
+    display: none; /* Bootstrap handles collapse/show */
     z-index: 19;
   }
   .nav-links.show {
-    display: flex;
+    display: flex; /* Kept for animation if custom JS toggles this class */
     animation: fadeIn 0.28s;
   }
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-16px);}
-    to   { opacity: 1; transform: translateY(0);}
+    to  { opacity: 1; transform: translateY(0);}
   }
   .hamburger {
     display: flex;
   }
   nav ul {
-    gap: 0;
+    gap: 0; /* Keep this if it's for spacing within custom nav-links */
   }
   .cta-button {
     margin-left: 0 !important;
@@ -880,11 +881,11 @@ footer ul li a:hover {
     padding: 32px 0 24px 0;
     margin: 0;
     box-shadow: 0 2px 16px rgba(30,41,59,.07);
-    display: none;
+    /* display: none; */ /* Removing this to allow Bootstrap to control its display */
     z-index: 19;
   }
   .nav-links.show {
-    display: flex;
+    display: flex; /* Keep this if `main.js` or Bootstrap applies this for animation */
     animation: fadeIn 0.28s;
   }
   .nav-links li {
@@ -892,41 +893,44 @@ footer ul li a:hover {
     display: flex;
     justify-content: center;
   }
-  .nav-links .cta-button,
-  .nav-links .nav-cta {
-    width: 90vw;
-    max-width: 350px;
-    font-size: 1.15em;
-    margin: 14px auto 0 auto;
-    display: block;
-    padding: 16px 0;
-    text-align: center;
-  }
-  .cta-button, .nav-cta {
-    display: none !important;
-  }
-  .nav-links.show .cta-button, .nav-links.show .nav-cta {
-    display: block !important;
-  }
+  /* Removing these rules to avoid conflicts with Bootstrap's .btn-primary in navbar-nav */
+  /* .nav-links .cta-button, */
+  /* .nav-links .nav-cta { */
+  /* width: 90vw; */
+  /* max-width: 350px; */
+  /* font-size: 1.15em; */
+  /* margin: 14px auto 0 auto; */
+  /* display: block; */
+  /* padding: 16px 0; */
+  /* text-align: center; */
+  /* } */
+  /* .cta-button, .nav-cta { */
+  /* display: none !important; */
+  /* } */
+  /* .nav-links.show .cta-button, .nav-links.show .nav-cta { */
+  /* display: block !important; */
+  /* } */
 }
 
 /* On desktop, show CTA as usual, but hide it in nav-links */
 @media (min-width: 801px) {
-  .nav-links .cta-button, .nav-links .nav-cta {
-    display: none !important;
-  }
-  .cta-button, .nav-cta {
-    display: inline-block !important;
-  }
+  /* Removing these as Bootstrap's structure handles primary button visibility */
+  /* .nav-links .cta-button, .nav-links .nav-cta { */
+  /* display: none !important; */
+  /* } */
+  /* .cta-button, .nav-cta { */
+  /* display: inline-block !important; */
+  /* } */
 }
 
+/* Bootstrap Overrides */
 :root {
   --bs-primary: #00707F;
   --bs-primary-rgb: 0,112,127;
   --bs-btn-bg: #E4F223;
   --bs-btn-color: #0C0A08;
   --bs-btn-border-color: #E4F223;
-  --palta-accent-green: #E4F223;
+  --palta-accent-green: #E4F223; /* Ensure this is defined for consistency */
 }
 
 /* Ensure .btn-primary and .navbar are branded */
@@ -944,7 +948,7 @@ footer ul li a:hover {
 }
 
 .navbar {
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  box-shadow: none; /* Removed shadow per instructions */
   border-bottom: 1px solid var(--palta-border);
 }
 .navbar-brand img {
