@@ -113,7 +113,7 @@ nav ul li a:hover {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 .hero h1 {
-    font-size: 3.8em; /* Adjusted font size for hero h1 */
+    font-size: 4.5em;
     color: var(--palta-white);
     margin-bottom: 25px;
     font-weight: 800;
@@ -121,7 +121,7 @@ nav ul li a:hover {
     letter-spacing: -0.03em;
 }
 .hero p {
-    font-size: 1.3em; /* Adjusted font size for hero p */
+    font-size: 1.6em;
     color: rgba(255, 255, 255, 0.7);
     margin-bottom: 40px;
     max-width: 600px;
@@ -138,14 +138,14 @@ nav ul li a:hover {
     padding: 15px 20px;
     border-radius: 8px;
     border: 1px solid var(--palta-border);
-    font-size: 1em; /* Adjusted font size */
+    font-size: 1.1em;
     background-color: var(--palta-white);
     color: var(--palta-text-dark);
     min-width: 200px;
 }
 .hero-form .cta-button {
     padding: 15px 30px;
-    font-size: 1em; /* Adjusted font size */
+    font-size: 1.1em;
 }
 
 /* COMPACT, VERTICALLY CENTERED STATS SECTION + CENTERED h3 & LABEL */
@@ -377,7 +377,7 @@ nav ul li a:hover {
 .call-to-action .cta-button {
     background-color: var(--palta-accent-green);
     color: #0C0A08;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.25); /* Kept shadow for this specific button */
+    box-shadow: none; /* Removed shadow */
 }
 .call-to-action .cta-button:hover {
     background-color: #00c260;
@@ -656,11 +656,11 @@ footer ul li a:hover {
     justify-content: center;
   }
   .hero h1 {
-    font-size: 3em; /* Adjusted font size for tablet hero h1 */
+    font-size: 2.5em;
     text-align: center;
   }
   .hero p {
-    font-size: 1.2em; /* Adjusted font size for tablet hero p */
+    font-size: 1.2em;
     text-align: center;
     max-width: 100%;
     margin: 0 auto 25px auto;
@@ -688,14 +688,15 @@ footer ul li a:hover {
     padding-left: 0;
     padding-right: 0;
   }
+  /* Updated padding for hero section */
   .hero {
-    padding: 32px 0 18px 0;
+    padding: 32px 20px 18px 20px; /* Added horizontal padding */
   }
   .hero h1 {
-    font-size: 2.2em; /* Adjusted font size for mobile hero h1 */
+    font-size: 2.5em; /* Adjusted font size for mobile hero h1 */
   }
   .hero p {
-    font-size: 1.1em; /* Adjusted font size for mobile hero p */
+    font-size: 1.3em; /* Adjusted font size for mobile hero p */
   }
   .hero-form {
     flex-direction: column;
@@ -708,7 +709,7 @@ footer ul li a:hover {
     min-width: 0;
     height: auto;
     border-radius: 7px;
-    box-shadow: none; /* Removed shadow */
+    box-shadow: none;
   }
   .features-grid, .how-it-works-grid {
     grid-template-columns: 1fr;
@@ -745,7 +746,7 @@ footer ul li a:hover {
 /* 3. Smallest screens */
 @media (max-width: 400px) {
   .container {
-    padding: 0 3vw;
+    padding: 0 15px; /* Increased padding slightly for smallest screens */
   }
   .hero h1, .section-title, .why-love-palta h2, .call-to-action h2 {
     font-size: 1.1em;
@@ -755,7 +756,7 @@ footer ul li a:hover {
 @media (max-width: 600px) {
   .hero, .hero .container {
     flex-direction: column !important;
-    padding: 22px 0 14px 0 !important;
+    padding: 22px 20px 14px 20px !important; /* Ensured padding here too */
     gap: 0 !important;
     min-height: unset !important;
     height: unset !important;
@@ -763,12 +764,12 @@ footer ul li a:hover {
   }
   .hero-content {
     width: 100%;
-    text-align: center; /* Centered text */
+    text-align: center;
     padding-right: 0;
     margin-bottom: 18px;
   }
   .hero-form {
-    width: 96vw;
+    width: 100%; /* Make form take full width to respect padding */
     max-width: 370px;
     margin: 0 auto 18px auto;
     flex-direction: column;
@@ -841,9 +842,6 @@ footer ul li a:hover {
   }
   nav ul {
     gap: 0;
-  }
-  .cta-button {
-    margin-left: 0 !important;
   }
 }
 .hamburger:focus, .hamburger:hover {
