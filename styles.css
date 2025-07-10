@@ -85,7 +85,7 @@ nav ul li a:hover {
     transform: translateY(-2px);
 }
 .hero {
-    background-color: var(--palta-dark-bg);
+    background: linear-gradient(to right, #00707F, #1A202C);
     color: var(--palta-white);
     padding: 80px 20px;
     border-radius: 0;
@@ -95,6 +95,7 @@ nav ul li a:hover {
     justify-content: center;
     gap: 40px;
     flex-wrap: wrap;
+}
 }
 .hero .container {
     display: flex;
