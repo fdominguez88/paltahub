@@ -7,7 +7,13 @@
     --palta-white: #FFFFFF;
     --palta-border: #DEE2E6;
     --palta-dark-bg: #1A202C;
+    --bs-primary: #00707F;
+    --bs-primary-rgb: 0,112,127;
+    --bs-btn-bg: #E4F223;
+    --bs-btn-color: #0C0A08;
+    --bs-btn-border-color: #E4F223;
 }
+
 body {
     font-family: 'Inter', sans-serif;
     margin: 0;
@@ -20,17 +26,20 @@ body {
     -moz-osx-font-smoothing: grayscale;
     font-size: 0.8em;
 }
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
+
 header {
     background-color: var(--palta-white);
     padding: 20px 0;
     border-bottom: 1px solid var(--palta-border);
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
+
 nav {
     display: flex;
     justify-content: space-between;
@@ -76,6 +85,8 @@ nav ul li a:hover {
     background-color: #D3E01E;
     transform: translateY(-2px);
 }
+
+/* ----- HERO ----- */
 .hero {
     background-color: var(--palta-dark-bg);
     color: var(--palta-white);
@@ -129,29 +140,56 @@ nav ul li a:hover {
     max-width: 600px;
     font-weight: 400;
 }
+
+/* ---- HERO FORM INPUT & CTA MATCH HEIGHT ---- */
 .hero-form {
     display: flex;
     gap: 15px;
     margin-bottom: 30px;
     flex-wrap: wrap;
 }
+.hero-form input[type="email"], .hero-form .cta-button {
+    height: 48px;
+    font-size: 1.15em;
+    padding: 0 18px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+}
 .hero-form input[type="email"] {
     flex: 1;
-    padding: 10px 18px; /* Adjusted padding to make it smaller than CTA */
-    border-radius: 8px;
     border: 1px solid var(--palta-border);
-    font-size: 1.0em; /* Adjusted font size to make it smaller than CTA */
     background-color: var(--palta-white);
     color: var(--palta-text-dark);
     min-width: 200px;
-    box-sizing: border-box;
 }
 .hero-form .cta-button {
-    padding: 15px 30px;
-    font-size: 1.2em;
+    border: none;
+    font-weight: 600;
+    background-color: var(--palta-accent-green);
+    color: #0C0A08;
+    box-shadow: none;
+    transition: background-color 0.3s, transform 0.2s;
+    font-size: 1.15em;
+    cursor: pointer;
+    width: auto;
+    min-width: 140px;
+}
+.hero-form .cta-button:hover {
+    background-color: #D3E01E;
+    transform: translateY(-2px);
+}
+@media (max-width: 600px) {
+    .hero-form input[type="email"], .hero-form .cta-button {
+        height: 44px;
+        font-size: 1em;
+        padding: 0 12px;
+    }
 }
 
-/* COMPACT, VERTICALLY CENTERED STATS SECTION + CENTERED h3 & LABEL */
+/* ---- REST OF FILE REMAINS THE SAME ---- */
+
 .stats-section {
     background-color: var(--palta-white);
     min-height: 150px;
