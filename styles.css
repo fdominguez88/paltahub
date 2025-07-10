@@ -6,7 +6,7 @@
     --palta-bg-light: #F8F9FA;
     --palta-white: #FFFFFF;
     --palta-border: #DEE2E6;
-    --palta-dark-bg: #1A202C; /* This variable will still exist, but not used for hero background */
+    --palta-dark-bg: #1A202C;
 }
 body {
     font-family: 'Inter', sans-serif;
@@ -75,7 +75,7 @@ nav ul li a:hover {
     transform: translateY(-2px);
 }
 .hero {
-    background-color: var(--palta-blue); /* Changed to Palta Blue */
+    background-color: var(--palta-dark-bg); /* Changed to Palta Dark BG */
     color: var(--palta-white);
     padding: 80px 20px;
     border-radius: 0;
@@ -165,7 +165,6 @@ nav ul li a:hover {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 60px;
     width: 100%;
 }
 .stats-section .stat-item {
