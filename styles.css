@@ -137,10 +137,10 @@ nav ul li a:hover {
 }
 .hero-form input[type="email"] {
     flex: 1;
-    padding: 12px 20px; /* Made vertical padding smaller for a smaller box */
+    padding: 10px 18px; /* Further reduced padding for a smaller box */
     border-radius: 8px;
     border: 1px solid var(--palta-border);
-    font-size: 1.0em; /* Made font smaller */
+    font-size: 0.9em; /* Further reduced font size */
     background-color: var(--palta-white);
     color: var(--palta-text-dark);
     min-width: 200px;
