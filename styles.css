@@ -18,6 +18,7 @@ body {
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-size: 0.9em; /* Reduced from 1em (implicit body font-size for rem/em calculations) */
 }
 .container {
     max-width: 1200px;
@@ -64,8 +65,7 @@ nav ul li a:hover {
     padding: 12px 25px;
     border-radius: 8px;
     text-decoration: none;
-    font-weight: normal; /* Changed from 600 to normal */
-    font-family: 'Inter', sans-serif; /* Explicitly set to Inter */
+    font-weight: normal; /* Changed from 600 */
     transition: background-color 0.3s ease, transform 0.2s ease;
     display: inline-block;
     border: none;
@@ -76,11 +76,11 @@ nav ul li a:hover {
     transform: translateY(-2px);
 }
 .hero {
-    background-color: var(--palta-dark-bg); /* Changed from gradient to solid color */
+    background-color: var(--palta-dark-bg);
     color: var(--palta-white);
-    padding: 150px 20px; /* Made taller */
-    border-radius: 0; /* Removed round effect */
-    margin: 0 auto 0 auto; /* Removed margin-bottom */
+    padding: 80px 20px;
+    border-radius: 0;
+    margin: 0 auto 20px auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -114,8 +114,7 @@ nav ul li a:hover {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 .hero h1 {
-    font-family: 'Open Sans', sans-serif; /* Set to Open Sans */
-    font-size: 4.5em;
+    font-size: 4.3em; /* Reduced from 4.5em */
     color: var(--palta-white);
     margin-bottom: 25px;
     font-weight: 800;
@@ -123,7 +122,7 @@ nav ul li a:hover {
     letter-spacing: -0.03em;
 }
 .hero p {
-    font-size: 1.6em;
+    font-size: 1.4em; /* Reduced from 1.6em */
     color: rgba(255, 255, 255, 0.7);
     margin-bottom: 40px;
     max-width: 600px;
@@ -140,14 +139,14 @@ nav ul li a:hover {
     padding: 15px 20px;
     border-radius: 8px;
     border: 1px solid var(--palta-border);
-    font-size: 1.1em;
+    font-size: 0.9em; /* Reduced from 1.1em */
     background-color: var(--palta-white);
     color: var(--palta-text-dark);
     min-width: 200px;
 }
 .hero-form .cta-button {
     padding: 15px 30px;
-    font-size: 1.1em;
+    font-size: 0.9em; /* Reduced from 1.1em */
 }
 
 /* COMPACT, VERTICALLY CENTERED STATS SECTION + CENTERED h3 & LABEL */
@@ -159,7 +158,7 @@ nav ul li a:hover {
     justify-content: center;
     margin: 0 auto 20px auto;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    border-bottom: none; /* Removed border-bottom */
+    border-bottom: 1px solid var(--palta-border);
     padding: 0;
 }
 .stats-section .container {
@@ -180,13 +179,13 @@ nav ul li a:hover {
     height: 100%;
 }
 .stats-section .stat-item h3 {
-    font-size: 2.4em;
+    font-size: 2.2em; /* Reduced from 2.4em */
     color: var(--palta-dark-bg);
     margin-bottom: 5px;
     font-weight: 700;
 }
 .stats-section .stat-item p {
-    font-size: 1.1em;
+    font-size: 0.9em; /* Reduced from 1.1em */
     color: var(--palta-text-dark);
     margin: 0;
     font-weight: 500;
@@ -196,7 +195,7 @@ nav ul li a:hover {
 }
 .section-title {
     text-align: center;
-    font-size: 3.5em;
+    font-size: 3.3em; /* Reduced from 3.5em */
     color: var(--palta-text-dark);
     margin-bottom: 70px;
     font-weight: 800;
@@ -221,20 +220,20 @@ nav ul li a:hover {
     box-shadow: 0 15px 30px rgba(0,0,0,0.12);
 }
 .feature-card h1 {
-    font-size: 2.2em;
+    font-size: 2em; /* Reduced from 2.2em */
     color: var(--palta-text-dark);
     margin-bottom: 5px;
     font-weight: 700;
 }
 .feature-card .feature-subtitle {
-    font-size: 1.1em;
+    font-size: 0.9em; /* Reduced from 1.1em */
     color: var(--palta-text-medium);
     margin-bottom: 15px;
     font-weight: 700;
 }
 .feature-card p {
     color: var(--palta-text-medium);
-    font-size: 1.1em;
+    font-size: 0.9em; /* Reduced from 1.1em */
 }
 .how-it-works-grid {
     display: grid;
@@ -256,7 +255,7 @@ nav ul li a:hover {
     box-shadow: 0 15px 30px rgba(0,0,0,0.15);
 }
 .how-it-works-item h4 {
-    font-size: 2em;
+    font-size: 1.8em; /* Reduced from 2em */
     color: var(--palta-text-dark);
     margin-bottom: 20px;
     font-weight: 700;
@@ -273,7 +272,7 @@ nav ul li a:hover {
     margin-bottom: 12px;
     position: relative;
     padding-left: 35px;
-    font-size: 1.1em;
+    font-size: 0.9em; /* Reduced from 1.1em */
     color: var(--palta-text-medium);
 }
 .how-it-works-item ul li::before {
@@ -282,7 +281,7 @@ nav ul li a:hover {
     left: 0;
     color: var(--palta-accent-green);
     font-weight: bold;
-    font-size: 1.4em;
+    font-size: 1.2em; /* Reduced from 1.4em */
     line-height: 1;
 }
 .integrations-grid {
@@ -311,7 +310,7 @@ nav ul li a:hover {
     box-shadow: 0 8px 25px rgba(0,0,0,0.08);
 }
 .why-love-palta h2 {
-    font-size: 3.5em;
+    font-size: 3.3em; /* Reduced from 3.5em */
     color: var(--palta-text-dark);
     margin-bottom: 50px;
     font-weight: 800;
@@ -331,7 +330,7 @@ nav ul li a:hover {
     padding: 25px;
     border-radius: 10px;
     text-align: left;
-    font-size: 1.3em;
+    font-size: 1.1em; /* Reduced from 1.3em */
     color: var(--palta-text-dark);
     display: flex;
     align-items: center;
@@ -350,7 +349,7 @@ nav ul li a:hover {
     left: 20px;
     color: var(--palta-accent-green);
     font-weight: bold;
-    font-size: 1.4em;
+    font-size: 1.2em; /* Reduced from 1.4em */
     line-height: 1;
 }
 .call-to-action {
@@ -365,14 +364,14 @@ nav ul li a:hover {
     box-shadow: 0 8px 30px rgba(0,0,0,0.15);
 }
 .call-to-action h2 {
-    font-size: 4em;
+    font-size: 3.8em; /* Reduced from 4em */
     color: var(--palta-white);
     margin-bottom: 25px;
     font-weight: 800;
     letter-spacing: -0.03em;
 }
 .call-to-action p {
-    font-size: 1.4em;
+    font-size: 1.2em; /* Reduced from 1.4em */
     color: rgba(255, 255, 255, 0.85);
     margin-bottom: 50px;
 }
@@ -468,13 +467,13 @@ footer ul li a:hover {
     display: block;
 }
 .view-title {
-    font-size: 1.8em;
+    font-size: 1.6em; /* Reduced from 1.8em */
     font-weight: 700;
     color: var(--palta-text-dark);
     margin-bottom: 8px;
 }
 .view-subtitle {
-    font-size: 1em;
+    font-size: 0.8em; /* Reduced from 1em */
     color: var(--palta-text-medium);
     margin-bottom: 30px;
 }
@@ -492,7 +491,7 @@ footer ul li a:hover {
     padding: 12px 15px;
     border: 1px solid var(--palta-border);
     border-radius: 8px;
-    font-size: 1em;
+    font-size: 0.8em; /* Reduced from 1em */
     transition: border-color 0.3s, box-shadow 0.3s;
 }
 .form-group input:focus {
@@ -504,7 +503,7 @@ footer ul li a:hover {
     width: 100%;
     padding: 14px;
     border-radius: 8px;
-    font-size: 1.1em;
+    font-size: 0.9em; /* Reduced from 1.1em */
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s;
@@ -545,12 +544,12 @@ footer ul li a:hover {
 .calendar-header button {
     background: none;
     border: none;
-    font-size: 1.5em;
+    font-size: 1.3em; /* Reduced from 1.5em */
     cursor: pointer;
 }
 #month-year {
     font-weight: 600;
-    font-size: 1.1em;
+    font-size: 0.9em; /* Reduced from 1.1em */
 }
 .calendar-grid {
     display: grid;
@@ -612,7 +611,7 @@ footer ul li a:hover {
     text-align: center;
 }
 .confirmation-icon {
-    font-size: 3em;
+    font-size: 2.8em; /* Reduced from 3em */
     color: #28a745;
     width: 80px;
     height: 80px;
@@ -658,11 +657,11 @@ footer ul li a:hover {
     justify-content: center;
   }
   .hero h1 {
-    font-size: 2.5em;
+    font-size: 2.3em; /* Reduced from 2.5em */
     text-align: center;
   }
   .hero p {
-    font-size: 1.2em;
+    font-size: 1em; /* Reduced from 1.2em */
     text-align: center;
     max-width: 100%;
     margin: 0 auto 25px auto;
@@ -672,11 +671,11 @@ footer ul li a:hover {
     gap: 32px;
   }
   .section-title {
-    font-size: 2.1em;
+    font-size: 1.9em; /* Reduced from 2.1em */
     margin-bottom: 30px;
   }
   .call-to-action h2 {
-    font-size: 2.1em;
+    font-size: 1.9em; /* Reduced from 2.1em */
   }
   .integration-logo {
     height: 42px;
@@ -694,7 +693,7 @@ footer ul li a:hover {
     padding: 32px 0 18px 0;
   }
   .hero h1 {
-    font-size: 1.4em;
+    font-size: 1.2em; /* Reduced from 1.4em */
   }
   .hero-form {
     flex-direction: column;
@@ -714,10 +713,10 @@ footer ul li a:hover {
     gap: 18px;
   }
   .section-title, .why-love-palta h2 {
-    font-size: 1.4em;
+    font-size: 1.2em; /* Reduced from 1.4em */
   }
   .call-to-action h2 {
-    font-size: 1.3em;
+    font-size: 1.1em; /* Reduced from 1.3em */
   }
   nav {
     flex-direction: column;
@@ -747,7 +746,7 @@ footer ul li a:hover {
     padding: 0 3vw;
   }
   .hero h1, .section-title, .why-love-palta h2, .call-to-action h2 {
-    font-size: 1.1em;
+    font-size: 0.9em; /* Reduced from 1.1em */
   }
 }
 
@@ -936,7 +935,7 @@ footer ul li a:hover {
   background-color: var(--palta-accent-green) !important;
   color: #0C0A08 !important;
   border: none !important;
-  font-weight: 600;
+  font-weight: normal; /* Changed from 600 */
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(228, 242, 35, 0.3);
 }
