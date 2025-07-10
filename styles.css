@@ -688,8 +688,9 @@ footer ul li a:hover {
     padding-left: 0;
     padding-right: 0;
   }
+  /* Updated padding for hero section */
   .hero {
-    padding: 32px 0 18px 0;
+    padding: 32px 20px 18px 20px; /* Added horizontal padding */
   }
   .hero h1 {
     font-size: 1.4em;
@@ -742,7 +743,7 @@ footer ul li a:hover {
 /* 3. Smallest screens */
 @media (max-width: 400px) {
   .container {
-    padding: 0 3vw;
+    padding: 0 15px; /* Increased padding slightly for smallest screens */
   }
   .hero h1, .section-title, .why-love-palta h2, .call-to-action h2 {
     font-size: 1.1em;
@@ -752,7 +753,7 @@ footer ul li a:hover {
 @media (max-width: 600px) {
   .hero, .hero .container {
     flex-direction: column !important;
-    padding: 22px 0 14px 0 !important;
+    padding: 22px 20px 14px 20px !important; /* Ensured padding here too */
     gap: 0 !important;
     min-height: unset !important;
     height: unset !important;
@@ -765,7 +766,7 @@ footer ul li a:hover {
     margin-bottom: 18px;
   }
   .hero-form {
-    width: 96vw;
+    width: 100%; /* Make form take full width to respect padding */
     max-width: 370px;
     margin: 0 auto 18px auto;
     flex-direction: column;
@@ -839,10 +840,6 @@ footer ul li a:hover {
   nav ul {
     gap: 0;
   }
-  /* Removed custom display logic as Bootstrap utilities handle this now */
-  /* .cta-button {
-    margin-left: 0 !important;
-  } */
 }
 .hamburger:focus, .hamburger:hover {
   background: #f6f6f6;
@@ -893,34 +890,10 @@ footer ul li a:hover {
     display: flex;
     justify-content: center;
   }
-  /* Removed custom display logic as Bootstrap utilities handle this now */
-  /* .nav-links .cta-button,
-  .nav-links .nav-cta {
-    width: 90vw;
-    max-width: 350px;
-    font-size: 1.15em;
-    margin: 14px auto 0 auto;
-    display: block;
-    padding: 16px 0;
-    text-align: center;
-  }
-  .cta-button, .nav-cta {
-    display: none !important;
-  }
-  .nav-links.show .cta-button, .nav-links.show .nav-cta {
-    display: block !important;
-  } */
 }
 
 /* On desktop, show CTA as usual, but hide it in nav-links */
 @media (min-width: 801px) {
-  /* Removed custom display logic as Bootstrap utilities handle this now */
-  /* .nav-links .cta-button, .nav-links .nav-cta {
-    display: none !important;
-  }
-  .cta-button, .nav-cta {
-    display: inline-block !important;
-  } */
 }
 
 :root {
