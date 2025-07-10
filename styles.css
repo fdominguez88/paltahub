@@ -69,7 +69,7 @@ nav ul li a:hover {
     transition: background-color 0.3s ease, transform 0.2s ease;
     display: inline-block;
     border: none;
-    box-shadow: 0 4px 12px rgba(228, 242, 35, 0.3);
+    box-shadow: none; /* Removed glow */
     font-size: 0.9em;
 }
 .cta-button:hover {
@@ -137,13 +137,14 @@ nav ul li a:hover {
 }
 .hero-form input[type="email"] {
     flex: 1;
-    padding: 15px 20px;
+    padding: 15px 20px; /* Kept vertical padding same for height alignment */
     border-radius: 8px;
     border: 1px solid var(--palta-border);
-    font-size: 1.1em;
+    font-size: 1.2em; /* Same as hero CTA font size */
     background-color: var(--palta-white);
     color: var(--palta-text-dark);
     min-width: 200px;
+    box-sizing: border-box; /* Ensures padding doesn't add to overall width */
 }
 .hero-form .cta-button {
     padding: 15px 30px;
@@ -379,7 +380,7 @@ nav ul li a:hover {
 .call-to-action .cta-button {
     background-color: var(--palta-accent-green);
     color: #0C0A08;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+    box-shadow: none; /* Removed glow */
     font-size: 1.3em;
 }
 .call-to-action .cta-button:hover {
@@ -939,7 +940,7 @@ footer ul li a:hover {
   border: none !important;
   font-weight: 600;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(228, 242, 35, 0.3);
+  box-shadow: none !important; /* Removed glow */
   font-size: 0.9em;
 }
 .btn-primary:hover {
