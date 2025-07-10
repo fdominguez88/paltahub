@@ -699,10 +699,10 @@ footer ul li a:hover {
     padding-right: 0;
   }
   .hero {
-    padding: 32px 20px 18px 20px;
+    padding: 32px 0 18px 0;
   }
   .hero h1 {
-    font-size: 1.4em;
+    font-size: 2.5em; /* Increased font size for mobile */
   }
   .hero-form {
     flex-direction: column;
@@ -755,14 +755,14 @@ footer ul li a:hover {
     padding: 0 3vw;
   }
   .hero h1, .section-title, .why-love-palta h2, .call-to-action h2 {
-    font-size: 1.1em;
+    font-size: 2em; /* Increased font size for smallest screens */
   }
 }
 
 @media (max-width: 600px) {
   .hero, .hero .container {
     flex-direction: column !important;
-    padding: 22px 20px 14px 20px !important;
+    padding: 22px 0 14px 0 !important;
     gap: 0 !important;
     min-height: unset !important;
     height: unset !important;
@@ -771,7 +771,7 @@ footer ul li a:hover {
   .hero-content {
     width: 100%;
     text-align: center;
-    padding: 0 20px;
+    padding-right: 0;
     margin-bottom: 18px;
   }
   .hero-form {
@@ -945,8 +945,8 @@ footer ul li a:hover {
   color: #0C0A08 !important;
   border: none !important;
   font-weight: 600;
-  box-shadow: none; /* Removed shadow */
   border-radius: 8px;
+  box-shadow: none; /* Removed shadow */
 }
 .btn-primary:hover {
   background-color: #D3E01E !important;
