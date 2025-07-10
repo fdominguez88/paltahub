@@ -13,7 +13,6 @@
     --bs-btn-color: #0C0A08;
     --bs-btn-border-color: #E4F223;
 }
-
 body {
     font-family: 'Inter', sans-serif;
     margin: 0;
@@ -26,20 +25,17 @@ body {
     -moz-osx-font-smoothing: grayscale;
     font-size: 0.8em;
 }
-
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
-
 header {
     background-color: var(--palta-white);
     padding: 20px 0;
     border-bottom: 1px solid var(--palta-border);
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
-
 nav {
     display: flex;
     justify-content: space-between;
@@ -141,37 +137,36 @@ nav ul li a:hover {
     font-weight: 400;
 }
 
-/* ---- HERO FORM INPUT & CTA MATCH HEIGHT ---- */
+/* ---- HERO FORM INPUT & CTA REVISED SIZING ---- */
 .hero-form {
     display: flex;
     gap: 15px;
     margin-bottom: 30px;
     flex-wrap: wrap;
 }
-.hero-form input[type="email"], .hero-form .cta-button {
-    height: 48px;
-    font-size: 1.15em;
-    padding: 0 18px;
-    border-radius: 8px;
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-}
 .hero-form input[type="email"] {
     flex: 1;
+    padding: 8px 18px; /* Reduced padding */
+    border-radius: 8px;
     border: 1px solid var(--palta-border);
+    font-size: 1.0em; /* Reduced font size */
     background-color: var(--palta-white);
     color: var(--palta-text-dark);
     min-width: 200px;
+    box-sizing: border-box;
 }
 .hero-form .cta-button {
-    border: none;
+    padding: 15px 30px; /* Original padding */
+    font-size: 1.2em; /* Original font size */
+    border-radius: 8px;
+    text-decoration: none;
     font-weight: 600;
     background-color: var(--palta-accent-green);
     color: #0C0A08;
+    border: none;
     box-shadow: none;
-    transition: background-color 0.3s, transform 0.2s;
-    font-size: 1.15em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block; /* Ensure it behaves like a button */
     cursor: pointer;
     width: auto;
     min-width: 140px;
@@ -181,10 +176,13 @@ nav ul li a:hover {
     transform: translateY(-2px);
 }
 @media (max-width: 600px) {
-    .hero-form input[type="email"], .hero-form .cta-button {
-        height: 44px;
-        font-size: 1em;
-        padding: 0 12px;
+    .hero-form input[type="email"] {
+        padding: 6px 12px; /* Further reduced padding for mobile */
+        font-size: 0.9em; /* Further reduced font size for mobile */
+    }
+    .hero-form .cta-button {
+        padding: 10px 20px; /* Adjusted padding for mobile */
+        font-size: 1em; /* Adjusted font size for mobile */
     }
 }
 
