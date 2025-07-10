@@ -28,7 +28,7 @@ header {
     background-color: var(--palta-white);
     padding: 20px 0;
     border-bottom: 1px solid var(--palta-border);
-    box-shadow: none; /* Removed shadow per instructions */
+    box-shadow: none; /* Removed shadow */
 }
 nav {
     display: flex;
@@ -75,7 +75,7 @@ nav ul li a:hover {
     transform: translateY(-2px);
 }
 .hero {
-    background-color: var(--palta-dark-bg); /* Changed to Palta Dark BG */
+    background-color: var(--palta-dark-bg);
     color: var(--palta-white);
     padding: 80px 20px;
     border-radius: 0;
@@ -165,6 +165,7 @@ nav ul li a:hover {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    gap: 60px;
     width: 100%;
 }
 .stats-section .stat-item {
@@ -809,9 +810,8 @@ footer ul li a:hover {
     flex-wrap: nowrap;
     position: relative;
   }
-  /* Remove custom nav-links display logic, let Bootstrap handle it */
   .nav-links {
-    position: absolute; /* Keep positioning for overall menu */
+    position: absolute;
     top: 60px;
     left: 0;
     width: 100vw;
@@ -822,26 +822,27 @@ footer ul li a:hover {
     padding: 36px 0 16px 0;
     margin: 0;
     box-shadow: 0 2px 16px rgba(30,41,59,.07);
-    display: none; /* Bootstrap handles collapse/show */
+    display: none;
     z-index: 19;
   }
   .nav-links.show {
-    display: flex; /* Kept for animation if custom JS toggles this class */
+    display: flex;
     animation: fadeIn 0.28s;
   }
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-16px);}
-    to  { opacity: 1; transform: translateY(0);}
+    to   { opacity: 1; transform: translateY(0);}
   }
   .hamburger {
     display: flex;
   }
   nav ul {
-    gap: 0; /* Keep this if it's for spacing within custom nav-links */
+    gap: 0;
   }
-  .cta-button {
+  /* Removed custom display logic as Bootstrap utilities handle this now */
+  /* .cta-button {
     margin-left: 0 !important;
-  }
+  } */
 }
 .hamburger:focus, .hamburger:hover {
   background: #f6f6f6;
@@ -880,11 +881,11 @@ footer ul li a:hover {
     padding: 32px 0 24px 0;
     margin: 0;
     box-shadow: 0 2px 16px rgba(30,41,59,.07);
-    /* display: none; */ /* Removing this to allow Bootstrap to control its display */
+    display: none;
     z-index: 19;
   }
   .nav-links.show {
-    display: flex; /* Keep this if `main.js` or Bootstrap applies this for animation */
+    display: flex;
     animation: fadeIn 0.28s;
   }
   .nav-links li {
@@ -892,44 +893,43 @@ footer ul li a:hover {
     display: flex;
     justify-content: center;
   }
-  /* Removing these rules to avoid conflicts with Bootstrap's .btn-primary in navbar-nav */
-  /* .nav-links .cta-button, */
-  /* .nav-links .nav-cta { */
-  /* width: 90vw; */
-  /* max-width: 350px; */
-  /* font-size: 1.15em; */
-  /* margin: 14px auto 0 auto; */
-  /* display: block; */
-  /* padding: 16px 0; */
-  /* text-align: center; */
-  /* } */
-  /* .cta-button, .nav-cta { */
-  /* display: none !important; */
-  /* } */
-  /* .nav-links.show .cta-button, .nav-links.show .nav-cta { */
-  /* display: block !important; */
-  /* } */
+  /* Removed custom display logic as Bootstrap utilities handle this now */
+  /* .nav-links .cta-button,
+  .nav-links .nav-cta {
+    width: 90vw;
+    max-width: 350px;
+    font-size: 1.15em;
+    margin: 14px auto 0 auto;
+    display: block;
+    padding: 16px 0;
+    text-align: center;
+  }
+  .cta-button, .nav-cta {
+    display: none !important;
+  }
+  .nav-links.show .cta-button, .nav-links.show .nav-cta {
+    display: block !important;
+  } */
 }
 
 /* On desktop, show CTA as usual, but hide it in nav-links */
 @media (min-width: 801px) {
-  /* Removing these as Bootstrap's structure handles primary button visibility */
-  /* .nav-links .cta-button, .nav-links .nav-cta { */
-  /* display: none !important; */
-  /* } */
-  /* .cta-button, .nav-cta { */
-  /* display: inline-block !important; */
-  /* } */
+  /* Removed custom display logic as Bootstrap utilities handle this now */
+  /* .nav-links .cta-button, .nav-links .nav-cta {
+    display: none !important;
+  }
+  .cta-button, .nav-cta {
+    display: inline-block !important;
+  } */
 }
 
-/* Bootstrap Overrides */
 :root {
   --bs-primary: #00707F;
   --bs-primary-rgb: 0,112,127;
   --bs-btn-bg: #E4F223;
   --bs-btn-color: #0C0A08;
   --bs-btn-border-color: #E4F223;
-  --palta-accent-green: #E4F223; /* Ensure this is defined for consistency */
+  --palta-accent-green: #E4F223;
 }
 
 /* Ensure .btn-primary and .navbar are branded */
@@ -947,7 +947,7 @@ footer ul li a:hover {
 }
 
 .navbar {
-  box-shadow: none; /* Removed shadow per instructions */
+  box-shadow: none; /* Removed shadow */
   border-bottom: 1px solid var(--palta-border);
 }
 .navbar-brand img {
