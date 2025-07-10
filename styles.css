@@ -87,8 +87,8 @@ nav ul li a:hover {
 .hero {
     background: linear-gradient(180deg, #1A202C 90%, #FFFFFF);
     color: var(--palta-white);
-    padding: 120px 20px; /* Increased padding to make it longer */
-    border-radius: 0; /* Removed border-radius for a sharp edge */
+    padding: 150px 20px; /* Increased padding to make it longer */
+    border-radius: 0;
     margin: 0 auto 0 auto;
     display: flex;
     align-items: center;
