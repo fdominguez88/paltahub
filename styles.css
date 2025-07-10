@@ -699,10 +699,10 @@ footer ul li a:hover {
     padding-right: 0;
   }
   .hero {
-    padding: 32px 0 18px 0;
+    padding: 32px 20px 18px 20px !important; /* Added padding here */
   }
   .hero h1 {
-    font-size: 2.5em; /* Increased font size for mobile */
+    font-size: 2.5em;
   }
   .hero-form {
     flex-direction: column;
@@ -755,14 +755,14 @@ footer ul li a:hover {
     padding: 0 3vw;
   }
   .hero h1, .section-title, .why-love-palta h2, .call-to-action h2 {
-    font-size: 2em; /* Increased font size for smallest screens */
+    font-size: 2em;
   }
 }
 
 @media (max-width: 600px) {
   .hero, .hero .container {
     flex-direction: column !important;
-    padding: 22px 0 14px 0 !important;
+    /* padding: 22px 0 14px 0 !important; Removed this line since a more specific padding is added above */
     gap: 0 !important;
     min-height: unset !important;
     height: unset !important;
