@@ -85,9 +85,9 @@ nav ul li a:hover {
     transform: translateY(-2px);
 }
 .hero {
-    background: linear-gradient(180deg, #1A202C 90%, #FFFFFF);
+    background-color: var(--palta-dark-bg); /* Changed from gradient to solid color */
     color: var(--palta-white);
-    padding: 150px 20px; /* Increased padding to make it longer */
+    padding: 150px 20px; /* Kept longer as requested */
     border-radius: 0;
     margin: 0 auto 0 auto;
     display: flex;
