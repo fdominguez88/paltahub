@@ -14,52 +14,50 @@
     --bs-btn-border-color: #E4F223;
 }
 
+/* Prevent white flash when scrolling past top or bottom */
+html, body {
+    height: 100%;
+    background: var(--palta-dark-bg) !important;
+    min-height: 100vh;
+}
+
 body {
     font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     color: var(--palta-text-dark);
-    background-color: var(--palta-bg-light);
+    background: var(--palta-dark-bg) !important;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     padding-top: 60px;
 }
 
-::selection {
-    background: var(--palta-accent-green);
-    color: var(--palta-dark-bg);
-}
-::-moz-selection {
-    background: var(--palta-accent-green);
-    color: var(--palta-dark-bg);
+/* Section backgrounds to maintain color separation */
+.stats-section {
+    background-color: var(--palta-white) !important;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+#features, #integrations {
+    background: var(--palta-white) !important;
 }
 
-/* Hamburger menu icon colors */
-.navbar,
-.navbar.navbar-dark,
-.navbar:not(.light-bg) {
-  --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255,255,255,1%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-}
-.navbar.light-bg {
-  --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2852,58,64,1%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-}
-.navbar .navbar-toggler {
-  border-color: transparent !important;
-  background: transparent !important;
-}
-.navbar .navbar-toggler:focus {
-  box-shadow: none !important;
+.why-love-palta {
+    background: var(--palta-white) !important;
 }
 
-/* --- NAVBAR: fixed and responsive --- */
+.call-to-action {
+    background: #1A1919 !important;
+    color: var(--palta-white);
+}
+
+/* Remove white bg from sections by default */
+section:not(.stats-section):not(#features):not(#integrations):not(.why-love-palta):not(.call-to-action) {
+    background: transparent !important;
+}
+
+/* --- NAVBAR/HAMBURGER: fixed, responsive, color transitions --- */
 .navbar, nav.navbar {
     position: fixed;
     top: 0;
@@ -175,6 +173,23 @@ body {
     border-color: var(--palta-accent-green);
 }
 
+/* Hamburger menu color swaps */
+.navbar,
+.navbar.navbar-dark,
+.navbar:not(.light-bg) {
+  --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255,255,255,1%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+.navbar.light-bg {
+  --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2852,58,64,1%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+.navbar .navbar-toggler {
+  border-color: transparent !important;
+  background: transparent !important;
+}
+.navbar .navbar-toggler:focus {
+  box-shadow: none !important;
+}
+
 header {
     background-color: var(--palta-white);
     padding: 20px 0;
@@ -208,6 +223,7 @@ header {
     max-width: 600px;
     font-weight: 400;
 }
+
 /* -------- HERO FORM: MODERN STYLE -------- */
 .hero-form {
     display: flex !important;
@@ -284,7 +300,6 @@ header {
     }
 }
 
-/* --- HERO IMAGE --- */
 .hero-image img,
 .img-fluid {
     max-width: 100%;
@@ -295,7 +310,6 @@ header {
 
 /* --- STATS SECTION, NO BORDER/SHADOW --- */
 .stats-section {
-    background-color: var(--palta-white);
     min-height: 150px;
     box-shadow: none !important;
     border: none !important;
@@ -313,12 +327,6 @@ header {
     color: var(--palta-text-dark);
     margin: 0;
     font-weight: 500;
-}
-
-/* Make ONLY features and integrations white */
-#features,
-#integrations {
-    background: var(--palta-white) !important;
 }
 
 /* FEATURES & HOW IT WORKS */
@@ -440,7 +448,7 @@ header {
 
 /* WHY LOVE PALTA */
 .why-love-palta {
-    background: var(--palta-white);
+    background: var(--palta-white) !important;
     padding: 3.5rem 1rem;
     margin: 32px auto;
     border-radius: 0;
@@ -487,7 +495,7 @@ header {
 
 /* CALL TO ACTION */
 .call-to-action {
-    background: #1A1919;
+    background: #1A1919 !important;
     color: var(--palta-white);
     border-radius: 0;
     margin: 0;
@@ -549,6 +557,7 @@ footer .list-inline-item a:hover {
     margin-top: 12px;
 }
 
+/* Responsive, utility, and cleanup rules remain unchanged below... */
 .stats-section,
 .stats-section.border-bottom,
 section.border-bottom,
@@ -558,7 +567,6 @@ section.border-bottom,
     box-shadow: none !important;
 }
 
-/* RESPONSIVE BREAKPOINTS */
 @media (max-width: 1200px) {
     .container { max-width: 100%; }
 }
@@ -641,4 +649,9 @@ footer.bg-dark {
     border-radius: 6px !important;
     box-shadow: none !important;
     letter-spacing: 0.01em;
+}
+
+/* Restore body background color for rest of page */
+body, html {
+    background: var(--palta-dark-bg) !important;
 }
