@@ -201,49 +201,85 @@ header {
     font-weight: 400;
 }
 
-/* -------- HERO FORM SECTION -------- */
+/* --- HERO SECTION --- */
+.hero {
+    background-color: var(--palta-dark-bg);
+    color: var(--palta-white);
+    padding: 110px 20px;
+    border-radius: 0;
+    margin: 0 auto 20px auto;
+}
+.hero .container {
+    padding: 0 50px;
+}
+.hero h1, .display-4 {
+    font-size: 2.7em !important;
+    color: var(--palta-white);
+    margin-bottom: 14px !important;
+    font-weight: 800;
+    line-height: 1.12;
+    letter-spacing: -0.03em;
+}
+.hero p, .hero .lead {
+    font-size: 1.02em !important;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 18px !important;
+    max-width: 600px;
+    font-weight: 400;
+}
+
+/* -------- HERO FORM: MERGED MODERN STYLE -------- */
 .hero-form {
     display: flex !important;
-    align-items: center;
-    gap: 8px;
-    max-width: 380px;
-    margin-top: 10px;
+    align-items: stretch;
+    gap: 0;
+    max-width: 430px;
+    margin-top: 14px;
     margin-bottom: 0;
     padding: 0;
+    background: none;
 }
 .hero-form .form-control {
-    padding: 6px 10px !important;
-    font-size: 0.98em !important;
-    border-radius: 6px !important;
-    height: 34px !important;
+    border-radius: 11px 0 0 11px !important;
+    border: none !important;
+    border-right: none !important;
+    padding: 0 20px !important;
+    font-size: 1.08em !important;
+    height: 54px !important;
+    background: #fff !important;
+    color: #585858 !important;
     min-width: 0 !important;
-    max-width: 210px;
-    background-color: var(--palta-white);
-    color: var(--palta-text-dark);
-    border: 1px solid var(--palta-border);
+    flex: 1 1 0%;
+    box-shadow: none !important;
+    outline: none;
+}
+.hero-form .form-control::placeholder {
+    color: #7d7d7d !important;
+    font-weight: 500;
+    opacity: 1;
 }
 .hero-form .btn,
 .hero-form .btn-primary {
-    padding: 6px 18px !important;
-    font-size: 0.98em !important;
-    border-radius: 6px !important;
-    min-width: 96px;
-    height: 34px !important;
+    border-radius: 0 11px 11px 0 !important;
+    background: var(--palta-accent-green) !important;
+    color: #0C0A08 !important;
+    border: none !important;
+    padding: 0 24px !important;
+    min-width: 170px;
+    height: 54px !important;
+    font-size: 1.08em !important;
     font-weight: 600;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--palta-accent-green) !important;
-    color: #0C0A08 !important;
     box-shadow: none !important;
-    border: none !important;
-    transition: background 0.2s, transform 0.1s;
+    outline: none !important;
+    transition: background 0.17s, color 0.17s;
 }
 .hero-form .btn:hover,
 .hero-form .btn-primary:hover {
     background: #D3E01E !important;
     color: #0C0A08 !important;
-    transform: translateY(-1.5px);
 }
 @media (max-width: 600px) {
     .hero-form {
@@ -260,9 +296,15 @@ header {
         min-width: 0 !important;
         max-width: 100%;
         box-sizing: border-box;
+        border-radius: 11px !important;
+    }
+    .hero-form .btn,
+    .hero-form .btn-primary {
+        margin-top: 5px;
     }
 }
 
+/* --- HERO IMAGE --- */
 .hero-image img,
 .img-fluid {
     max-width: 100%;
@@ -270,6 +312,7 @@ header {
     border-radius: 8px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
+
 
 /* --- STATS SECTION, NO BORDER/SHADOW --- */
 .stats-section {
