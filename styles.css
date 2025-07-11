@@ -754,7 +754,7 @@ footer ul li a:hover {
     padding: 50px 20px 30px 20px !important; /* Increased vertical padding for mobile */
   }
   .hero h1 {
-    font-size: 2.2em; /* Adjusted font size for mobile */
+    font-size: 2.5em; /* Adjusted font size for mobile */
   }
   .hero-form {
     flex-direction: column;
@@ -807,7 +807,7 @@ footer ul li a:hover {
     padding: 0 3vw;
   }
   .hero h1, .section-title, .why-love-palta h2, .call-to-action h2 {
-    font-size: 1.6em; /* Adjusted font size for smallest screens */
+    font-size: 2em; /* Adjusted font size for smallest screens */
   }
 }
 
@@ -955,9 +955,10 @@ footer ul li a:hover {
   }
 }
 
-/* NEW RULE: Hide CTA inside mobile menu. Placed at the end for higher priority. */
+/* NEW RULE: Hide CTA inside mobile menu. Placed at the end for higher priority and specificity. */
 .nav-links .cta-button,
-.nav-links .nav-cta {
+.nav-links .nav-cta,
+.navbar-nav .nav-link.cta-button { /* Added .navbar-nav .nav-link.cta-button for more specificity with Bootstrap */
   display: none !important;
 }
 
