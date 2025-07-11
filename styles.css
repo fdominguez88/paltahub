@@ -501,3 +501,16 @@ footer.bg-dark {
     font-weight: 500 !important;
     border-radius: 6px !important;
 }
+
+/* Make bottom CTA the same size as navbar CTA */
+.call-to-action .btn,
+.call-to-action .cta-button {
+    font-size: 0.89em !important;
+    padding: 5px 16px !important;
+    min-width: unset !important;
+    font-weight: 500 !important;
+    border-radius: 6px !important;
+    box-shadow: none !important;
+    letter-spacing: 0.01em;
+}
+
