@@ -34,12 +34,34 @@ body {
     padding-top: 60px;
 }
 
-/* Section backgrounds to maintain color separation */
+/* --------- SECTION BACKGROUNDS --------- */
+.hero {
+    background-color: var(--palta-dark-bg);
+    color: var(--palta-white);
+}
+
 .stats-section {
     background-color: var(--palta-white) !important;
 }
 
-#features, #integrations {
+#features, .section#features, section#features {
+    background: var(--palta-white) !important;
+}
+
+#how-it-works, .section#how-it-works, section#how-it-works {
+    background: var(--palta-bg-light) !important;
+    color: var(--palta-text-dark) !important;
+}
+#how-it-works .section-title, 
+#how-it-works h2, 
+#how-it-works h4, 
+#how-it-works p, 
+#how-it-works ul, 
+#how-it-works li {
+    color: var(--palta-text-dark) !important;
+}
+
+#integrations, .section#integrations, section#integrations {
     background: var(--palta-white) !important;
 }
 
@@ -52,8 +74,8 @@ body {
     color: var(--palta-white);
 }
 
-/* Remove white bg from sections by default */
-section:not(.stats-section):not(#features):not(#integrations):not(.why-love-palta):not(.call-to-action) {
+/* Remove unwanted backgrounds from other sections */
+section:not(.stats-section):not(#features):not(#how-it-works):not(#integrations):not(.why-love-palta):not(.call-to-action):not(.hero) {
     background: transparent !important;
 }
 
@@ -316,6 +338,7 @@ header {
     border-bottom: none !important;
     padding: 0;
 }
+
 .stat-item h3 {
     font-size: 2.4em;
     color: var(--palta-dark-bg);
@@ -557,7 +580,7 @@ footer .list-inline-item a:hover {
     margin-top: 12px;
 }
 
-/* Responsive, utility, and cleanup rules remain unchanged below... */
+/* Responsive, utility, and cleanup rules */
 .stats-section,
 .stats-section.border-bottom,
 section.border-bottom,
@@ -649,21 +672,4 @@ footer.bg-dark {
     border-radius: 6px !important;
     box-shadow: none !important;
     letter-spacing: 0.01em;
-}
-
-/* Restore body background color for rest of page */
-body, html {
-    background: var(--palta-dark-bg) !important;
-}
-#how-it-works {
-    background: var(--palta-bg-light) !important;
-}
-#how-it-works, 
-#how-it-works .section-title, 
-#how-it-works h2, 
-#how-it-works h4, 
-#how-it-works p, 
-#how-it-works ul, 
-#how-it-works li {
-    color: var(--palta-text-dark) !important;
 }
