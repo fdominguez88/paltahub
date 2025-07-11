@@ -23,7 +23,7 @@ body {
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-size: 0.8em; /* Adjusted base font size for consistency */
+    /* Removed body font-size: 0.8em; to prevent unintended scaling */
 }
 /* Text Selection Styling (Confirmed as present and correct) */
 ::selection {
@@ -75,20 +75,20 @@ nav ul li a:hover {
     color: var(--palta-blue);
 }
 .cta-button {
-    background-color: var(--palta-accent-green);
-    color: #0C0A08;
+    background-color: var(--palta-accent-green) !important; /* Ensured override */
+    color: #0C0A08 !important; /* Ensured override */
     padding: 12px 25px;
     border-radius: 8px;
     text-decoration: none;
     font-weight: 600;
     transition: background-color 0.3s ease, transform 0.2s ease;
     display: inline-block;
-    border: none;
-    box-shadow: none; /* Removed shadow */
+    border: none !important; /* Ensured no border from Bootstrap */
+    box-shadow: none !important; /* Ensured no shadow from Bootstrap */
     font-size: 0.9em; /* Adjusted for consistency */
 }
 .cta-button:hover {
-    background-color: #D3E01E;
+    background-color: #D3E01E !important; /* Ensured consistent hover */
     transform: translateY(-2px);
 }
 
@@ -174,10 +174,10 @@ nav ul li a:hover {
     border-radius: 8px;
     text-decoration: none;
     font-weight: 600;
-    background-color: var(--palta-accent-green);
-    color: #0C0A08;
-    border: none;
-    box-shadow: none;
+    background-color: var(--palta-accent-green) !important;
+    color: #0C0A08 !important;
+    border: none !important;
+    box-shadow: none !important;
     transition: background-color 0.3s ease, transform 0.2s ease;
     display: inline-block; /* Ensure it behaves like a button */
     cursor: pointer;
@@ -185,7 +185,7 @@ nav ul li a:hover {
     min-width: 140px;
 }
 .hero-form .cta-button:hover {
-    background-color: #D3E01E;
+    background-color: #D3E01E !important;
     transform: translateY(-2px);
 }
 @media (max-width: 600px) {
@@ -260,4 +260,744 @@ nav ul li a:hover {
     gap: 40px;
 }
 .feature-card {
-    background-color:
+    background-color: var(--palta-white);
+    border: 1px solid var(--palta-border);
+    border-radius: 12px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+}
+.feature-card h1 {
+    font-size: 2.2em;
+    color: var(--palta-text-dark);
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+.feature-card .feature-subtitle {
+    font-size: 1.1em;
+    color: var(--palta-text-medium);
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+.feature-card p {
+    color: var(--palta-text-medium);
+    font-size: 1.1em;
+}
+.how-it-works-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    text-align: left;
+}
+.how-it-works-item {
+    background-color: var(--palta-white);
+    color: var(--palta-text-dark);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--palta-border);
+}
+.how-it-works-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+.how-it-works-item h4 {
+    font-size: 2em;
+    color: var(--palta-text-dark);
+    margin-bottom: 20px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.how-it-works-item ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.how-it-works-item ul li {
+    margin-bottom: 12px;
+    position: relative;
+    padding-left: 35px;
+    font-size: 1.1em;
+    color: var(--palta-text-medium);
+}
+.how-it-works-item ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--palta-accent-green);
+    font-weight: bold;
+    font-size: 1.4em;
+    line-height: 1;
+}
+.integrations-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 70px;
+    margin-top: 50px;
+}
+.integration-logo {
+    height: 70px;
+    opacity: 0.7;
+    filter: grayscale(80%);
+    transition: opacity 0.3s ease, filter 0.3s ease;
+}
+.integration-logo:hover {
+    opacity: 1;
+    filter: grayscale(0%);
+}
+.why-love-palta {
+    background-color: var(--palta-white);
+    padding: 80px 20px;
+    border-radius: 0;
+    margin: 25px auto;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+.why-love-palta h2 {
+    font-size: 3.5em;
+    color: var(--palta-text-dark);
+    margin-bottom: 50px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+.love-points {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    max-width: 700px;
+}
+.love-point {
+    background-color: var(--palta-bg-light);
+    padding: 25px;
+    border-radius: 10px;
+    text-align: left;
+    font-size: 1.3em;
+    color: var(--palta-text-dark);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease;
+    position: relative;
+    padding-left: 55px;
+}
+.love-point:hover {
+    transform: translateX(12px);
+}
+.love-point::before {
+    content: '✓';
+    position: absolute;
+    left: 20px;
+    color: var(--palta-accent-green);
+    font-weight: bold;
+    font-size: 1.4em;
+    line-height: 1;
+}
+.call-to-action {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #1A1919;
+    color: var(--palta-white);
+    margin-top: 0;
+    border-radius: 0;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+}
+.call-to-action h2 {
+    font-size: 4em;
+    color: var(--palta-white);
+    margin-bottom: 25px;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+}
+.call-to-action p {
+    font-size: 1.4em;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 50px;
+}
+.call-to-action .cta-button {
+    background-color: var(--palta-accent-green) !important;
+    color: #0C0A08 !important;
+    box-shadow: none !important; /* Removed shadow */
+    font-size: 1.3em;
+}
+.call-to-action .cta-button:hover {
+    background-color: #00c260 !important; /* Specific hover color for this CTA */
+    color: #0C0A08 !important;
+}
+footer {
+    background-color: var(--palta-text-dark);
+    color: var(--palta-white);
+    padding: 50px 0;
+    text-align: center;
+    margin-top: 0;
+}
+footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+footer .logo img {
+    height: 35px;
+    filter: brightness(0) invert(1);
+}
+footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+footer ul li a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+footer ul li a:hover {
+    color: var(--palta-accent-green);
+}
+.footer-copyright {
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* --- Booking Modal Styles --- */
+.booking-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+}
+.booking-modal-content {
+    background: var(--palta-white);
+    padding: 30px 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    width: 90%;
+    max-width: 480px;
+    position: relative;
+    overflow: hidden;
+}
+.booking-modal-header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+.close-button {
+    background: none;
+    border: none;
+    font-size: 2em;
+    cursor: pointer;
+    color: var(--palta-text-medium);
+}
+.view {
+    display: none;
+}
+.active-view {
+    display: block;
+}
+.view-title {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--palta-text-dark);
+    margin-bottom: 8px;
+}
+.view-subtitle {
+    font-size: 1em;
+    color: var(--palta-text-medium);
+    margin-bottom: 30px;
+}
+.form-group {
+    margin-bottom: 20px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--palta-text-dark);
+}
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--palta-border);
+    border-radius: 8px;
+    font-size: 1em;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+.form-group input:focus {
+    outline: none;
+    border-color: var(--palta-blue);
+    box-shadow: 0 0 0 3px rgba(0, 112, 127, 0.2);
+}
+.submit-button, .back-button {
+    width: 100%;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 1.2em; /* Adjusted for consistency */
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none;
+}
+.submit-button {
+    background-color: var(--palta-blue);
+    color: var(--palta-white);
+}
+.submit-button:hover:not(:disabled) {
+    background-color: #005a66;
+}
+.submit-button:disabled {
+    background-color: var(--palta-border);
+    cursor: not-allowed;
+}
+.navigation-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+.back-button {
+    background-color: var(--palta-bg-light);
+    color: var(--palta-text-dark);
+    border: 1px solid var(--palta-border);
+}
+
+/* Calendar Styles */
+.calendar-container {
+    margin-bottom: 20px;
+}
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.calendar-header button {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+#month-year {
+    font-weight: 600;
+    font-size: 1.1em;
+}
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+.calendar-day {
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 50%;
+}
+.calendar-day:hover:not(.disabled) {
+    background-color: var(--palta-bg-light);
+}
+.calendar-day.selected {
+    background-color: var(--palta-blue);
+    color: white;
+}
+.calendar-day.disabled {
+    color: var(--palta-border);
+    cursor: not-allowed;
+}
+
+/* Time Slots */
+.time-slots-container {
+    max-height: 150px;
+    overflow-y: auto;
+    margin-top: 15px;
+}
+.time-slots-container h4 {
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.time-slots {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+.time-slot {
+    padding: 10px;
+    border: 1px solid var(--palta-border);
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+}
+.time-slot:hover {
+    background-color: var(--palta-bg-light);
+}
+.time-slot.selected {
+    background-color: var(--palta-blue);
+    color: white;
+    border-color: var(--palta-blue);
+}
+
+/* Confirmation View */
+#confirmation-view {
+    text-align: center;
+}
+.confirmation-icon {
+    font-size: 3em;
+    color: #28a745;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #eaf6ec;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 20px auto;
+}
+.confirmation-details {
+    background-color: var(--palta-bg-light);
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+    text-align: left;
+    line-height: 1.8;
+}
+
+/* RESPONSIVE BREAKPOINTS */
+
+/* 1. Tablet and below */
+@media (max-width: 992px) {
+  .container {
+    padding: 0 12px;
+  }
+  .hero {
+    flex-direction: column;
+    padding: 90px 0 60px 0; /* Adjusted vertical padding for tablet */
+    gap: 30px;
+  }
+  .hero .container {
+    flex-direction: column;
+    gap: 30px;
+    padding: 0 30px; /* Adjusted horizontal padding for tablet */
+  }
+  .hero-content {
+    padding-right: 0;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .hero-image {
+    margin: 0 auto;
+    justify-content: center;
+  }
+  .hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+  .hero h1 {
+    font-size: 2.5em; /* Adjusted font size for tablet */
+    text-align: center;
+  }
+  .hero p {
+    font-size: 1.2em;
+    text-align: center;
+    max-width: 100%;
+    margin: 0 auto 25px auto;
+  }
+  .features-grid, .how-it-works-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .section-title {
+    font-size: 2.1em;
+    margin-bottom: 30px;
+  }
+  .call-to-action h2 {
+    font-size: 2.1em;
+  }
+  .integration-logo {
+    height: 42px;
+    max-width: 100px;
+  }
+}
+
+/* 2. Mobile (phones) */
+@media (max-width: 600px) {
+  header, .call-to-action, .why-love-palta, .section, .footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .hero {
+    padding: 50px 20px 30px 20px !important; /* Increased vertical padding for mobile */
+  }
+  .hero h1 {
+    font-size: 1.8em; /* Adjusted font size for mobile */
+  }
+  .hero-form {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .hero-animation-gif,
+  .hero-image img {
+    max-width: 98vw;
+    width: 100%;
+    min-width: 0;
+    height: auto;
+    border-radius: 7px;
+    box-shadow: none;
+  }
+  .features-grid, .how-it-works-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .section-title, .why-love-palta h2 {
+    font-size: 1.4em;
+  }
+  .call-to-action h2 {
+    font-size: 1.3em;
+  }
+  nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+  nav ul {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .stats-section .container {
+    flex-direction: column;
+    gap: 25px;
+    align-items: stretch;
+  }
+  .stat-item {
+    min-width: unset;
+  }
+  .integration-logo {
+    height: 34px;
+    max-width: 60px;
+  }
+}
+
+/* 3. Smallest screens */
+@media (max-width: 400px) {
+  .container {
+    padding: 0 3vw;
+  }
+  .hero h1, .section-title, .why-love-palta h2, .call-to-action h2 {
+    font-size: 1.3em; /* Adjusted font size for smallest screens */
+  }
+}
+
+@media (max-width: 600px) {
+  .hero, .hero .container {
+    flex-direction: column !important;
+    gap: 0 !important;
+    min-height: unset !important;
+    height: unset !important;
+    max-width: 100vw;
+  }
+  .hero .container { /* Explicitly target container within hero for mobile padding */
+    padding: 0 20px !important; /* Adjusted horizontal padding for mobile */
+  }
+  .hero-content {
+    width: 100%;
+    text-align: center;
+    padding-right: 0;
+    margin-bottom: 18px;
+  }
+  .hero-form {
+    width: 96vw;
+    max-width: 370px;
+    margin: 0 auto 18px auto;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .hero-form input,
+  .hero-form .cta-button {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .hero-image {
+    display: none;
+  }
+}
+/* Hamburger icon styles */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 8px;
+  z-index: 20;
+}
+.hamburger span {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background: var(--palta-text-dark);
+  margin: 5px 0;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* Responsive nav */
+@media (max-width: 800px) {
+  nav {
+    flex-wrap: nowrap;
+    position: relative;
+  }
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100vw;
+    background: var(--palta-white);
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding: 36px 0 16px 0;
+    margin: 0;
+    box-shadow: 0 2px 16px rgba(30,41,59,.07);
+    display: none;
+    z-index: 19;
+  }
+  .nav-links.show {
+    display: flex;
+    animation: fadeIn 0.28s;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-16px);}
+    to   { opacity: 1; transform: translateY(0);}
+  }
+  .hamburger {
+    display: flex;
+  }
+  nav ul {
+    gap: 0;
+  }
+  /* Removed conflicting display rules from here */
+}
+.hamburger:focus, .hamburger:hover {
+  background: #f6f6f6;
+}
+.hamburger.active span {
+  background: var(--palta-blue);
+}
+
+@media (max-width: 800px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-bottom: 0;
+    gap: 0;
+  }
+  .logo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0;
+  }
+  .hamburger {
+    display: flex;
+    margin: 8px auto 0 auto;
+  }
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100vw;
+    background: var(--palta-white);
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+    padding: 32px 0 24px 0;
+    margin: 0;
+    box-shadow: 0 2px 16px rgba(30,41,59,.07);
+    display: none;
+    z-index: 19;
+  }
+  .nav-links.show {
+    display: flex;
+    animation: fadeIn 0.28s;
+  }
+  .nav-links li {
+    width: 90vw;
+    display: flex;
+    justify-content: center;
+  }
+  /* NEW RULE: Hide CTA inside mobile menu */
+  .nav-links .cta-button,
+  .nav-links .nav-cta {
+    display: none !important;
+  }
+}
+
+/* On desktop, show CTA as usual, and explicitly hide it if found in nav-links */
+@media (min-width: 801px) {
+  .nav-links .cta-button, .nav-links .nav-cta {
+    display: none !important; /* Ensures CTA is never in nav-links on desktop either */
+  }
+  .cta-button, .nav-cta {
+    display: inline-block !important; /* Ensure the main CTA is visible on desktop */
+  }
+}
+
+/* Bootstrap overrides and branding */
+.btn-primary {
+  background-color: var(--palta-accent-green) !important;
+  color: #0C0A08 !important;
+  border: none !important;
+  font-weight: 600;
+  border-radius: 8px;
+  box-shadow: none !important; /* Ensured no shadow from Bootstrap */
+  font-size: 0.9em; /* Adjusted for consistency */
+}
+.btn-primary:hover {
+  background-color: #D3E01E !important;
+  color: #0C0A08 !important;
+}
+
+.navbar {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  border-bottom: 1px solid var(--palta-border);
+}
+.navbar-brand img {
+  height: 40px;
+}
+
+.nav-link, .navbar-brand {
+  color: var(--palta-text-dark) !important;
+  font-weight: 500;
+}
+.nav-link:hover {
+  color: var(--palta-blue) !important;
+}
