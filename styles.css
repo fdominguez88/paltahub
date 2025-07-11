@@ -32,7 +32,6 @@ body {
   background: var(--palta-accent-green);
   color: var(--palta-dark-bg);
 }
-
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -131,7 +130,7 @@ nav ul li a:hover {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 .hero h1 {
-    font-size: 3.8em; /* Adjusted font size for desktop title (smaller) */
+    font-size: 3.8em;
     color: var(--palta-white);
     margin-bottom: 25px;
     font-weight: 800;
@@ -145,8 +144,6 @@ nav ul li a:hover {
     max-width: 600px;
     font-weight: 400;
 }
-
-/* ---- HERO FORM INPUT & CTA REVISED SIZING ---- */
 .hero-form {
     display: flex;
     gap: 15px;
@@ -714,7 +711,7 @@ footer ul li a:hover {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   }
   .hero h1 {
-    font-size: 3.5em; /* Adjusted font size for tablet (slightly bigger) */
+    font-size: 3.5em;
     text-align: center;
   }
   .hero p {
@@ -750,7 +747,7 @@ footer ul li a:hover {
     padding: 50px 20px 30px 20px !important;
   }
   .hero h1 {
-    font-size: 3em; /* Adjusted font size for mobile (slightly bigger) */
+    font-size: 3em;
   }
   .hero-form {
     flex-direction: column;
@@ -803,7 +800,7 @@ footer ul li a:hover {
     padding: 0 3vw;
   }
   .hero h1, .section-title, .why-love-palta h2, .call-to-action h2 {
-    font-size: 2.5em; /* Adjusted font size for smallest screens (slightly bigger) */
+    font-size: 2.5em;
   }
 }
 
@@ -840,6 +837,7 @@ footer ul li a:hover {
     display: none;
   }
 }
+
 /* Hamburger icon styles */
 .hamburger {
   display: none;
@@ -899,8 +897,7 @@ footer ul li a:hover {
   nav ul {
     gap: 0;
   }
-
-  /* NEW RULE: Hide the "Book a demo" CTA button in the main nav on mobile */
+  /* Hide CTA in main nav and mobile nav */
   nav .cta-button {
     display: none !important;
   }
@@ -956,7 +953,7 @@ footer ul li a:hover {
   }
 }
 
-/* NEW RULE: Hide CTA inside mobile menu. Placed at the end for higher priority and specificity. */
+/* Hide CTA inside mobile menu. Highest priority and specificity. */
 .nav-links .cta-button,
 .nav-links .nav-cta,
 .navbar-nav .nav-link.cta-button {
@@ -987,7 +984,6 @@ footer ul li a:hover {
   background-color: #D3E01E !important;
   color: #0C0A08 !important;
 }
-
 .navbar {
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
   border-bottom: 1px solid var(--palta-border);
@@ -995,7 +991,6 @@ footer ul li a:hover {
 .navbar-brand img {
   height: 40px;
 }
-
 .nav-link, .navbar-brand {
   color: var(--palta-text-dark) !important;
   font-weight: 500;
