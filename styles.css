@@ -197,13 +197,16 @@ section.border-bottom {
 }
 
 /* FEATURES & HOW IT WORKS */
+/* Section title */
 .section-title {
-    font-size: 3.5em;
+    font-size: 2.3em;
     color: var(--palta-text-dark);
-    margin-bottom: 70px;
+    margin-bottom: 48px;
     font-weight: 800;
     letter-spacing: -0.02em;
 }
+
+/* Feature card wrapper */
 .feature-card, .how-it-works-item {
     background: var(--palta-white);
     border: 1px solid var(--palta-border);
@@ -211,25 +214,44 @@ section.border-bottom {
     box-shadow: 0 4px 18px rgba(0,0,0,0.06);
     transition: transform 0.3s, box-shadow 0.3s;
 }
+
+/* Card hover */
 .feature-card:hover, .how-it-works-item:hover {
     transform: translateY(-10px);
     box-shadow: 0 15px 30px rgba(0,0,0,0.12);
 }
+
+/* FEATURE CARD TITLE BIGGER & BOLDER */
 .feature-card h1 {
-    font-size: 2.2em;
+    font-size: 1.68em;
+    font-weight: 800;
     color: var(--palta-text-dark);
-    margin-bottom: 5px;
-    font-weight: 700;
+    margin-bottom: 8px;
+    line-height: 1.1;
 }
-.feature-card .feature-subtitle {
-    font-size: 1.1em;
+
+/* Subtitle and paragraph match integrations section */
+.feature-card .feature-subtitle,
+.feature-card p {
+    font-size: 1.04em;
     color: var(--palta-text-medium);
-    margin-bottom: 15px;
-    font-weight: 700;
+    font-weight: 600;
+    margin-bottom: 12px;
 }
-.feature-card p, .how-it-works-item p, .how-it-works-item ul {
+
+.feature-card p {
+    font-weight: 400;
     color: var(--palta-text-medium);
-    font-size: 1.09em;
+    margin-bottom: 0;
+    line-height: 1.5;
+}
+
+/* How it works details: keep small font size for consistency */
+.how-it-works-item h4 {
+    font-size: 1.16em;
+    font-weight: 700;
+    color: var(--palta-text-dark);
+    margin-bottom: 10px;
 }
 .how-it-works-item ul {
     list-style: none;
@@ -240,7 +262,8 @@ section.border-bottom {
     margin-bottom: 12px;
     position: relative;
     padding-left: 35px;
-    font-size: 1.1em;
+    font-size: 1.04em;
+    color: var(--palta-text-medium);
 }
 .how-it-works-item ul li::before {
     content: '✓';
@@ -248,7 +271,7 @@ section.border-bottom {
     left: 0;
     color: var(--palta-accent-green);
     font-weight: bold;
-    font-size: 1.4em;
+    font-size: 1.2em;
     line-height: 1;
 }
 
@@ -282,6 +305,12 @@ section.border-bottom {
     max-width: 105px;
     width: 105px;
     object-fit: contain;
+}
+
+/* Integrations text size */
+.integrations-grid,
+#integrations p {
+    font-size: 1.04em !important;
 }
 
 @media (max-width: 600px) {
@@ -322,7 +351,7 @@ section.border-bottom {
     padding: 22px 24px;
     border-radius: 10px;
     text-align: left;
-    font-size: 1.17em;
+    font-size: 1.04em;
     color: var(--palta-text-dark);
     display: flex;
     align-items: center;
@@ -356,7 +385,7 @@ section.border-bottom {
     font-weight: 800;
 }
 .call-to-action p {
-    font-size: 1.19em;
+    font-size: 1.04em;
     color: rgba(255,255,255,0.92);
     margin-bottom: 34px;
 }
@@ -364,12 +393,14 @@ section.border-bottom {
     background: var(--palta-accent-green);
     color: #0C0A08;
     border-radius: 8px;
-    font-size: 1em !important;
-    padding: 10px 28px !important;
+    font-size: 0.89em !important;
+    padding: 5px 16px !important;
+    min-width: unset !important;
     font-weight: 500 !important;
-    border: none;
+    border-radius: 6px !important;
     box-shadow: none !important;
-    min-width: 120px;
+    letter-spacing: 0.01em;
+    border: none;
     transition: background 0.3s, transform 0.2s;
     display: inline-block;
 }
@@ -430,6 +461,7 @@ section.border-bottom,
     .hero h1, .display-4 { font-size: 3em; }
     .hero-form .form-control { font-size: 1em !important; }
     .hero-form .btn-primary { font-size: 1em; padding: 10px 20px; }
+    .feature-card h1 { font-size: 1.25em; }
 }
 @media (max-width: 400px) {
     .container { padding: 0 3vw; }
@@ -513,4 +545,3 @@ footer.bg-dark {
     box-shadow: none !important;
     letter-spacing: 0.01em;
 }
-
