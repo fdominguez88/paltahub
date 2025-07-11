@@ -44,15 +44,15 @@ body {
 header {
     background-color: var(--palta-white);
     padding: 20px 0;
-    border-bottom: 1px solid var(--palta-border);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border-bottom: none;      /* <---- removed border */
+    box-shadow: none;         /* <---- removed shadow */
 }
 
 /* NAVBAR */
 .navbar {
     background: var(--palta-white);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    border-bottom: 1px solid var(--palta-border);
+    box-shadow: none;         /* <---- removed shadow */
+    border-bottom: none;      /* <---- removed border */
 }
 .navbar-brand img {
     height: 40px;
@@ -149,8 +149,8 @@ header {
 .stats-section {
     background-color: var(--palta-white);
     min-height: 150px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    border-bottom: 1px solid var(--palta-border);
+    box-shadow: none;         /* <---- removed shadow */
+    border-bottom: none;      /* <---- removed border */
     padding: 0;
 }
 .stat-item h3 {
