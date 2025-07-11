@@ -673,3 +673,16 @@ footer.bg-dark {
     box-shadow: none !important;
     letter-spacing: 0.01em;
 }
+
+/* Highlight in yellow */
+.highlight-yellow,
+.text-highlight-yellow {
+    background: var(--palta-accent-green);
+    color: #1A202C !important;
+    border-radius: 6px;
+    padding: 0 0.2em;
+    font-weight: 700;
+    box-decoration-break: clone;
+    /* Optional: for accessibility contrast, you can bold the text or adjust the bg */
+    transition: background 0.2s, color 0.2s;
+}
