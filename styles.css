@@ -41,106 +41,108 @@ h2, .section-title {
     margin-bottom: 24px;
 }
 
+/* -------- HERO -------- */
 .hero {
     background: var(--palta-dark-bg);
     color: var(--palta-white);
     padding: 72px 0 56px 0;
 }
-
 .hero .container {
     padding: 0 32px;
 }
-
 .hero h1, .hero .display-4 {
-    font-size: 2.5rem;  /* About 40px on 16px root */
-    margin-bottom: 14px;
+    font-size: 2.12rem;  /* About 32-34px on 15px root */
+    margin-bottom: 10px;
     line-height: 1.15;
 }
-
 .hero p, .hero .lead {
-    font-size: 1.09rem; /* About 17px */
+    font-size: 0.99rem; /* About 15px */
     color: rgba(255,255,255,0.7);
-    margin-bottom: 18px;
-    max-width: 470px;
+    margin-bottom: 16px;
+    max-width: 420px;
     font-weight: 400;
 }
 
 .hero-form-row {
     display: flex;
     align-items: center;
-    gap: 10px;
-    max-width: 440px;
-    margin-top: 18px;
+    gap: 9px;
+    max-width: 390px;
+    margin-top: 10px;
     margin-bottom: 0;
 }
 
 .hero-form-row input[type="email"] {
     flex: 1 1 0%;
-    padding: 7px 14px;
-    font-size: 0.96rem;
-    border-radius: 6px;
+    padding: 6px 13px;
+    font-size: 0.97rem;
+    border-radius: 7px;
     border: 1px solid var(--palta-border);
     background: var(--palta-white);
     color: var(--palta-text-dark);
-    height: 38px;
+    height: 32px;
     min-width: 0;
+    outline: none;
+}
+.hero-form-row input[type="email"]::placeholder {
+    color: var(--palta-text-medium);
+    opacity: 1;
 }
 
 .hero-form-row .btn,
 .hero-form-row .btn-primary {
-    padding: 7px 22px;
+    padding: 5px 18px;
     font-size: 0.98rem;
-    border-radius: 6px;
-    min-width: 112px;
+    border-radius: 7px;
+    min-width: 90px;
     font-weight: 600;
     background: var(--palta-accent-green) !important;
     color: #0C0A08 !important;
     border: none;
     box-shadow: none !important;
     transition: background 0.2s, transform 0.1s;
-    height: 38px;
+    height: 32px;
+    line-height: 1.15;
+    display: inline-block;
 }
-
 .hero-form-row .btn:hover,
 .hero-form-row .btn-primary:hover {
     background: #D3E01E !important;
-    transform: translateY(-1.5px);
+    transform: translateY(-1px);
 }
 
-/* General: smaller text everywhere */
+/* -------- STATS & GENERAL -------- */
 .stats-section h3, .stat-item h3 {
-    font-size: 1.5rem;
+    font-size: 1.17rem;
     font-weight: 700;
 }
-
 .stats-section p, .stat-item p,
 .feature-card p, .how-it-works-item ul li,
 .why-love-palta, .call-to-action, .footer-copyright,
 .section-title {
-    font-size: 0.98rem;
+    font-size: 0.97rem;
 }
-
 .feature-card h1, .how-it-works-item h4 {
-    font-size: 1.3rem;
+    font-size: 1.06rem;
     font-weight: 700;
 }
-
 input, button, .btn, .btn-primary {
     font-family: inherit;
 }
 
+/* --- Responsive Hero --- */
 @media (max-width: 900px) {
     .hero-form-row {
         flex-direction: column;
         align-items: stretch;
-        gap: 10px;
+        gap: 8px;
         max-width: 100%;
     }
     .hero-form-row input, .hero-form-row .btn {
         width: 100%;
         min-width: 0;
     }
-    .hero h1, .hero .display-4 { font-size: 1.7rem;}
+    .hero h1, .hero .display-4 { font-size: 1.33rem;}
 }
 
 @media (max-width: 600px) {
@@ -151,7 +153,7 @@ input, button, .btn, .btn-primary {
     .hero .container {
         padding: 0 8px;
     }
-    .hero h1, .hero .display-4 { font-size: 1.22rem; }
+    .hero h1, .hero .display-4 { font-size: 1rem; }
 }
 
 /* Remove unwanted section separators and paddings for clean look */
@@ -159,3 +161,17 @@ input, button, .btn, .btn-primary {
     border: none !important;
     box-shadow: none !important;
 }
+
+/* ---- Button palette fix everywhere (keeps yellow/green!) ---- */
+.btn-primary, .btn.btn-primary, .btn:active, .btn:focus {
+    background-color: var(--palta-accent-green) !important;
+    color: #0C0A08 !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+.btn-primary:hover, .btn.btn-primary:hover {
+    background-color: #D3E01E !important;
+    color: #0C0A08 !important;
+}
+
+/* Keep these for other sections (rest of your CSS as needed...) */
