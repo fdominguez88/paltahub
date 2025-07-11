@@ -87,50 +87,62 @@ header {
     padding: 0 50px;
 }
 .hero h1, .display-4 {
-    font-size: 3.8em;
+    font-size: 2.1em !important;
     color: var(--palta-white);
-    margin-bottom: 25px;
+    margin-bottom: 14px !important;
     font-weight: 800;
-    line-height: 1.1;
+    line-height: 1.12;
     letter-spacing: -0.03em;
 }
 .hero p, .hero .lead {
-    font-size: 1.6em;
+    font-size: 1.02em !important;
     color: rgba(255, 255, 255, 0.7);
-    margin-bottom: 40px;
+    margin-bottom: 18px !important;
     max-width: 600px;
     font-weight: 400;
 }
 
-.hero-form .form-control {
-    padding: 15px 20px !important;
-    border-radius: 8px;
-    border: 1px solid var(--palta-border);
-    font-size: 1.2em !important;
-    background-color: var(--palta-white);
-    color: var(--palta-text-dark);
-    min-width: 200px;
-    height: 52px;
-    line-height: 1.25;
-    box-sizing: border-box;
+/* FORM: inline, matching heights, smaller fields & button */
+.hero-form {
+    display: flex !important;
+    align-items: center;
+    gap: 8px;
+    max-width: 380px;
+    margin-top: 10px;
+    margin-bottom: 0;
+    padding: 0;
 }
+
+.hero-form .form-control {
+    padding: 6px 10px !important;
+    font-size: 0.98em !important;
+    border-radius: 6px !important;
+    height: 34px !important;
+    min-width: 0 !important;
+    max-width: 210px;
+}
+
+.hero-form .btn,
 .hero-form .btn-primary {
-    padding: 15px 30px !important;
-    font-size: 1.2em !important;
-    min-width: 140px;
-    height: 52px;
+    padding: 6px 18px !important;
+    font-size: 0.98em !important;
+    border-radius: 6px !important;
+    min-width: 96px;
+    height: 34px !important;
+    font-weight: 600;
     display: flex;
     align-items: center;
     justify-content: center;
+    background: var(--palta-accent-green) !important;
+    color: #0C0A08 !important;
+    box-shadow: none !important;
 }
 
-/* PRODUCT IMAGE */
-.hero-image img,
-.img-fluid {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+.hero-form .btn:hover,
+.hero-form .btn-primary:hover {
+    background: #D3E01E !important;
+    color: #0C0A08 !important;
+    transform: translateY(-1.5px);
 }
 
 /* --- STATS SECTION, NO BORDER/SHADOW --- */
@@ -339,18 +351,22 @@ section.border-bottom {
     margin-bottom: 34px;
 }
 .call-to-action .btn, .call-to-action .cta-button {
-    background: var(--palta-accent-green);
-    color: #0C0A08;
+    background: var(--palta-accent-green) !important;
+    color: #0C0A08 !important;
     border-radius: 8px;
-    font-size: 1.18em;
-    padding: 15px 42px;
-    font-weight: 700;
+    font-size: 1em !important;       /* smaller */
+    padding: 10px 28px !important;   /* smaller */
+    font-weight: 600;
     border: none;
-    box-shadow: 0 5px 16px rgba(228,242,35,0.13);
+    box-shadow: none !important;
+    min-width: 120px;
+    transition: background 0.3s, transform 0.2s;
+    display: inline-block;
 }
 .call-to-action .btn:hover, .call-to-action .cta-button:hover {
-    background: #D3E01E;
-    color: #0C0A08;
+    background: #D3E01E !important;
+    color: #0C0A08 !important;
+    transform: translateY(-2px);
 }
 
 /* FOOTER */
@@ -459,6 +475,7 @@ footer.bg-dark {
     border: none !important;
     box-shadow: none !important;
 }
+
 /* --- HERO SMALLER FONT AND INLINE FORM --- */
 
 /* Headline smaller */
