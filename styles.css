@@ -86,7 +86,7 @@ nav ul li a:hover {
 .hero {
     background-color: var(--palta-dark-bg);
     color: var(--palta-white);
-    padding: 80px 20px;
+    padding: 100px 20px; /* Increased vertical padding for taller section */
     border-radius: 0;
     margin: 0 auto 20px auto;
     display: flex;
@@ -101,6 +101,7 @@ nav ul li a:hover {
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 40px;
+    padding: 0 40px; /* Increased horizontal padding for content */
 }
 .hero-content {
     flex: 1;
@@ -122,7 +123,7 @@ nav ul li a:hover {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 .hero h1 {
-    font-size: 4.5em;
+    font-size: 5em; /* Increased font size for desktop title */
     color: var(--palta-white);
     margin-bottom: 25px;
     font-weight: 800;
@@ -149,7 +150,7 @@ nav ul li a:hover {
     padding: 8px 18px !important; /* Reduced padding with !important */
     border-radius: 8px;
     border: 1px solid var(--palta-border);
-    font-size: 1.0em !important; /* Reduced font size with !important */
+    font-size: 1.2em !important; /* Updated font size to match cta-button */
     background-color: var(--palta-white);
     color: var(--palta-text-dark);
     min-width: 200px;
@@ -180,7 +181,7 @@ nav ul li a:hover {
 @media (max-width: 600px) {
     .hero-form input[type="email"] {
         padding: 6px 12px !important; /* Further reduced padding for mobile with !important */
-        font-size: 0.9em !important; /* Further reduced font size for mobile with !important */
+        font-size: 1em !important; /* Updated font size to match cta-button for mobile */
         height: auto !important; /* Ensure height is determined by content and padding */
         line-height: normal !important; /* Reset line-height to normal */
     }
@@ -683,12 +684,13 @@ footer ul li a:hover {
   }
   .hero {
     flex-direction: column;
-    padding: 60px 0 30px 0;
+    padding: 80px 0 50px 0; /* Adjusted vertical padding */
     gap: 30px;
   }
   .hero .container {
     flex-direction: column;
     gap: 30px;
+    padding: 0 24px; /* Adjusted horizontal padding */
   }
   .hero-content {
     padding-right: 0;
@@ -699,8 +701,14 @@ footer ul li a:hover {
     margin: 0 auto;
     justify-content: center;
   }
+  .hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
   .hero h1 {
-    font-size: 2.5em;
+    font-size: 3em; /* Adjusted font size for tablet */
     text-align: center;
   }
   .hero p {
@@ -736,7 +744,7 @@ footer ul li a:hover {
     padding: 32px 0 18px 0;
   }
   .hero h1 {
-    font-size: 1.4em;
+    font-size: 1.8em; /* Adjusted font size for mobile */
   }
   .hero-form {
     flex-direction: column;
@@ -789,18 +797,21 @@ footer ul li a:hover {
     padding: 0 3vw;
   }
   .hero h1, .section-title, .why-love-palta h2, .call-to-action h2 {
-    font-size: 1.1em;
+    font-size: 1.4em; /* Adjusted font size for smallest screens */
   }
 }
 
 @media (max-width: 600px) {
   .hero, .hero .container {
     flex-direction: column !important;
-    padding: 22px 0 14px 0 !important;
+    padding: 40px 0 25px 0 !important; /* Adjusted vertical padding */
     gap: 0 !important;
     min-height: unset !important;
     height: unset !important;
     max-width: 100vw;
+  }
+  .hero .container { /* Explicitly target container within hero for mobile padding */
+    padding: 0 16px !important; /* Adjusted horizontal padding */
   }
   .hero-content {
     width: 100%;
