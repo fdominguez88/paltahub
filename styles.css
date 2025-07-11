@@ -131,7 +131,7 @@ nav ul li a:hover {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 .hero h1 {
-    font-size: 4.8em;
+    font-size: 3.8em; /* Adjusted font size for desktop title (smaller) */
     color: var(--palta-white);
     margin-bottom: 25px;
     font-weight: 800;
@@ -155,10 +155,10 @@ nav ul li a:hover {
 }
 .hero-form input[type="email"] {
     flex: 1;
-    padding: 6px 16px !important; /* Adjusted padding to reduce size */
+    padding: 6px 16px !important;
     border-radius: 8px;
     border: 1px solid var(--palta-border);
-    font-size: 1.1em !important; /* Adjusted font size to reduce size */
+    font-size: 1.1em !important;
     background-color: var(--palta-white);
     color: var(--palta-text-dark);
     min-width: 200px;
@@ -188,8 +188,8 @@ nav ul li a:hover {
 }
 @media (max-width: 600px) {
     .hero-form input[type="email"] {
-        padding: 5px 10px !important; /* Further reduced padding for mobile */
-        font-size: 0.9em !important; /* Further reduced font size for mobile */
+        padding: 5px 10px !important;
+        font-size: 0.9em !important;
         height: auto !important;
         line-height: normal !important;
     }
@@ -714,7 +714,7 @@ footer ul li a:hover {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   }
   .hero h1 {
-    font-size: 3em;
+    font-size: 3.5em; /* Adjusted font size for tablet (slightly bigger) */
     text-align: center;
   }
   .hero p {
@@ -750,7 +750,7 @@ footer ul li a:hover {
     padding: 50px 20px 30px 20px !important;
   }
   .hero h1 {
-    font-size: 2.5em; /* Adjusted font size for mobile */
+    font-size: 3em; /* Adjusted font size for mobile (slightly bigger) */
   }
   .hero-form {
     flex-direction: column;
@@ -803,7 +803,7 @@ footer ul li a:hover {
     padding: 0 3vw;
   }
   .hero h1, .section-title, .why-love-palta h2, .call-to-action h2 {
-    font-size: 2em; /* Adjusted font size for smallest screens */
+    font-size: 2.5em; /* Adjusted font size for smallest screens (slightly bigger) */
   }
 }
 
