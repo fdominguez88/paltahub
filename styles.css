@@ -42,30 +42,51 @@ body {
     padding: 0 20px;
 }
 
-/* --- RAMP-STYLE GLASS NAVBAR FOR DARK HERO --- */
+/* --- GLASSY NAVBAR --- */
 .navbar, nav.navbar {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 999;
-    background: rgba(22,28,42,0.56) !important; /* translucent dark glass */
+    top: 0; left: 0; width: 100%; z-index: 999;
+    background: rgba(22,28,42,0.78) !important; /* dark palta blue glass */
     box-shadow: 0 2px 16px 0 rgba(30, 30, 30, 0.10);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    transition: background 0.3s, box-shadow 0.3s;
+    transition: background 0.3s, box-shadow 0.3s, color 0.22s;
     border-bottom: 1px solid rgba(180,180,180,0.12);
 }
-
-/* Remove any .navbar.scrolled or similar classes! Only use above. */
-
-header {
-    background-color: var(--palta-white);
-    padding: 20px 0;
-    box-shadow: none !important;
-    border-bottom: none !important;
+/* Text and logo WHITE by default (over hero) */
+.navbar,
+.navbar .navbar-nav .nav-link,
+.navbar .navbar-brand,
+.navbar .navbar-toggler,
+.navbar .btn-primary,
+.navbar .cta-button {
+    color: #fff !important;
+    fill: #fff !important;
+}
+.navbar .navbar-brand img {
+    height: 38px;
+    filter: brightness(10) invert(1) grayscale(0.02) drop-shadow(0 0 1px #000);
+    transition: filter 0.22s;
+}
+/* On white/light backgrounds after hero */
+.navbar.light-bg {
+    background: rgba(255,255,255,0.93) !important;
+    color: var(--palta-text-dark) !important;
+    box-shadow: 0 2px 14px rgba(52,58,64,0.09);
+}
+.navbar.light-bg .navbar-nav .nav-link,
+.navbar.light-bg .navbar-brand,
+.navbar.light-bg .navbar-toggler,
+.navbar.light-bg .btn-primary,
+.navbar.light-bg .cta-button {
+    color: var(--palta-text-dark) !important;
+    fill: var(--palta-text-dark) !important;
+}
+.navbar.light-bg .navbar-brand img {
+    filter: none !important;
 }
 
+/* Buttons */
 .navbar .btn-primary,
 .navbar .cta-button {
     font-size: 0.95em !important;
@@ -79,12 +100,18 @@ header {
     box-shadow: none !important;
     transition: background-color 0.3s, transform 0.2s;
 }
-
 .navbar .btn-primary:hover,
 .navbar .cta-button:hover {
     background: #D3E01E !important;
     color: #0C0A08 !important;
     transform: translateY(-2px);
+}
+
+header {
+    background-color: var(--palta-white);
+    padding: 20px 0;
+    box-shadow: none !important;
+    border-bottom: none !important;
 }
 
 /* HERO SECTION */
@@ -267,7 +294,6 @@ section.border-bottom {
     font-weight: 600;
     margin-bottom: 12px;
 }
-
 .feature-card p {
     font-weight: 400;
     color: var(--palta-text-medium);
