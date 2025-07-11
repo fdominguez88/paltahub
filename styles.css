@@ -418,3 +418,44 @@ section.border-bottom,
         display: none !important;
     }
 }
+/* Remove all box-shadows and borders from main sections, navbar, and hero */
+.navbar, .navbar.shadow-sm,
+.hero,
+.stats-section,
+.section,
+.why-love-palta,
+.call-to-action,
+footer,
+.bg-white,
+.bg-light,
+.shadow,
+.shadow-sm,
+.shadow-lg,
+.container,
+main,
+body {
+    box-shadow: none !important;
+    border: none !important;
+}
+
+/* Remove top and bottom margin/padding between sections if any */
+section, .section, .stats-section, .why-love-palta, .call-to-action, footer {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-top: unset;
+    padding-bottom: unset;
+}
+
+/* Remove background gradient Bootstrap sometimes adds to navbars */
+.navbar,
+.bg-white,
+.bg-light {
+    background-image: none !important;
+}
+
+/* Also ensure footer has no border or shadow */
+footer,
+footer.bg-dark {
+    border: none !important;
+    box-shadow: none !important;
+}
