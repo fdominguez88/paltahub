@@ -222,19 +222,46 @@ header {
     line-height: 1;
 }
 
-/* INTEGRATIONS */
+/* INTEGRATIONS - LOGOS FIXED */
 .integrations-grid {
-    gap: 48px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 36px;
+    margin-top: 32px;
 }
 .integration-logo {
-    height: 58px;
-    opacity: 0.78;
-    filter: grayscale(55%);
-    transition: opacity 0.2s, filter 0.2s;
+    height: 50px;
+    max-width: 110px;
+    width: auto;
+    object-fit: contain;
+    opacity: 0.85;
+    filter: grayscale(40%);
+    transition: opacity 0.22s, filter 0.22s, transform 0.17s;
+    display: block;
 }
 .integration-logo:hover {
     opacity: 1;
-    filter: grayscale(0%);
+    filter: none;
+    transform: scale(1.04);
+}
+/* Special fix for Zoom logo */
+.integration-logo.zoom-logo {
+    height: 50px;
+    max-width: 105px;
+    width: 105px;
+    object-fit: contain;
+}
+
+@media (max-width: 600px) {
+    .integration-logo,
+    .integration-logo.zoom-logo {
+        height: 32px;
+        max-width: 65px;
+        width: 65px;
+    }
+    .integrations-grid { gap: 18px; }
 }
 
 /* WHY LOVE PALTA */
@@ -353,7 +380,6 @@ footer .list-inline-item a:hover {
 @media (max-width: 768px) {
     .section-title, .why-love-palta h2 { font-size: 1.4em; }
     .call-to-action h2 { font-size: 1.3em; }
-    .integration-logo { height: 36px; max-width: 100px; }
     .hero .container { padding: 0 12px; }
 }
 @media (max-width: 600px) {
