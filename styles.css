@@ -42,18 +42,20 @@ body {
     padding: 0 20px;
 }
 
-/* --- GLASSY NAVBAR --- */
+/* --- NAVBAR: perfectly matches hero dark --- */
 .navbar, nav.navbar {
     position: fixed;
-    top: 0; left: 0; width: 100%; z-index: 999;
-    background: rgba(22,28,42,0.78) !important; /* dark palta blue glass */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    background: var(--palta-dark-bg) !important;
+    color: var(--palta-white);
     box-shadow: 0 2px 16px 0 rgba(30, 30, 30, 0.10);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    transition: background 0.3s, box-shadow 0.3s, color 0.22s;
-    border-bottom: 1px solid rgba(180,180,180,0.12);
+    border-bottom: 1px solid rgba(180,180,180,0.08);
+    transition: background 0.3s, box-shadow 0.3s, color 0.3s;
 }
-/* Text and logo WHITE by default (over hero) */
+/* White nav links, toggler, and logo (on dark bg) */
 .navbar,
 .navbar .navbar-nav .nav-link,
 .navbar .navbar-brand,
@@ -68,9 +70,10 @@ body {
     filter: brightness(10) invert(1) grayscale(0.02) drop-shadow(0 0 1px #000);
     transition: filter 0.22s;
 }
-/* On white/light backgrounds after hero */
+
+/* When you want light nav (white background, dark text), add .light-bg to .navbar via JS */
 .navbar.light-bg {
-    background: rgba(255,255,255,0.93) !important;
+    background: rgba(255,255,255,0.97) !important;
     color: var(--palta-text-dark) !important;
     box-shadow: 0 2px 14px rgba(52,58,64,0.09);
 }
