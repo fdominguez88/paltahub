@@ -42,7 +42,7 @@ body {
     padding: 0 20px;
 }
 
-/* --- NAVBAR: perfectly matches hero dark --- */
+/* --- NAVBAR: fixed and responsive --- */
 .navbar, nav.navbar {
     position: fixed;
     top: 0;
@@ -55,15 +55,19 @@ body {
     border-bottom: 1px solid rgba(180,180,180,0.08);
     transition: background 0.3s, box-shadow 0.3s, color 0.3s;
 }
-/* White nav links, toggler, and logo (on dark bg) */
+
+/* Nav links and logo on dark background */
 .navbar,
 .navbar .navbar-nav .nav-link,
 .navbar .navbar-brand,
 .navbar .navbar-toggler,
 .navbar .btn-primary,
-.navbar .cta-button {
+.navbar .cta-button,
+.navbar .btn-signin {
     color: #fff !important;
     fill: #fff !important;
+    background: transparent;
+    border-color: rgba(255,255,255,0.16);
 }
 .navbar .navbar-brand img {
     height: 38px;
@@ -71,32 +75,23 @@ body {
     filter: none !important;
 }
 
-/* When you want light nav (white background, dark text), add .light-bg to .navbar via JS */
-.navbar.light-bg {
-    background: rgba(255,255,255,0.97) !important;
-    color: var(--palta-text-dark) !important;
-    box-shadow: 0 2px 14px rgba(52,58,64,0.09);
-}
-.navbar.light-bg .navbar-nav .nav-link,
-.navbar.light-bg .navbar-brand,
-.navbar.light-bg .navbar-toggler,
-.navbar.light-bg .btn-primary,
-.navbar.light-bg .cta-button {
-    color: var(--palta-text-dark) !important;
-    fill: var(--palta-text-dark) !important;
-}
-.navbar.light-bg .navbar-brand img {
-    filter: none !important;
+.navbar .navbar-nav .nav-link,
+.navbar .navbar-brand {
+    font-size: 0.97em !important;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    padding-top: 3px !important;
+    padding-bottom: 3px !important;
 }
 
-/* Buttons */
+/* Book a Demo (primary CTA) */
 .navbar .btn-primary,
 .navbar .cta-button {
-    font-size: 0.95em !important;
-    padding: 7px 22px !important;
+    font-size: 0.89em !important;
+    padding: 5px 16px !important;
+    min-width: unset;
     font-weight: 500 !important;
-    border-radius: 7px !important;
-    min-width: 0;
+    border-radius: 6px !important;
     background: var(--palta-accent-green) !important;
     color: #0C0A08 !important;
     border: none !important;
@@ -110,46 +105,73 @@ body {
     transform: translateY(-2px);
 }
 
-header {
-    background-color: var(--palta-white);
-    padding: 20px 0;
-    box-shadow: none !important;
-    border-bottom: none !important;
-}
-
 /* --- SIGN IN BUTTON --- */
 .btn-signin {
     background: transparent;
-    color: var(--palta-text-dark) !important;
-    border: 1.6px solid var(--palta-border);
+    color: #fff !important;
+    border: 1.5px solid rgba(255,255,255,0.23);
     font-weight: 500 !important;
     font-size: 0.89em !important;
     padding: 5px 16px !important;
     border-radius: 6px !important;
     box-shadow: none !important;
     transition: background 0.15s, color 0.15s, border-color 0.15s;
+    margin-right: 8px;
+    display: inline-block;
+    line-height: 1.1;
 }
-
 .btn-signin:hover,
 .btn-signin:focus {
-    background: var(--palta-bg-light);
-    color: var(--palta-blue) !important;
+    background: rgba(255,255,255,0.11);
+    color: var(--palta-accent-green) !important;
     border-color: var(--palta-accent-green);
     text-decoration: none;
     outline: none;
 }
 
-.navbar.scrolled .btn-signin,
-.navbar.navbar-dark .btn-signin {
-    background: #232323;
-    color: #fff !important;
-    border: 1.6px solid #2c2c2c;
+/* Navbar on white/light background (JS toggles .light-bg) */
+.navbar.light-bg {
+    background: rgba(255,255,255,0.97) !important;
+    color: var(--palta-text-dark) !important;
+    box-shadow: 0 2px 14px rgba(52,58,64,0.09);
 }
-.navbar.scrolled .btn-signin:hover,
-.navbar.navbar-dark .btn-signin:hover {
-    background: var(--palta-accent-green);
+.navbar.light-bg .navbar-nav .nav-link,
+.navbar.light-bg .navbar-brand,
+.navbar.light-bg .navbar-toggler {
+    color: var(--palta-text-dark) !important;
+    fill: var(--palta-text-dark) !important;
+}
+.navbar.light-bg .navbar-brand img {
+    filter: none !important;
+}
+.navbar.light-bg .btn-primary,
+.navbar.light-bg .cta-button {
     color: #0C0A08 !important;
+    background: var(--palta-accent-green) !important;
+    border: none !important;
+}
+.navbar.light-bg .btn-primary:hover,
+.navbar.light-bg .cta-button:hover {
+    background: #D3E01E !important;
+    color: #0C0A08 !important;
+}
+.navbar.light-bg .btn-signin {
+    background: transparent;
+    color: var(--palta-text-dark) !important;
+    border: 1.5px solid var(--palta-border);
+}
+.navbar.light-bg .btn-signin:hover,
+.navbar.light-bg .btn-signin:focus {
+    background: var(--palta-bg-light);
+    color: var(--palta-blue) !important;
     border-color: var(--palta-accent-green);
+}
+
+header {
+    background-color: var(--palta-white);
+    padding: 20px 0;
+    box-shadow: none !important;
+    border-bottom: none !important;
 }
 
 /* HERO SECTION */
@@ -291,7 +313,6 @@ section.border-bottom {
 }
 
 /* FEATURES & HOW IT WORKS */
-/* Section title */
 .section-title {
     font-size: 2.3em;
     color: var(--palta-text-dark);
@@ -299,8 +320,6 @@ section.border-bottom {
     font-weight: 800;
     letter-spacing: -0.02em;
 }
-
-/* Feature card wrapper */
 .feature-card, .how-it-works-item {
     background: var(--palta-white);
     border: 1px solid var(--palta-border);
@@ -308,14 +327,10 @@ section.border-bottom {
     box-shadow: 0 4px 18px rgba(0,0,0,0.06);
     transition: transform 0.3s, box-shadow 0.3s;
 }
-
-/* Card hover */
 .feature-card:hover, .how-it-works-item:hover {
     transform: translateY(-10px);
     box-shadow: 0 15px 30px rgba(0,0,0,0.12);
 }
-
-/* FEATURE CARD TITLE BIGGER & BOLDER */
 .feature-card h1 {
     font-size: 1.68em;
     font-weight: 800;
@@ -323,8 +338,6 @@ section.border-bottom {
     margin-bottom: 8px;
     line-height: 1.1;
 }
-
-/* Subtitle and paragraph match integrations section */
 .feature-card .feature-subtitle,
 .feature-card p {
     font-size: 1.04em;
@@ -567,6 +580,7 @@ section.border-bottom,
         display: none !important;
     }
 }
+
 /* Remove all box-shadows and borders from main sections, navbar, and hero */
 .navbar, .navbar.shadow-sm,
 .hero,
@@ -607,24 +621,6 @@ footer,
 footer.bg-dark {
     border: none !important;
     box-shadow: none !important;
-}
-/* Make navbar font and CTA button smaller */
-.navbar .navbar-nav .nav-link,
-.navbar .navbar-brand {
-    font-size: 0.97em !important;
-    font-weight: 500;
-    letter-spacing: 0.01em;
-    padding-top: 3px !important;
-    padding-bottom: 3px !important;
-}
-
-.navbar .btn-primary,
-.navbar .cta-button {
-    font-size: 0.89em !important;
-    padding: 5px 16px !important;
-    min-width: unset;
-    font-weight: 500 !important;
-    border-radius: 6px !important;
 }
 
 /* Make bottom CTA the same size as navbar CTA */
