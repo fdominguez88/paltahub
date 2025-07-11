@@ -117,6 +117,41 @@ header {
     border-bottom: none !important;
 }
 
+/* --- SIGN IN BUTTON --- */
+.btn-signin {
+    background: transparent;
+    color: var(--palta-text-dark) !important;
+    border: 1.6px solid var(--palta-border);
+    font-weight: 500 !important;
+    font-size: 0.89em !important;
+    padding: 5px 16px !important;
+    border-radius: 6px !important;
+    box-shadow: none !important;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.btn-signin:hover,
+.btn-signin:focus {
+    background: var(--palta-bg-light);
+    color: var(--palta-blue) !important;
+    border-color: var(--palta-accent-green);
+    text-decoration: none;
+    outline: none;
+}
+
+.navbar.scrolled .btn-signin,
+.navbar.navbar-dark .btn-signin {
+    background: #232323;
+    color: #fff !important;
+    border: 1.6px solid #2c2c2c;
+}
+.navbar.scrolled .btn-signin:hover,
+.navbar.navbar-dark .btn-signin:hover {
+    background: var(--palta-accent-green);
+    color: #0C0A08 !important;
+    border-color: var(--palta-accent-green);
+}
+
 /* HERO SECTION */
 .hero {
     background-color: var(--palta-dark-bg);
