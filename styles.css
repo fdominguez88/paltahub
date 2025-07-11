@@ -27,12 +27,12 @@ body {
 }
 
 ::selection {
-  background: var(--palta-accent-green);
-  color: var(--palta-dark-bg);
+    background: var(--palta-accent-green);
+    color: var(--palta-dark-bg);
 }
 ::-moz-selection {
-  background: var(--palta-accent-green);
-  color: var(--palta-dark-bg);
+    background: var(--palta-accent-green);
+    color: var(--palta-dark-bg);
 }
 
 .container {
@@ -65,7 +65,7 @@ header {
     color: var(--palta-blue) !important;
 }
 
-/* CTA button (works everywhere) */
+/* CTA BUTTON (Everywhere) */
 .cta-button,
 .btn-primary {
     background-color: var(--palta-accent-green) !important;
@@ -112,19 +112,28 @@ header {
     max-width: 600px;
     font-weight: 400;
 }
+
+/* HERO FORM - Input & CTA harmonized */
 .hero-form .form-control {
-    padding: 6px 16px;
+    padding: 15px 20px !important;
     border-radius: 8px;
     border: 1px solid var(--palta-border);
-    font-size: 1.1em;
+    font-size: 1.2em !important;
     background-color: var(--palta-white);
     color: var(--palta-text-dark);
     min-width: 200px;
+    height: 52px; /* Matches btn height */
+    line-height: 1.25;
+    box-sizing: border-box;
 }
 .hero-form .btn-primary {
-    padding: 15px 30px;
-    font-size: 1.2em;
+    padding: 15px 30px !important;
+    font-size: 1.2em !important;
     min-width: 140px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* PRODUCT IMAGE */
