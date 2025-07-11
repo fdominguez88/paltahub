@@ -43,19 +43,21 @@ body {
 }
 
 /* --- RAMP-STYLE GLASS NAVBAR FOR DARK HERO --- */
-.navbar {
+.navbar, nav.navbar {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 999;
-    background: rgba(22, 28, 42, 0.56); /* translucent dark for dark hero */
+    background: rgba(22,28,42,0.56) !important; /* translucent dark glass */
     box-shadow: 0 2px 16px 0 rgba(30, 30, 30, 0.10);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     transition: background 0.3s, box-shadow 0.3s;
     border-bottom: 1px solid rgba(180,180,180,0.12);
 }
+
+/* Remove any .navbar.scrolled or similar classes! Only use above. */
 
 header {
     background-color: var(--palta-white);
