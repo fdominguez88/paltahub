@@ -483,3 +483,21 @@ footer.bg-dark {
     border: none !important;
     box-shadow: none !important;
 }
+/* Make navbar font and CTA button smaller */
+.navbar .navbar-nav .nav-link,
+.navbar .navbar-brand {
+    font-size: 0.97em !important;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    padding-top: 3px !important;
+    padding-bottom: 3px !important;
+}
+
+.navbar .btn-primary,
+.navbar .cta-button {
+    font-size: 0.89em !important;
+    padding: 5px 16px !important;
+    min-width: unset;
+    font-weight: 500 !important;
+    border-radius: 6px !important;
+}
