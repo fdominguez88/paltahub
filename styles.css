@@ -899,6 +899,11 @@ footer ul li a:hover {
   nav ul {
     gap: 0;
   }
+
+  /* NEW RULE: Hide the "Book a demo" CTA button in the main nav on mobile */
+  nav .cta-button {
+    display: none !important;
+  }
 }
 .hamburger:focus, .hamburger:hover {
   background: #f6f6f6;
