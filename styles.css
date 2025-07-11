@@ -391,6 +391,16 @@ footer .list-inline-item a:hover {
     margin-top: 12px;
 }
 
+.stats-section,
+.stats-section.border-bottom,
+section.border-bottom,
+.bg-white.border-bottom,
+.border-bottom {
+    border-bottom: none !important;
+    box-shadow: none !important;
+}
+
+
 /* RESPONSIVE BREAKPOINTS */
 @media (max-width: 1200px) {
     .container { max-width: 100%; }
