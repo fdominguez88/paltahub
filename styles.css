@@ -23,7 +23,7 @@ body {
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    /* Removed body font-size: 0.8em; to prevent unintended scaling */
+    /* Removed body font-size to prevent unintended scaling issues */
 }
 /* Text Selection Styling (Confirmed as present and correct) */
 ::selection {
@@ -133,7 +133,7 @@ nav ul li a:hover {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 .hero h1 {
-    font-size: 6em; /* Increased font size for desktop title */
+    font-size: 4.8em; /* Adjusted font size for desktop title */
     color: var(--palta-white);
     margin-bottom: 25px;
     font-weight: 800;
@@ -718,7 +718,7 @@ footer ul li a:hover {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   }
   .hero h1 {
-    font-size: 2.5em; /* Adjusted font size for tablet */
+    font-size: 3em; /* Adjusted font size for tablet */
     text-align: center;
   }
   .hero p {
@@ -754,7 +754,7 @@ footer ul li a:hover {
     padding: 50px 20px 30px 20px !important; /* Increased vertical padding for mobile */
   }
   .hero h1 {
-    font-size: 1.8em; /* Adjusted font size for mobile */
+    font-size: 2.2em; /* Adjusted font size for mobile */
   }
   .hero-form {
     flex-direction: column;
@@ -807,7 +807,7 @@ footer ul li a:hover {
     padding: 0 3vw;
   }
   .hero h1, .section-title, .why-love-palta h2, .call-to-action h2 {
-    font-size: 1.3em; /* Adjusted font size for smallest screens */
+    font-size: 1.6em; /* Adjusted font size for smallest screens */
   }
 }
 
@@ -903,7 +903,6 @@ footer ul li a:hover {
   nav ul {
     gap: 0;
   }
-  /* Removed conflicting display rules from here */
 }
 .hamburger:focus, .hamburger:hover {
   background: #f6f6f6;
@@ -954,20 +953,23 @@ footer ul li a:hover {
     display: flex;
     justify-content: center;
   }
-  /* NEW RULE: Hide CTA inside mobile menu */
-  .nav-links .cta-button,
-  .nav-links .nav-cta {
-    display: none !important;
-  }
+}
+
+/* NEW RULE: Hide CTA inside mobile menu. Placed at the end for higher priority. */
+.nav-links .cta-button,
+.nav-links .nav-cta {
+  display: none !important;
 }
 
 /* On desktop, show CTA as usual, and explicitly hide it if found in nav-links */
 @media (min-width: 801px) {
+  /* This rule explicitly hides CTAs if they somehow appear in nav-links on desktop */
   .nav-links .cta-button, .nav-links .nav-cta {
-    display: none !important; /* Ensures CTA is never in nav-links on desktop either */
+    display: none !important;
   }
+  /* This ensures the main CTA button remains visible on desktop */
   .cta-button, .nav-cta {
-    display: inline-block !important; /* Ensure the main CTA is visible on desktop */
+    display: inline-block !important;
   }
 }
 
