@@ -67,8 +67,8 @@ body {
 }
 .navbar .navbar-brand img {
     height: 38px;
-    filter: brightness(10) invert(1) grayscale(0.02) drop-shadow(0 0 1px #000);
     transition: filter 0.22s;
+    filter: none !important;
 }
 
 /* When you want light nav (white background, dark text), add .light-bg to .navbar via JS */
