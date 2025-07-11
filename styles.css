@@ -41,28 +41,17 @@ body {
     padding: 0 20px;
 }
 
+/* --- FIXED NAVBAR/HEADER, NO BORDER/SHADOW --- */
+.navbar {
+    background: var(--palta-white);
+    box-shadow: none !important;
+    border-bottom: none !important;
+}
 header {
     background-color: var(--palta-white);
     padding: 20px 0;
-    border-bottom: 1px solid var(--palta-border);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-}
-
-/* NAVBAR */
-.navbar {
-    background: var(--palta-white);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    border-bottom: 1px solid var(--palta-border);
-}
-.navbar-brand img {
-    height: 40px;
-}
-.nav-link, .navbar-brand {
-    color: var(--palta-text-dark) !important;
-    font-weight: 500;
-}
-.nav-link:hover {
-    color: var(--palta-blue) !important;
+    box-shadow: none !important;
+    border-bottom: none !important;
 }
 
 /* CTA BUTTON (Everywhere) */
@@ -113,7 +102,6 @@ header {
     font-weight: 400;
 }
 
-/* HERO FORM - Input & CTA harmonized */
 .hero-form .form-control {
     padding: 15px 20px !important;
     border-radius: 8px;
@@ -145,13 +133,13 @@ header {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
-/* STATS */
+/* --- STATS SECTION, NO BORDER/SHADOW --- */
 .stats-section {
     background-color: var(--palta-white);
     min-height: 150px;
-    /* Remove box-shadow and border */
     box-shadow: none !important;
     border: none !important;
+    border-bottom: none !important;
     padding: 0;
 }
 .stat-item h3 {
@@ -177,11 +165,11 @@ footer {
     border: none !important;
     box-shadow: none !important;
 }
-
-/* Remove possible Bootstrap border utilities */
 .bg-light,
 .bg-white,
-.border-bottom {
+.border-bottom,
+.bg-white.border-bottom,
+section.border-bottom {
     border-bottom: none !important;
     box-shadow: none !important;
 }
@@ -399,7 +387,6 @@ section.border-bottom,
     border-bottom: none !important;
     box-shadow: none !important;
 }
-
 
 /* RESPONSIVE BREAKPOINTS */
 @media (max-width: 1200px) {
