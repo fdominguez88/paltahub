@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Put your actual logo URLs here:
     var logoWhiteUrl = "https://i.postimg.cc/mZcC64jS/palta-hub-logo-white-transparent.png";
-    var logoDarkUrl = "YOUR_DARK_LOGO_URL_HERE"; // Put your dark logo or colored logo URL here
+    var logoDarkUrl = "https://i.postimg.cc/Fzy2TNc9/palta-hub-logo-transparent.png"; 
 
     if (navbar && hero) {
         // Helper: how far from top is bottom of hero?
