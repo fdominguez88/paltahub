@@ -24,6 +24,7 @@ body {
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    padding-top: 60px; /* Added to offset fixed navbar height */
 }
 
 ::selection {
@@ -43,9 +44,20 @@ body {
 
 /* --- FIXED NAVBAR/HEADER, NO BORDER/SHADOW --- */
 .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
     background: var(--palta-white);
+    transition: background 0.3s, box-shadow 0.3s;
     box-shadow: none !important;
     border-bottom: none !important;
+}
+.navbar.scrolled {
+    background: rgba(255,255,255,0.85); /* semi-transparent */
+    box-shadow: 0 2px 14px rgba(52,58,64,0.07); /* subtle shadow for readability */
+    backdrop-filter: blur(6px); /* Optional: adds a blur effect for extra polish */
 }
 header {
     background-color: var(--palta-white);
@@ -563,17 +575,3 @@ footer.bg-dark {
     box-shadow: none !important;
     letter-spacing: 0.01em;
 }
-
-/* Initial solid navbar */
-.navbar {
-    background: var(--palta-white);
-    transition: background 0.3s, box-shadow 0.3s;
-}
-
-/* Transparent style for when scrolled */
-.navbar.scrolled {
-    background: rgba(255,255,255,0.85); /* semi-transparent */
-    box-shadow: 0 2px 14px rgba(52,58,64,0.07); /* subtle shadow for readability */
-    backdrop-filter: blur(6px); /* Optional: adds a blur effect for extra polish */
-}
-
