@@ -655,3 +655,15 @@ footer.bg-dark {
 body, html {
     background: var(--palta-dark-bg) !important;
 }
+#how-it-works {
+    background: var(--palta-bg-light) !important;
+}
+#how-it-works, 
+#how-it-works .section-title, 
+#how-it-works h2, 
+#how-it-works h4, 
+#how-it-works p, 
+#how-it-works ul, 
+#how-it-works li {
+    color: var(--palta-text-dark) !important;
+}
