@@ -14,6 +14,14 @@
     --bs-btn-border-color: #E4F223;
 }
 
+.hero-form .form-control-lg {
+    font-size: 1.1em !important;
+    padding: 12px 16px !important;
+    height: 52px !important;
+    border-radius: 8px !important;
+    line-height: 1.2 !important;
+}
+
 body {
     font-family: 'Inter', sans-serif;
     margin: 0;
