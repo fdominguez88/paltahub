@@ -33,11 +33,19 @@ body {
     background: var(--palta-dark-bg) !important;
 }
 
-/* Highlight selection like CTA */
-::selection, ::-moz-selection {
-    background: var(--palta-accent-green);
+/* --- FORCE YELLOW SELECTION COLOR EVERYWHERE --- */
+body *::selection,
+body *::-moz-selection,
+body::selection,
+body::-moz-selection,
+input::selection,
+input::-moz-selection,
+textarea::selection,
+textarea::-moz-selection {
+    background: var(--palta-accent-green) !important;
     color: #1A202C !important;
 }
+
 
 /* --- SECTIONS --- */
 .hero { background: var(--palta-dark-bg); color: var(--palta-white);}
