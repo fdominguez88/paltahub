@@ -33,15 +33,27 @@ body {
     background: var(--palta-dark-bg) !important;
 }
 
-/* --- FORCE YELLOW SELECTION COLOR EVERYWHERE --- */
-body *::selection,
-body *::-moz-selection,
-body::selection,
-body::-moz-selection,
-input::selection,
-input::-moz-selection,
-textarea::selection,
-textarea::-moz-selection {
+/* --- BULLETPROOF YELLOW SELECTION --- */
+::selection, body ::selection, html ::selection {
+    background: var(--palta-accent-green) !important;
+    color: #1A202C !important;
+}
+::-moz-selection, body ::-moz-selection, html ::-moz-selection {
+    background: var(--palta-accent-green) !important;
+    color: #1A202C !important;
+}
+
+/* For inputs & textareas on WebKit browsers */
+input::selection, textarea::selection,
+input::-webkit-input-placeholder::selection, textarea::-webkit-input-placeholder::selection {
+    background: var(--palta-accent-green) !important;
+    color: #1A202C !important;
+}
+input::-moz-selection, textarea::-moz-selection {
+    background: var(--palta-accent-green) !important;
+    color: #1A202C !important;
+}
+input::-ms-selection, textarea::-ms-selection {
     background: var(--palta-accent-green) !important;
     color: #1A202C !important;
 }
