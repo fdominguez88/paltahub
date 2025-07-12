@@ -46,7 +46,6 @@ textarea::-moz-selection {
     color: #1A202C !important;
 }
 
-
 /* --- SECTIONS --- */
 .hero { background: var(--palta-dark-bg); color: var(--palta-white);}
 .stats-section, #features, #integrations, .why-love-palta { background: var(--palta-white) !important; }
