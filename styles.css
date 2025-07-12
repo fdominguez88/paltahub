@@ -36,7 +36,7 @@ body {
 /* Highlight selection like CTA */
 ::selection, ::-moz-selection {
     background: var(--palta-accent-green);
-    color: #1A202C;
+    color: #1A202C !important;
 }
 
 /* --- SECTIONS --- */
