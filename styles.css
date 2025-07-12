@@ -18,7 +18,7 @@
 html, body {
     height: 100%;
     min-height: 100vh;
-    background: var(--palta-dark-bg); /* Removed !important as it's the base */
+    background: var(--palta-dark-bg) !important; /* Re-added !important here */
 }
 body {
     font-family: 'Inter', sans-serif;
@@ -74,14 +74,15 @@ input::-ms-selection, textarea::-ms-selection {
 }
 
 /* Specific section backgrounds (DRYed up) */
+/* These should now work correctly with the body background fixed */
 .stats-section, #features, #integrations, .why-love-palta {
-    background: var(--palta-white);
+    background: var(--palta-white) !important; /* Added !important for safety */
 }
 #how-it-works {
-    background: var(--palta-bg-light);
+    background: var(--palta-bg-light) !important; /* Added !important for safety */
 }
 .call-to-action {
-    background: var(--palta-dark-bg);
+    background: var(--palta-dark-bg) !important; /* Added !important for safety */
     color: var(--palta-white);
     padding: 80px 0;
 }
@@ -315,13 +316,13 @@ input::-ms-selection, textarea::-ms-selection {
 
 /* --- FEATURE CARDS --- */
 .feature-card {
-    border: 1px solid var(--palta-border);
-    box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+    border: 1px solid var(--palta-border) !important; /* Re-added !important */
+    box-shadow: 0 4px 18px rgba(0,0,0,0.06) !important; /* Re-added !important */
     transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
 }
 .feature-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12) !important; /* Re-added !important */
 }
 .feature-card h1 {
     font-size: 1.8em;
@@ -338,13 +339,13 @@ input::-ms-selection, textarea::-ms-selection {
 
 /* --- HOW IT WORKS --- */
 .how-it-works-item {
-    border: 1px solid var(--palta-border);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border: 1px solid var(--palta-border) !important; /* Re-added !important */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05) !important; /* Re-added !important */
     transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
 }
 .how-it-works-item:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08) !important; /* Re-added !important */
 }
 .how-it-works-item h4 {
     color: var(--palta-blue);
@@ -428,7 +429,7 @@ input::-ms-selection, textarea::-ms-selection {
 
 /* --- FOOTER --- */
 footer {
-    background: var(--palta-dark-bg); /* Use var consistently */
+    background: var(--palta-dark-bg) !important; /* Re-added !important for consistency */
     color: var(--palta-white);
     border-top: 1px solid rgba(255,255,255,0.08);
 }
@@ -494,7 +495,7 @@ footer p {
 .modal-content .hero-form-modern {
     margin-top: 1.5rem;
     max-width: 100%; /* Allow full width in modal */
-    box-shadow: none; /* Remove shadow from form inside modal */
+    box-shadow: none !important; /* Remove shadow from form inside modal */
 }
 .modal-content .hero-form-modern-input,
 .modal-content .hero-form-modern-btn {
@@ -558,7 +559,7 @@ footer p {
         flex-direction: column;
         gap: 12px;
         border-radius: 11px; /* Full radius for mobile stack */
-        box-shadow: none; /* Remove shadow when stacked */
+        box-shadow: none !important; /* Remove shadow when stacked */
     }
     .hero-form-modern-input,
     .hero-form-modern-btn {
@@ -596,21 +597,17 @@ footer p {
     .integrations-grid { gap: 20px; }
 }
 
-/* Custom classes for Bootstrap overrides / consistency */
-.rounded { border-radius: 11px !important; } /* Make all rounded elements more rounded */
-.shadow-sm { box-shadow: 0 0px 8px rgba(0,0,0,0.06) !important; } /* Lighter shadows for cleaner look */
-
-/* Remove default Bootstrap shadows/borders where not desired and apply custom */
-.navbar, .navbar.shadow-sm,
-.hero, .stats-section, .section, .why-love-palta, .call-to-action,
-.feature-card, .how-it-works-item,
+/* Original "Remove all box-shadows and borders" block - REINSTATED & MAINTAINED */
+/* This is crucial for your design's approach to stripping Bootstrap's defaults */
+.navbar, .navbar.shadow-sm, .hero, .stats-section, .section, .why-love-palta, .call-to-action,
 .bg-white, .shadow, .rounded,
 .btn-primary, .btn-secondary, .btn-info, .btn-success, .btn-warning, .btn-danger {
     box-shadow: none !important;
     border: none !important;
 }
 
-/* Apply specific custom shadows/borders as needed after general reset */
+/* Apply specific custom shadows/borders as needed AFTER the general reset */
+/* These properties need !important to consistently override the broad reset above */
 .navbar {
     box-shadow: 0 2px 16px 0 rgba(30, 30, 30, 0.10) !important;
     border-bottom: 1px solid rgba(180,180,180,0.08) !important;
@@ -619,11 +616,12 @@ footer p {
     box-shadow: 0 2px 14px rgba(52,58,64,0.09) !important;
     border-bottom: 1px solid var(--palta-border) !important;
 }
+/* Feature and How It Works cards re-apply their shadow/border */
 .feature-card, .how-it-works-item {
     border: 1px solid var(--palta-border) !important;
     box-shadow: 0 4px 18px rgba(0,0,0,0.06) !important;
 }
-/* Ensure the hero form has its shadow */
+/* Ensure the hero form has its shadow (added directly to .hero-form-modern) */
 .hero-form-modern {
     box-shadow: 0 4px 18px rgba(0,0,0,0.1) !important;
 }
