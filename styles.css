@@ -10,7 +10,7 @@
     --bs-primary: #00707F;
     --bs-primary-rgb: 0,112,127;
     --bs-btn-bg: #E4F223;
-    --bs-btn-color: #0C0A08;
+    --bs-btn-color: #0C0A08; /* Adjusted for better contrast on yellow */
     --bs-btn-border-color: #E4F223;
 }
 
@@ -18,7 +18,7 @@
 html, body {
     height: 100%;
     min-height: 100vh;
-    background: var(--palta-dark-bg) !important;
+    background: var(--palta-dark-bg); /* Removed !important as it's the base */
 }
 body {
     font-family: 'Inter', sans-serif;
@@ -29,11 +29,10 @@ body {
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    padding-top: 60px;
-    background: var(--palta-dark-bg) !important;
+    padding-top: 68px; /* Adjusted to match navbar height */
 }
 
-/* --- SELECTION --- */
+/* Ensure consistent selection color everywhere */
 ::selection, body ::selection, html ::selection {
     background: var(--palta-accent-green) !important;
     color: #1A202C !important;
@@ -55,257 +54,591 @@ input::-ms-selection, textarea::-ms-selection {
     color: #1A202C !important;
 }
 
-/* --- SECTIONS --- */
-.hero { background: var(--palta-dark-bg); color: var(--palta-white);}
-.stats-section, #features, #integrations, .why-love-palta { background: var(--palta-white) !important; }
-#how-it-works { background: var(--palta-bg-light) !important; color: var(--palta-text-dark) !important; }
-#how-it-works .section-title, #how-it-works h2, #how-it-works h4, #how-it-works p, #how-it-works ul, #how-it-works li {
-    color: var(--palta-text-dark) !important;
+
+/* --- SECTIONS & LAYOUT --- */
+.hero {
+    background: var(--palta-dark-bg);
+    color: var(--palta-white);
+    padding: 80px 0; /* Adjusted padding */
+    min-height: 500px;
+    display: flex;
+    align-items: center;
 }
-.call-to-action { background: #1A1919 !important; color: var(--palta-white);}
-section:not(.stats-section):not(#features):not(#how-it-works):not(#integrations):not(.why-love-palta):not(.call-to-action):not(.hero) {
-    background: transparent !important;
+.hero h1 {
+    font-size: 3.5em;
+    line-height: 1.1;
+}
+.hero .lead {
+    font-size: 1.25em;
+    opacity: 0.8;
+}
+
+/* Specific section backgrounds (DRYed up) */
+.stats-section, #features, #integrations, .why-love-palta {
+    background: var(--palta-white);
+}
+#how-it-works {
+    background: var(--palta-bg-light);
+}
+.call-to-action {
+    background: var(--palta-dark-bg);
+    color: var(--palta-white);
+    padding: 80px 0;
+}
+.section-title {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: var(--palta-text-dark);
 }
 
 /* --- NAVBAR --- */
-.navbar, nav.navbar {
-    position: fixed;
-    top: 0; left: 0; width: 100%; z-index: 999;
-    background: var(--palta-dark-bg) !important;
+.navbar {
+    background: var(--palta-dark-bg); /* Default dark background */
     color: var(--palta-white);
     box-shadow: 0 2px 16px 0 rgba(30, 30, 30, 0.10);
     border-bottom: 1px solid rgba(180,180,180,0.08);
-    transition: background 0.3s, box-shadow 0.3s, color 0.3s;
+    transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out, color 0.3s ease-in-out;
+    position: fixed; /* Keep it fixed */
+    top: 0;
+    width: 100%;
+    z-index: 1030; /* Bootstrap's default for fixed nav */
 }
-.navbar, .navbar .navbar-nav .nav-link, .navbar .navbar-brand, .navbar .navbar-toggler, .navbar .btn-primary, .navbar .cta-button, .navbar .btn-signin {
-    color: #fff !important; fill: #fff !important;
-    background: transparent; border-color: rgba(255,255,255,0.16);
+
+.navbar .navbar-brand {
+    color: var(--palta-white);
+    transition: color 0.3s ease-in-out;
 }
-.navbar .navbar-brand img { height: 38px; transition: filter 0.22s; filter: none !important;}
-.navbar .navbar-nav .nav-link, .navbar .navbar-brand {
-    font-size: 0.97em !important; font-weight: 500; letter-spacing: 0.01em;
-    padding-top: 3px !important; padding-bottom: 3px !important;
+.navbar .navbar-nav .nav-link {
+    color: var(--palta-white);
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    position: relative; /* For the underline effect */
+    transition: color 0.3s ease-in-out;
 }
-.navbar .btn-primary, .navbar .cta-button {
-    font-size: 0.89em !important; padding: 5px 16px !important; min-width: unset;
-    font-weight: 500 !important; border-radius: 6px !important;
-    background: var(--palta-accent-green) !important; color: #0C0A08 !important;
-    border: none !important; box-shadow: none !important;
-    transition: background-color 0.3s, transform 0.2s;
+.navbar .navbar-nav .nav-link:hover {
+    color: var(--palta-accent-green);
 }
-.navbar .btn-primary:hover, .navbar .cta-button:hover {
-    background: #D3E01E !important; color: #0C0A08 !important; transform: translateY(-2px);
+/* Nav link underline hover effect */
+.navbar .navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--palta-accent-green);
+    transition: width 0.2s ease-out, left 0.2s ease-out;
 }
+.navbar .navbar-nav .nav-link:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* Navbar light background styles (after scrolling) */
+.navbar.light-bg {
+    background: rgba(255,255,255,0.97);
+    color: var(--palta-text-dark);
+    box-shadow: 0 2px 14px rgba(52,58,64,0.09);
+    border-bottom: 1px solid var(--palta-border);
+}
+.navbar.light-bg .navbar-nav .nav-link,
+.navbar.light-bg .navbar-brand {
+    color: var(--palta-text-dark);
+}
+.navbar.light-bg .navbar-nav .nav-link:hover {
+    color: var(--palta-blue);
+}
+.navbar.light-bg .navbar-nav .nav-link::after {
+    background: var(--palta-blue);
+}
+
+
+/* Navbar Toggler (Hamburger Icon) */
+.navbar-toggler {
+    border: none;
+    padding: 0;
+}
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    transition: background-image 0.3s ease-in-out;
+}
+.navbar.light-bg .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2852, 58, 64, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+/* Sign-in button */
 .btn-signin {
-    background: transparent; color: #fff !important;
-    border: 1.5px solid rgba(255,255,255,0.23); font-weight: 500 !important;
-    font-size: 0.89em !important; padding: 5px 16px !important; border-radius: 6px !important;
-    box-shadow: none !important; margin-right: 8px; display: inline-block; line-height: 1.1;
-    transition: background 0.15s, color 0.15s, border-color 0.15s;
+    background: transparent;
+    color: var(--palta-white);
+    border: 1.5px solid rgba(255,255,255,0.23);
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: background 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 }
 .btn-signin:hover, .btn-signin:focus {
-    background: rgba(255,255,255,0.11); color: var(--palta-accent-green) !important; border-color: var(--palta-accent-green);
-    text-decoration: none; outline: none;
+    background: rgba(255,255,255,0.11);
+    color: var(--palta-accent-green);
+    border-color: var(--palta-accent-green);
 }
-.navbar.light-bg {
-    background: rgba(255,255,255,0.97) !important; color: var(--palta-text-dark) !important; box-shadow: 0 2px 14px rgba(52,58,64,0.09);
-}
-.navbar.light-bg .navbar-nav .nav-link, .navbar.light-bg .navbar-brand, .navbar.light-bg .navbar-toggler {
-    color: var(--palta-text-dark) !important; fill: var(--palta-text-dark) !important;
-}
-.navbar.light-bg .navbar-brand img { filter: none !important;}
-.navbar.light-bg .btn-primary, .navbar.light-bg .cta-button {
-    color: #0C0A08 !important; background: var(--palta-accent-green) !important; border: none !important;
-}
-.navbar.light-bg .btn-primary:hover, .navbar.light-bg .cta-button:hover {
-    background: #D3E01E !important; color: #0C0A08 !important;
-}
-.navbar.light-bg .btn-signin {
-    background: transparent; color: var(--palta-text-dark) !important; border: 1.5px solid var(--palta-border);
-}
-.navbar.light-bg .btn-signin:hover, .navbar.light-bg .btn-signin:focus {
-    background: var(--palta-bg-light); color: var(--palta-blue) !important; border-color: var(--palta-accent-green);
-}
-/* Hamburger icon color swap */
-.navbar, .navbar.navbar-dark, .navbar:not(.light-bg) {
-    --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255,255,255,1%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-}
-.navbar.light-bg {
-    --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2852,58,64,1%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-}
-.navbar .navbar-toggler { border-color: transparent !important; background: transparent !important;}
-.navbar .navbar-toggler:focus { box-shadow: none !important;}
 
-/* --- HERO SECTION + MODERN FORM --- */
-.hero { padding: 110px 20px; border-radius: 0; margin: 0 auto 20px auto;}
-.hero .container { padding: 0 50px;}
-.hero h1, .display-4 {
-    font-size: 2.7em !important; color: var(--palta-white);
-    margin-bottom: 14px !important; font-weight: 800; line-height: 1.12; letter-spacing: -0.03em;
+/* Sign-in button when navbar is light */
+.navbar.light-bg .btn-signin {
+    color: var(--palta-text-dark);
+    border-color: var(--palta-border);
 }
-.hero p, .hero .lead {
-    font-size: 1.02em !important; color: rgba(255,255,255,0.7); margin-bottom: 18px !important;
-    max-width: 600px; font-weight: 400;
+.navbar.light-bg .btn-signin:hover,
+.navbar.light-bg .btn-signin:focus {
+    background: var(--palta-bg-light);
+    color: var(--palta-blue);
+    border-color: var(--palta-accent-green);
 }
+
+/* Primary CTA button in navbar (Book a Demo) */
+.navbar .btn-primary {
+    background: var(--palta-accent-green);
+    color: var(--bs-btn-color);
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease-out;
+}
+.navbar .btn-primary:hover {
+    background: #D3E01E; /* Slightly darker yellow on hover */
+    transform: translateY(-1px);
+}
+/* Ensure consistency for the main CTA button outside the navbar as well */
+.btn-primary {
+    background: var(--palta-accent-green);
+    color: var(--bs-btn-color);
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease-out;
+}
+.btn-primary:hover {
+    background: #D3E01E;
+    transform: translateY(-1px);
+}
+
+
+/* --- HERO FORM MODERN --- */
 .hero-form-modern {
     display: flex;
-    gap: 0;
-    max-width: 430px;
-    margin-top: 14px;
-    margin-bottom: 0;
-    padding: 0;
-    align-items: stretch;
-    background: none;
+    gap: 0; /* No gap between input and button */
+    max-width: 480px; /* Slightly wider for better desktop feel */
+    margin-top: 1.5rem;
+    align-items: stretch; /* Ensure children stretch to fill height */
+    box-shadow: 0 4px 18px rgba(0,0,0,0.1); /* Subtle shadow for premium feel */
+    border-radius: 11px; /* Overall border-radius for the form container */
+    overflow: hidden; /* Important for inner elements' border-radius */
 }
+
 .hero-form-modern-input {
-    border-radius: 11px 0 0 11px !important;
-    border: none !important;
-    border-right: none !important;
-    padding: 0 20px !important;
-    font-size: 1em !important;
-    height: 54px !important;
-    background: #fff !important;
-    color: #585858 !important;
-    min-width: 0 !important;
-    flex: 1 1 0%;
-    box-shadow: none !important;
-    outline: none;
+    border-radius: 11px 0 0 11px; /* Rounded left, sharp right */
+    border: none;
+    padding: 0 20px;
+    font-size: 1.05em;
+    height: 56px; /* Slightly taller for premium feel */
+    background: var(--palta-white);
+    color: var(--palta-text-dark);
+    flex: 1; /* Allow input to grow and shrink */
+    min-width: 150px; /* Ensure input doesn't get too small */
+    box-shadow: none; /* Remove default input shadow */
+    outline: none; /* Remove default outline */
 }
+
 .hero-form-modern-input::placeholder {
-    color: #7d7d7d !important;
-    font-weight: 500;
-    opacity: 1;
+    color: var(--palta-text-medium);
+    font-weight: 400; /* Lighter placeholder */
+    opacity: 0.8;
 }
+.hero-form-modern-input:focus {
+    box-shadow: 0 0 0 2px var(--palta-accent-green); /* Focus ring outside the input */
+}
+
+
 .hero-form-modern-btn {
-    border-radius: 0 11px 11px 0 !important;
-    background: var(--palta-accent-green) !important;
-    color: #0C0A08 !important;
-    border: none !important;
-    padding: 0 24px !important;
-    min-width: 170px;
-    height: 54px !important;
-    font-size: 1.08em !important;
+    border-radius: 0 11px 11px 0; /* Sharp left, rounded right */
+    background: var(--palta-accent-green);
+    color: var(--bs-btn-color);
+    border: none;
+    padding: 0 28px; /* More horizontal padding */
+    min-width: 180px; /* Slightly wider button */
+    height: 56px; /* Match input height */
+    font-size: 1.05em; /* Match input font size */
     font-weight: 600;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: none !important;
-    outline: none !important;
-    transition: background 0.17s, color 0.17s;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out, transform 0.1s ease-out;
+    white-space: nowrap; /* Prevent button text from wrapping */
 }
+
 .hero-form-modern-btn:hover {
-    background: #D3E01E !important;
-    color: #0C0A08 !important;
+    background: #D3E01E; /* Slightly darker yellow on hover */
+    transform: translateY(-1px); /* Slight lift for interaction */
+}
+
+
+/* --- STATS SECTION --- */
+.stat-item {
+    padding: 20px 0;
+    position: relative;
+}
+.stat-item h3 {
+    color: var(--palta-blue);
+    font-size: 3.5em; /* Keep current large size */
+}
+.stat-item p {
+    color: var(--palta-text-medium);
+    font-weight: 500;
+}
+/* Optional: Add a subtle separator between stats on desktop */
+@media (min-width: 768px) {
+    .stat-item:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 60%;
+        width: 1px;
+        background-color: var(--palta-border);
+    }
+}
+
+
+/* --- FEATURE CARDS --- */
+.feature-card {
+    border: 1px solid var(--palta-border);
+    box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+.feature-card h1 {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--palta-blue);
+    margin-bottom: 0.5rem;
+}
+.feature-subtitle {
+    color: var(--palta-text-medium);
+    font-size: 1.1em;
+    margin-bottom: 1rem;
+}
+
+
+/* --- HOW IT WORKS --- */
+.how-it-works-item {
+    border: 1px solid var(--palta-border);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+.how-it-works-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+.how-it-works-item h4 {
+    color: var(--palta-blue);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+.how-it-works-item ul {
+    list-style: none;
+    padding-left: 0;
+}
+.how-it-works-item ul li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 10px;
+    color: var(--palta-text-dark);
+}
+.how-it-works-item ul li::before {
+    content: "✓"; /* Checkmark unicode */
+    position: absolute;
+    left: 0;
+    color: var(--palta-accent-green); /* Ensure this is always the accent color */
+    font-size: 1.35em; /* Slightly larger checkmark */
+    line-height: 1;
+}
+
+/* --- INTEGRATIONS --- */
+.integrations-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px; /* Spacing between logos */
+}
+.integration-logo {
+    height: 60px; /* Consistent height for logos */
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: filter 0.3s ease-out, opacity 0.3s ease-out, transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+.integration-logo:hover {
+    opacity: 1;
+    filter: none;
+    transform: scale(1.04);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1); /* Added subtle shadow */
+}
+
+/* --- WHY TEAMS LOVE PALTA HUB --- */
+.love-points {
+    list-style: none;
+    padding-left: 0;
+}
+.love-point {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    color: var(--palta-text-dark);
+}
+.love-point::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--palta-accent-green);
+    font-weight: bold;
+    font-size: 1.4em; /* Slightly larger and bolder checkmark */
+    line-height: 1;
+}
+
+/* --- CALL TO ACTION --- */
+.call-to-action h2 {
+    color: var(--palta-white);
+    font-size: 2.2em;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+.call-to-action p {
+    color: rgba(255,255,255,0.9);
+    max-width: 800px;
+    margin: 0 auto 2rem auto;
+    font-size: 1.1em;
+}
+
+/* --- FOOTER --- */
+footer {
+    background: var(--palta-dark-bg); /* Use var consistently */
+    color: var(--palta-white);
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+footer .list-inline-item a {
+    color: rgba(255,255,255,0.7);
+    font-weight: 400;
+    transition: color 0.2s ease-in-out;
+}
+footer .list-inline-item a:hover {
+    color: var(--palta-white);
+}
+footer p {
+    font-size: 0.9em;
+}
+
+
+/* --- MODAL (unchanged, but ensure styles don't conflict) --- */
+#booking-modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1050; /* Above navbar */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.7);
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px); /* Add blur effect */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.modal-close-btn {
+    color: #aaa;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal-close-btn:hover,
+.modal-close-btn:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Form within modal can reuse hero form styles or have specific ones */
+.modal-content .hero-form-modern {
+    margin-top: 1.5rem;
+    max-width: 100%; /* Allow full width in modal */
+    box-shadow: none; /* Remove shadow from form inside modal */
+}
+.modal-content .hero-form-modern-input,
+.modal-content .hero-form-modern-btn {
+    border-radius: 8px; /* Slightly less rounded than hero if preferred */
+}
+.modal-content .hero-form-modern-input {
+    border-radius: 8px 0 0 8px;
+}
+.modal-content .hero-form-modern-btn {
+    border-radius: 0 8px 8px 0;
 }
 @media (max-width: 600px) {
+    .modal-content .hero-form-modern-input,
+    .modal-content .hero-form-modern-btn {
+        border-radius: 8px !important; /* Full radius when stacked */
+    }
+}
+
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* --- RESPONSIVENESS --- */
+@media (max-width: 1200px) {
+    .navbar .navbar-nav .nav-link { padding: 0.5rem 0.8rem; }
+    .hero h1 { font-size: 3em; }
+    .hero .lead { font-size: 1.1em; }
+}
+
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        background: var(--palta-dark-bg); /* Dark background for collapsed menu */
+        border-top: 1px solid rgba(255,255,255,0.1);
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .navbar-collapse.show {
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    .navbar.light-bg .navbar-collapse {
+        background: var(--palta-white);
+        border-color: var(--palta-border);
+    }
+    .navbar-nav .btn-primary { display: block !important; margin-top: 10px; } /* Show on mobile */
+    .navbar-nav .btn-signin { margin-top: 10px; }
+    .hero .col-lg-6 img { max-width: 80%; margin-top: 40px; }
+    .hero-form-modern {
+        max-width: 100%; /* Allow full width on smaller screens */
+    }
+    .hero .text-center, .hero .text-lg-start { text-align: center !important; }
+}
+
+@media (max-width: 768px) {
+    .hero { padding: 60px 0 40px 0; }
+    .hero h1 { font-size: 2.5em; }
+    .hero .lead { font-size: 1em; }
     .hero-form-modern {
         flex-direction: column;
-        align-items: stretch;
         gap: 12px;
-        width: 100%;
-        max-width: 100%;
+        border-radius: 11px; /* Full radius for mobile stack */
+        box-shadow: none; /* Remove shadow when stacked */
     }
     .hero-form-modern-input,
     .hero-form-modern-btn {
+        border-radius: 11px !important; /* Full radius on both for mobile stack */
         width: 100%;
-        min-width: 0 !important;
-        max-width: 100%;
-        box-sizing: border-box;
-        border-radius: 11px !important;
-        height: 54px !important;
-        font-size: 1.08em !important;
+        font-size: 1em;
+        height: 50px; /* Slightly smaller height on mobile */
+    }
+    .hero-form-modern-input {
+        padding: 0 18px;
     }
     .hero-form-modern-btn {
-        margin-top: 0;
+        min-width: unset; /* Allow button to shrink */
+        padding: 0 20px;
     }
-}
-.hero-image img, .img-fluid {
-    max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+
+    .section-title, .why-love-palta h2, .call-to-action h2 {
+        font-size: 1.8em; /* Adjusted for better mobile readability */
+    }
+    .stats-section .stat-item {
+        margin-bottom: 25px;
+    }
+    .stat-item h3 { font-size: 2.8em; }
+    .stat-item:not(:last-child)::after { display: none; } /* Remove separators on mobile */
 }
 
-/* --- STATS SECTION --- */
-.stats-section { min-height: 150px; box-shadow: none !important; border: none !important; border-bottom: none !important; padding: 0;}
-.stat-item h3 { font-size: 2.4em; color: var(--palta-dark-bg); margin-bottom: 5px; font-weight: 700;}
-.stat-item p { font-size: 1.1em; color: var(--palta-text-dark); margin: 0; font-weight: 500;}
+@media (max-width: 576px) {
+    .container { padding: 0 15px; }
+    .hero h1 { font-size: 2.2em; }
+    .hero .lead { font-size: 0.95em; }
+    .feature-card h1 { font-size: 1.5em; }
+    .how-it-works-item h4 { font-size: 1.2em; }
+    .love-point { font-size: 1em; }
+    .integration-logo { height: 50px; }
+    .integrations-grid { gap: 20px; }
+}
 
-/* --- FEATURES, HOW IT WORKS, INTEGRATIONS, LOVE, CTA, FOOTER --- */
-.section-title { font-size: 2.3em; color: var(--palta-text-dark); margin-bottom: 48px; font-weight: 800; letter-spacing: -0.02em;}
+/* Custom classes for Bootstrap overrides / consistency */
+.rounded { border-radius: 11px !important; } /* Make all rounded elements more rounded */
+.shadow-sm { box-shadow: 0 0px 8px rgba(0,0,0,0.06) !important; } /* Lighter shadows for cleaner look */
+
+/* Remove default Bootstrap shadows/borders where not desired and apply custom */
+.navbar, .navbar.shadow-sm,
+.hero, .stats-section, .section, .why-love-palta, .call-to-action,
+.feature-card, .how-it-works-item,
+.bg-white, .shadow, .rounded,
+.btn-primary, .btn-secondary, .btn-info, .btn-success, .btn-warning, .btn-danger {
+    box-shadow: none !important;
+    border: none !important;
+}
+
+/* Apply specific custom shadows/borders as needed after general reset */
+.navbar {
+    box-shadow: 0 2px 16px 0 rgba(30, 30, 30, 0.10) !important;
+    border-bottom: 1px solid rgba(180,180,180,0.08) !important;
+}
+.navbar.light-bg {
+    box-shadow: 0 2px 14px rgba(52,58,64,0.09) !important;
+    border-bottom: 1px solid var(--palta-border) !important;
+}
 .feature-card, .how-it-works-item {
-    background: var(--palta-white); border: 1px solid var(--palta-border);
-    border-radius: 12px; box-shadow: 0 4px 18px rgba(0,0,0,0.06);
-    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid var(--palta-border) !important;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.06) !important;
 }
-.feature-card:hover, .how-it-works-item:hover {
-    transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+/* Ensure the hero form has its shadow */
+.hero-form-modern {
+    box-shadow: 0 4px 18px rgba(0,0,0,0.1) !important;
 }
-.feature-card h1 { font-size: 1.68em; font-weight: 800; color: var(--palta-text-dark); margin-bottom: 8px; line-height: 1.1;}
-.feature-card .feature-subtitle, .feature-card p { font-size: 1.04em; color: var(--palta-text-medium); font-weight: 600; margin-bottom: 12px;}
-.feature-card p { font-weight: 400; color: var(--palta-text-medium); margin-bottom: 0; line-height: 1.5;}
-.how-it-works-item h4 { font-size: 1.16em; font-weight: 700; color: var(--palta-text-dark); margin-bottom: 10px;}
-.how-it-works-item ul { list-style: none; padding: 0; margin: 0;}
-.how-it-works-item ul li { margin-bottom: 12px; position: relative; padding-left: 35px; font-size: 1.04em; color: var(--palta-text-medium);}
-.how-it-works-item ul li::before { content: '✓'; position: absolute; left: 0; color: var(--palta-accent-green); font-weight: bold; font-size: 1.2em; line-height: 1;}
-.integrations-grid { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 36px; margin-top: 32px;}
-.integration-logo { height: 50px; max-width: 110px; width: auto; object-fit: contain; opacity: 0.85; filter: grayscale(40%); transition: opacity 0.22s, filter 0.22s, transform 0.17s; display: block;}
-.integration-logo:hover { opacity: 1; filter: none; transform: scale(1.04);}
-.integration-logo.zoom-logo { height: 50px; max-width: 105px; width: 105px; object-fit: contain;}
-.integrations-grid, #integrations p { font-size: 1.04em !important;}
-@media (max-width: 600px) {
-    .integration-logo, .integration-logo.zoom-logo { height: 32px; max-width: 65px; width: 65px;}
-    .integrations-grid { gap: 18px; }
-}
-.why-love-palta { background: var(--palta-white) !important; padding: 3.5rem 1rem; margin: 32px auto; border-radius: 0; box-shadow: 0 6px 20px rgba(0,0,0,0.05); text-align: center;}
-.why-love-palta h2, .why-love-palta .section-title { color: var(--palta-text-dark); font-size: 2em; font-weight: 800;}
-.love-points { list-style: none; padding: 0; margin: 0 auto; max-width: 680px; display: flex; flex-direction: column; gap: 20px;}
-.love-point { background: var(--palta-bg-light); padding: 22px 24px; border-radius: 10px; text-align: left; font-size: 1.04em; color: var(--palta-text-dark); display: flex; align-items: center; gap: 18px; box-shadow: 0 1.5px 8px rgba(0,0,0,0.04); position: relative; padding-left: 50px;}
-.love-point::before { content: '✓'; position: absolute; left: 18px; color: var(--palta-accent-green); font-weight: bold; font-size: 1.25em; line-height: 1;}
-.call-to-action { background: #1A1919 !important; color: var(--palta-white); border-radius: 0; margin: 0; padding: 3rem 1rem; box-shadow: none !important;}
-.call-to-action h2 { font-size: 2.2em; color: var(--palta-white); font-weight: 800;}
-.call-to-action p { font-size: 1.04em; color: rgba(255,255,255,0.92); margin-bottom: 34px;}
-.call-to-action .btn, .call-to-action .cta-button {
-    background: var(--palta-accent-green); color: #0C0A08; border-radius: 8px;
-    font-size: 0.89em !important; padding: 5px 16px !important; min-width: unset !important;
-    font-weight: 500 !important; border-radius: 6px !important; box-shadow: none !important; letter-spacing: 0.01em; border: none;
-    transition: background 0.3s, transform 0.2s; display: inline-block;
-}
-.call-to-action .btn:hover, .call-to-action .cta-button:hover { background: #D3E01E; color: #0C0A08;}
-footer.bg-dark { background: var(--palta-text-dark) !important; color: var(--palta-white); border: none !important; box-shadow: none !important;}
-footer .logo img { height: 35px; filter: brightness(0) invert(1);}
-footer .list-inline-item a { color: rgba(255,255,255,0.6) !important; font-weight: 500; text-decoration: none; transition: color 0.2s;}
-footer .list-inline-item a:hover { color: var(--palta-accent-green) !important;}
-.footer-copyright { color: rgba(255,255,255,0.43); font-size: 0.98em; margin-top: 12px;}
 
-/* --- RESPONSIVE / UTILITY --- */
-@media (max-width: 1200px) { .container { max-width: 100%; }}
-@media (max-width: 992px) {
-    .hero .container { padding: 0 30px; }
-    .hero h1, .display-4 { font-size: 3.5em; }
+/* Placeholder for .cta-button, assuming it's the same style as .btn-primary */
+.cta-button {
+    background: var(--palta-accent-green);
+    color: var(--bs-btn-color);
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    padding: 10px 20px;
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease-out;
 }
-@media (max-width: 768px) {
-    .section-title, .why-love-palta h2 { font-size: 1.4em; }
-    .call-to-action h2 { font-size: 1.3em; }
-    .hero .container { padding: 0 12px; }
+.cta-button:hover {
+    background: #D3E01E;
+    transform: translateY(-1px);
 }
-@media (max-width: 600px) {
-    .hero { padding: 50px 20px 30px 20px !important; }
-    .hero h1, .display-4 { font-size: 3em; }
-    .feature-card h1 { font-size: 1.25em; }
-}
-@media (max-width: 400px) {
-    .container { padding: 0 3vw; }
-    .hero h1, .display-4, .section-title, .why-love-palta h2, .call-to-action h2 { font-size: 2.5em; }
-}
-@media (max-width: 991.98px) { .navbar-nav .btn-primary { display: none !important; }}
-
-/* Remove all box-shadows and borders from main sections, navbar, and hero */
-.navbar, .navbar.shadow-sm, .hero, .stats-section, .section, .why-love-palta, .call-to-action, footer,
-.bg-white, .bg-light, .shadow, .shadow-sm, .shadow-lg, .container, main, body {
-    box-shadow: none !important; border: none !important;
-}
-/* Remove top and bottom margin/padding between sections if any */
-section, .section, .stats-section, .why-love-palta, .call-to-action, footer {
-    margin-top: 0 !important; margin-bottom: 0 !important; padding-top: unset; padding-bottom: unset;
-}
-/* Remove background gradient Bootstrap sometimes adds to navbars */
-.navbar, .bg-white, .bg-light { background-image: none !important; }
-footer, footer.bg-dark { border: none !important; box-shadow: none !important; }
