@@ -33,7 +33,7 @@ body {
     background: var(--palta-dark-bg) !important;
 }
 
-/* --- BULLETPROOF YELLOW SELECTION --- */
+/* --- SELECTION --- */
 ::selection, body ::selection, html ::selection {
     background: var(--palta-accent-green) !important;
     color: #1A202C !important;
@@ -42,10 +42,7 @@ body {
     background: var(--palta-accent-green) !important;
     color: #1A202C !important;
 }
-
-/* For inputs & textareas on WebKit browsers */
-input::selection, textarea::selection,
-input::-webkit-input-placeholder::selection, textarea::-webkit-input-placeholder::selection {
+input::selection, textarea::selection {
     background: var(--palta-accent-green) !important;
     color: #1A202C !important;
 }
@@ -139,7 +136,7 @@ section:not(.stats-section):not(#features):not(#how-it-works):not(#integrations)
 .navbar .navbar-toggler { border-color: transparent !important; background: transparent !important;}
 .navbar .navbar-toggler:focus { box-shadow: none !important;}
 
-/* --- HERO SECTION + FORM (with FIXED INPUT FONT) --- */
+/* --- HERO SECTION + MODERN FORM --- */
 .hero { padding: 110px 20px; border-radius: 0; margin: 0 auto 20px auto;}
 .hero .container { padding: 0 50px;}
 .hero h1, .display-4 {
@@ -150,37 +147,77 @@ section:not(.stats-section):not(#features):not(#how-it-works):not(#integrations)
     font-size: 1.02em !important; color: rgba(255,255,255,0.7); margin-bottom: 18px !important;
     max-width: 600px; font-weight: 400;
 }
-.hero-form {
-    display: flex !important; align-items: stretch; gap: 0;
-    max-width: 430px; margin-top: 14px; margin-bottom: 0; padding: 0; background: none;
+.hero-form-modern {
+    display: flex;
+    gap: 0;
+    max-width: 430px;
+    margin-top: 14px;
+    margin-bottom: 0;
+    padding: 0;
+    align-items: stretch;
+    background: none;
 }
-.hero-form .form-control {
-    border-radius: 11px 0 0 11px !important; border: none !important; border-right: none !important;
-    padding: 0 20px !important; font-size: 1em !important; height: 54px !important;
-    background: #fff !important; color: #585858 !important;
-    min-width: 0 !important; flex: 1 1 0%; box-shadow: none !important; outline: none;
+.hero-form-modern-input {
+    border-radius: 11px 0 0 11px !important;
+    border: none !important;
+    border-right: none !important;
+    padding: 0 20px !important;
+    font-size: 1em !important;
+    height: 54px !important;
+    background: #fff !important;
+    color: #585858 !important;
+    min-width: 0 !important;
+    flex: 1 1 0%;
+    box-shadow: none !important;
+    outline: none;
 }
-.hero-form .form-control::placeholder {
-    color: #7d7d7d !important; font-weight: 500; opacity: 1;
+.hero-form-modern-input::placeholder {
+    color: #7d7d7d !important;
+    font-weight: 500;
+    opacity: 1;
 }
-.hero-form .btn, .hero-form .btn-primary {
-    border-radius: 0 11px 11px 0 !important; background: var(--palta-accent-green) !important;
-    color: #0C0A08 !important; border: none !important; padding: 0 24px !important;
-    min-width: 170px; height: 54px !important; font-size: 1.08em !important; font-weight: 600;
-    display: flex; align-items: center; justify-content: center;
-    box-shadow: none !important; outline: none !important;
+.hero-form-modern-btn {
+    border-radius: 0 11px 11px 0 !important;
+    background: var(--palta-accent-green) !important;
+    color: #0C0A08 !important;
+    border: none !important;
+    padding: 0 24px !important;
+    min-width: 170px;
+    height: 54px !important;
+    font-size: 1.08em !important;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: none !important;
+    outline: none !important;
     transition: background 0.17s, color 0.17s;
 }
-.hero-form .btn:hover, .hero-form .btn-primary:hover {
-    background: #D3E01E !important; color: #0C0A08 !important;
+.hero-form-modern-btn:hover {
+    background: #D3E01E !important;
+    color: #0C0A08 !important;
 }
 @media (max-width: 600px) {
-    .hero-form { flex-direction: column; align-items: stretch; gap: 12px; width: 100%; max-width: 100%;}
-    .hero-form .form-control, .hero-form .btn, .hero-form .btn-primary {
-        width: 100%; min-width: 0 !important; max-width: 100%; box-sizing: border-box;
-        border-radius: 11px !important; height: 54px !important; font-size: 0.98em !important;
+    .hero-form-modern {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        width: 100%;
+        max-width: 100%;
     }
-    .hero-form .btn, .hero-form .btn-primary { margin-top: 0;}
+    .hero-form-modern-input,
+    .hero-form-modern-btn {
+        width: 100%;
+        min-width: 0 !important;
+        max-width: 100%;
+        box-sizing: border-box;
+        border-radius: 11px !important;
+        height: 54px !important;
+        font-size: 1.08em !important;
+    }
+    .hero-form-modern-btn {
+        margin-top: 0;
+    }
 }
 .hero-image img, .img-fluid {
     max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);
