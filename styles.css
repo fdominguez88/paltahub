@@ -83,7 +83,7 @@ input::-ms-selection, textarea::-ms-selection {
     color: var(--palta-text-dark); /* Text on feature cards is dark */
 }
 
-#how-it-works { background: var(--palta-bg-light); color: var(--palta-text-dark); }
+#how-it-works { background: var(--palta-blue); color: var(--palta-text-dark); }
 #how-it-works .section-title, #how-it-works h2, #how-it-works h4, #how-it-works p, #how-it-works ul, #how-it-works li {
     color: var(--palta-text-dark);
 }
