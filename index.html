@@ -16,27 +16,36 @@
     <nav class="navbar navbar-expand-lg" aria-label="Main navigation">
       <div class="container">
         <a class="navbar-brand" href="/" aria-label="Palta Hub home">
-          <img src="https://i.postimg.cc/mZcC64jS/palta-hub-logo-white-transparent.png" alt="Palta Hub logo" height="38">
+          <img src="https://i.postimg.cc/mZcC64jS/palta-hub-logo-white-transparent.png"
+               alt="Palta Hub logo" height="38">
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
-                aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#mainNavbar" aria-controls="mainNavbar"
+                aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="mainNavbar">
-          <!-- Top bar inside the sheet -->
-          <div class="d-flex align-items-center justify-content-end mb-4">
+          <!-- MOBILE SHEET HEADER (only on <lg) -->
+          <div class="d-lg-none d-flex justify-content-end mb-4">
             <a class="btn btn-signin me-2" href="#signin">Sign in</a>
-            <button type="button" class="navbar-close" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
-                    aria-label="Close menu">×</button>
+            <button type="button" class="navbar-close" data-bs-toggle="collapse"
+                    data-bs-target="#mainNavbar" aria-label="Close menu">×</button>
           </div>
+
           <ul class="navbar-nav ms-auto align-items-lg-center">
             <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
             <li class="nav-item"><a class="nav-link" href="#how-it-works">How It Works</a></li>
             <li class="nav-item"><a class="nav-link" href="#integrations">Integrations</a></li>
             <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
+
+            <!-- Desktop-only Sign in + Book a Demo -->
             <li class="nav-item d-none d-lg-block">
-              <a class="btn btn-primary ms-2" href="#demo">Book a Demo</a>
+              <a class="btn btn-signin me-2" href="#signin">Sign in</a>
+            </li>
+            <li class="nav-item d-none d-lg-block">
+              <a class="btn btn-primary" href="#demo">Book a Demo</a>
             </li>
           </ul>
         </div>
@@ -68,7 +77,8 @@
             <form class="hero-form-responsive mt-3" action="#get-started" method="POST"
                   aria-label="Get started responsive form">
               <label for="email-mob" class="visually-hidden">Work email</label>
-              <input id="email-mob" type="email" name="email" placeholder="What’s your work email?" required>
+              <input id="email-mob" type="email" name="email"
+                     placeholder="What’s your work email?" required>
               <button type="submit">Get started for free</button>
             </form>
           </div>
@@ -105,18 +115,24 @@
       <div class="container">
         <h2 class="section-title text-center">Key Features</h2>
         <div class="row g-4">
-          <div class="col-md-4"><div class="feature-card p-4 h-100">
-            <h4>Automated Routing</h4>
-            <p>Instantly assign leads to the right rep based on custom rules.</p>
-          </div></div>
-          <div class="col-md-4"><div class="feature-card p-4 h-100">
-            <h4>One-Click Booking</h4>
-            <p>Let prospects schedule demos without back-and-forth emails.</p>
-          </div></div>
-          <div class="col-md-4"><div class="feature-card p-4 h-100">
-            <h4>CRM Sync</h4>
-            <p>Keep your CRM up-to-date automatically with every interaction.</p>
-          </div></div>
+          <div class="col-md-4">
+            <div class="feature-card p-4 h-100">
+              <h4>Automated Routing</h4>
+              <p>Instantly assign leads to the right rep based on custom rules.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="feature-card p-4 h-100">
+              <h4>One-Click Booking</h4>
+              <p>Let prospects schedule demos without back-and-forth emails.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="feature-card p-4 h-100">
+              <h4>CRM Sync</h4>
+              <p>Keep your CRM up-to-date automatically with every interaction.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -126,27 +142,33 @@
       <div class="container">
         <h2 class="section-title text-center">How It Works</h2>
         <div class="row g-4">
-          <div class="col-md-4"><div class="how-it-works-item p-4 h-100">
-            <h4>Step 1: Integrate</h4>
-            <ul>
-              <li>Connect your CRM & calendar in minutes.</li>
-              <li>No code required.</li>
-            </ul>
-          </div></div>
-          <div class="col-md-4"><div class="how-it-works-item p-4 h-100">
-            <h4>Step 2: Automate</h4>
-            <ul>
-              <li>Define routing rules and booking templates.</li>
-              <li>Eliminate manual handoffs.</li>
-            </ul>
-          </div></div>
-          <div class="col-md-4"><div class="how-it-works-item p-4 h-100">
-            <h4>Step 3: Scale</h4>
-            <ul>
-              <li>Track performance with analytics dashboard.</li>
-              <li>Optimize workflows continuously.</li>
-            </ul>
-          </div></div>
+          <div class="col-md-4">
+            <div class="how-it-works-item p-4 h-100">
+              <h4>Step 1: Integrate</h4>
+              <ul>
+                <li>Connect your CRM & calendar in minutes.</li>
+                <li>No code required.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="how-it-works-item p-4 h-100">
+              <h4>Step 2: Automate</h4>
+              <ul>
+                <li>Define routing rules and booking templates.</li>
+                <li>Eliminate manual handoffs.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="how-it-works-item p-4 h-100">
+              <h4>Step 3: Scale</h4>
+              <ul>
+                <li>Track performance with analytics dashboard.</li>
+                <li>Optimize workflows continuously.</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -157,11 +179,11 @@
         <h2 class="section-title">Seamlessly Integrates with Your Stack</h2>
         <p class="mb-4">Works with HubSpot, Gmail, Outlook, Salesforce, Zoom, and more.</p>
         <div class="integrations-grid justify-content-center">
-          <img src="hubspot.svg"   alt="HubSpot"   class="integration-logo">
-          <img src="gmail.svg"     alt="Gmail"     class="integration-logo">
-          <img src="outlook.svg"   alt="Outlook"   class="integration-logo">
-          <img src="salesforce.svg"alt="Salesforce"class="integration-logo">
-          <img src="zoom.svg"      alt="Zoom"      class="integration-logo">
+          <img src="hubspot.svg"   alt="HubSpot"    class="integration-logo">
+          <img src="gmail.svg"     alt="Gmail"      class="integration-logo">
+          <img src="outlook.svg"   alt="Outlook"    class="integration-logo">
+          <img src="salesforce.svg"alt="Salesforce" class="integration-logo">
+          <img src="zoom.svg"      alt="Zoom"       class="integration-logo">
         </div>
       </div>
     </section>
@@ -194,12 +216,13 @@
   <!-- ===== FOOTER ===== -->
   <footer role="contentinfo" class="bg-dark text-white py-4">
     <div class="container text-center">
-      <img src="https://i.postimg.cc/mZcC64jS/palta-hub-logo-white-transparent.png" alt="Palta Hub logo" height="35" class="mb-3">
+      <img src="https://i.postimg.cc/mZcC64jS/palta-hub-logo-white-transparent.png"
+           alt="Palta Hub logo" height="35" class="mb-3">
       <ul class="list-inline mb-3">
-        <li class="list-inline-item"><a href="#features"     class="text-white-50">Features</a></li>
+        <li class="list-inline-item"><a href="#features" class="text-white-50">Features</a></li>
         <li class="list-inline-item"><a href="#how-it-works" class="text-white-50">How It Works</a></li>
-        <li class="list-inline-item"><a href="#privacy"      class="text-white-50">Privacy Policy</a></li>
-        <li class="list-inline-item"><a href="#terms"        class="text-white-50">Terms of Service</a></li>
+        <li class="list-inline-item"><a href="#privacy" class="text-white-50">Privacy Policy</a></li>
+        <li class="list-inline-item"><a href="#terms" class="text-white-50">Terms of Service</a></li>
       </ul>
       <p class="mb-0 text-white-50">© 2025 Palta Hub. All rights reserved.</p>
     </div>
