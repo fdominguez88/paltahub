@@ -67,16 +67,21 @@ section:not(.stats-section):not(#features):not(#how-it-works):not(#integrations)
     background: transparent !important;
 }
 
-/* --- FIX FOR INTEGRATION ICONS (IMPROVED) --- */
+/* --- FIX FOR INTEGRATION ICONS (VISIBILITY & SIZING) --- */
 #integrations img {
-    max-width: 75px !important;
-    max-height: 75px !important;
+    /* Visibility Rules */
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    
+    /* Sizing & Spacing Rules */
+    max-width: 90px !important;
+    max-height: 80px !important;
     height: auto !important;
     box-shadow: none !important;
     margin: 10px 15px !important;
     vertical-align: middle;
 }
-
 
 /* --- NAVBAR --- */
 .navbar, nav.navbar {
