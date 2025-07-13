@@ -29,7 +29,7 @@ body {
   color: var(--palta-text-dark);
 }
 
-/* Navbar */
+/* Navbar & CTAs */
 .navbar {
   position: fixed;
   top: 0;
@@ -40,23 +40,34 @@ body {
 }
 .navbar.light-bg { background: rgba(255,255,255,0.97); }
 .navbar .nav-link, .navbar .btn-signin {
-  color: var(--palta-white);
+  color: var(--palta-white) !important;
 }
-.navbar.light-bg .nav-link, .navbar.light-bg .btn-signin {
-  color: var(--palta-text-dark);
+.navbar .btn-signin {
+  border: 1px solid rgba(255,255,255,0.3) !important;
+  background: transparent !important;
 }
-.btn-signin {
-  padding: .375rem 1rem;
-  border: 1px solid rgba(255,255,255,0.3);
-  border-radius: .375rem;
-  background: transparent;
-  transition: background .15s;
+.navbar .btn-primary {
+  background-color: var(--palta-accent-green) !important;
+  color: var(--palta-text-dark) !important;
+  border-radius: .375rem !important;
+  padding: .375rem 1rem !important;
+  transition: background .2s !important;
 }
-.btn-primary {
-  background: var(--palta-accent-green);
-  color: var(--palta-text-dark);
+.navbar .btn-primary:hover {
+  background-color: #F5FF77 !important;
+  color: #0D0A08 !important;
 }
-/* Fix toggler contrast */
+.navbar.light-bg .nav-link, .navbar.light-bg .btn-signin, .navbar.light-bg .btn-primary {
+  color: var(--palta-text-dark) !important;
+}
+.navbar.light-bg .btn-primary {
+  background-color: var(--palta-accent-green) !important;
+}
+.navbar.light-bg .btn-primary:hover {
+  background-color: #F5FF77 !important;
+  color: #0D0A08 !important;
+}
+/* Toggler contrast */
 .navbar .navbar-toggler-icon {
   filter: invert(1) contrast(200%);
 }
@@ -87,7 +98,7 @@ body {
 }
 .hero-form-modern input,
 .hero-form-modern-btn {
-  height: 60px;
+  height: 60px !important;
 }
 .hero-form-modern-input {
   flex: 3;
@@ -107,9 +118,9 @@ body {
   background: var(--palta-accent-green);
   transition: background .2s;
 }
-.cta-button:hover {
-  background: #F5FF77;
-  color: #0D0A08;
+.hero-form-modern-btn:hover {
+  background: #F5FF77 !important;
+  color: #0D0A08 !important;
 }
 @media (max-width: 576px) {
   .hero-form-modern {
@@ -119,12 +130,12 @@ body {
   .hero-form-modern-input,
   .hero-form-modern-btn {
     width: 100%;
-    height: 60px;
+    height: 60px !important;
     border-radius: .75rem;
   }
 }
 
-/* Stats */
+/* Stats Section */
 .stats-section {
   padding: 2rem 0;
   background: var(--palta-white);
@@ -184,7 +195,7 @@ body {
   line-height: 1.4;
 }
 
-/* Call to Action */
+/* Final Call to Action */
 .call-to-action {
   background: var(--palta-dark-bg);
   color: var(--palta-white);
@@ -199,7 +210,8 @@ body {
   transition: background .2s;
 }
 .cta-button:hover {
-  background: #D3E01E;
+  background: #F5FF77 !important;
+  color: #0D0A08 !important;
 }
 
 /* Footer */
