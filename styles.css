@@ -18,19 +18,19 @@
 html, body {
     height: 100%;
     min-height: 100vh;
-    background: var(--palta-white); /* Body is white */
+    background: var(--palta-blue); /* Body is now blue */
 }
 body {
     font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color: var(--palta-text-dark); /* Default body text color */
+    color: var(--palta-white); /* Default body text color for blue background */
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     padding-top: 60px; /* Adjust based on navbar height if needed */
-    background: var(--palta-white); /* Body is white */
+    background: var(--palta-blue); /* Body is now blue */
 }
 
 /* Visually hidden class for accessibility */
@@ -68,9 +68,13 @@ input::-ms-selection, textarea::-ms-selection {
 }
 
 /* --- SECTION BACKGROUNDS --- */
-.hero { background: var(--palta-white); color: var(--palta-text-dark); padding-bottom: 70px;} /* Hero is now white */
+.hero {
+    background: var(--palta-blue); /* Hero is now blue */
+    color: var(--palta-white); /* Hero text for blue background */
+    padding-bottom: 70px;
+}
 .stats-section { background: var(--palta-white); color: var(--palta-text-dark); }
-#features { background: var(--palta-dark-bg); color: var(--palta-white); } /* Features section is now dark */
+#features { background: var(--palta-dark-bg); color: var(--palta-white); } /* Features section is dark */
 #features .section-title, #features h1, #features .feature-subtitle, #features p {
     color: var(--palta-white); /* Ensure text is white on dark features section */
 }
@@ -83,9 +87,9 @@ input::-ms-selection, textarea::-ms-selection {
     color: var(--palta-text-dark); /* Text on feature cards is dark */
 }
 
-#how-it-works { background: var(--palta-blue); color: var(--palta-text-dark); }
+#how-it-works { background: var(--palta-blue); color: var(--palta-white); } /* How it Works is blue with white text */
 #how-it-works .section-title, #how-it-works h2, #how-it-works h4, #how-it-works p, #how-it-works ul, #how-it-works li {
-    color: var(--palta-text-dark);
+    color: var(--palta-white);
 }
 #how-it-works .how-it-works-item { /* Cards within how-it-works */
     background: var(--palta-white);
@@ -116,19 +120,19 @@ section {
     margin-top: 0; margin-bottom: 0; padding-top: unset; padding-bottom: unset;
 }
 
-/* --- NAVBAR (DEFAULT - LIGHT THEME) --- */
+/* --- NAVBAR (DEFAULT - BLUE THEME) --- */
 .navbar {
     position: fixed;
     top: 0; left: 0; width: 100%; z-index: 999;
-    background: var(--palta-white); /* Default is white */
-    color: var(--palta-text-dark); /* Default text is dark */
-    box-shadow: 0 2px 14px rgba(52,58,64,0.09); /* Shadow for white nav */
-    border-bottom: 1px solid var(--palta-border); /* Border for white nav */
+    background: var(--palta-blue); /* Default is blue */
+    color: var(--palta-white); /* Default text is white */
+    box-shadow: 0 2px 14px rgba(0,0,0,0.2); /* Shadow for blue nav */
+    border-bottom: 1px solid rgba(255,255,255,0.1); /* Border for blue nav */
     transition: background 0.3s ease, box-shadow 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 .navbar .navbar-nav .nav-link, .navbar .navbar-brand {
-    color: var(--palta-text-dark); /* Default nav links are dark */
-    fill: var(--palta-text-dark);
+    color: var(--palta-white); /* Default nav links are white */
+    fill: var(--palta-white);
     font-size: 0.97em; font-weight: 500; letter-spacing: 0.01em;
     padding-top: 3px; padding-bottom: 3px;
     transition: color 0.2s ease;
@@ -136,10 +140,10 @@ section {
 .navbar .navbar-brand img {
     height: 38px;
     transition: filter 0.22s ease;
-    filter: none; /* No filter on dark logo */
+    filter: brightness(0) invert(1); /* Invert to make dark logo white on blue */
 }
 
-/* Primary CTA Button in Navbar (Book a Demo) - for light navbar */
+/* Primary CTA Button in Navbar (Book a Demo) - for blue navbar */
 .navbar .btn-primary {
     font-size: 0.89em; padding: 8px 20px;
     font-weight: 600; border-radius: 8px;
@@ -153,11 +157,11 @@ section {
     transform: translateY(-1px);
 }
 
-/* Sign In Button in Navbar - for light navbar */
+/* Sign In Button in Navbar - for blue navbar */
 .btn-signin {
     background: transparent;
-    color: var(--palta-text-dark); /* Dark text on light nav */
-    border: 1.5px solid var(--palta-border); /* Light border */
+    color: var(--palta-white); /* White text on blue nav */
+    border: 1.5px solid rgba(255,255,255,0.23); /* White border on blue nav */
     font-weight: 500;
     font-size: 0.89em;
     padding: 8px 20px;
@@ -169,52 +173,52 @@ section {
     transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
 }
 .btn-signin:hover, .btn-signin:focus {
-    background: var(--palta-bg-light); /* Light background on hover */
-    color: var(--palta-blue); /* Blue accent on hover */
+    background: rgba(255,255,255,0.15); /* More noticeable hover background */
+    color: var(--palta-accent-green); /* Accent color on hover */
     border-color: var(--palta-accent-green);
     text-decoration: none; outline: none;
     transform: translateY(-1px);
 }
 
-/* Navbar DARK MODE (Applies when over specific dark sections) */
-.navbar.dark-mode {
-    background: var(--palta-dark-bg);
-    color: var(--palta-white);
-    box-shadow: 0 2px 16px 0 rgba(30, 30, 30, 0.10);
-    border-bottom: 1px solid rgba(180,180,180,0.08);
+/* Navbar LIGHT MODE (Applies when light-bg is added by main.js) */
+.navbar.light-bg {
+    background: var(--palta-white); /* White background in light mode */
+    color: var(--palta-text-dark); /* Dark text in light mode */
+    box-shadow: 0 2px 14px rgba(52,58,64,0.09); /* Shadow for white nav */
+    border-bottom: 1px solid var(--palta-border); /* Border for white nav */
 }
-.navbar.dark-mode .navbar-nav .nav-link, .navbar.dark-mode .navbar-brand {
-    color: var(--palta-white); /* Nav links are white in dark mode */
-    fill: var(--palta-white);
+.navbar.light-bg .navbar-nav .nav-link, .navbar.light-bg .navbar-brand {
+    color: var(--palta-text-dark); /* Nav links are dark in light mode */
+    fill: var(--palta-text-dark);
 }
-.navbar.dark-mode .navbar-brand img {
-    filter: brightness(0) invert(1); /* Invert to make dark logo white */
+.navbar.light-bg .navbar-brand img {
+    filter: none; /* No filter on dark logo in light mode */
 }
 
-.navbar.dark-mode .btn-primary {
+.navbar.light-bg .btn-primary {
     background: var(--palta-accent-green); color: var(--palta-dark-bg);
     border: none;
 }
-.navbar.dark-mode .btn-primary:hover {
+.navbar.light-bg .btn-primary:hover {
     background: #D3E01E; color: var(--palta-dark-bg);
 }
-.navbar.dark-mode .btn-signin {
+.navbar.light-bg .btn-signin {
     background: transparent;
-    color: var(--palta-white); /* White text on dark nav */
-    border: 1.5px solid rgba(255,255,255,0.23); /* White border on dark nav */
+    color: var(--palta-text-dark); /* Dark text on light nav */
+    border: 1.5px solid var(--palta-border); /* Light border */
 }
-.navbar.dark-mode .btn-signin:hover, .navbar.dark-mode .btn-signin:focus {
-    background: rgba(255,255,255,0.15); /* More noticeable hover background */
-    color: var(--palta-accent-green); /* Accent color on hover */
+.navbar.light-bg .btn-signin:hover, .navbar.light-bg .btn-signin:focus {
+    background: var(--palta-bg-light); /* Light background on hover */
+    color: var(--palta-blue); /* Blue accent on hover */
     border-color: var(--palta-accent-green);
 }
 
 /* Hamburger icon color swap */
-.navbar:not(.dark-mode) .navbar-toggler { /* Default (light) navbar icon is dark */
-    --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2852,58,64,1%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-}
-.navbar.dark-mode .navbar-toggler { /* Dark mode navbar icon is white */
+.navbar:not(.light-bg) .navbar-toggler { /* Default (blue) navbar icon is white */
     --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255,255,255,1%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+.navbar.light-bg .navbar-toggler { /* Light mode navbar icon is dark */
+    --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2852,58,64,1%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 .navbar .navbar-toggler {
     border-color: transparent;
@@ -224,17 +228,16 @@ section {
 
 
 /* --- HERO SECTION + MODERN FORM --- */
-.hero { padding: 120px 20px; border-radius: 0; margin-bottom: 20px;}
 .hero .container { padding: 0 50px;}
 .hero h1, .display-4 {
     font-size: 3.2em;
-    color: var(--palta-text-dark); /* Hero text is now dark */
+    color: var(--palta-white); /* Hero text is now white */
     margin-bottom: 16px;
     font-weight: 800; line-height: 1.1; letter-spacing: -0.03em;
 }
 .hero p, .hero .lead {
     font-size: 1.15em;
-    color: var(--palta-text-medium); /* Hero lead text adjusted */
+    color: rgba(255,255,255,0.9); /* Hero lead text adjusted for blue background */
     margin-bottom: 24px;
     max-width: 600px; font-weight: 400;
 }
@@ -251,15 +254,15 @@ section {
 }
 .hero-form-modern-input {
     border-radius: 12px 0 0 12px;
-    border: 1px solid var(--palta-border); /* Border for light input */
+    border: 1px solid rgba(255,255,255,0.3); /* Border for input on blue */
     padding: 0 24px;
     font-size: 1.05em;
     height: 56px;
-    background: var(--palta-bg-light); /* Light background for input */
-    color: var(--palta-text-dark);
+    background: rgba(255,255,255,0.1); /* Background for input on blue */
+    color: var(--palta-white); /* Text color for input on blue */
     min-width: 0;
     flex: 1 1 0%;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2); /* Shadow for input on blue */
     outline: none;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
@@ -268,7 +271,7 @@ section {
     box-shadow: 0 0 0 3px rgba(228, 242, 35, 0.3);
 }
 .hero-form-modern-input::placeholder {
-    color: var(--palta-text-medium); /* Placeholder color for light input */
+    color: rgba(255,255,255,0.7); /* Placeholder color for input on blue */
     font-weight: 500;
     opacity: 1;
 }
@@ -318,7 +321,7 @@ section {
 }
 .hero-image img, .img-fluid {
     max-width: 90%; height: auto; border-radius: 12px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.1); /* Lighter shadow for light background */
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3); /* Darker shadow for blue background */
     background: transparent;
 }
 
