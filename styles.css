@@ -3,11 +3,10 @@
     --palta-accent-green: #E4F223;
     --palta-text-dark: #343A40;
     --palta-text-medium: #6C757D;
-    --palta-bg-light: #F8F9FA;
+    --palta-bg-light: #F8F9FA; /* Light gray for sections */
     --palta-white: #FFFFFF;
     --palta-border: #DEE2E6;
-    --palta-dark-bg: #1A202C;
-    /* Bootstrap overrides - prefer using custom classes or targeted styles */
+    --palta-dark-bg: #1A202C; /* Dark background for hero and footer */
     --bs-primary: #00707F;
     --bs-primary-rgb: 0,112,127;
     --bs-btn-bg: #E4F223;
@@ -26,7 +25,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color: var(--palta-text-dark);
+    color: var(--palta-text-dark); /* Default body text color */
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -72,13 +71,13 @@ input::-ms-selection, textarea::-ms-selection {
 }
 
 /* --- SECTION BACKGROUNDS --- */
-.hero { background: var(--palta-dark-bg); color: var(--palta-white); padding-bottom: 70px;}
-.stats-section, #features, #integrations, .why-love-palta { background: var(--palta-white); }
-#how-it-works { background: var(--palta-bg-light); color: var(--palta-text-dark); }
+.hero { background: var(--palta-dark-bg); color: var(--palta-white); padding-bottom: 70px;} /* Hero remains dark */
+.stats-section, #features, #integrations, .why-love-palta { background: var(--palta-white); color: var(--palta-text-dark); } /* These sections are white */
+#how-it-works { background: var(--palta-bg-light); color: var(--palta-text-dark); } /* This section is light gray */
 #how-it-works .section-title, #how-it-works h2, #how-it-works h4, #how-it-works p, #how-it-works ul, #how-it-works li {
-    color: var(--palta-text-dark);
+    color: var(--palta-text-dark); /* Ensure text is dark on light gray */
 }
-.call-to-action { background: #1A1919; color: var(--palta-white); padding-top: 70px; padding-bottom: 70px;}
+.call-to-action { background: #1A1919; color: var(--palta-white); padding-top: 70px; padding-bottom: 70px;} /* CTA remains dark */
 /* Consolidate transparent background rule */
 section {
     box-shadow: none; border: none;
@@ -146,8 +145,8 @@ section {
     transform: translateY(-1px);
 }
 
-/* Navbar DARK MODE (Applies when over Hero) */
-.navbar.dark-mode { /* New class for dark mode */
+/* Navbar DARK MODE (Applies when over Hero or other dark sections) */
+.navbar.dark-mode { /* Class for dark mode */
     background: var(--palta-dark-bg); 
     color: var(--palta-white);
     box-shadow: 0 2px 16px 0 rgba(30, 30, 30, 0.10);
@@ -157,7 +156,9 @@ section {
     color: var(--palta-white); /* Nav links are white in dark mode */
     fill: var(--palta-white);
 }
-.navbar.dark-mode .navbar-brand img { filter: none; } /* Ensure no filter on white logo */
+.navbar.dark-mode .navbar-brand img { 
+    filter: brightness(0) invert(1); /* Invert to make dark logo white */
+}
 
 .navbar.dark-mode .btn-primary {
     background: var(--palta-accent-green); color: var(--palta-dark-bg);
@@ -177,7 +178,7 @@ section {
     border-color: var(--palta-accent-green);
 }
 
-/* Hamburger icon color swap (consolidated) */
+/* Hamburger icon color swap */
 .navbar:not(.dark-mode) .navbar-toggler { /* Default (light) navbar icon is dark */
     --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2852,58,64,1%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
@@ -398,10 +399,9 @@ footer .list-inline-item a:hover { color: var(--palta-accent-green);}
 
 /* Consolidated and simplified global resets - removed many !important */
 /* General element styling cleanup (less specific selectors now) */
-.navbar, .hero, .stats-section, .section, .why-love-palta, .call-to-action, footer,
-.bg-white, .bg-light, .shadow, .shadow-sm, .shadow-lg, main {
+.navbar, .hero, .stats-section, .section, .why-love-palta, .call-to-action, footer, main {
     box-shadow: none;
     border: none;
 }
 /* Remove background gradient Bootstrap sometimes adds to navbars */
-.navbar, .bg-white, .bg-light { background-image: none; }
+.navbar { background-image: none; }
