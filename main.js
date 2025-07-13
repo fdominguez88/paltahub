@@ -1,28 +1,28 @@
 // main.js
 document.addEventListener('DOMContentLoaded', function() {
-    // --- Modal logic unchanged and robust ---
+    // --- Modal logic (unchanged, assuming a modal element is added later) ---
+    // You would typically define the modal HTML in index.html for this to work.
+    // For now, these listeners will simply not fire if #booking-modal doesn't exist.
     document.querySelectorAll('.cta-button, .btn-primary').forEach(btn => {
         btn.addEventListener('click', function(e) {
             var modal = document.getElementById('booking-modal');
             if (modal) {
-                e.preventDefault(); // Prevent default link/form submission
-                modal.style.display = 'flex'; // Show the modal
-                document.body.style.overflow = 'hidden'; // Prevent scrolling body when modal is open
+                e.preventDefault();
+                modal.style.display = 'flex'; // Assuming flex for centered modal
+                document.body.style.overflow = 'hidden';
             }
         });
     });
 
     var bookingModal = document.getElementById('booking-modal');
     if (bookingModal) {
-        // Close modal when clicking outside content
         bookingModal.addEventListener('click', function(e) {
-            if (e.target === this) {
+            if (e.target === this) { // Check if the click was directly on the modal overlay
                 this.style.display = 'none';
-                document.body.style.overflow = ''; // Restore body scrolling
+                document.body.style.overflow = ''; // Restore scroll
             }
         });
 
-        // Close modal on Escape key press
         document.addEventListener('keydown', function(e) {
             if (e.key === "Escape" && bookingModal.style.display === 'flex') {
                 bookingModal.style.display = 'none';
@@ -31,45 +31,52 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // --- Glass navbar & logo swap on scroll ---
+    // --- Navbar background and logo swap on scroll ---
     var navbar = document.querySelector('.navbar');
     var hero = document.querySelector('.hero');
     var logoImg = navbar ? navbar.querySelector('.navbar-brand img') : null;
 
-    // These are your actual logo URLs from your HTML
+    // Define your logo URLs clearly
     var logoWhiteUrl = "https://i.postimg.cc/mZcC64jS/palta-hub-logo-white-transparent.png";
     var logoDarkUrl = "https://i.postimg.cc/Fzy2TNc9/palta-hub-logo-transparent.png"; 
 
-    if (navbar && hero) {
-        // Helper function to calculate the bottom edge of the hero section
-        function heroEnd() {
-            var rect = hero.getBoundingClientRect();
-            // rect.bottom is relative to viewport. Add window.scrollY to get absolute document position.
-            return rect.bottom + window.scrollY;
+    if (navbar && hero && logoImg) { // Ensure all elements exist before adding listeners
+        // Function to calculate the point where the navbar should change
+        function getSwitchPoint() {
+            // The point where the navbar should change is when its bottom edge
+            // aligns with the bottom edge of the hero section.
+            // Consider the navbar's height so the change happens *after* it leaves the hero.
+            const heroRect = hero.getBoundingClientRect();
+            // Calculate absolute position of the bottom of the hero section
+            // This is safer than window.scrollY + rect.bottom which can be less precise
+            return heroRect.bottom + window.scrollY - navbar.offsetHeight; 
         }
 
-        // Function to update navbar style based on scroll position
+        // Function to update the navbar state
         function updateNavbar() {
-            // The point at which the navbar should switch from dark to light background
-            // This is the bottom of the hero section minus the height of the navbar itself
-            var switchPoint = heroEnd() - navbar.offsetHeight;
+            const currentScrollPos = window.scrollY;
+            const switchPoint = getSwitchPoint();
 
-            if (window.scrollY < switchPoint) {
-                // If scroll position is above the switch point (still over hero)
+            if (currentScrollPos < switchPoint) {
+                // Navbar is over the hero section (or before the switch point)
                 navbar.classList.remove('light-bg');
-                if (logoImg) logoImg.src = logoWhiteUrl; // Show white logo
+                if (logoImg.src !== logoWhiteUrl) { // Only change if different
+                    logoImg.src = logoWhiteUrl;
+                }
             } else {
-                // If scroll position is below the switch point (over light background)
+                // Navbar has scrolled past the hero section
                 navbar.classList.add('light-bg');
-                if (logoImg) logoImg.src = logoDarkUrl; // Show dark logo
+                if (logoImg.src !== logoDarkUrl) { // Only change if different
+                    logoImg.src = logoDarkUrl;
+                }
             }
         }
 
-        // Initial check when the page loads
+        // Initial call to set the correct state on load
         updateNavbar();
-        // Update navbar on scroll
+
+        // Add event listeners for scroll and resize
         window.addEventListener('scroll', updateNavbar);
-        // Update navbar on window resize (important for recalculating heroEnd and navbar.offsetHeight)
         window.addEventListener('resize', updateNavbar);
     }
 });
