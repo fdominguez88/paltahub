@@ -198,13 +198,26 @@ section:not(.stats-section):not(#features):not(#how-it-works):not(#integrations)
     color: #0C0A08 !important;
 }
 @media (max-width: 600px) {
+    .hero {
+        padding: 80px 15px; /* Adjust hero padding for smaller screens */
+    }
+
+    .hero h1, .display-4 {
+        font-size: 2.2em !important; /* Slightly smaller font for the heading on mobile */
+    }
+
+    .hero .container {
+        padding: 0 15px; /* Adjust container padding */
+    }
+
     .hero-form-modern {
         flex-direction: column;
         align-items: stretch;
-        gap: 12px;
+        gap: 14px; /* Increased gap for better spacing between input and button */
         width: 100%;
         max-width: 100%;
     }
+
     .hero-form-modern-input,
     .hero-form-modern-btn {
         width: 100%;
@@ -212,15 +225,18 @@ section:not(.stats-section):not(#features):not(#how-it-works):not(#integrations)
         max-width: 100%;
         box-sizing: border-box;
         border-radius: 11px !important;
-        height: 54px !important; /* Updated height for responsive view */
-        font-size: 1.08em !important;
+        height: 58px !important; /* Unified and slightly increased height for a better tap target */
+        font-size: 1.02em !important; /* Adjusted font size for readability */
     }
+
+    .hero-form-modern-input {
+        text-align: center; /* Center placeholder text for a cleaner look */
+    }
+
     .hero-form-modern-btn {
         margin-top: 0;
+        padding: 0 20px !important; /* Ensure consistent padding */
     }
-}
-.hero-image img, .img-fluid {
-    max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
 /* --- STATS SECTION --- */
