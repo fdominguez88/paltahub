@@ -67,6 +67,16 @@ section:not(.stats-section):not(#features):not(#how-it-works):not(#integrations)
     background: transparent !important;
 }
 
+/* --- FIX FOR INTEGRATION ICONS --- */
+#integrations .integration-icon {
+    max-width: 70px !important;
+    max-height: 70px !important;
+    height: auto;
+    box-shadow: none !important; /* Removes unwanted shadow */
+    margin: 15px; /* Adds some space around icons */
+}
+
+
 /* --- NAVBAR --- */
 .navbar, nav.navbar {
     position: fixed;
@@ -258,4 +268,8 @@ section:not(.stats-section):not(#features):not(#how-it-works):not(#integrations)
 .stat-item h3 {
     font-size: 2.4em;
     color: var(--palta-dark);
+}
+
+.hero-image img, .img-fluid {
+    max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
