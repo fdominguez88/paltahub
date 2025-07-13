@@ -31,12 +31,8 @@ body {
 
 /* Navbar & CTAs */
 .navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-  background: var(--palta-dark-bg);
-  transition: background .3s;
+  position: fixed; top: 0; width: 100%; z-index: 1000;
+  background: var(--palta-dark-bg); transition: background .3s;
 }
 .navbar.light-bg { background: rgba(255,255,255,0.97); }
 .navbar .nav-link,
@@ -63,9 +59,6 @@ body {
 .navbar.light-bg .btn-primary {
   color: var(--palta-text-dark) !important;
 }
-.navbar.light-bg .btn-primary {
-  background-color: var(--palta-accent-green) !important;
-}
 .navbar.light-bg .btn-primary:hover {
   background-color: #F5FF77 !important;
   color: #0D0A08 !important;
@@ -78,97 +71,65 @@ body {
   filter: none;
 }
 
-/* Hero & Form */
+/* Hero & Forms */
 .hero {
-  background: var(--palta-dark-bg);
-  color: var(--palta-white);
+  background: var(--palta-dark-bg); color: var(--palta-white);
   padding: 6rem 1rem 4rem;
 }
 .hero h1 {
-  font-size: 2.5rem;
-  font-weight: 800;
-  line-height: 1.1;
+  font-size: 2.5rem; font-weight: 800; line-height: 1.1;
 }
 .hero p.lead {
-  font-size: 1.125rem;
-  opacity: .8;
+  font-size: 1.125rem; opacity: .8;
 }
 .hero-form-modern {
-  display: flex;
-  gap: 0;
-  max-width: 600px;
-  margin-top: 1rem;
+  display: flex; gap: 0; max-width: 600px; margin-top: 1rem;
 }
 .hero-form-modern-input {
-  flex: 3;
-  border: none;
-  border-radius: .75rem 0 0 .75rem;
-  padding: 0 1rem;
-  font-size: 1rem;
-  height: 60px;
+  flex: 3; border: none; border-radius: .75rem 0 0 .75rem;
+  padding: 0 1rem; font-size: 1rem; height: 60px;
 }
 .hero-form-modern-btn {
-  flex: 1;
-  min-width: 250px;
-  border: none;
-  border-radius: 0 .75rem .75rem 0;
-  padding: 0 1.5rem;
-  font-size: 1rem;
-  font-weight: 600;
-  background: var(--palta-accent-green);
-  height: 60px;
+  flex: 1; min-width: 250px; border: none;
+  border-radius: 0 .75rem .75rem 0; padding: 0 1.5rem;
+  font-size: 1rem; font-weight: 600;
+  background: var(--palta-accent-green); height: 60px;
   transition: background .2s;
 }
 .hero-form-modern-btn:hover {
-  background: #F5FF77 !important;
-  color: #0D0A08 !important;
+  background: #F5FF77 !important; color: #0D0A08 !important;
 }
 
-/* New Responsive Form Replacement */
+/* Mobile form */
 .hero-form-responsive {
   display: none;
 }
 @media (max-width: 576px) {
-  /* Hide original on mobile */
-  .hero-form-modern {
-    display: none !important;
-  }
-  /* Show responsive version */
+  .hero-form-modern { display: none !important; }
   .hero-form-responsive {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    max-width: 100%;
-    margin-top: 1rem;
+    display: flex; flex-direction: column; gap: 12px;
+    max-width: 100%; margin-top: 1rem;
   }
   .hero-form-responsive input,
   .hero-form-responsive button {
-    height: 80px;
-    width: 100%;
-    border-radius: .75rem;
-    font-size: 1rem;
-    border: none;
-    padding: 0 1rem;
+    height: 50px !important; width: 100%; border-radius: .75rem;
+    font-size: 1rem; border: none; padding: 0 1rem;
   }
   .hero-form-responsive button {
-    background: var(--palta-accent-green);
-    color: var(--palta-text-dark);
+    background: var(--palta-accent-green); color: var(--palta-text-dark);
     transition: background .2s;
   }
   .hero-form-responsive button:hover {
-    background: #F5FF77;
-    color: #0D0A08;
+    background: #F5FF77; color: #0D0A08;
   }
 }
 
 /* Stats Section */
 .stats-section {
-  padding: 2rem 0;
-  background: var(--palta-white);
+  padding: 2rem 0; background: var(--palta-white);
 }
 .stat-item h3 {
-  font-size: 2.4rem;
-  color: var(--palta-dark-bg);
+  font-size: 2.4rem; color: var(--palta-dark-bg);
 }
 .stat-item p {
   color: var(--palta-text-medium);
@@ -176,76 +137,59 @@ body {
 
 /* Features & How It Works */
 .section-title {
-  font-size: 2.3rem;
-  font-weight: 800;
-  margin-bottom: 2rem;
+  font-size: 2.3rem; font-weight: 800; margin-bottom: 2rem;
 }
-.feature-card, .how-it-works-item {
+.feature-card,
+.how-it-works-item {
   background: var(--palta-white);
   border: 1px solid var(--palta-border);
-  border-radius: .75rem;
-  padding: 1.5rem;
+  border-radius: .75rem; padding: 1.5rem;
   transition: transform .3s;
 }
-.feature-card:hover, .how-it-works-item:hover {
+.feature-card:hover,
+.how-it-works-item:hover {
   transform: translateY(-5px);
 }
 
 /* Integrations */
 .integrations-grid {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
-  background: var(--palta-white);
+  display: flex; justify-content: center; gap: 2rem;
+  flex-wrap: wrap; background: var(--palta-white);
 }
 .integration-logo {
-  height: 40px;
-  max-width: 80px;
-  object-fit: contain;
-  filter: grayscale(40%);
-  transition: all .2s;
+  height: 40px; max-width: 80px; object-fit: contain;
+  filter: grayscale(40%); transition: all .2s;
 }
 .integration-logo:hover {
-  filter: none;
-  transform: scale(1.05);
+  filter: none; transform: scale(1.05);
 }
 
 /* Why Teams Love Palta Hub */
 .why-love-palta {
-  background: var(--palta-white);
-  padding: 3rem 1rem;
+  background: var(--palta-white); padding: 3rem 1rem;
 }
 .love-point {
-  margin-bottom: 1rem;
-  line-height: 1.4;
+  margin-bottom: 1rem; line-height: 1.4;
 }
 
-/* Final Call to Action */
+/* Call to Action */
 .call-to-action {
-  background: var(--palta-dark-bg);
-  color: var(--palta-white);
-  padding: 3rem 1rem;
-  text-align: center;
+  background: var(--palta-dark-bg); color: var(--palta-white);
+  padding: 3rem 1rem; text-align: center;
 }
 .cta-button {
-  background: var(--palta-accent-green);
-  color: var(--palta-text-dark);
-  padding: .75rem 1.5rem;
-  border-radius: .75rem;
+  background: var(--palta-accent-green); color: var(--palta-text-dark);
+  padding: .75rem 1.5rem; border-radius: .75rem;
   transition: background .2s;
 }
 .cta-button:hover {
-  background: #F5FF77 !important;
-  color: #0D0A08 !important;
+  background: #F5FF77 !important; color: #0D0A08 !important;
 }
 
 /* Footer */
 footer {
-  background: var(--palta-dark-bg);
-  color: var(--palta-white);
-  padding: 2rem 1rem;
-  text-align: center;
+  background: var(--palta-dark-bg); color: var(--palta-white);
+  padding: 2rem 1rem; text-align: center;
 }
 footer a {
   color: rgba(255,255,255,0.6);
@@ -254,44 +198,56 @@ footer a:hover {
   color: var(--palta-accent-green);
 }
 
-/* Responsive */
-$1
-
-/* Mobile collapse side-sheet menu */
-.navbar-close { display: none; }
+/* == MOBILE MENU SHEET == */
 @media (max-width: 576px) {
-  /* Show close only on mobile */
-  .navbar-close { display: block; }
+  /* Hide hamburger when menu open */
+  .navbar-toggler[aria-expanded="true"] { display: none; }
+
+  /* White slide-in panel */
   .navbar-collapse {
-    background: #FFFFFF;
+    background: #fff;
     position: absolute;
-    top: 56px; /* below navbar */
+    top: 56px;
     left: 0;
     width: 100%;
-    height: auto;
-    max-height: none;
-    padding: 1rem 1.5rem;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    max-height: calc(100vh - 56px);
     overflow-y: auto;
-    z-index: 1050;
+    padding: 1.5rem;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    z-index: 1040;
   }
-  /* Hide Book a Demo in mobile menu */
-  .navbar-collapse .btn-primary {
-    display: none !important;
+
+  /* Dark blurred backdrop */
+  body.menu-open::before {
+    content: "";
+    position: fixed;
+    top: 56px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 56px);
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(4px);
+    z-index: 1030;
   }
-  /* Nav links style */
+
+  /* Show close icon */
+  .navbar-close {
+    display: block;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: var(--palta-text-dark);
+  }
+
+  /* Nav links in sheet */
   .navbar-collapse .nav-link {
     color: var(--palta-text-dark) !important;
-    padding: .75rem 0 !important;
+    padding: .75rem 0;
     font-weight: 600;
   }
-  /* Remove focus outlines */
-  .navbar .btn-primary,
-  .cta-button,
-  .hero-form-responsive button,
-  .hero-form-modern-btn {
-    outline: none !important;
-    box-shadow: none !important;
-    border: none !important;
+
+  /* Hide Book a Demo */
+  .navbar-collapse .btn-primary {
+    display: none !important;
   }
 }
