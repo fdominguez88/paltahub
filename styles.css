@@ -1,5 +1,5 @@
 :root {
-    --palta-blue: #1A202C;
+    --palta-blue: #00707F;
     --palta-accent-green: #E4F223;
     --palta-text-dark: #343A40;
     --palta-text-medium: #6C757D;
@@ -18,19 +18,19 @@
 html, body {
     height: 100%;
     min-height: 100vh;
-    background: var(--palta-blue); /* Body is now blue */
+    background: var(--palta-dark-bg); /* Body is dark-bg */
 }
 body {
     font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color: var(--palta-white); /* Default body text color for blue background */
+    color: var(--palta-white); /* Default body text color for dark background */
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     padding-top: 60px; /* Adjust based on navbar height if needed */
-    background: var(--palta-blue); /* Body is now blue */
+    background: var(--palta-dark-bg); /* Body is dark-bg */
 }
 
 /* Visually hidden class for accessibility */
@@ -69,12 +69,12 @@ input::-ms-selection, textarea::-ms-selection {
 
 /* --- SECTION BACKGROUNDS --- */
 .hero {
-    background: var(--palta-blue); /* Hero is now blue */
-    color: var(--palta-white); /* Hero text for blue background */
+    background: var(--palta-dark-bg); /* Hero is dark-bg */
+    color: var(--palta-white); /* Hero text for dark-bg background */
     padding-bottom: 70px;
 }
 .stats-section { background: var(--palta-white); color: var(--palta-text-dark); }
-#features { background: var(--palta-dark-bg); color: var(--palta-white); } /* Features section is dark */
+#features { background: var(--palta-dark-bg); color: var(--palta-white); } /* Features section is already dark */
 #features .section-title, #features h1, #features .feature-subtitle, #features p {
     color: var(--palta-white); /* Ensure text is white on dark features section */
 }
@@ -87,7 +87,7 @@ input::-ms-selection, textarea::-ms-selection {
     color: var(--palta-text-dark); /* Text on feature cards is dark */
 }
 
-#how-it-works { background: var(--palta-blue); color: var(--palta-white); } /* How it Works is blue with white text */
+#how-it-works { background: var(--palta-dark-bg); color: var(--palta-white); } /* How it Works is now dark-bg with white text */
 #how-it-works .section-title, #how-it-works h2, #how-it-works h4, #how-it-works p, #how-it-works ul, #how-it-works li {
     color: var(--palta-white);
 }
@@ -103,31 +103,42 @@ input::-ms-selection, textarea::-ms-selection {
 #integrations { background: var(--palta-white); color: var(--palta-text-dark); }
 #integrations .section-title, #integrations p { color: var(--palta-text-dark); }
 
-.why-love-palta { background: var(--palta-white); color: var(--palta-text-dark); }
-.why-love-palta h2 { color: var(--palta-text-dark); }
-.love-point { background: var(--palta-bg-light); color: var(--palta-text-dark); }
+.why-love-palta { background: var(--palta-white); padding: 4.5rem 1rem; margin: 32px auto; border-radius: 0; box-shadow: 0 8px 25px rgba(0,0,0,0.06); text-align: center;}
+.why-love-palta h2, .why-love-palta .section-title { color: var(--palta-text-dark); font-size: 2.2em; font-weight: 800;}
+.love-points { list-style: none; padding: 0; margin: 0 auto; max-width: 720px; display: flex; flex-direction: column; gap: 24px;}
+.love-point { background: var(--palta-bg-light); padding: 25px 28px; border-radius: 12px; text-align: left; font-size: 1.08em; color: var(--palta-text-dark); display: flex; align-items: center; gap: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: relative; padding-left: 55px;}
+.love-point::before { content: '✓'; position: absolute; left: 20px; color: var(--palta-accent-green); font-weight: bold; font-size: 1.3em; line-height: 1; top: 22px; }
 
-.call-to-action { background: #1A1919; color: var(--palta-white); padding-top: 70px; padding-bottom: 70px;}
-.call-to-action h2, .call-to-action p { color: var(--palta-white); }
-
-footer { background: var(--palta-dark-bg); color: var(--palta-white); }
-footer .list-inline-item a { color: rgba(255,255,255,0.7); }
-footer .footer-copyright { color: rgba(255,255,255,0.55); }
-
-/* Consolidate transparent background rule */
-section {
-    box-shadow: none; border: none;
-    margin-top: 0; margin-bottom: 0; padding-top: unset; padding-bottom: unset;
+.call-to-action { background: var(--palta-dark-bg); color: var(--palta-white); border-radius: 0; margin: 0; padding: 4rem 1rem; box-shadow: none;} /* Call to action is now dark-bg */
+.call-to-action h2 { font-size: 2.4em; color: var(--palta-white); font-weight: 800;}
+.call-to-action p { font-size: 1.1em; color: rgba(255,255,255,0.95); margin-bottom: 40px;}
+.call-to-action .btn-primary {
+    background: var(--palta-accent-green); color: var(--palta-dark-bg); border-radius: 10px;
+    font-size: 1.05em; padding: 12px 30px;
+    font-weight: 600; box-shadow: none; letter-spacing: 0.01em; border: none;
+    transition: background 0.2s ease, transform 0.1s ease; display: inline-block;
 }
+.call-to-action .btn-primary:hover { background: #D3E01E; color: var(--palta-dark-bg); transform: translateY(-2px);}
 
-/* --- NAVBAR (DEFAULT - BLUE THEME) --- */
+footer {
+    background: var(--palta-dark-bg);
+    color: var(--palta-white);
+    padding: 2.5rem 1rem;
+    border: none; box-shadow: none;
+}
+footer .logo img { height: 35px; filter: brightness(0) invert(1);}
+footer .list-inline-item a { color: rgba(255,255,255,0.7); font-weight: 500; text-decoration: none; transition: color 0.2s ease;}
+footer .list-inline-item a:hover { color: var(--palta-accent-green);}
+.footer-copyright { color: rgba(255,255,255,0.55); font-size: 0.98em; margin-top: 15px;}
+
+/* --- NAVBAR (DEFAULT - DARK THEME) --- */
 .navbar {
     position: fixed;
     top: 0; left: 0; width: 100%; z-index: 999;
-    background: var(--palta-blue); /* Default is blue */
+    background: var(--palta-dark-bg); /* Default is dark-bg */
     color: var(--palta-white); /* Default text is white */
-    box-shadow: 0 2px 14px rgba(0,0,0,0.2); /* Shadow for blue nav */
-    border-bottom: 1px solid rgba(255,255,255,0.1); /* Border for blue nav */
+    box-shadow: 0 2px 14px rgba(0,0,0,0.2); /* Shadow for dark nav */
+    border-bottom: 1px solid rgba(255,255,255,0.1); /* Border for dark nav */
     transition: background 0.3s ease, box-shadow 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 .navbar .navbar-nav .nav-link, .navbar .navbar-brand {
@@ -140,10 +151,10 @@ section {
 .navbar .navbar-brand img {
     height: 38px;
     transition: filter 0.22s ease;
-    filter: brightness(0) invert(1); /* Invert to make dark logo white on blue */
+    filter: brightness(0) invert(1); /* Invert to make dark logo white on dark */
 }
 
-/* Primary CTA Button in Navbar (Book a Demo) - for blue navbar */
+/* Primary CTA Button in Navbar (Book a Demo) - for dark navbar */
 .navbar .btn-primary {
     font-size: 0.89em; padding: 8px 20px;
     font-weight: 600; border-radius: 8px;
@@ -157,11 +168,11 @@ section {
     transform: translateY(-1px);
 }
 
-/* Sign In Button in Navbar - for blue navbar */
+/* Sign In Button in Navbar - for dark navbar */
 .btn-signin {
     background: transparent;
-    color: var(--palta-white); /* White text on blue nav */
-    border: 1.5px solid rgba(255,255,255,0.23); /* White border on blue nav */
+    color: var(--palta-white); /* White text on dark nav */
+    border: 1.5px solid rgba(255,255,255,0.23); /* White border on dark nav */
     font-weight: 500;
     font-size: 0.89em;
     padding: 8px 20px;
@@ -214,7 +225,7 @@ section {
 }
 
 /* Hamburger icon color swap */
-.navbar:not(.light-bg) .navbar-toggler { /* Default (blue) navbar icon is white */
+.navbar:not(.light-bg) .navbar-toggler { /* Default (dark) navbar icon is white */
     --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255,255,255,1%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 .navbar.light-bg .navbar-toggler { /* Light mode navbar icon is dark */
@@ -231,13 +242,13 @@ section {
 .hero .container { padding: 0 50px;}
 .hero h1, .display-4 {
     font-size: 3.2em;
-    color: var(--palta-white); /* Hero text is now white */
+    color: var(--palta-white); /* Hero text is white */
     margin-bottom: 16px;
     font-weight: 800; line-height: 1.1; letter-spacing: -0.03em;
 }
 .hero p, .hero .lead {
     font-size: 1.15em;
-    color: rgba(255,255,255,0.9); /* Hero lead text adjusted for blue background */
+    color: rgba(255,255,255,0.9); /* Hero lead text adjusted for dark background */
     margin-bottom: 24px;
     max-width: 600px; font-weight: 400;
 }
@@ -254,15 +265,15 @@ section {
 }
 .hero-form-modern-input {
     border-radius: 12px 0 0 12px;
-    border: 1px solid rgba(255,255,255,0.3); /* Border for input on blue */
+    border: 1px solid rgba(255,255,255,0.3); /* Border for input on dark */
     padding: 0 24px;
     font-size: 1.05em;
     height: 56px;
-    background: rgba(255,255,255,0.1); /* Background for input on blue */
-    color: var(--palta-white); /* Text color for input on blue */
+    background: rgba(255,255,255,0.1); /* Background for input on dark */
+    color: var(--palta-white); /* Text color for input on dark */
     min-width: 0;
     flex: 1 1 0%;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2); /* Shadow for input on blue */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2); /* Shadow for input on dark */
     outline: none;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
@@ -271,7 +282,7 @@ section {
     box-shadow: 0 0 0 3px rgba(228, 242, 35, 0.3);
 }
 .hero-form-modern-input::placeholder {
-    color: rgba(255,255,255,0.7); /* Placeholder color for input on blue */
+    color: rgba(255,255,255,0.7); /* Placeholder color for input on dark */
     font-weight: 500;
     opacity: 1;
 }
@@ -321,7 +332,7 @@ section {
 }
 .hero-image img, .img-fluid {
     max-width: 90%; height: auto; border-radius: 12px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.3); /* Darker shadow for blue background */
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3); /* Darker shadow for dark background */
     background: transparent;
 }
 
@@ -371,7 +382,7 @@ section {
 .love-point { background: var(--palta-bg-light); padding: 25px 28px; border-radius: 12px; text-align: left; font-size: 1.08em; color: var(--palta-text-dark); display: flex; align-items: center; gap: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: relative; padding-left: 55px;}
 .love-point::before { content: '✓'; position: absolute; left: 20px; color: var(--palta-accent-green); font-weight: bold; font-size: 1.3em; line-height: 1; top: 22px; }
 
-.call-to-action { background: #1A1919; color: var(--palta-white); border-radius: 0; margin: 0; padding: 4rem 1rem; box-shadow: none;}
+.call-to-action { background: var(--palta-dark-bg); color: var(--palta-white); border-radius: 0; margin: 0; padding: 4rem 1rem; box-shadow: none;}
 .call-to-action h2 { font-size: 2.4em; color: var(--palta-white); font-weight: 800;}
 .call-to-action p { font-size: 1.1em; color: rgba(255,255,255,0.95); margin-bottom: 40px;}
 .call-to-action .btn-primary {
@@ -436,7 +447,7 @@ footer .list-inline-item a:hover { color: var(--palta-accent-green);}
 
 /* Consolidated and simplified global resets - removed many !important */
 /* General element styling cleanup (less specific selectors now) */
-.navbar, .hero, .stats-section, .section, .why-love-palta, .call-to-action, footer, main {
+.navbar, .navbar.shadow-sm, .hero, .stats-section, .section, .why-love-palta, .call-to-action, footer, main {
     box-shadow: none;
     border: none;
 }
