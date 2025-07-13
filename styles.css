@@ -163,7 +163,7 @@ section:not(.stats-section):not(#features):not(#how-it-works):not(#integrations)
     border-right: none !important;
     padding: 0 20px !important;
     font-size: 1em !important;
-    height: 54px !important;
+    height: 65px !important; /* Increased height from 54px to 65px for non-responsive */
     background: #fff !important;
     color: #585858 !important;
     min-width: 0 !important;
@@ -212,7 +212,7 @@ section:not(.stats-section):not(#features):not(#how-it-works):not(#integrations)
         max-width: 100%;
         box-sizing: border-box;
         border-radius: 11px !important;
-        height: 54px !important;
+        height: 54px !important; /* Original height for responsive mode */
         font-size: 1.08em !important;
     }
     .hero-form-modern-btn {
@@ -309,3 +309,4 @@ section, .section, .stats-section, .why-love-palta, .call-to-action, footer {
 /* Remove background gradient Bootstrap sometimes adds to navbars */
 .navbar, .bg-white, .bg-light { background-image: none !important; }
 footer, footer.bg-dark { border: none !important; box-shadow: none !important; }
+}
