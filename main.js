@@ -1,16 +1,19 @@
 // IntersectionObserver for three-state navbar (transparent → frosted white → solid dark)
 document.addEventListener('DOMContentLoaded', () => {
-  const navbar    = document.querySelector('.navbar');
-  const logoImg   = navbar.querySelector('.navbar-brand img');
-  const hero      = document.querySelector('.hero');
-  const features  = document.getElementById('features');
+  const navbar = document.querySelector('.navbar');
+  if (!navbar) return;  // bail out if no navbar on page
+
+  const logoImg  = navbar.querySelector('.navbar-brand img');
+  const hero     = document.querySelector('.hero');
+  const features = document.getElementById('features');
   const logoWhite = 'https://i.postimg.cc/mZcC64jS/palta-hub-logo-white-transparent.png';
   const logoDark  = 'https://i.postimg.cc/Fzy2TNc9/palta-hub-logo-transparent.png';
 
-  if (navbar && hero && features) {
+  // Only proceed if we found our logo + at least one section to observe
+  if (logoImg && (hero || features)) {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        // 1) Transparent ↔ frosted-white toggle at hero boundary
+        // 1) Hero boundary: transparent ↔ frosted-white
         if (entry.target === hero) {
           if (entry.isIntersecting) {
             navbar.classList.remove('light-bg', 'dark-bg');
@@ -20,7 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
             logoImg.src = logoDark;
           }
         }
-        // 2) Frosted-white → solid-dark toggle at features boundary
+
+        // 2) Features boundary: frosted-white ↔ solid-dark
         if (entry.target === features) {
           if (entry.isIntersecting) {
             navbar.classList.add('dark-bg');
@@ -31,15 +35,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     }, {
-      rootMargin: `-${navbar.offsetHeight}px 0px 0px 0px`,
+      rootMargin: `-${navbar.offsetHeight}px 0 0 0`,
       threshold: 0
     });
 
-    observer.observe(hero);
-    observer.observe(features);
+    if (hero)     observer.observe(hero);
+    if (features) observer.observe(features);
   }
 
-  // Toggle mobile‐sheet backdrop blur
+  // Toggle mobile-sheet backdrop blur
   const collapseEl = document.getElementById('mainNavbar');
   if (collapseEl) {
     collapseEl.addEventListener('show.bs.collapse', () => {
