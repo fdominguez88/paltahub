@@ -251,3 +251,56 @@ footer a:hover {
     display: none !important;
   }
 }
+/* hide the close-× by default */
+.navbar-close {
+  display: none;
+}
+
+/* MOBILE only: show ×, hide hamburger, sheet + backdrop */
+@media (max-width: 576px) {
+  /* show the close icon in the sheet header */
+  .navbar-close {
+    display: inline-block;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: var(--palta-text-dark);
+  }
+
+  /* hide the hamburger toggler while expanded */
+  .navbar-toggler[aria-expanded="true"] {
+    display: none;
+  }
+
+  /* slide-down white sheet */
+  .navbar-collapse {
+    background: #fff;
+    position: absolute;
+    top: 56px;
+    left: 0;
+    width: 100%;
+    max-height: calc(100vh - 56px);
+    overflow-y: auto;
+    padding: 1.5rem;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    z-index: 1040;
+  }
+
+  /* blurred backdrop behind it */
+  body.menu-open::before {
+    content: "";
+    position: fixed;
+    top: 56px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 56px);
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(4px);
+    z-index: 1030;
+  }
+
+  /* hide desktop-only Book a Demo inside the sheet */
+  .navbar-collapse .btn-primary {
+    display: none !important;
+  }
+}
