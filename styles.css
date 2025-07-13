@@ -255,45 +255,40 @@ footer a:hover {
 }
 
 /* Responsive */
-@media (max-width: 992px) {
-  .navbar .btn-primary {
-    display: none;
-  }
-}
+$1
+
+/* Mobile collapse side-sheet menu */
 @media (max-width: 576px) {
-  /* 1) Full-screen white mobile menu */
   .navbar-collapse {
     background: #FFFFFF;
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 80%;
+    max-width: 320px;
     height: 100vh;
-    padding: 2rem;
+    padding: 1.5rem;
+    box-shadow: -4px 0 16px rgba(0,0,0,0.1);
     overflow-y: auto;
     z-index: 1050;
   }
-  .navbar-collapse .nav-link {
-    color: var(--palta-text-dark) !important;
-    padding: .75rem 0 !important;
-    font-weight: 600;
-  }
-  .navbar-collapse .btn-signin,
-  .navbar-collapse .btn-primary {
-    width: 100%;
-    margin-top: .5rem;
-    display: block;
-  }
-  /* optional: add a close icon on the toggler when open */
-  .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
-    background-image: none;
+  /* Close button */
+  .navbar-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
     font-size: 1.5rem;
+    background: none;
+    border: none;
     color: var(--palta-text-dark);
   }
-
-  /* Shorter responsive form & CTA */
-  .hero-form-responsive input,
-  .hero-form-responsive button {
-    height: 50px !important;
-    font-size: 1rem;
+  /* Remove blue focus/outline from CTAs */
+  .navbar .btn-primary,
+  .cta-button,
+  .hero-form-responsive button,
+  .hero-form-modern-btn {
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
   }
 }
