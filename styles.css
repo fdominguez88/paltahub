@@ -261,13 +261,14 @@ $1
 @media (max-width: 576px) {
   .navbar-collapse {
     background: #FFFFFF;
-    position: fixed;
-    top: 0;
+    position: absolute;
+    top: 56px; /* below navbar */
     right: 0;
-    width: 80%;
+    width: 100%;
     max-width: 320px;
-    height: 100vh;
-    padding: 1.5rem;
+    height: auto;
+    max-height: calc(100vh - 56px);
+    padding: 1rem 1.5rem;
     box-shadow: -4px 0 16px rgba(0,0,0,0.1);
     overflow-y: auto;
     z-index: 1050;
@@ -275,12 +276,17 @@ $1
   /* Close button */
   .navbar-close {
     position: absolute;
-    top: 1rem;
-    right: 1rem;
+    top: 0.75rem;
+    right: 0.75rem;
     font-size: 1.5rem;
     background: none;
     border: none;
     color: var(--palta-text-dark);
+    z-index: 1060;
+  }
+  /* Hide Book a Demo in mobile menu */
+  .navbar-collapse .btn-primary {
+    display: none !important;
   }
   /* Remove blue focus/outline from CTAs */
   .navbar .btn-primary,
