@@ -130,13 +130,6 @@ body {
   .hero-form-modern-input,
   .hero-form-modern-btn {
     width: 100%;
-    height: 70px !important; /* increased for better tap targets */
-    border-radius: .75rem;
-  }
-}
-  .hero-form-modern-input,
-  .hero-form-modern-btn {
-    width: 100%;
     height: 60px !important;
     border-radius: .75rem;
   }
