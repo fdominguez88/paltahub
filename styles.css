@@ -241,3 +241,9 @@ footer a:hover {
     display: none;
   }
 }
+@media (max-width: 576px) {
+  .hero-form-modern-input,
+  .hero-form-modern-btn {
+    height: 70px !important;  /* bump tap‐target height */
+  }
+}
