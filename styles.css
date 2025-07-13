@@ -107,8 +107,9 @@ body {
   background: var(--palta-accent-green);
   transition: background .2s;
 }
-.hero-form-modern-btn:hover {
-  background: #D3E01E;
+.cta-button:hover {
+  background: #F5FF77;
+  color: #0D0A08;
 }
 @media (max-width: 576px) {
   .hero-form-modern {
