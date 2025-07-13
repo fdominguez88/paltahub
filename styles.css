@@ -258,37 +258,34 @@ footer a:hover {
 $1
 
 /* Mobile collapse side-sheet menu */
+.navbar-close { display: none; }
 @media (max-width: 576px) {
+  /* Show close only on mobile */
+  .navbar-close { display: block; }
   .navbar-collapse {
     background: #FFFFFF;
     position: absolute;
     top: 56px; /* below navbar */
-    right: 0;
+    left: 0;
     width: 100%;
-    max-width: 320px;
     height: auto;
-    max-height: calc(100vh - 56px);
+    max-height: none;
     padding: 1rem 1.5rem;
-    box-shadow: -4px 0 16px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
     overflow-y: auto;
     z-index: 1050;
-  }
-  /* Close button */
-  .navbar-close {
-    position: absolute;
-    top: 0.75rem;
-    right: 0.75rem;
-    font-size: 1.5rem;
-    background: none;
-    border: none;
-    color: var(--palta-text-dark);
-    z-index: 1060;
   }
   /* Hide Book a Demo in mobile menu */
   .navbar-collapse .btn-primary {
     display: none !important;
   }
-  /* Remove blue focus/outline from CTAs */
+  /* Nav links style */
+  .navbar-collapse .nav-link {
+    color: var(--palta-text-dark) !important;
+    padding: .75rem 0 !important;
+    font-weight: 600;
+  }
+  /* Remove focus outlines */
   .navbar .btn-primary,
   .cta-button,
   .hero-form-responsive button,
