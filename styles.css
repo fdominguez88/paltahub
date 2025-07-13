@@ -56,6 +56,13 @@ body {
   background: var(--palta-accent-green);
   color: var(--palta-text-dark);
 }
+/* Fix toggler contrast */
+.navbar .navbar-toggler-icon {
+  filter: invert(1) contrast(200%);
+}
+.navbar.light-bg .navbar-toggler-icon {
+  filter: none;
+}
 
 /* Hero & Form */
 .hero {
@@ -77,6 +84,10 @@ body {
   gap: 0;
   max-width: 600px;
   margin-top: 1rem;
+}
+.hero-form-modern input,
+.hero-form-modern-btn {
+  height: 60px;
 }
 .hero-form-modern-input {
   flex: 3;
@@ -100,9 +111,16 @@ body {
   background: #D3E01E;
 }
 @media (max-width: 576px) {
-  .hero-form-modern { flex-direction: column; }
+  .hero-form-modern {
+    flex-direction: column;
+    gap: 12px;
+  }
   .hero-form-modern-input,
-  .hero-form-modern-btn { border-radius: .75rem; }
+  .hero-form-modern-btn {
+    width: 100%;
+    height: 60px;
+    border-radius: .75rem;
+  }
 }
 
 /* Stats */
