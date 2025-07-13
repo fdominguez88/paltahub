@@ -23,10 +23,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Toggle backdrop blur when menu opens/closes
   const collapseEl = document.getElementById('mainNavbar');
-  collapseEl.addEventListener('show.bs.collapse', () => {
-    document.body.classList.add('menu-open');
-  });
-  collapseEl.addEventListener('hide.bs.collapse', () => {
-    document.body.classList.remove('menu-open');
-  });
+  if (collapseEl) {
+    collapseEl.addEventListener('show.bs.collapse', () => {
+      document.body.classList.add('menu-open');
+    });
+    collapseEl.addEventListener('hide.bs.collapse', () => {
+      document.body.classList.remove('menu-open');
+    });
+  }
 });
