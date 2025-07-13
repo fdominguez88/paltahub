@@ -366,3 +366,36 @@ footer, footer.bg-dark {
     border: none !important;
     box-shadow: none !important;
 }
+/* 1) Force the hero CTA button wide enough so it never wraps */
+@media (min-width: 992px) {
+  .hero-form-modern button {
+    min-width: 250px;   /* tweak up or down as needed */
+  }
+}
+
+/* 2) Tame those integrations so they don’t dominate */
+.integration-logo {
+  height: 40px;         /* or 35px if you need them even smaller */
+  max-width: 80px;
+}
+
+/* 3) Give the bottom CTA a custom “Palta” look */
+.call-to-action {
+  background: var(--palta-dark-bg);
+  color: var(--palta-white);
+}
+.call-to-action .btn,
+.call-to-action .cta-button {
+  background: var(--palta-accent-green);
+  color: var(--palta-text-dark);
+  border: none;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+.call-to-action .btn:hover,
+.call-to-action .cta-button:hover {
+  background: #D3E01E;
+}
