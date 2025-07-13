@@ -260,3 +260,40 @@ footer a:hover {
     display: none;
   }
 }
+@media (max-width: 576px) {
+  /* 1) Full-screen white mobile menu */
+  .navbar-collapse {
+    background: #FFFFFF;
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100vh;
+    padding: 2rem;
+    overflow-y: auto;
+    z-index: 1050;
+  }
+  .navbar-collapse .nav-link {
+    color: var(--palta-text-dark) !important;
+    padding: .75rem 0 !important;
+    font-weight: 600;
+  }
+  .navbar-collapse .btn-signin,
+  .navbar-collapse .btn-primary {
+    width: 100%;
+    margin-top: .5rem;
+    display: block;
+  }
+  /* optional: add a close icon on the toggler when open */
+  .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+    background-image: none;
+    font-size: 1.5rem;
+    color: var(--palta-text-dark);
+  }
+
+  /* Shorter responsive form & CTA */
+  .hero-form-responsive input,
+  .hero-form-responsive button {
+    height: 50px !important;
+    font-size: 1rem;
+  }
+}
