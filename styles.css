@@ -332,3 +332,19 @@ footer a:hover {
     font-weight: 600;
   }
 }
+/* ——— Third state: dark panel ——— */
+.navbar.dark-bg {
+  background: var(--palta-dark-bg) !important;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.3) !important;
+  backdrop-filter: none;
+}
+
+/* white text & logo on dark */
+.navbar.dark-bg .nav-link,
+.navbar.dark-bg .btn-signin {
+  color: #fff !important;
+}
+.navbar.dark-bg .btn-primary {
+  background: var(--palta-accent-green) !important;
+  color: var(--palta-text-dark) !important;
+}
