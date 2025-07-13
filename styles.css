@@ -6,7 +6,7 @@
     --palta-bg-light: #F8F9FA; /* Light gray for sections */
     --palta-white: #FFFFFF;
     --palta-border: #DEE2E6;
-    --palta-dark-bg: #1A202C; /* Dark background for hero and footer */
+    --palta-dark-bg: #1A202C; /* Dark background for sections */
     --bs-primary: #00707F;
     --bs-primary-rgb: 0,112,127;
     --bs-btn-bg: #E4F223;
@@ -18,7 +18,7 @@
 html, body {
     height: 100%;
     min-height: 100vh;
-    background: var(--palta-white); /* Changed to white */
+    background: var(--palta-white); /* Body is white */
 }
 body {
     font-family: 'Inter', sans-serif;
@@ -30,7 +30,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     padding-top: 60px; /* Adjust based on navbar height if needed */
-    background: var(--palta-white); /* Changed to white */
+    background: var(--palta-white); /* Body is white */
 }
 
 /* Visually hidden class for accessibility */
@@ -54,8 +54,6 @@ body {
     background: var(--palta-accent-green);
     color: var(--palta-dark-bg);
 }
-
-/* Input fields selection - specific for different browsers */
 input::selection, textarea::selection {
     background: var(--palta-accent-green);
     color: var(--palta-dark-bg);
@@ -64,32 +62,65 @@ input::-moz-selection, textarea::-moz-selection {
     background: var(--palta-accent-green);
     color: var(--palta-dark-bg);
 }
-/* For older IE, though less relevant now */
 input::-ms-selection, textarea::-ms-selection {
     background: var(--palta-accent-green);
     color: var(--palta-dark-bg);
 }
 
 /* --- SECTION BACKGROUNDS --- */
-.hero { background: var(--palta-dark-bg); color: var(--palta-white); padding-bottom: 70px;} /* Hero remains dark */
-.stats-section, #features, #integrations, .why-love-palta { background: var(--palta-white); color: var(--palta-text-dark); } /* These sections are white */
-#how-it-works { background: var(--palta-bg-light); color: var(--palta-text-dark); } /* This section is light gray */
-#how-it-works .section-title, #how-it-works h2, #how-it-works h4, #how-it-works p, #how-it-works ul, #how-it-works li {
-    color: var(--palta-text-dark); /* Ensure text is dark on light gray */
+.hero { background: var(--palta-white); color: var(--palta-text-dark); padding-bottom: 70px;} /* Hero is now white */
+.stats-section { background: var(--palta-white); color: var(--palta-text-dark); }
+#features { background: var(--palta-dark-bg); color: var(--palta-white); } /* Features section is now dark */
+#features .section-title, #features h1, #features .feature-subtitle, #features p {
+    color: var(--palta-white); /* Ensure text is white on dark features section */
 }
-.call-to-action { background: #1A1919; color: var(--palta-white); padding-top: 70px; padding-bottom: 70px;} /* CTA remains dark */
+#features .feature-card { /* Cards within dark features section are white */
+    background: var(--palta-white);
+    color: var(--palta-text-dark);
+    border: 1px solid var(--palta-border);
+}
+#features .feature-card h1, #features .feature-card .feature-subtitle, #features .feature-card p {
+    color: var(--palta-text-dark); /* Text on feature cards is dark */
+}
+
+#how-it-works { background: var(--palta-bg-light); color: var(--palta-text-dark); }
+#how-it-works .section-title, #how-it-works h2, #how-it-works h4, #how-it-works p, #how-it-works ul, #how-it-works li {
+    color: var(--palta-text-dark);
+}
+#how-it-works .how-it-works-item { /* Cards within how-it-works */
+    background: var(--palta-white);
+    color: var(--palta-text-dark);
+    border: 1px solid var(--palta-border);
+}
+#how-it-works .how-it-works-item h4, #how-it-works .how-it-works-item ul li {
+    color: var(--palta-text-dark);
+}
+
+#integrations { background: var(--palta-white); color: var(--palta-text-dark); }
+#integrations .section-title, #integrations p { color: var(--palta-text-dark); }
+
+.why-love-palta { background: var(--palta-white); color: var(--palta-text-dark); }
+.why-love-palta h2 { color: var(--palta-text-dark); }
+.love-point { background: var(--palta-bg-light); color: var(--palta-text-dark); }
+
+.call-to-action { background: #1A1919; color: var(--palta-white); padding-top: 70px; padding-bottom: 70px;}
+.call-to-action h2, .call-to-action p { color: var(--palta-white); }
+
+footer { background: var(--palta-dark-bg); color: var(--palta-white); }
+footer .list-inline-item a { color: rgba(255,255,255,0.7); }
+footer .footer-copyright { color: rgba(255,255,255,0.55); }
+
 /* Consolidate transparent background rule */
 section {
     box-shadow: none; border: none;
     margin-top: 0; margin-bottom: 0; padding-top: unset; padding-bottom: unset;
 }
 
-
 /* --- NAVBAR (DEFAULT - LIGHT THEME) --- */
 .navbar {
     position: fixed;
     top: 0; left: 0; width: 100%; z-index: 999;
-    background: var(--palta-white); /* Default is now white */
+    background: var(--palta-white); /* Default is white */
     color: var(--palta-text-dark); /* Default text is dark */
     box-shadow: 0 2px 14px rgba(52,58,64,0.09); /* Shadow for white nav */
     border-bottom: 1px solid var(--palta-border); /* Border for white nav */
@@ -102,9 +133,9 @@ section {
     padding-top: 3px; padding-bottom: 3px;
     transition: color 0.2s ease;
 }
-.navbar .navbar-brand img { 
-    height: 38px; 
-    transition: filter 0.22s ease; 
+.navbar .navbar-brand img {
+    height: 38px;
+    transition: filter 0.22s ease;
     filter: none; /* No filter on dark logo */
 }
 
@@ -145,9 +176,9 @@ section {
     transform: translateY(-1px);
 }
 
-/* Navbar DARK MODE (Applies when over Hero or other dark sections) */
-.navbar.dark-mode { /* Class for dark mode */
-    background: var(--palta-dark-bg); 
+/* Navbar DARK MODE (Applies when over specific dark sections) */
+.navbar.dark-mode {
+    background: var(--palta-dark-bg);
     color: var(--palta-white);
     box-shadow: 0 2px 16px 0 rgba(30, 30, 30, 0.10);
     border-bottom: 1px solid rgba(180,180,180,0.08);
@@ -156,7 +187,7 @@ section {
     color: var(--palta-white); /* Nav links are white in dark mode */
     fill: var(--palta-white);
 }
-.navbar.dark-mode .navbar-brand img { 
+.navbar.dark-mode .navbar-brand img {
     filter: brightness(0) invert(1); /* Invert to make dark logo white */
 }
 
@@ -197,13 +228,13 @@ section {
 .hero .container { padding: 0 50px;}
 .hero h1, .display-4 {
     font-size: 3.2em;
-    color: var(--palta-white);
+    color: var(--palta-text-dark); /* Hero text is now dark */
     margin-bottom: 16px;
     font-weight: 800; line-height: 1.1; letter-spacing: -0.03em;
 }
 .hero p, .hero .lead {
     font-size: 1.15em;
-    color: rgba(255,255,255,0.8);
+    color: var(--palta-text-medium); /* Hero lead text adjusted */
     margin-bottom: 24px;
     max-width: 600px; font-weight: 400;
 }
@@ -220,11 +251,11 @@ section {
 }
 .hero-form-modern-input {
     border-radius: 12px 0 0 12px;
-    border: 1px solid rgba(255,255,255,0.2);
+    border: 1px solid var(--palta-border); /* Border for light input */
     padding: 0 24px;
     font-size: 1.05em;
     height: 56px;
-    background: #fff;
+    background: var(--palta-bg-light); /* Light background for input */
     color: var(--palta-text-dark);
     min-width: 0;
     flex: 1 1 0%;
@@ -237,7 +268,7 @@ section {
     box-shadow: 0 0 0 3px rgba(228, 242, 35, 0.3);
 }
 .hero-form-modern-input::placeholder {
-    color: #7d7d7d;
+    color: var(--palta-text-medium); /* Placeholder color for light input */
     font-weight: 500;
     opacity: 1;
 }
@@ -287,7 +318,7 @@ section {
 }
 .hero-image img, .img-fluid {
     max-width: 90%; height: auto; border-radius: 12px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1); /* Lighter shadow for light background */
     background: transparent;
 }
 
@@ -300,6 +331,9 @@ section {
 
 /* --- FEATURES, HOW IT WORKS, INTEGRATIONS, LOVE, CTA, FOOTER --- */
 .section-title { font-size: 2.6em; color: var(--palta-text-dark); margin-bottom: 50px; font-weight: 800; letter-spacing: -0.02em;}
+/* Override for #features section title */
+#features .section-title { color: var(--palta-white); }
+
 .feature-card, .how-it-works-item {
     background: var(--palta-white); border: 1px solid var(--palta-border);
     border-radius: 16px;
