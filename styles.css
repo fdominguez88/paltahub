@@ -3,13 +3,13 @@
   --palta-accent-green: #E4F223;
   --palta-text-dark: #343A40;
   --palta-text-medium: #6C757D;
-  --palta-bg-light: #F8F9FA;
   --palta-white: #FFFFFF;
-  --palta-border: #DEE2E6;
+  --palta-bg-light: #F8F9FA;
   --palta-dark-bg: #1A202C;
+  --palta-border: #DEE2E6;
 }
 
-/* ——— Global & Typography ——— */
+/* ============= Global / Reset ============= */
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -18,51 +18,53 @@ html, body {
   padding: 0;
   background: var(--palta-dark-bg) !important;
   font-family: 'Inter', sans-serif;
-  color: var(--palta-text-dark);
-  line-height: 1.6;
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: var(--palta-text-dark);
+  line-height: 1.6;
   padding-top: 60px; /* navbar height */
 }
 
-/* ——— Text Selection ——— */
+/* Text selection */
 ::selection, ::-moz-selection {
   background: var(--palta-accent-green) !important;
   color: var(--palta-text-dark) !important;
 }
 
-/* ——— Navbar & CTAs ——— */
-/* Default: transparent over hero */
+/* ============= Navbar & CTAs ============= */
+/* Default (over hero): transparent + white text */
 .navbar {
   position: fixed;
-  top: 0; left: 0;
-  width: 100%;
+  top: 0; left: 0; width: 100%;
   z-index: 1000;
   background: transparent !important;
   box-shadow: none !important;
   transition: background 0.3s, box-shadow 0.3s;
 }
+.navbar .nav-link,
+.navbar .btn-signin {
+  color: #fff !important;
+}
+.navbar .btn-primary {
+  background: var(--palta-accent-green) !important;
+  color: var(--palta-text-dark) !important;
+  border: none !important;
+  padding: .375rem 1rem !important;
+  border-radius: .375rem !important;
+  transition: background .2s, color .2s;
+}
+.navbar .btn-primary:hover {
+  background: #F5FF77 !important;
+  color: #0D0A08 !important;
+}
 
-/* After scroll: frosted white panel */
+/* After scroll (light-bg): frosted white + dark text */
 .navbar.light-bg {
   background: rgba(255,255,255,0.85) !important;
   backdrop-filter: saturate(180%) blur(10px);
   box-shadow: 0 2px 12px rgba(0,0,0,0.06) !important;
 }
-
-/* Text & button colors */
-/* Over hero (transparent): white text, green CTA */
-.navbar:not(.light-bg) .nav-link,
-.navbar:not(.light-bg) .btn-signin {
-  color: #FFF !important;
-}
-.navbar:not(.light-bg) .btn-primary {
-  background: var(--palta-accent-green) !important;
-  color: var(--palta-text-dark) !important;
-}
-
-/* On white panel (light-bg): dark text, green CTA */
 .navbar.light-bg .nav-link,
 .navbar.light-bg .btn-signin {
   color: var(--palta-text-dark) !important;
@@ -72,28 +74,16 @@ html, body {
   color: var(--palta-text-dark) !important;
 }
 
-/* Sign-in button styling */
+/* Sign-in button */
 .btn-signin {
   background: transparent !important;
   border: 1.5px solid currentColor !important;
   padding: .375rem 1rem !important;
   border-radius: .375rem !important;
-  transition: background .2s, color .2s;
+  transition: background .2s;
 }
 .btn-signin:hover {
   background: rgba(0,0,0,0.1) !important;
-}
-
-/* Primary CTA */
-.btn-primary {
-  border: none !important;
-  padding: .375rem 1rem !important;
-  border-radius: .375rem !important;
-  transition: background .2s, color .2s;
-}
-.btn-primary:hover {
-  background: #F5FF77 !important;
-  color: #0D0A08 !important;
 }
 
 /* Toggler icon contrast */
@@ -104,12 +94,12 @@ html, body {
   filter: none;
 }
 
-/* Hide close icon by default */
+/* Hide the mobile “×” by default */
 .navbar-close {
   display: none;
 }
 
-/* ——— Hero & Forms ——— */
+/* ============= Hero & Forms ============= */
 .hero {
   background: var(--palta-dark-bg);
   color: var(--palta-white);
@@ -190,7 +180,8 @@ html, body {
   }
 }
 
-/* ——— Stats Section ——— */
+/* ============= Sections ============= */
+/* Stats */
 .stats-section {
   padding: 2rem 0;
   background: var(--palta-white);
@@ -203,7 +194,7 @@ html, body {
   color: var(--palta-text-medium);
 }
 
-/* ——— Features & How It Works ——— */
+/* Features & How It Works */
 .section-title {
   font-size: 2.3rem;
   font-weight: 800;
@@ -222,7 +213,7 @@ html, body {
   transform: translateY(-5px);
 }
 
-/* ——— Integrations ——— */
+/* Integrations */
 .integrations-grid {
   display: flex;
   justify-content: center;
@@ -242,7 +233,7 @@ html, body {
   transform: scale(1.05);
 }
 
-/* ——— Why Teams Love Palta Hub ——— */
+/* Why teams love */
 .why-love-palta {
   background: var(--palta-white);
   padding: 3rem 1rem;
@@ -252,7 +243,7 @@ html, body {
   line-height: 1.4;
 }
 
-/* ——— Final CTA ——— */
+/* Final CTA */
 .call-to-action {
   background: var(--palta-dark-bg);
   color: var(--palta-white);
@@ -271,7 +262,7 @@ html, body {
   color: #0D0A08 !important;
 }
 
-/* ——— Footer ——— */
+/* Footer */
 footer {
   background: var(--palta-dark-bg);
   color: var(--palta-white);
@@ -285,13 +276,14 @@ footer a:hover {
   color: var(--palta-accent-green);
 }
 
-/* ——— MOBILE MENU SHEET ——— */
+/* ============= Mobile Menu Sheet ============= */
 @media (max-width: 576px) {
   /* hide hamburger when sheet open */
   .navbar-toggler[aria-expanded="true"] {
     display: none;
   }
-  /* show close icon */
+
+  /* show the close-× in sheet header */
   .navbar-close {
     display: inline-block;
     font-size: 1.5rem;
@@ -300,7 +292,8 @@ footer a:hover {
     color: var(--palta-text-dark);
     margin: 0;
   }
-  /* slide-down white sheet */
+
+  /* white slide-down panel */
   .navbar-collapse {
     background: #fff;
     position: absolute;
@@ -313,7 +306,8 @@ footer a:hover {
     box-shadow: 0 4px 16px rgba(0,0,0,0.1);
     z-index: 1040;
   }
-  /* blurred backdrop */
+
+  /* blurred dark backdrop */
   body.menu-open::before {
     content: "";
     position: fixed;
@@ -325,11 +319,13 @@ footer a:hover {
     backdrop-filter: blur(4px);
     z-index: 1030;
   }
-  /* hide desktop-only demo button */
+
+  /* hide desktop-only Book a Demo inside sheet */
   .navbar-collapse .btn-primary {
     display: none !important;
   }
-  /* nav links inside sheet */
+
+  /* style nav links in sheet */
   .navbar-collapse .nav-link {
     color: var(--palta-text-dark) !important;
     padding: .75rem 0;
