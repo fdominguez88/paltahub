@@ -14,250 +14,137 @@
     --bs-btn-border-color: #E4F223;
 }
 
-/* --- GLOBAL STYLES & RESET --- */
+/* --- GLOBAL --- */
 html, body {
     height: 100%;
     min-height: 100vh;
-    background: var(--palta-dark-bg); /* Body is dark-bg */
+    background: var(--palta-dark-bg) !important;
 }
 body {
     font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color: var(--palta-white); /* Default body text color for dark background */
+    color: var(--palta-text-dark);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    padding-top: 60px; /* Adjust based on navbar height if needed */
-    background: var(--palta-dark-bg); /* Body is dark-bg */
+    padding-top: 60px;
+    background: var(--palta-dark-bg) !important;
 }
 
-/* Visually hidden class for accessibility */
-.visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    padding: 0;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
+/* --- SELECTION --- */
+::selection, body ::selection, html ::selection {
+    background: var(--palta-accent-green) !important;
+    color: #1A202C !important;
 }
-
-/* --- TEXT SELECTION HIGHLIGHT --- */
-::selection {
-    background: var(--palta-accent-green);
-    color: var(--palta-dark-bg);
-}
-::-moz-selection {
-    background: var(--palta-accent-green);
-    color: var(--palta-dark-bg);
+::-moz-selection, body ::-moz-selection, html ::-moz-selection {
+    background: var(--palta-accent-green) !important;
+    color: #1A202C !important;
 }
 input::selection, textarea::selection {
-    background: var(--palta-accent-green);
-    color: var(--palta-dark-bg);
+    background: var(--palta-accent-green) !important;
+    color: #1A202C !important;
 }
 input::-moz-selection, textarea::-moz-selection {
-    background: var(--palta-accent-green);
-    color: var(--palta-dark-bg);
+    background: var(--palta-accent-green) !important;
+    color: #1A202C !important;
 }
-input::-ms-selection, textarea::-ms-ms-selection {
-    background: var(--palta-accent-green);
-    color: var(--palta-dark-bg);
-}
-
-/* --- SECTION BACKGROUNDS --- */
-.hero {
-    background: var(--palta-dark-bg); /* Hero is dark-bg */
-    color: var(--palta-white); /* Hero text for dark-bg background */
-    padding-bottom: 70px;
-}
-.stats-section { background: var(--palta-white); color: var(--palta-text-dark); }
-
-#features { background: var(--palta-dark-bg); color: var(--palta-white); } /* Features section is now dark-bg */
-#features .section-title {
-    color: var(--palta-white); /* Ensure text is white on dark features section */
-}
-#features h1, #features .feature-subtitle, #features p {
-    color: var(--palta-text-dark); /* Text on feature cards is dark */
-}
-#features .feature-card { /* Cards within dark features section are white */
-    background: var(--palta-white);
-    color: var(--palta-text-dark);
-    border: 1px solid var(--palta-border);
+input::-ms-selection, textarea::-ms-selection {
+    background: var(--palta-accent-green) !important;
+    color: #1A202C !important;
 }
 
-#how-it-works { background: var(--palta-dark-bg); color: var(--palta-white); } /* How it Works is now dark-bg */
+/* --- SECTIONS --- */
+.hero { background: var(--palta-dark-bg); color: var(--palta-white);}
+.stats-section, #features, #integrations, .why-love-palta { background: var(--palta-white) !important; }
+#how-it-works { background: var(--palta-bg-light) !important; color: var(--palta-text-dark) !important; }
 #how-it-works .section-title, #how-it-works h2, #how-it-works h4, #how-it-works p, #how-it-works ul, #how-it-works li {
-    color: var(--palta-white); /* Text for how-it-works is white on dark-bg */
+    color: var(--palta-text-dark) !important;
 }
-#how-it-works .how-it-works-item { /* Cards within how-it-works remain white */
-    background: var(--palta-white);
-    color: var(--palta-text-dark);
-    border: 1px solid var(--palta-border);
-}
-#how-it-works .how-it-works-item h4, #how-it-works .how-it-works-item ul li {
-    color: var(--palta-text-dark); /* Text on how-it-works items is dark */
+.call-to-action { background: #1A1919 !important; color: var(--palta-white);}
+section:not(.stats-section):not(#features):not(#how-it-works):not(#integrations):not(.why-love-palta):not(.call-to-action):not(.hero) {
+    background: transparent !important;
 }
 
-#integrations { background: var(--palta-white); color: var(--palta-text-dark); }
-#integrations .section-title, #integrations p { color: var(--palta-text-dark); }
-
-.why-love-palta { background: var(--palta-white); padding: 4.5rem 1rem; margin: 32px auto; border-radius: 0; box-shadow: 0 8px 25px rgba(0,0,0,0.06); text-align: center;}
-.why-love-palta h2, .why-love-palta .section-title { color: var(--palta-text-dark); font-size: 2.2em; font-weight: 800;}
-.love-points { list-style: none; padding: 0; margin: 0 auto; max-width: 720px; display: flex; flex-direction: column; gap: 24px;}
-.love-point { background: var(--palta-bg-light); padding: 25px 28px; border-radius: 12px; text-align: left; font-size: 1.08em; color: var(--palta-text-dark); display: flex; align-items: center; gap: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: relative; padding-left: 55px;}
-.love-point::before { content: '✓'; position: absolute; left: 20px; color: var(--palta-accent-green); font-weight: bold; font-size: 1.3em; line-height: 1; top: 22px; }
-
-.call-to-action { background: var(--palta-dark-bg); color: var(--palta-white); border-radius: 0; margin: 0; padding: 4rem 1rem; box-shadow: none;} /* Call to action is now dark-bg */
-.call-to-action h2 { font-size: 2.4em; color: var(--palta-white); font-weight: 800;}
-.call-to-action p { font-size: 1.1em; color: rgba(255,255,255,0.95); margin-bottom: 40px;}
-.call-to-action .btn-primary {
-    background: var(--palta-accent-green); color: var(--palta-dark-bg); border-radius: 10px;
-    font-size: 1.05em; padding: 12px 30px;
-    font-weight: 600; box-shadow: none; letter-spacing: 0.01em; border: none;
-    transition: background 0.2s ease, transform 0.1s ease; display: inline-block;
-}
-.call-to-action .btn-primary:hover { background: #D3E01E; color: var(--palta-dark-bg); transform: translateY(-2px);}
-
-footer {
-    background: var(--palta-dark-bg);
-    color: var(--palta-white);
-    padding: 2.5rem 1rem;
-    border: none; box-shadow: none;
-}
-footer .logo img { height: 35px; filter: brightness(0) invert(1);}
-footer .list-inline-item a { color: rgba(255,255,255,0.7); font-weight: 500; text-decoration: none; transition: color 0.2s ease;}
-footer .list-inline-item a:hover { color: var(--palta-accent-green);}
-.footer-copyright { color: rgba(255,255,255,0.55); font-size: 0.98em; margin-top: 15px;}
-
-/* --- NAVBAR (DEFAULT - DARK THEME) --- */
-.navbar {
+/* --- NAVBAR --- */
+.navbar, nav.navbar {
     position: fixed;
     top: 0; left: 0; width: 100%; z-index: 999;
-    background: var(--palta-dark-bg); /* Default is dark-bg */
-    color: var(--palta-white); /* Default text is white */
-    box-shadow: 0 2px 14px rgba(0,0,0,0.2); /* Shadow for dark nav */
-    border-bottom: 1px solid rgba(255,255,255,0.1); /* Border for dark nav */
-    transition: background 0.3s ease, box-shadow 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    background: var(--palta-dark-bg) !important;
+    color: var(--palta-white);
+    box-shadow: 0 2px 16px 0 rgba(30, 30, 30, 0.10);
+    border-bottom: 1px solid rgba(180,180,180,0.08);
+    transition: background 0.3s, box-shadow 0.3s, color 0.3s;
 }
+.navbar, .navbar .navbar-nav .nav-link, .navbar .navbar-brand, .navbar .navbar-toggler, .navbar .btn-primary, .navbar .cta-button, .navbar .btn-signin {
+    color: #fff !important; fill: #fff !important;
+    background: transparent; border-color: rgba(255,255,255,0.16);
+}
+.navbar .navbar-brand img { height: 38px; transition: filter 0.22s; filter: none !important;}
 .navbar .navbar-nav .nav-link, .navbar .navbar-brand {
-    color: var(--palta-white); /* Default nav links are white */
-    fill: var(--palta-white);
-    font-size: 0.97em; font-weight: 500; letter-spacing: 0.01em;
-    padding-top: 3px; padding-bottom: 3px;
-    transition: color 0.2s ease;
+    font-size: 0.97em !important; font-weight: 500; letter-spacing: 0.01em;
+    padding-top: 3px !important; padding-bottom: 3px !important;
 }
-.navbar .navbar-brand img {
-    height: 38px;
-    transition: filter 0.22s ease;
-    /* Removed !important to allow JS to control filter based on scroll */
-    /* This filter is only if the default image is dark and needs to be white */
-    /* If the initial image src in HTML is already white, this might not be needed. */
-    /* For consistency with the JS `filter: none;` on light-bg, let's keep it here */
-    /* or rely solely on JS for the filter as it swaps image sources. */
-    /* Based on main.js, it swaps image sources, so filter may not be needed here. */
-    /* The main.js manages `logoWhiteUrl` and `logoDarkUrl`. */
-    /* So, the filter should be applied by JS only if the image itself is dark */
-    /* and needs to be inverted for the dark background. */
-    /* Let's remove any default filter and let JS manage the image source directly. */
+.navbar .btn-primary, .navbar .cta-button {
+    font-size: 0.89em !important; padding: 5px 16px !important; min-width: unset;
+    font-weight: 500 !important; border-radius: 6px !important;
+    background: var(--palta-accent-green) !important; color: #0C0A08 !important;
+    border: none !important; box-shadow: none !important;
+    transition: background-color 0.3s, transform 0.2s;
 }
-
-/* Primary CTA Button in Navbar (Book a Demo) - for dark navbar */
-.navbar .btn-primary {
-    font-size: 0.89em; padding: 8px 20px;
-    font-weight: 600; border-radius: 8px;
-    background: var(--palta-accent-green); color: var(--palta-dark-bg);
-    border: none; box-shadow: none;
-    transition: background-color 0.2s ease, transform 0.1s ease;
+.navbar .btn-primary:hover, .navbar .cta-button:hover {
+    background: #D3E01E !important; color: #0C0A08 !important; transform: translateY(-2px);
 }
-.navbar .btn-primary:hover {
-    background: #D3E01E;
-    color: var(--palta-dark-bg);
-    transform: translateY(-1px);
-}
-
-/* Sign In Button in Navbar - for dark navbar */
 .btn-signin {
-    background: transparent;
-    color: var(--palta-white); /* White text on dark nav */
-    border: 1.5px solid rgba(255,255,255,0.23); /* White border on dark nav */
-    font-weight: 500;
-    font-size: 0.89em;
-    padding: 8px 20px;
-    border-radius: 8px;
-    box-shadow: none;
-    margin-right: 8px;
-    display: inline-block;
-    line-height: 1.1;
-    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+    background: transparent; color: #fff !important;
+    border: 1.5px solid rgba(255,255,255,0.23); font-weight: 500 !important;
+    font-size: 0.89em !important; padding: 5px 16px !important; border-radius: 6px !important;
+    box-shadow: none !important; margin-right: 8px; display: inline-block; line-height: 1.1;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
 }
 .btn-signin:hover, .btn-signin:focus {
-    background: rgba(255,255,255,0.15); /* More noticeable hover background */
-    color: var(--palta-accent-green); /* Accent color on hover */
-    border-color: var(--palta-accent-green);
+    background: rgba(255,255,255,0.11); color: var(--palta-accent-green) !important; border-color: var(--palta-accent-green);
     text-decoration: none; outline: none;
-    transform: translateY(-1px);
 }
-
-/* Navbar LIGHT MODE (Applies when light-bg is added by main.js) */
 .navbar.light-bg {
-    background: var(--palta-white); /* White background in light mode */
-    color: var(--palta-text-dark); /* Dark text in light mode */
-    box-shadow: 0 2px 14px rgba(52,58,64,0.09); /* Shadow for white nav */
-    border-bottom: 1px solid var(--palta-border); /* Border for white nav */
+    background: rgba(255,255,255,0.97) !important; color: var(--palta-text-dark) !important; box-shadow: 0 2px 14px rgba(52,58,64,0.09);
 }
-.navbar.light-bg .navbar-nav .nav-link, .navbar.light-bg .navbar-brand {
-    color: var(--palta-text-dark); /* Nav links are dark in light mode */
-    fill: var(--palta-text-dark);
+.navbar.light-bg .navbar-nav .nav-link, .navbar.light-bg .navbar-brand, .navbar.light-bg .navbar-toggler {
+    color: var(--palta-text-dark) !important; fill: var(--palta-text-dark) !important;
 }
-.navbar.light-bg .navbar-brand img {
-    filter: none; /* No filter on dark logo in light mode */
+.navbar.light-bg .navbar-brand img { filter: none !important;}
+.navbar.light-bg .btn-primary, .navbar.light-bg .cta-button {
+    color: #0C0A08 !important; background: var(--palta-accent-green) !important; border: none !important;
 }
-
-.navbar.light-bg .btn-primary {
-    background: var(--palta-accent-green); color: var(--palta-dark-bg);
-    border: none;
-}
-.navbar.light-bg .btn-primary:hover {
-    background: #D3E01E; color: var(--palta-dark-bg);
+.navbar.light-bg .btn-primary:hover, .navbar.light-bg .cta-button:hover {
+    background: #D3E01E !important; color: #0C0A08 !important;
 }
 .navbar.light-bg .btn-signin {
-    background: transparent;
-    color: var(--palta-text-dark); /* Dark text on light nav */
-    border: 1.5px solid var(--palta-border); /* Light border */
+    background: transparent; color: var(--palta-text-dark) !important; border: 1.5px solid var(--palta-border);
 }
 .navbar.light-bg .btn-signin:hover, .navbar.light-bg .btn-signin:focus {
-    background: var(--palta-bg-light); /* Light background on hover */
-    color: var(--palta-blue); /* Blue accent on hover */
-    border-color: var(--palta-accent-green);
+    background: var(--palta-bg-light); color: var(--palta-blue) !important; border-color: var(--palta-accent-green);
 }
-
 /* Hamburger icon color swap */
-.navbar:not(.light-bg) .navbar-toggler { /* Default (dark) navbar icon is white */
+.navbar, .navbar.navbar-dark, .navbar:not(.light-bg) {
     --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255,255,255,1%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
-.navbar.light-bg .navbar-toggler { /* Light mode navbar icon is dark */
+.navbar.light-bg {
     --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2852,58,64,1%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
-.navbar .navbar-toggler {
-    border-color: transparent;
-    background: transparent;
-    box-shadow: none;
-}
-
+.navbar .navbar-toggler { border-color: transparent !important; background: transparent !important;}
+.navbar .navbar-toggler:focus { box-shadow: none !important;}
 
 /* --- HERO SECTION + MODERN FORM --- */
 .hero { padding: 110px 20px; border-radius: 0; margin: 0 auto 20px auto;}
 .hero .container { padding: 0 50px;}
 .hero h1, .display-4 {
-    font-size: 2.7em;
-    color: var(--palta-white);
-    margin-bottom: 14px; font-weight: 800; line-height: 1.12; letter-spacing: -0.03em;
+    font-size: 2.7em !important; color: var(--palta-white);
+    margin-bottom: 14px !important; font-weight: 800; line-height: 1.12; letter-spacing: -0.03em;
 }
 .hero p, .hero .lead {
-    font-size: 1.02em; color: rgba(255,255,255,0.7); margin-bottom: 18px;
+    font-size: 1.02em !important; color: rgba(255,255,255,0.7); margin-bottom: 18px !important;
     max-width: 600px; font-weight: 400;
 }
 .hero-form-modern {
@@ -271,50 +158,44 @@ footer .list-inline-item a:hover { color: var(--palta-accent-green);}
     background: none;
 }
 .hero-form-modern-input {
-    border-radius: 11px 0 0 11px;
-    border: 1px solid rgba(255,255,255,0.3); /* Restore border for dark input */
-    border-right: none;
-    padding: 0 20px;
-    font-size: 1em;
-    height: 54px;
-    background: rgba(255,255,255,0.1); /* Background for input on dark */
-    color: var(--palta-white); /* Text color for input on dark */
-    min-width: 0;
+    border-radius: 11px 0 0 11px !important;
+    border: none !important;
+    border-right: none !important;
+    padding: 0 20px !important;
+    font-size: 1em !important;
+    height: 54px !important;
+    background: #fff !important;
+    color: #585858 !important;
+    min-width: 0 !important;
     flex: 1 1 0%;
-    /* box-shadow: none; Allow shadow if desired */
+    box-shadow: none !important;
     outline: none;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-.hero-form-modern-input:focus {
-    border-color: var(--palta-accent-green);
-    box-shadow: 0 0 0 3px rgba(228, 242, 35, 0.3);
 }
 .hero-form-modern-input::placeholder {
-    color: rgba(255,255,255,0.7); /* Placeholder color for input on dark */
+    color: #7d7d7d !important;
     font-weight: 500;
     opacity: 1;
 }
 .hero-form-modern-btn {
-    border-radius: 0 11px 11px 0;
-    background: var(--palta-accent-green);
-    color: var(--palta-dark-bg);
-    border: none;
-    padding: 0 24px;
+    border-radius: 0 11px 11px 0 !important;
+    background: var(--palta-accent-green) !important;
+    color: #0C0A08 !important;
+    border: none !important;
+    padding: 0 24px !important;
     min-width: 170px;
-    height: 54px;
-    font-size: 1.08em;
+    height: 54px !important;
+    font-size: 1.08em !important;
     font-weight: 600;
     display: flex;
     align-items: center;
     justify-content: center;
-    /* box-shadow: none; Allow shadow if desired */
-    outline: none;
-    transition: background 0.17s ease, color 0.17s ease, transform 0.1s ease;
+    box-shadow: none !important;
+    outline: none !important;
+    transition: background 0.17s, color 0.17s;
 }
 .hero-form-modern-btn:hover {
-    background: #D3E01E;
-    color: var(--palta-dark-bg);
-    transform: translateY(-1px);
+    background: #D3E01E !important;
+    color: #0C0A08 !important;
 }
 @media (max-width: 600px) {
     .hero-form-modern {
@@ -327,12 +208,12 @@ footer .list-inline-item a:hover { color: var(--palta-accent-green);}
     .hero-form-modern-input,
     .hero-form-modern-btn {
         width: 100%;
-        min-width: 0;
+        min-width: 0 !important;
         max-width: 100%;
         box-sizing: border-box;
-        border-radius: 11px;
-        height: 54px;
-        font-size: 1.08em;
+        border-radius: 11px !important;
+        height: 54px !important;
+        font-size: 1.08em !important;
     }
     .hero-form-modern-btn {
         margin-top: 0;
@@ -343,130 +224,88 @@ footer .list-inline-item a:hover { color: var(--palta-accent-green);}
 }
 
 /* --- STATS SECTION --- */
-.stats-section { min-height: 150px; box-shadow: none; border: none; border-bottom: none; padding: 0;}
+.stats-section { min-height: 150px; box-shadow: none !important; border: none !important; border-bottom: none !important; padding: 0;}
 .stat-item h3 { font-size: 2.4em; color: var(--palta-dark-bg); margin-bottom: 5px; font-weight: 700;}
 .stat-item p { font-size: 1.1em; color: var(--palta-text-dark); margin: 0; font-weight: 500;}
 
 /* --- FEATURES, HOW IT WORKS, INTEGRATIONS, LOVE, CTA, FOOTER --- */
 .section-title { font-size: 2.3em; color: var(--palta-text-dark); margin-bottom: 48px; font-weight: 800; letter-spacing: -0.02em;}
-/* Override for #features and #how-it-works section titles */
-#features .section-title, #how-it-works .section-title { color: var(--palta-white); }
-
 .feature-card, .how-it-works-item {
     background: var(--palta-white); border: 1px solid var(--palta-border);
-    border-radius: 16px; /* Increased border-radius for visual consistency */
-    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    border-radius: 12px; box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 .feature-card:hover, .how-it-works-item:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.12);
 }
-.feature-card h1 { font-size: 1.8em; font-weight: 800; color: var(--palta-text-dark); margin-bottom: 10px; line-height: 1.1;}
-.feature-card .feature-subtitle { font-size: 1.1em; color: var(--palta-text-medium); font-weight: 600; margin-bottom: 14px;}
-.feature-card p { font-size: 1.05em; font-weight: 400; color: var(--palta-text-medium); margin-bottom: 0; line-height: 1.5;}
-
-.how-it-works-item h4 { font-size: 1.25em; font-weight: 700; color: var(--palta-text-dark); margin-bottom: 12px;}
+.feature-card h1 { font-size: 1.68em; font-weight: 800; color: var(--palta-text-dark); margin-bottom: 8px; line-height: 1.1;}
+.feature-card .feature-subtitle, .feature-card p { font-size: 1.04em; color: var(--palta-text-medium); font-weight: 600; margin-bottom: 12px;}
+.feature-card p { font-weight: 400; color: var(--palta-text-medium); margin-bottom: 0; line-height: 1.5;}
+.how-it-works-item h4 { font-size: 1.16em; font-weight: 700; color: var(--palta-text-dark); margin-bottom: 10px;}
 .how-it-works-item ul { list-style: none; padding: 0; margin: 0;}
-.how-it-works-item ul li { margin-bottom: 14px; position: relative; padding-left: 35px; font-size: 1.08em; color: var(--palta-text-medium);}
-.how-it-works-item ul li::before { content: '✓'; position: absolute; left: 0; color: var(--palta-accent-green); font-weight: bold; font-size: 1.3em; line-height: 1; top: 0px;}
-
-.integrations-grid { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 40px; margin-top: 40px;}
-.integration-logo {
-    height: 55px; max-width: 120px; width: auto; object-fit: contain;
-    opacity: 0.6; /* A little more greyed out */
-    filter: grayscale(70%); /* More grayscale when not hovering */
-    transition: opacity 0.2s ease, filter 0.2s ease, transform 0.15s ease;
-    display: block;
-}
-.integration-logo:hover { opacity: 1; filter: none; transform: scale(1.06);}
+.how-it-works-item ul li { margin-bottom: 12px; position: relative; padding-left: 35px; font-size: 1.04em; color: var(--palta-text-medium);}
+.how-it-works-item ul li::before { content: '✓'; position: absolute; left: 0; color: var(--palta-accent-green); font-weight: bold; font-size: 1.2em; line-height: 1;}
+.integrations-grid { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 36px; margin-top: 32px;}
+.integration-logo { height: 50px; max-width: 110px; width: auto; object-fit: contain; opacity: 0.85; filter: grayscale(40%); transition: opacity 0.22s, filter 0.22s, transform 0.17s; display: block;}
+.integration-logo:hover { opacity: 1; filter: none; transform: scale(1.04);}
 .integration-logo.zoom-logo { height: 50px; max-width: 105px; width: 105px; object-fit: contain;}
-.integrations-grid, #integrations p { font-size: 1.08em;}
+.integrations-grid, #integrations p { font-size: 1.04em !important;}
 @media (max-width: 600px) {
-    .integration-logo, .integration-logo.zoom-logo { height: 40px; max-width: 80px; width: 80px;}
-    .integrations-grid { gap: 24px; }
+    .integration-logo, .integration-logo.zoom-logo { height: 32px; max-width: 65px; width: 65px;}
+    .integrations-grid { gap: 18px; }
 }
-.why-love-palta { background: var(--palta-white); padding: 4.5rem 1rem; margin: 32px auto; border-radius: 0; box-shadow: 0 8px 25px rgba(0,0,0,0.06); text-align: center;}
-.why-love-palta h2, .why-love-palta .section-title { color: var(--palta-text-dark); font-size: 2.2em; font-weight: 800;}
-.love-points { list-style: none; padding: 0; margin: 0 auto; max-width: 720px; display: flex; flex-direction: column; gap: 24px;}
-.love-point { background: var(--palta-bg-light); padding: 25px 28px; border-radius: 12px; text-align: left; font-size: 1.08em; color: var(--palta-text-dark); display: flex; align-items: center; gap: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: relative; padding-left: 55px;}
-.love-point::before { content: '✓'; position: absolute; left: 20px; color: var(--palta-accent-green); font-weight: bold; font-size: 1.3em; line-height: 1; top: 22px; }
-
-.call-to-action { background: var(--palta-dark-bg); color: var(--palta-white); border-radius: 0; margin: 0; padding: 4rem 1rem; box-shadow: none;}
-.call-to-action h2 { font-size: 2.4em; color: var(--palta-white); font-weight: 800;}
-.call-to-action p { font-size: 1.1em; color: rgba(255,255,255,0.95); margin-bottom: 40px;}
-.call-to-action .btn-primary {
-    background: var(--palta-accent-green); color: var(--palta-dark-bg); border-radius: 10px;
-    font-size: 1.05em; padding: 12px 30px;
-    font-weight: 600; box-shadow: none; letter-spacing: 0.01em; border: none;
-    transition: background 0.2s ease, transform 0.1s ease; display: inline-block;
+.why-love-palta { background: var(--palta-white) !important; padding: 3.5rem 1rem; margin: 32px auto; border-radius: 0; box-shadow: 0 6px 20px rgba(0,0,0,0.05); text-align: center;}
+.why-love-palta h2, .why-love-palta .section-title { color: var(--palta-text-dark); font-size: 2em; font-weight: 800;}
+.love-points { list-style: none; padding: 0; margin: 0 auto; max-width: 680px; display: flex; flex-direction: column; gap: 20px;}
+.love-point { background: var(--palta-bg-light); padding: 22px 24px; border-radius: 10px; text-align: left; font-size: 1.04em; color: var(--palta-text-dark); display: flex; align-items: center; gap: 18px; box-shadow: 0 1.5px 8px rgba(0,0,0,0.04); position: relative; padding-left: 50px;}
+.love-point::before { content: '✓'; position: absolute; left: 18px; color: var(--palta-accent-green); font-weight: bold; font-size: 1.25em; line-height: 1;}
+.call-to-action { background: #1A1919 !important; color: var(--palta-white); border-radius: 0; margin: 0; padding: 3rem 1rem; box-shadow: none !important;}
+.call-to-action h2 { font-size: 2.2em; color: var(--palta-white); font-weight: 800;}
+.call-to-action p { font-size: 1.04em; color: rgba(255,255,255,0.92); margin-bottom: 34px;}
+.call-to-action .btn, .call-to-action .cta-button {
+    background: var(--palta-accent-green); color: #0C0A08; border-radius: 8px;
+    font-size: 0.89em !important; padding: 5px 16px !important; min-width: unset !important;
+    font-weight: 500 !important; border-radius: 6px !important; box-shadow: none !important; letter-spacing: 0.01em; border: none;
+    transition: background 0.3s, transform 0.2s; display: inline-block;
 }
-.call-to-action .btn-primary:hover { background: #D3E01E; color: var(--palta-dark-bg); transform: translateY(-2px);}
-
-footer {
-    background: var(--palta-dark-bg);
-    color: var(--palta-white);
-    padding: 2.5rem 1rem;
-    border: none; box-shadow: none;
-}
+.call-to-action .btn:hover, .call-to-action .cta-button:hover { background: #D3E01E; color: #0C0A08;}
+footer.bg-dark { background: var(--palta-text-dark) !important; color: var(--palta-white); border: none !important; box-shadow: none !important;}
 footer .logo img { height: 35px; filter: brightness(0) invert(1);}
-footer .list-inline-item a { color: rgba(255,255,255,0.7); font-weight: 500; text-decoration: none; transition: color 0.2s ease;}
-footer .list-inline-item a:hover { color: var(--palta-accent-green);}
-.footer-copyright { color: rgba(255,255,255,0.55); font-size: 0.98em; margin-top: 15px;}
+footer .list-inline-item a { color: rgba(255,255,255,0.6) !important; font-weight: 500; text-decoration: none; transition: color 0.2s;}
+footer .list-inline-item a:hover { color: var(--palta-accent-green) !important;}
+.footer-copyright { color: rgba(255,255,255,0.43); font-size: 0.98em; margin-top: 12px;}
 
 /* --- RESPONSIVE / UTILITY --- */
 @media (max-width: 1200px) { .container { max-width: 100%; }}
 @media (max-width: 992px) {
     .hero .container { padding: 0 30px; }
-    .hero h1, .display-4 { font-size: 3.8em; }
-    .section-title, .why-love-palta h2, .call-to-action h2 { font-size: 2.2em; }
+    .hero h1, .display-4 { font-size: 3.5em; }
 }
 @media (max-width: 768px) {
-    .hero { padding: 90px 20px 50px 20px;}
-    .hero h1, .display-4 { font-size: 3em; }
-    .hero p, .hero .lead { font-size: 1.05em; margin-bottom: 20px;}
-    .section-title, .why-love-palta h2 { font-size: 1.8em; margin-bottom: 40px;}
-    .call-to-action h2 { font-size: 2em; }
-    .stat-item h3 { font-size: 2.2em;}
-    .stat-item p { font-size: 1em;}
-    .feature-card h1 { font-size: 1.5em; }
-    .feature-card .feature-subtitle { font-size: 1em; }
-    .feature-card p { font-size: 0.95em; }
-    .how-it-works-item h4 { font-size: 1.1em; }
-    .how-it-works-item ul li { font-size: 1em;}
+    .section-title, .why-love-palta h2 { font-size: 1.4em; }
+    .call-to-action h2 { font-size: 1.3em; }
+    .hero .container { padding: 0 12px; }
 }
 @media (max-width: 600px) {
-    .hero { padding: 70px 20px 40px 20px !important; }
-    .hero h1, .display-4 { font-size: 2.5em; }
-    .section-title, .why-love-palta h2, .call-to-action h2 { font-size: 1.6em; }
-    .stat-item { margin-bottom: 30px !important;}
-    .stats-section .row { padding-top: 30px; padding-bottom: 30px;}
-    .why-love-palta { padding: 3rem 1rem;}
-    .love-point { padding: 20px 24px; padding-left: 50px; font-size: 1em;}
-    .love-point::before { left: 18px; top: 18px; font-size: 1.2em;}
-    .call-to-action .btn-primary { font-size: 0.95em; padding: 10px 24px;}
+    .hero { padding: 50px 20px 30px 20px !important; }
+    .hero h1, .display-4 { font-size: 3em; }
+    .feature-card h1 { font-size: 1.25em; }
 }
 @media (max-width: 400px) {
-    .container { padding: 0 15px; }
-    .hero h1, .display-4, .section-title, .why-love-palta h2, .call-to-action h2 { font-size: 2.2em; }
+    .container { padding: 0 3vw; }
+    .hero h1, .display-4, .section-title, .why-love-palta h2, .call-to-action h2 { font-size: 2.5em; }
 }
-/* Moved specific button media query into general navbar section */
-@media (max-width: 991.98px) {
-    .navbar-nav .btn-primary { display: block; width: fit-content; margin: 10px auto; }
-}
+@media (max-width: 991.98px) { .navbar-nav .btn-primary { display: none !important; }}
 
-/* Removed redundant !important flags and simplified global resets */
-.navbar, .hero, .stats-section, .section, .why-love-palta, .call-to-action, footer, main {
-    box-shadow: none;
-    border: none;
+/* Remove all box-shadows and borders from main sections, navbar, and hero */
+.navbar, .navbar.shadow-sm, .hero, .stats-section, .section, .why-love-palta, .call-to-action, footer,
+.bg-white, .bg-light, .shadow, .shadow-sm, .shadow-lg, .container, main, body {
+    box-shadow: none !important; border: none !important;
+}
+/* Remove top and bottom margin/padding between sections if any */
+section, .section, .stats-section, .why-love-palta, .call-to-action, footer {
+    margin-top: 0 !important; margin-bottom: 0 !important; padding-top: unset; padding-bottom: unset;
 }
 /* Remove background gradient Bootstrap sometimes adds to navbars */
-.navbar { background-image: none; }
-/* General removal of extra box-shadows and borders */
-.bg-white, .bg-light, .shadow, .shadow-sm, .shadow-lg, .container, main, body {
-    box-shadow: none; border: none;
-}
-section, .section, .stats-section, .why-love-palta, .call-to-action, footer {
-    margin-top: 0; margin-bottom: 0; padding-top: unset; padding-bottom: unset;
-}
-footer.bg-dark { border: none; box-shadow: none; }
+.navbar, .bg-white, .bg-light { background-image: none !important; }
+footer, footer.bg-dark { border: none !important; box-shadow: none !important; }
