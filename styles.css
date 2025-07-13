@@ -304,3 +304,46 @@ footer a:hover {
     display: none !important;
   }
 }
+/* ——— Navbar Transparency & Frosted Glass ——— */
+/* 1) Default: transparent (over hero) */
+.navbar {
+  background: transparent !important;
+  box-shadow: none !important;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+/* 2) After scrolling (light-bg class): white + blur */
+.navbar.light-bg {
+  background: rgba(255,255,255,0.85) !important;
+  backdrop-filter: saturate(180%) blur(10px);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06) !important;
+}
+
+/* 3) Text & logo colors */
+/*   - Dark text on white, light text on transparent dark background */
+.navbar:not(.light-bg) .nav-link,
+.navbar:not(.light-bg) .btn-signin {
+  color: #FFF !important;
+}
+.navbar:not(.light-bg) .btn-primary {
+  background: var(--palta-accent-green) !important;
+  color: var(--palta-text-dark) !important;
+}
+
+.navbar.light-bg .nav-link,
+.navbar.light-bg .btn-signin {
+  color: var(--palta-text-dark) !important;
+}
+.navbar.light-bg .btn-primary {
+  background: var(--palta-accent-green) !important;
+  color: var(--palta-text-dark) !important;
+}
+
+/* 4) Toggler icon swap */
+/*   - Invert for transparent dark; reset for light-bg */
+.navbar .navbar-toggler-icon {
+  filter: invert(1) contrast(200%);
+}
+.navbar.light-bg .navbar-toggler-icon {
+  filter: none;
+}
