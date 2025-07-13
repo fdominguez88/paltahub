@@ -212,7 +212,7 @@ section:not(.stats-section):not(#features):not(#how-it-works):not(#integrations)
         max-width: 100%;
         box-sizing: border-box;
         border-radius: 11px !important;
-        height: 65px !important;
+        height: 54px !important; /* Updated height for responsive view */
         font-size: 1.08em !important;
     }
     .hero-form-modern-btn {
