@@ -3,10 +3,10 @@
     --palta-accent-green: #E4F223;
     --palta-text-dark: #343A40;
     --palta-text-medium: #6C757D;
-    --palta-bg-light: #F8F9FA; /* Light gray for sections */
+    --palta-bg-light: #F8F9FA;
     --palta-white: #FFFFFF;
     --palta-border: #DEE2E6;
-    --palta-dark-bg: #1A202C; /* Dark background for sections */
+    --palta-dark-bg: #1A202C;
     --bs-primary: #00707F;
     --bs-primary-rgb: 0,112,127;
     --bs-btn-bg: #E4F223;
@@ -62,7 +62,7 @@ input::-moz-selection, textarea::-moz-selection {
     background: var(--palta-accent-green);
     color: var(--palta-dark-bg);
 }
-input::-ms-selection, textarea::-ms-selection {
+input::-ms-selection, textarea::-ms-ms-selection {
     background: var(--palta-accent-green);
     color: var(--palta-dark-bg);
 }
@@ -74,30 +74,31 @@ input::-ms-selection, textarea::-ms-selection {
     padding-bottom: 70px;
 }
 .stats-section { background: var(--palta-white); color: var(--palta-text-dark); }
-#features { background: var(--palta-dark-bg); color: var(--palta-white); } /* Features section is already dark */
-#features .section-title, #features h1, #features .feature-subtitle, #features p {
+
+#features { background: var(--palta-dark-bg); color: var(--palta-white); } /* Features section is now dark-bg */
+#features .section-title {
     color: var(--palta-white); /* Ensure text is white on dark features section */
+}
+#features h1, #features .feature-subtitle, #features p {
+    color: var(--palta-text-dark); /* Text on feature cards is dark */
 }
 #features .feature-card { /* Cards within dark features section are white */
     background: var(--palta-white);
     color: var(--palta-text-dark);
     border: 1px solid var(--palta-border);
 }
-#features .feature-card h1, #features .feature-card .feature-subtitle, #features .feature-card p {
-    color: var(--palta-text-dark); /* Text on feature cards is dark */
-}
 
-#how-it-works { background: var(--palta-dark-bg); color: var(--palta-white); } /* How it Works is now dark-bg with white text */
+#how-it-works { background: var(--palta-dark-bg); color: var(--palta-white); } /* How it Works is now dark-bg */
 #how-it-works .section-title, #how-it-works h2, #how-it-works h4, #how-it-works p, #how-it-works ul, #how-it-works li {
-    color: var(--palta-white);
+    color: var(--palta-white); /* Text for how-it-works is white on dark-bg */
 }
-#how-it-works .how-it-works-item { /* Cards within how-it-works */
+#how-it-works .how-it-works-item { /* Cards within how-it-works remain white */
     background: var(--palta-white);
     color: var(--palta-text-dark);
     border: 1px solid var(--palta-border);
 }
 #how-it-works .how-it-works-item h4, #how-it-works .how-it-works-item ul li {
-    color: var(--palta-text-dark);
+    color: var(--palta-text-dark); /* Text on how-it-works items is dark */
 }
 
 #integrations { background: var(--palta-white); color: var(--palta-text-dark); }
@@ -151,7 +152,16 @@ footer .list-inline-item a:hover { color: var(--palta-accent-green);}
 .navbar .navbar-brand img {
     height: 38px;
     transition: filter 0.22s ease;
-    filter: brightness(0) invert(1); /* Invert to make dark logo white on dark */
+    /* Removed !important to allow JS to control filter based on scroll */
+    /* This filter is only if the default image is dark and needs to be white */
+    /* If the initial image src in HTML is already white, this might not be needed. */
+    /* For consistency with the JS `filter: none;` on light-bg, let's keep it here */
+    /* or rely solely on JS for the filter as it swaps image sources. */
+    /* Based on main.js, it swaps image sources, so filter may not be needed here. */
+    /* The main.js manages `logoWhiteUrl` and `logoDarkUrl`. */
+    /* So, the filter should be applied by JS only if the image itself is dark */
+    /* and needs to be inverted for the dark background. */
+    /* Let's remove any default filter and let JS manage the image source directly. */
 }
 
 /* Primary CTA Button in Navbar (Book a Demo) - for dark navbar */
@@ -239,41 +249,39 @@ footer .list-inline-item a:hover { color: var(--palta-accent-green);}
 
 
 /* --- HERO SECTION + MODERN FORM --- */
+.hero { padding: 110px 20px; border-radius: 0; margin: 0 auto 20px auto;}
 .hero .container { padding: 0 50px;}
 .hero h1, .display-4 {
-    font-size: 3.2em;
-    color: var(--palta-white); /* Hero text is white */
-    margin-bottom: 16px;
-    font-weight: 800; line-height: 1.1; letter-spacing: -0.03em;
+    font-size: 2.7em;
+    color: var(--palta-white);
+    margin-bottom: 14px; font-weight: 800; line-height: 1.12; letter-spacing: -0.03em;
 }
 .hero p, .hero .lead {
-    font-size: 1.15em;
-    color: rgba(255,255,255,0.9); /* Hero lead text adjusted for dark background */
-    margin-bottom: 24px;
+    font-size: 1.02em; color: rgba(255,255,255,0.7); margin-bottom: 18px;
     max-width: 600px; font-weight: 400;
 }
 .hero-form-modern {
     display: flex;
     gap: 0;
-    max-width: 480px;
-    margin-top: 20px;
+    max-width: 430px;
+    margin-top: 14px;
     margin-bottom: 0;
     padding: 0;
     align-items: stretch;
     background: none;
-    position: relative;
 }
 .hero-form-modern-input {
-    border-radius: 12px 0 0 12px;
-    border: 1px solid rgba(255,255,255,0.3); /* Border for input on dark */
-    padding: 0 24px;
-    font-size: 1.05em;
-    height: 56px;
+    border-radius: 11px 0 0 11px;
+    border: 1px solid rgba(255,255,255,0.3); /* Restore border for dark input */
+    border-right: none;
+    padding: 0 20px;
+    font-size: 1em;
+    height: 54px;
     background: rgba(255,255,255,0.1); /* Background for input on dark */
     color: var(--palta-white); /* Text color for input on dark */
     min-width: 0;
     flex: 1 1 0%;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2); /* Shadow for input on dark */
+    /* box-shadow: none; Allow shadow if desired */
     outline: none;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
@@ -287,19 +295,19 @@ footer .list-inline-item a:hover { color: var(--palta-accent-green);}
     opacity: 1;
 }
 .hero-form-modern-btn {
-    border-radius: 0 12px 12px 0;
+    border-radius: 0 11px 11px 0;
     background: var(--palta-accent-green);
     color: var(--palta-dark-bg);
     border: none;
-    padding: 0 28px;
-    min-width: 180px;
-    height: 56px;
-    font-size: 1.1em;
+    padding: 0 24px;
+    min-width: 170px;
+    height: 54px;
+    font-size: 1.08em;
     font-weight: 600;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: none;
+    /* box-shadow: none; Allow shadow if desired */
     outline: none;
     transition: background 0.17s ease, color 0.17s ease, transform 0.1s ease;
 }
@@ -312,7 +320,7 @@ footer .list-inline-item a:hover { color: var(--palta-accent-green);}
     .hero-form-modern {
         flex-direction: column;
         align-items: stretch;
-        gap: 16px;
+        gap: 12px;
         width: 100%;
         max-width: 100%;
     }
@@ -322,8 +330,8 @@ footer .list-inline-item a:hover { color: var(--palta-accent-green);}
         min-width: 0;
         max-width: 100%;
         box-sizing: border-box;
-        border-radius: 12px;
-        height: 56px;
+        border-radius: 11px;
+        height: 54px;
         font-size: 1.08em;
     }
     .hero-form-modern-btn {
@@ -331,26 +339,22 @@ footer .list-inline-item a:hover { color: var(--palta-accent-green);}
     }
 }
 .hero-image img, .img-fluid {
-    max-width: 90%; height: auto; border-radius: 12px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.3); /* Darker shadow for dark background */
-    background: transparent;
+    max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
 /* --- STATS SECTION --- */
-.stats-section {
-    padding-top: 50px; padding-bottom: 50px;
-}
-.stat-item h3 { font-size: 2.6em; color: var(--palta-dark-bg); margin-bottom: 8px; font-weight: 700;}
-.stat-item p { font-size: 1.15em; color: var(--palta-text-dark); margin: 0; font-weight: 500;}
+.stats-section { min-height: 150px; box-shadow: none; border: none; border-bottom: none; padding: 0;}
+.stat-item h3 { font-size: 2.4em; color: var(--palta-dark-bg); margin-bottom: 5px; font-weight: 700;}
+.stat-item p { font-size: 1.1em; color: var(--palta-text-dark); margin: 0; font-weight: 500;}
 
 /* --- FEATURES, HOW IT WORKS, INTEGRATIONS, LOVE, CTA, FOOTER --- */
-.section-title { font-size: 2.6em; color: var(--palta-text-dark); margin-bottom: 50px; font-weight: 800; letter-spacing: -0.02em;}
-/* Override for #features section title */
-#features .section-title { color: var(--palta-white); }
+.section-title { font-size: 2.3em; color: var(--palta-text-dark); margin-bottom: 48px; font-weight: 800; letter-spacing: -0.02em;}
+/* Override for #features and #how-it-works section titles */
+#features .section-title, #how-it-works .section-title { color: var(--palta-white); }
 
 .feature-card, .how-it-works-item {
     background: var(--palta-white); border: 1px solid var(--palta-border);
-    border-radius: 16px;
+    border-radius: 16px; /* Increased border-radius for visual consistency */
     box-shadow: 0 6px 20px rgba(0,0,0,0.08);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
@@ -368,14 +372,20 @@ footer .list-inline-item a:hover { color: var(--palta-accent-green);}
 .how-it-works-item ul li::before { content: '✓'; position: absolute; left: 0; color: var(--palta-accent-green); font-weight: bold; font-size: 1.3em; line-height: 1; top: 0px;}
 
 .integrations-grid { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 40px; margin-top: 40px;}
-.integration-logo { height: 55px; max-width: 120px; width: auto; object-fit: contain; opacity: 0.9; filter: grayscale(30%); transition: opacity 0.2s ease, filter 0.2s ease, transform 0.15s ease; display: block;}
+.integration-logo {
+    height: 55px; max-width: 120px; width: auto; object-fit: contain;
+    opacity: 0.6; /* A little more greyed out */
+    filter: grayscale(70%); /* More grayscale when not hovering */
+    transition: opacity 0.2s ease, filter 0.2s ease, transform 0.15s ease;
+    display: block;
+}
 .integration-logo:hover { opacity: 1; filter: none; transform: scale(1.06);}
+.integration-logo.zoom-logo { height: 50px; max-width: 105px; width: 105px; object-fit: contain;}
 .integrations-grid, #integrations p { font-size: 1.08em;}
 @media (max-width: 600px) {
-    .integration-logo { height: 40px; max-width: 80px;}
+    .integration-logo, .integration-logo.zoom-logo { height: 40px; max-width: 80px; width: 80px;}
     .integrations-grid { gap: 24px; }
 }
-
 .why-love-palta { background: var(--palta-white); padding: 4.5rem 1rem; margin: 32px auto; border-radius: 0; box-shadow: 0 8px 25px rgba(0,0,0,0.06); text-align: center;}
 .why-love-palta h2, .why-love-palta .section-title { color: var(--palta-text-dark); font-size: 2.2em; font-weight: 800;}
 .love-points { list-style: none; padding: 0; margin: 0 auto; max-width: 720px; display: flex; flex-direction: column; gap: 24px;}
@@ -445,11 +455,18 @@ footer .list-inline-item a:hover { color: var(--palta-accent-green);}
     .navbar-nav .btn-primary { display: block; width: fit-content; margin: 10px auto; }
 }
 
-/* Consolidated and simplified global resets - removed many !important */
-/* General element styling cleanup (less specific selectors now) */
-.navbar, .navbar.shadow-sm, .hero, .stats-section, .section, .why-love-palta, .call-to-action, footer, main {
+/* Removed redundant !important flags and simplified global resets */
+.navbar, .hero, .stats-section, .section, .why-love-palta, .call-to-action, footer, main {
     box-shadow: none;
     border: none;
 }
 /* Remove background gradient Bootstrap sometimes adds to navbars */
 .navbar { background-image: none; }
+/* General removal of extra box-shadows and borders */
+.bg-white, .bg-light, .shadow, .shadow-sm, .shadow-lg, .container, main, body {
+    box-shadow: none; border: none;
+}
+section, .section, .stats-section, .why-love-palta, .call-to-action, footer {
+    margin-top: 0; margin-bottom: 0; padding-top: unset; padding-bottom: unset;
+}
+footer.bg-dark { border: none; box-shadow: none; }
