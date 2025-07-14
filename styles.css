@@ -16,7 +16,7 @@ html, body {
   height: 100%; min-height: 100vh;
   background: var(--palta-dark-bg) !important;
   font-family: 'Inter', sans-serif;
-  color: var(--palta-text-dark);
+  color: var(--palta-white); /* Changed to white for better contrast on dark bg */
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -43,14 +43,16 @@ html, body {
 }
 .navbar .nav-link,
 .navbar .btn-signin { color: #fff !important; }
-.navbar .btn-primary {
+.btn-primary, .cta-button { /* Applied to general primary buttons and the specific cta-button */
   background: var(--palta-accent-green) !important;
   color: var(--palta-text-dark) !important;
   border: none !important;
   padding: .375rem 1rem !important;
   border-radius: .375rem !important;
+  font-weight: 600; /* Ensure consistent font-weight */
+  white-space: nowrap; /* Prevent text from wrapping */
 }
-.navbar .btn-primary:hover {
+.btn-primary:hover, .cta-button:hover {
   background: #F5FF77 !important;
   color: #0D0A08 !important;
 }
@@ -140,14 +142,14 @@ html, body {
   max-width: 600px;
 }
 
-/* desktop “modern” form */
-.hero-form-modern {
+/* desktop “modern” form - Re-purposing hero-form for better control */
+.hero-form { /* Changed from .hero-form-modern */
   display: flex;
-  max-width: 500px;
+  max-width: 600px; /* Increased width to accommodate longer text */
   gap: 0;
   margin-top: 14px;
 }
-.hero-form-modern-input {
+.hero-form .form-control { /* Targeted specific input within hero-form */
   flex: 1;
   height: 54px;
   padding: 0 20px;
@@ -156,10 +158,11 @@ html, body {
   border: none;
   color: #585858;
   font-size: 1rem;
+  min-width: 250px; /* Ensure minimum width for input */
 }
-.hero-form-modern-btn {
+.hero-form .btn-primary { /* Targeted specific button within hero-form */
   height: 54px;
-  min-width: 200px;
+  min-width: 200px; /* Ensure button text fits */
   padding: 0 28px;
   background: var(--palta-accent-green);
   color: #0C0A08;
@@ -171,14 +174,17 @@ html, body {
   justify-content: center;
   border-radius: 0 11px 11px 0;
   transition: background .17s;
+  white-space: nowrap; /* Prevent text from wrapping */
 }
-.hero-form-modern-btn:hover {
+.hero-form .btn-primary:hover {
   background: #D3E01E;
   color: #0C0A08;
 }
 
-/* mobile-only form */
-.hero-form-responsive { display: none; }
+/* mobile-only form - Re-purposing hero-form-responsive for better control */
+/* The original HTML uses 'hero-form' directly, so the .hero-form-responsive class is not strictly needed if we adjust the main .hero-form for responsive behavior.
+   However, if there's a desire for different mobile-specific form styles, keeping it separate might be useful.
+   For now, I will ensure the main .hero-form is responsive. */
 @media (max-width: 992px) {
   .hero {
     padding: 40px 20px;
@@ -188,52 +194,51 @@ html, body {
     flex-direction: column;
   }
   .hero .container { padding: 0 20px; }
-  .hero-form-modern { display: none; }
-  .hero-form-responsive {
-    display: flex;
-    flex-direction: column;
+  /* Ensure hero-form adapts for mobile */
+  .hero-form {
+    flex-direction: column; /* Stack input and button vertically */
     gap: 12px;
-    margin-top: 14px;
+    max-width: 100%; /* Allow form to take full width */
   }
-  .hero-form-responsive input,
-  .hero-form-responsive button {
-    height: 54px;
-    border: none;
-    border-radius: 11px;
-    padding: 0 20px;
-    font-size: 1rem;
-    background: #fff;
-    color: #585858;
-  }
-  .hero-form-responsive button {
-    background: var(--palta-accent-green);
-    color: #0C0A08;
-  }
-  .hero-form-responsive button:hover {
-    background: #D3E01E;
-    color: #0C0A08;
+  .hero-form .form-control,
+  .hero-form .btn-primary {
+    width: 100%; /* Make input and button full width */
+    border-radius: 11px; /* Apply full border-radius for mobile stacked elements */
+    min-width: auto; /* Reset min-width for mobile */
   }
 }
 
-/* ===== Sections ===== */
-.stats-section { background: var(--palta-white); padding: 2rem 0; }
-.stat-item h3 { font-size: 2.4rem; color: var(--palta-dark-bg); margin-bottom: .5rem; }
-.stat-item p { color: var(--palta-text-medium); }
 
-.section-title { font-size: 2.3rem; font-weight: 800; margin-bottom: 2rem; }
+/* ===== Sections ===== */
+.stats-section { background: var(--palta-white); padding: 2rem 0; color: var(--palta-text-dark); } /* Added text color */
+.stat-value { font-size: 2.4rem; color: var(--palta-dark-bg); margin-bottom: .5rem; font-weight: 700; }
+.stat-label { color: var(--palta-text-medium); }
+
+.section-title { font-size: 2.3rem; font-weight: 800; margin-bottom: 2rem; color: var(--palta-white); } /* Added text color */
+.features-section, .how-it-works-section { padding: 4rem 0; } /* Added padding for sections */
 .feature-card,
-.how-it-works-item {
+.how-it-works-item,
+.card { /* Combined for consistency and targeted Bootstrap cards */
   background: var(--palta-white);
   border: 1px solid var(--palta-border);
   border-radius: .75rem;
   padding: 1.5rem;
   transition: transform .3s, box-shadow .3s;
+  color: var(--palta-text-dark); /* Ensure card text is dark */
 }
+.card-title { color: var(--palta-dark-bg); font-weight: 700; } /* Ensure card titles are dark */
+.card-text { color: var(--palta-text-medium); } /* Ensure card text is medium dark */
+
 .feature-card:hover,
-.how-it-works-item:hover {
+.how-it-works-item:hover,
+.card:hover {
   transform: translateY(-10px);
   box-shadow: 0 15px 30px rgba(0,0,0,0.12);
 }
+
+.integrations-section { padding: 4rem 0; background: var(--palta-white); color: var(--palta-text-dark); } /* Added padding and text color */
+.integrations-section .section-title { color: var(--palta-dark-bg); } /* Specific color for title */
+.integrations-section .lead { color: var(--palta-text-medium); } /* Specific color for lead text */
 
 .integrations-grid {
   display: flex;
@@ -241,7 +246,7 @@ html, body {
   flex-wrap: wrap;
   gap: 36px;
   margin-top: 32px;
-  background: var(--palta-white);
+  /* background: var(--palta-white); - Removed this as it was on the grid, not the section */
 }
 .integration-logo {
   height: 50px;
@@ -257,5 +262,67 @@ html, body {
   transform: scale(1.04);
 }
 
-.why-love-palta {
-  background: var(--palta-white);
+.why-love-palta-section { /* Renamed from .why-love-palta for consistency */
+  background: var(--palta-dark-bg); /* Ensured dark background as per wireframe */
+  padding: 4rem 0;
+  color: var(--palta-white);
+}
+.why-love-palta-section .section-title { color: var(--palta-white); }
+.love-points-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+}
+.love-point {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--palta-white);
+    text-align: center;
+    flex-basis: calc(50% - 10px); /* Two items per row on larger screens */
+    max-width: 320px; /* Control max width of each point */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+@media (max-width: 768px) {
+    .love-point {
+        flex-basis: 100%; /* One item per row on smaller screens */
+    }
+}
+
+.final-cta-section {
+  background: var(--palta-dark-bg); /* Ensure dark background */
+  padding: 5rem 0;
+  color: var(--palta-white);
+}
+.final-cta-section .cta-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  color: var(--palta-white);
+}
+.final-cta-section .lead {
+  color: rgba(255,255,255,0.7);
+}
+/* The .cta-button class is already defined above with .btn-primary */
+
+
+/* ===== Footer ===== */
+.footer-section {
+  background: #151A23; /* Slightly darker shade for footer */
+  padding: 3rem 0;
+  color: rgba(255,255,255,0.6);
+  font-size: .9rem;
+}
+.footer-section .list-inline-item a {
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color .2s;
+}
+.footer-section .list-inline-item a:hover {
+  color: var(--palta-accent-green);
+}
