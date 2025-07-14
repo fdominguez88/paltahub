@@ -27,6 +27,7 @@ html, body {
 ::-moz-selection { background: var(--palta-accent-green) !important; color: var(--palta-text-dark) !important; }
 
 /* ===== Navbar & CTAs ===== */
+/* Default: solid dark */
 .navbar {
   position: fixed; top: 0; left: 0; width: 100%;
   z-index: 1000;
@@ -57,6 +58,8 @@ html, body {
   padding: .375rem 1rem !important;
   border-radius: .375rem !important;
 }
+
+/* Light / frosted-white */
 .navbar.light-bg {
   background: rgba(255,255,255,0.97) !important;
   backdrop-filter: saturate(180%) blur(10px);
@@ -69,6 +72,8 @@ html, body {
   color: var(--palta-text-dark) !important;
 }
 .navbar.light-bg .btn-primary:hover { background: #D3E01E !important; }
+
+/* Dark solid */
 .navbar.dark-bg {
   background: var(--palta-dark-bg) !important;
   box-shadow: 0 2px 16px rgba(0,0,0,0.3) !important;
@@ -80,6 +85,7 @@ html, body {
   background: var(--palta-accent-green) !important;
   color: var(--palta-text-dark) !important;
 }
+
 /* Toggler */
 .navbar-toggler { border: none !important; background: transparent !important; }
 .navbar-toggler-icon { filter: invert(1) contrast(200%); }
@@ -120,7 +126,7 @@ html, body {
 .hero {
   background: var(--palta-dark-bg);
   color: var(--palta-white);
-  /* NO more forced full-screen height on desktop */
+  /* NO full-screen on desktop */
   padding: 110px 20px 40px;
 }
 .hero .container { padding: 0 50px; }
