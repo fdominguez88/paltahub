@@ -203,12 +203,17 @@ a {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1rem;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 .integration-logo {
-  max-height: 50px;
-  opacity: 0.9;
+  max-height: 48px;
+  max-width: 100px;
+  height: auto;
+  width: auto;
+  object-fit: contain;
+  display: block;
 }
 
 /* Why Palta */
@@ -287,6 +292,16 @@ a {
 
   .navbar-nav .nav-link {
     padding: 0.75rem 1rem;
+  }
+
+  .integrations-grid {
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+
+  .integration-logo {
+    flex: 0 1 30%;
+    max-width: 90px;
   }
 
   body.offcanvas-open .navbar-collapse {
