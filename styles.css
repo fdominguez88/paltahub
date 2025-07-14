@@ -22,6 +22,11 @@ body {
     padding-top: 60px; /* Navbar height */
 }
 
+/* ensure navbar area matches hero behind transparent nav */
+header {
+    background-color: var(--palta-dark-bg);
+}
+
 ::selection {
     background-color: var(--palta-accent-green);
     color: var(--palta-text-dark);
