@@ -20,48 +20,32 @@
                alt="Palta Hub logo" height="38">
         </a>
 
-        <!-- mobile toggle -->
+        <!-- mobile toggle button (only shows below lg) -->
         <button class="navbar-toggler d-lg-none" type="button"
                 data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
                 aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <!-- OFFCANVAS MOBILE MENU -->
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+        <!-- OFFCANVAS MOBILE MENU (only on <lg) -->
+        <div class="offcanvas offcanvas-end d-lg-none" tabindex="-1" id="offcanvasNavbar"
              aria-labelledby="offcanvasNavbarLabel">
           <div class="offcanvas-header">
-            <!-- Sign-in moved here -->
-            <a class="btn btn-signin-offcanvas" href="#signin" data-bs-dismiss="offcanvas">
-              Sign in
-            </a>
-            <button type="button" class="btn-close text-reset"
-                    data-bs-dismiss="offcanvas" aria-label="Close">
-            </button>
+            <h5 class="visually-hidden" id="offcanvasNavbarLabel">Menu</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
           </div>
           <div class="offcanvas-body d-flex flex-column justify-content-between">
             <ul class="navbar-nav flex-column text-center">
-              <li class="nav-item">
-                <a class="nav-link" href="#features" data-bs-dismiss="offcanvas">Features</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#how-it-works" data-bs-dismiss="offcanvas">How It Works</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#integrations" data-bs-dismiss="offcanvas">Integrations</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#about" data-bs-dismiss="offcanvas">About Us</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#pricing" data-bs-dismiss="offcanvas">Pricing</a>
-              </li>
+              <li class="nav-item"><a class="nav-link" href="#features"      data-bs-dismiss="offcanvas">Features</a></li>
+              <li class="nav-item"><a class="nav-link" href="#how-it-works"  data-bs-dismiss="offcanvas">How It Works</a></li>
+              <li class="nav-item"><a class="nav-link" href="#integrations"  data-bs-dismiss="offcanvas">Integrations</a></li>
+              <li class="nav-item"><a class="nav-link" href="#about"         data-bs-dismiss="offcanvas">About Us</a></li>
+              <li class="nav-item"><a class="nav-link" href="#pricing"       data-bs-dismiss="offcanvas">Pricing</a></li>
             </ul>
             <div class="offcanvas-footer text-center">
-              <!-- only “See a demo” remains -->
-              <a class="btn btn-primary-offcanvas" href="#demo" data-bs-dismiss="offcanvas">
-                See a demo
-              </a>
+              <a class="btn btn-signin-offcanvas mb-3" href="#signin" data-bs-dismiss="offcanvas">Sign in</a>
+              <a class="btn btn-primary-offcanvas" href="#demo"   data-bs-dismiss="offcanvas">See a demo</a>
             </div>
           </div>
         </div>
@@ -208,11 +192,11 @@
         <h2 class="section-title">Seamlessly Integrates with Your Stack</h2>
         <p class="mb-4">Works with HubSpot, Gmail, Outlook, Salesforce, Zoom, and more.</p>
         <div class="integrations-grid justify-content-center">
-          <img src="hubspot.svg"    alt="HubSpot"      class="integration-logo">
-          <img src="gmail.svg"      alt="Gmail"        class="integration-logo">
-          <img src="outlook.svg"    alt="Outlook"      class="integration-logo">
-          <img src="salesforce.svg" alt="Salesforce"   class="integration-logo">
-          <img src="zoom.svg"       alt="Zoom"         class="integration-logo zoom-logo">
+          <img src="hubspot.svg"    alt="HubSpot"     class="integration-logo">
+          <img src="gmail.svg"      alt="Gmail"       class="integration-logo">
+          <img src="outlook.svg"    alt="Outlook"     class="integration-logo">
+          <img src="salesforce.svg" alt="Salesforce"  class="integration-logo">
+          <img src="zoom.svg"       alt="Zoom"        class="integration-logo zoom-logo">
         </div>
       </div>
     </section>
@@ -239,6 +223,7 @@
         <a href="#get-started" class="btn cta-button">Get started for free</a>
       </div>
     </section>
+
   </main>
 
   <!-- FOOTER -->
