@@ -19,33 +19,38 @@
                 alt="Palta Hub logo" height="38">
         </a>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                 data-bs-target="#mainNavbar" aria-controls="mainNavbar"
-                 aria-expanded="false" aria-label="Toggle navigation">
+        <div class="d-none d-lg-flex align-items-center ms-auto">
+          <a class="btn btn-signin me-2" href="#signin">Sign in</a>
+          <a class="btn btn-primary" href="#demo">Book a Demo</a>
+        </div>
+
+        <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas"
+                 data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="mainNavbar">
-          <div class="d-lg-none d-flex justify-content-end mb-4">
-            <a class="btn btn-signin me-2" href="#signin">Sign in</a>
-            <button type="button" class="navbar-close" data-bs-toggle="collapse"
-                    data-bs-target="#mainNavbar" aria-label="Close menu">×</button>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+             aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title visually-hidden" id="offcanvasNavbarLabel">Palta Hub Menu</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
           </div>
-
-          <ul class="navbar-nav ms-auto align-items-lg-center">
-            <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
-            <li class="nav-item"><a class="nav-link" href="#how-it-works">How It Works</a></li>
-            <li class="nav-item"><a class="nav-link" href="#integrations">Integrations</a></li>
-            <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
-
-            <li class="nav-item d-none d-lg-block">
-              <a class="btn btn-signin me-2" href="#signin">Sign in</a>
-            </li>
-            <li class="nav-item d-none d-lg-block">
-              <a class="btn btn-primary" href="#demo">Book a Demo</a>
-            </li>
-          </ul>
+          <div class="offcanvas-body d-flex flex-column justify-content-between">
+            <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+              <li class="nav-item"><a class="nav-link" href="#features" data-bs-dismiss="offcanvas">Features</a></li>
+              <li class="nav-item"><a class="nav-link" href="#how-it-works" data-bs-dismiss="offcanvas">How It Works</a></li>
+              <li class="nav-item"><a class="nav-link" href="#integrations" data-bs-dismiss="offcanvas">Integrations</a></li>
+              <li class="nav-item"><a class="nav-link" href="#about" data-bs-dismiss="offcanvas">About Us</a></li>
+              <li class="nav-item"><a class="nav-link" href="#pricing" data-bs-dismiss="offcanvas">Pricing</a></li>
+            </ul>
+            <div class="offcanvas-footer w-100 p-3">
+                <a class="btn btn-signin-offcanvas w-100 mb-3" href="#signin" data-bs-dismiss="offcanvas">Sign in</a>
+                <a class="btn btn-primary-offcanvas w-100" href="#demo" data-bs-dismiss="offcanvas">See a demo</a>
+            </div>
+          </div>
         </div>
+
       </div>
     </nav>
   </header>
