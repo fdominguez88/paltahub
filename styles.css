@@ -21,7 +21,7 @@ html, body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
-  padding-top: 60px; /* space for fixed navbar */
+  padding-top: 60px; /* navbar height */
 }
 ::selection { background: var(--palta-accent-green) !important; color: var(--palta-text-dark) !important; }
 ::-moz-selection { background: var(--palta-accent-green) !important; color: var(--palta-text-dark) !important; }
@@ -130,14 +130,14 @@ html, body {
 }
 
 /* ===== Hero & Forms ===== */
-/* Full‐height hero (minus navbar), content centered vertically */
+/* now full-height minus navbar, centered vertically on ALL screens */
 .hero {
   background: var(--palta-dark-bg);
   color: var(--palta-white);
   min-height: calc(100vh - 60px);
   display: flex;
   align-items: center;
-  padding: 0 20px; /* horizontal gutter */
+  padding: 0 20px; /* horizontal gutter only */
 }
 .hero .container {
   padding: 0 50px;
@@ -304,6 +304,8 @@ html, body {
   color: var(--palta-accent-green);
   font-weight: bold;
 }
+
+/* ===== Final CTA ===== */
 .call-to-action {
   background: #1A1919;
   color: var(--palta-white);
