@@ -10,10 +10,14 @@
 }
 
 /* ===== Global Reset ===== */
-*, *::before, *::after { box-sizing: border-box; }
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 html, body {
-  margin: 0; padding: 0;
-  height: 100%; min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  min-height: 100vh;
   background: var(--palta-dark-bg) !important;
   font-family: 'Inter', sans-serif;
   color: var(--palta-text-dark);
@@ -23,8 +27,14 @@ html, body {
   scroll-behavior: smooth;
   padding-top: 60px; /* navbar height */
 }
-::selection { background: var(--palta-accent-green) !important; color: var(--palta-text-dark) !important; }
-::-moz-selection { background: var(--palta-accent-green) !important; color: var(--palta-text-dark) !important; }
+::selection {
+  background: var(--palta-accent-green) !important;
+  color: var(--palta-text-dark) !important;
+}
+::-moz-selection {
+  background: var(--palta-accent-green) !important;
+  color: var(--palta-text-dark) !important;
+}
 
 /* ===== Navbar & CTAs ===== */
 .navbar {
@@ -97,10 +107,17 @@ html, body {
   color: var(--palta-text-dark) !important;
 }
 
-/* toggler icon contrast */
-.navbar-toggler { border: none !important; background: transparent !important; }
-.navbar-toggler-icon { filter: invert(1) contrast(200%); }
-.navbar.light-bg .navbar-toggler-icon { filter: none; }
+/* toggler icon */
+.navbar-toggler {
+  border: none !important;
+  background: transparent !important;
+}
+.navbar-toggler-icon {
+  filter: invert(1) contrast(200%);
+}
+.navbar.light-bg .navbar-toggler-icon {
+  filter: none;
+}
 
 /* ===== Offcanvas Mobile Menu ===== */
 .offcanvas-header {
@@ -119,7 +136,9 @@ html, body {
   padding: .375rem 1rem;
   text-decoration: none;
 }
-.btn-signin-offcanvas:hover { color: var(--palta-accent-green); }
+.btn-signin-offcanvas:hover {
+  color: var(--palta-accent-green);
+}
 .offcanvas-body {
   padding: 1rem;
   display: flex;
@@ -134,19 +153,12 @@ html, body {
 }
 
 /* ===== Hero & Forms ===== */
-/* Always full‐height minus navbar, and centered vertically */
 .hero {
   background: var(--palta-dark-bg);
   color: var(--palta-white);
-
-  /* fill viewport under the navbar */
   min-height: calc(100vh - 60px);
-
-  /* flex‐center content */
   display: flex;
   align-items: center;
-
-  /* gutters */
   padding: 0 20px;
 }
 .hero .container {
@@ -203,16 +215,17 @@ html, body {
   color: #0C0A08;
 }
 
-/* mobile‐only form */
+/* mobile-only form */
 .hero-form-responsive {
   display: none;
 }
 @media (max-width: 992px) {
-  /* container narrower on small screens */
-  .hero .container { padding: 0 20px; }
-
-  /* hide desktop form, show mobile form */
-  .hero-form-modern { display: none; }
+  .hero .container {
+    padding: 0 20px;
+  }
+  .hero-form-modern {
+    display: none;
+  }
   .hero-form-responsive {
     display: flex;
     flex-direction: column;
@@ -240,13 +253,18 @@ html, body {
 }
 
 /* ===== Sections ===== */
-.stats-section { background: var(--palta-white); padding: 2rem 0; }
+.stats-section {
+  background: var(--palta-white);
+  padding: 2rem 0;
+}
 .stat-item h3 {
   font-size: 2.4rem;
   color: var(--palta-dark-bg);
   margin-bottom: .5rem;
 }
-.stat-item p { color: var(--palta-text-medium); }
+.stat-item p {
+  color: var(--palta-text-medium);
+}
 
 .section-title {
   font-size: 2.3rem;
