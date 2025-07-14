@@ -27,14 +27,13 @@ html, body {
 ::-moz-selection { background: var(--palta-accent-green) !important; color: var(--palta-text-dark) !important; }
 
 /* ===== Navbar & CTAs ===== */
-/* Default: solid dark */
 .navbar {
   position: fixed; top: 0; left: 0; width: 100%;
   z-index: 1000;
   background: var(--palta-dark-bg) !important;
   transition: background 0.3s, box-shadow 0.3s;
   box-shadow: 0 2px 16px rgba(30,30,30,0.10);
-  border-bottom: none !important; /* removed bottom border/line */
+  border-bottom: none !important; /* removed the divider line */
 }
 .navbar .navbar-brand img {
   height: 38px; transition: filter 0.22s; filter: none !important;
@@ -58,8 +57,6 @@ html, body {
   padding: .375rem 1rem !important;
   border-radius: .375rem !important;
 }
-
-/* Light / frosted-white */
 .navbar.light-bg {
   background: rgba(255,255,255,0.97) !important;
   backdrop-filter: saturate(180%) blur(10px);
@@ -72,8 +69,6 @@ html, body {
   color: var(--palta-text-dark) !important;
 }
 .navbar.light-bg .btn-primary:hover { background: #D3E01E !important; }
-
-/* Dark solid */
 .navbar.dark-bg {
   background: var(--palta-dark-bg) !important;
   box-shadow: 0 2px 16px rgba(0,0,0,0.3) !important;
@@ -85,37 +80,29 @@ html, body {
   background: var(--palta-accent-green) !important;
   color: var(--palta-text-dark) !important;
 }
-
-/* Toggler icon */
+/* Toggler */
 .navbar-toggler { border: none !important; background: transparent !important; }
 .navbar-toggler-icon { filter: invert(1) contrast(200%); }
 .navbar.light-bg .navbar-toggler-icon { filter: none; }
 
 /* ===== Offcanvas Mobile Menu ===== */
-/* Header: flex to align Sign in + × */
 .offcanvas-header {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding: 0.5rem 1rem;
+  padding: .5rem 1rem;
 }
-/* Style the sign-in link in header */
 .btn-signin-offcanvas {
   background: transparent;
   border: none;
   color: var(--palta-text-dark);
   font-size: 1rem;
   font-weight: 600;
-  margin-right: 0.5rem;
+  margin-right: .5rem;
   text-decoration: none;
   padding: .375rem 1rem;
 }
-.btn-signin-offcanvas:hover {
-  color: var(--palta-accent-green);
-}
-/* Keep the default btn-close “×” styling */
-
-/* Body spacing */
+.btn-signin-offcanvas:hover { color: var(--palta-accent-green); }
 .offcanvas-body {
   padding: 1rem;
   display: flex;
@@ -123,8 +110,6 @@ html, body {
   justify-content: center;
   align-items: center;
 }
-
-/* Footer: only “See a demo” */
 .offcanvas-footer {
   width: 100%;
   padding: 1rem 0;
@@ -132,19 +117,13 @@ html, body {
 }
 
 /* ===== Hero & Forms ===== */
-/* fill remaining viewport minus navbar, center vertically */
 .hero {
   background: var(--palta-dark-bg);
   color: var(--palta-white);
-  /* fill viewport minus nav */
-  min-height: calc(100vh - 60px);
-  display: flex;
-  align-items: center;
-  padding: 0 20px;
+  /* NO more forced full-screen height on desktop */
+  padding: 110px 20px 40px;
 }
-.hero .container {
-  padding: 40px 50px; /* you can tweak top/bottom space here */
-}
+.hero .container { padding: 0 50px; }
 .display-4 {
   font-size: 2.7rem; font-weight: 800; line-height: 1.12;
   margin-bottom: 14px; letter-spacing: -0.03em;
@@ -153,7 +132,6 @@ html, body {
   font-size: 1.02rem; color: rgba(255,255,255,0.7);
   margin-bottom: 18px; max-width: 600px;
 }
-/* Desktop form */
 .hero-form-modern {
   display: flex; max-width: 500px; gap: 0; margin-top: 14px;
 }
@@ -172,7 +150,6 @@ html, body {
 .hero-form-modern-btn:hover {
   background: #D3E01E; color: #0C0A08;
 }
-/* Mobile form */
 .hero-form-responsive {
   display: flex; flex-direction: column; gap: 12px; margin-top: 14px;
 }
@@ -188,12 +165,19 @@ html, body {
   background: #D3E01E; color: #0C0A08;
 }
 
+/* Center & fill on small screens only */
+@media (max-width: 992px) {
+  .hero {
+    min-height: calc(100vh - 60px);
+    display: flex;
+    align-items: center;
+  }
+}
+
 /* ===== Sections ===== */
 .stats-section { background: var(--palta-white); padding: 2rem 0; }
 .stat-item h3 { font-size: 2.4rem; color: var(--palta-dark-bg); margin-bottom: .5rem; }
 .stat-item p { color: var(--palta-text-medium); }
-
-/* Features & How It Works */
 .section-title { font-size: 2.3rem; font-weight: 800; margin-bottom: 2rem; }
 .feature-card, .how-it-works-item {
   background: var(--palta-white);
@@ -206,8 +190,6 @@ html, body {
   transform: translateY(-10px);
   box-shadow: 0 15px 30px rgba(0,0,0,0.12);
 }
-
-/* Integrations */
 .integrations-grid {
   display: flex; justify-content: center; flex-wrap: wrap; gap: 36px; margin-top: 32px;
   background: var(--palta-white);
@@ -220,12 +202,10 @@ html, body {
 .integration-logo:hover {
   filter: none; opacity: 1; transform: scale(1.04);
 }
-
-/* Why teams love */
 .why-love-palta {
   background: var(--palta-white); padding: 3.5rem 1rem; text-align: center;
 }
-.love-points { display: flex; flex-direction: column; gap: 20px; max-width: 680px; margin: 0 auto;}
+.love-points { display: flex; flex-direction: column; gap: 20px; max-width: 680px; margin: 0 auto; }
 .love-point {
   position: relative; padding: 22px 24px 22px 50px;
   background: var(--palta-bg-light); border-radius: 10px;
@@ -235,8 +215,6 @@ html, body {
   content: '✓'; position: absolute; left: 18px; font-size: 1.25rem;
   color: var(--palta-accent-green); font-weight: bold;
 }
-
-/* Final CTA */
 .call-to-action {
   background: #1A1919; color: var(--palta-white); padding: 3rem 1rem; text-align: center;
 }
@@ -250,25 +228,9 @@ html, body {
 .call-to-action .cta-button:hover {
   background: #D3E01E;
 }
-
-/* Footer */
 footer {
   background: var(--palta-dark-bg); color: var(--palta-white);
   padding: 2rem 1rem; text-align: center;
 }
 footer a { color: rgba(255,255,255,.6); }
 footer a:hover { color: var(--palta-accent-green); }
-
-/* ===== Mobile Utilities ===== */
-@media (max-width: 992px) {
-  .navbar-collapse { display: none !important; }
-}
-@media (max-width: 576px) {
-  .navbar-toggler[aria-expanded="true"] { display: none; }
-  /* dark blur behind offcanvas */
-  body.menu-open::before {
-    content: ""; position: fixed; top: 60px; left: 0; width: 100%;
-    height: calc(100vh - 60px);
-    background: rgba(0,0,0,.4); backdrop-filter: blur(4px); z-index: 1030;
-  }
-}
