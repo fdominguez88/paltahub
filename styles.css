@@ -130,6 +130,15 @@ a {
   font-size: 14px;
 }
 
+/* Hero image size control */
+.hero-image {
+  max-width: 80%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* Stats Section */
 .stats-section {
   background: var(--palta-white);
@@ -214,8 +223,11 @@ a {
 /* Footer */
 .footer-section {
   padding: 3rem 0;
-  background-color: var(--palta-dark-bg);
   color: var(--palta-white);
+}
+
+.footer-dark {
+  background-color: #0A0A23;
 }
 
 .footer-section a {
