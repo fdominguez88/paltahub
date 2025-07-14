@@ -34,7 +34,7 @@ html, body {
   background: var(--palta-dark-bg) !important;
   transition: background 0.3s, box-shadow 0.3s;
   box-shadow: 0 2px 16px rgba(30,30,30,0.10);
-  border-bottom: none !important; /* removed divider */
+  border-bottom: none !important;
 }
 .navbar .navbar-brand img {
   height: 38px;
@@ -63,8 +63,6 @@ html, body {
   padding: .375rem 1rem !important;
   border-radius: .375rem !important;
 }
-
-/* frosted-white after scroll */
 .navbar.light-bg {
   background: rgba(255,255,255,0.97) !important;
   backdrop-filter: saturate(180%) blur(10px);
@@ -81,8 +79,6 @@ html, body {
 .navbar.light-bg .btn-primary:hover {
   background: #D3E01E !important;
 }
-
-/* solid-dark past features */
 .navbar.dark-bg {
   background: var(--palta-dark-bg) !important;
   box-shadow: 0 2px 16px rgba(0,0,0,0.3) !important;
@@ -96,8 +92,6 @@ html, body {
   background: var(--palta-accent-green) !important;
   color: var(--palta-text-dark) !important;
 }
-
-/* toggler icon contrast */
 .navbar-toggler { border: none !important; background: transparent !important; }
 .navbar-toggler-icon { filter: invert(1) contrast(200%); }
 .navbar.light-bg .navbar-toggler-icon { filter: none; }
@@ -134,11 +128,20 @@ html, body {
 }
 
 /* ===== Hero & Forms ===== */
-/* desktop: padded content height */
+/* Always full‐height minus navbar, and centered vertically */
 .hero {
   background: var(--palta-dark-bg);
   color: var(--palta-white);
-  padding: 110px 20px 40px; /* restore original vertical padding */
+
+  /* fill viewport under the navbar */
+  min-height: calc(100vh - 60px);
+
+  /* flex‐center content */
+  display: flex;
+  align-items: center;
+
+  /* gutters */
+  padding: 0 20px;
 }
 .hero .container {
   padding: 0 50px;
@@ -194,20 +197,16 @@ html, body {
   color: #0C0A08;
 }
 
-/* mobile: fullscreen hero & center content */
+/* mobile‐only form */
+.hero-form-responsive {
+  display: none;
+}
 @media (max-width: 992px) {
-  .hero {
-    min-height: calc(100vh - 60px);
-    display: flex;
-    align-items: center;
-    padding: 0 20px; /* only gutter on mobile */
-  }
-  .hero .container {
-    padding: 0 20px;
-  }
-  .hero-form-modern {
-    display: none;
-  }
+  /* container narrower on small screens */
+  .hero .container { padding: 0 20px; }
+
+  /* hide desktop form, show mobile form */
+  .hero-form-modern { display: none; }
   .hero-form-responsive {
     display: flex;
     flex-direction: column;
