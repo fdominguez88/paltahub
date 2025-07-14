@@ -295,7 +295,7 @@ footer a:hover {
 
   /* white slide-down panel above blur backdrop */
   .navbar-collapse {
-    z-index: 1001; /* under navbar (1000) but above blur (900) */
+    z-index: 1001; /* above blur, below navbar */
     background: #fff !important;
     position: absolute;
     top: 56px;
@@ -330,6 +330,24 @@ footer a:hover {
     color: var(--palta-text-dark) !important;
     padding: .75rem 0;
     font-weight: 600;
+  }
+
+  /* ————————— override navbar itself when menu is open ————————— */
+  body.menu-open .navbar {
+    background: rgba(255,255,255,0.97) !important;
+    backdrop-filter: saturate(180%) blur(10px);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06) !important;
+  }
+  body.menu-open .navbar .nav-link,
+  body.menu-open .navbar .btn-signin {
+    color: var(--palta-text-dark) !important;
+  }
+  body.menu-open .navbar .btn-primary {
+    background: var(--palta-accent-green) !important;
+    color: var(--palta-text-dark) !important;
+  }
+  body.menu-open .navbar-close {
+    color: var(--palta-text-dark);
   }
 }
 
