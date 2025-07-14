@@ -62,7 +62,6 @@ input::-ms-selection, textarea::-ms-selection {
 #how-it-works .section-title, #how-it-works h2, #how-it-works h4, #how-it-works p, #how-it-works ul, #how-it-works li {
     color: var(--palta-text-dark) !important;
 }
-/* The .call-to-action display is now primarily controlled by Bootstrap classes in HTML */
 .call-to-action { background: #1A1919 !important; color: var(--palta-white);}
 
 section:not(.stats-section):not(#features):not(#how-it-works):not(#integrations):not(.why-love-palta):not(.call-to-action):not(.hero) {
@@ -79,14 +78,13 @@ section:not(.stats-section):not(#features):not(#how-it-works):not(#integrations)
     border-bottom: 1px solid rgba(180,180,180,0.08);
     transition: background 0.3s, box-shadow 0.3s, color 0.3s;
 }
-.navbar, .navbar .navbar-nav .nav-link, .navbar .navbar-brand, .navbar .navbar-toggler, .navbar .btn-primary, .navbar .cta-button, .navbar .btn-signin {
-    color: #fff !important; fill: #fff !important;
-    background: transparent; border-color: rgba(255,255,255,0.16);
-}
 .navbar .navbar-brand img { height: 38px; transition: filter 0.22s; filter: none !important;}
+
+/* Desktop Navbar elements (Sign In, Book a Demo) */
 .navbar .navbar-nav .nav-link, .navbar .navbar-brand {
     font-size: 0.97em !important; font-weight: 500; letter-spacing: 0.01em;
     padding-top: 3px !important; padding-bottom: 3px !important;
+    color: #fff !important; /* Ensure desktop nav links are white */
 }
 .navbar .btn-primary, .navbar .cta-button {
     font-size: 0.89em !important; padding: 5px 16px !important; min-width: unset;
@@ -109,10 +107,12 @@ section:not(.stats-section):not(#features):not(#how-it-works):not(#integrations)
     background: rgba(255,255,255,0.11); color: var(--palta-accent-green) !important; border-color: var(--palta-accent-green);
     text-decoration: none; outline: none;
 }
+
+/* Navbar background and text color changes for scrolling/light background */
 .navbar.light-bg {
     background: rgba(255,255,255,0.97) !important; color: var(--palta-text-dark) !important; box-shadow: 0 2px 14px rgba(52,58,64,0.09);
 }
-.navbar.light-bg .navbar-nav .nav-link, .navbar.light-bg .navbar-brand, .navbar.light-bg .navbar-toggler {
+.navbar.light-bg .navbar-nav .nav-link, .navbar.light-bg .navbar-brand { /* Added nav-link here */
     color: var(--palta-text-dark) !important; fill: var(--palta-text-dark) !important;
 }
 .navbar.light-bg .navbar-brand img { filter: none !important;}
@@ -128,15 +128,153 @@ section:not(.stats-section):not(#features):not(#how-it-works):not(#integrations)
 .navbar.light-bg .btn-signin:hover, .navbar.light-bg .btn-signin:focus {
     background: var(--palta-bg-light); color: var(--palta-blue) !important; border-color: var(--palta-accent-green);
 }
+
 /* Hamburger icon color swap */
-.navbar, .navbar.navbar-dark, .navbar:not(.light-bg) {
-    --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255,255,255,1%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+.navbar-toggler {
+    border: none !important; /* Remove border */
+    background: transparent !important; /* Ensure transparent background */
+    box-shadow: none !important; /* Remove shadow on focus */
 }
-.navbar.light-bg {
-    --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2852,58,64,1%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255,255,255,1%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
 }
-.navbar .navbar-toggler { border-color: transparent !important; background: transparent !important;}
-.navbar .navbar-toggler:focus { box-shadow: none !important;}
+.navbar.light-bg .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2852,58,64,1%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+
+/* --- Offcanvas Menu (Mobile) --- */
+.offcanvas {
+    background-color: var(--palta-dark-bg); /* Dark background for the offcanvas */
+    width: 100vw; /* Full width */
+    height: 100vh; /* Full height */
+    max-width: 100%; /* Ensure it doesn't exceed viewport */
+    color: var(--palta-white);
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Pushes content and footer apart */
+}
+
+.offcanvas-header {
+    border-bottom: none; /* No border for header */
+    padding: 0;
+    display: flex;
+    justify-content: flex-end; /* Push close button to the right */
+    height: 60px; /* Allocate space for the close button */
+    align-items: center;
+}
+
+.offcanvas .btn-close {
+    background: none; /* Remove default close button background */
+    opacity: 1; /* Ensure visible */
+    font-size: 2.5rem; /* Larger 'X' */
+    color: rgba(255, 255, 255, 0.7); /* White color for 'X' */
+    font-weight: 200; /* Thinner 'X' */
+    padding: 0;
+    margin: 0; /* Remove default margin */
+    box-shadow: none !important; /* No shadow on focus */
+    outline: none !important; /* No outline on focus */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px; /* Make it a clickable square */
+    height: 48px;
+    border-radius: 50%; /* Make it circular */
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.offcanvas .btn-close::before {
+    content: "×"; /* Custom 'X' character */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 1; /* Align character properly */
+}
+
+.offcanvas .btn-close:hover {
+    color: var(--palta-accent-green);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.offcanvas-body {
+    padding-top: 0;
+    padding-bottom: 20px; /* Adjust padding as needed */
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+}
+
+.offcanvas .navbar-nav {
+    width: 100%;
+    text-align: center;
+    flex-direction: column; /* Stack nav items vertically */
+    gap: 15px; /* Space between nav items */
+}
+
+.offcanvas .nav-item .nav-link {
+    color: var(--palta-white);
+    font-size: 1.8em; /* Larger text for menu items */
+    font-weight: 600;
+    padding: 15px 0;
+    display: block;
+    transition: color 0.2s;
+}
+
+.offcanvas .nav-item .nav-link:hover,
+.offcanvas .nav-item .nav-link:focus {
+    color: var(--palta-accent-green);
+    text-decoration: none;
+}
+
+.offcanvas-footer {
+    padding-top: 20px;
+    padding-bottom: 0;
+    border-top: none; /* No border for footer */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.offcanvas-footer .btn-signin-offcanvas,
+.offcanvas-footer .btn-primary-offcanvas {
+    font-size: 1.1em;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    display: block;
+    text-align: center;
+    width: 80%; /* Control width of buttons */
+    max-width: 300px; /* Limit button width */
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.offcanvas-footer .btn-signin-offcanvas {
+    background: transparent;
+    color: var(--palta-white);
+    border: 1.5px solid rgba(255,255,255,0.4);
+}
+
+.offcanvas-footer .btn-signin-offcanvas:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: var(--palta-accent-green);
+    color: var(--palta-accent-green);
+}
+
+.offcanvas-footer .btn-primary-offcanvas {
+    background: var(--palta-accent-green);
+    color: #0C0A08;
+    border: none;
+}
+
+.offcanvas-footer .btn-primary-offcanvas:hover {
+    background: #D3E01E;
+    color: #0C0A08;
+}
 
 /* --- HERO SECTION + MODERN FORM --- */
 .hero { padding: 110px 20px; border-radius: 0; margin: 0 auto 20px auto;}
@@ -153,7 +291,7 @@ section:not(.stats-section):not(#features):not(#how-it-works):not(#integrations)
 .hero-form-modern {
     display: flex; /* Kept as flex for internal layout when visible */
     gap: 0;
-    max-width: 430px;
+    max-width: 500px; /* Increased max-width for the form container */
     margin-top: 14px;
     margin-bottom: 0;
     padding: 0;
@@ -170,7 +308,7 @@ section:not(.stats-section):not(#features):not(#how-it-works):not(#integrations)
     background: #fff !important;
     color: #585858 !important;
     min-width: 0 !important;
-    flex: 1 1 0%;
+    flex: 1 1 auto; /* Changed flex-basis to 'auto' to allow it to grow more based on content/container */
     box-shadow: none !important;
     outline: none;
 }
@@ -203,14 +341,13 @@ section:not(.stats-section):not(#features):not(#how-it-works):not(#integrations)
 
 /* Styles for the responsive/mobile form, which is hidden on desktop via Bootstrap classes */
 .hero-form-responsive {
-    /* display property is handled by Bootstrap utility classes (d-lg-none) */
-    width: 100%; /* Ensure it takes full width on mobile */
+    width: 100%;
     max-width: 100%;
     box-sizing: border-box;
-    display: flex; /* To stack items, or use flex-direction: column for clearer intent */
+    display: flex;
     flex-direction: column;
     align-items: stretch;
-    gap: 12px; /* Space between input and button */
+    gap: 12px;
 }
 
 .hero-form-responsive input {
@@ -245,7 +382,7 @@ section:not(.stats-section):not(#features):not(#how-it-works):not(#integrations)
     outline: none !important;
     transition: background 0.17s, color 0.17s;
     width: 100%;
-    margin-top: 0; /* Gap handles spacing */
+    margin-top: 0;
 }
 .hero-form-responsive button:hover {
     background: #D3E01E !important;
@@ -290,7 +427,6 @@ section:not(.stats-section):not(#features):not(#how-it-works):not(#integrations)
 .love-point { background: var(--palta-bg-light); padding: 22px 24px; border-radius: 10px; text-align: left; font-size: 1.04em; color: var(--palta-text-dark); display: flex; align-items: center; gap: 18px; box-shadow: 0 1.5px 8px rgba(0,0,0,0.04); position: relative; padding-left: 50px;}
 .love-point::before { content: '✓'; position: absolute; left: 18px; color: var(--palta-accent-green); font-weight: bold; font-size: 1.25em; line-height: 1;}
 
-/* The .call-to-action display is handled by Bootstrap classes in HTML (d-none d-lg-block) */
 .call-to-action {
     background: #1A1919 !important;
     color: var(--palta-white);
@@ -336,7 +472,15 @@ footer .list-inline-item a:hover { color: var(--palta-accent-green) !important;}
     .container { padding: 0 3vw; }
     .hero h1, .display-4, .section-title, .why-love-palta h2, .call-to-action h2 { font-size: 2.5em; }
 }
-@media (max-width: 991.98px) { .navbar-nav .btn-primary { display: none !important; }}
+/* Adjustments for offcanvas buttons for smaller mobile screens */
+@media (max-width: 576px) {
+    .offcanvas-footer .btn-signin-offcanvas,
+    .offcanvas-footer .btn-primary-offcanvas {
+        width: 90%; /* Wider buttons on smaller screens */
+        max-width: unset; /* Remove max-width constraint */
+    }
+}
+
 
 /* Remove all box-shadows and borders from main sections, navbar, and hero */
 .navbar, .navbar.shadow-sm, .hero, .stats-section, .section, .why-love-palta, .call-to-action, footer,
