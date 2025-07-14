@@ -1,158 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Palta Hub – Effortless Sales Automation</title>
-  <link rel="icon" href="https://i.postimg.cc/QtGd9cqM/Favicon.png" sizes="32x32">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link href="styles.css" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Palta Hub – Effortless Sales Automation</title>
+    <link rel="icon" href="https://i.postimg.cc/QtGd9cqM/Favicon.png" sizes="32x32">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
 </head>
 <body>
 
-  <header>
-    <nav class="navbar">
-      <div class="container-large d-flex justify-content-between align-items-center">
-        <a class="navbar-brand" href="/" aria-label="Palta Hub home">
-          <img src="https://i.postimg.cc/mZcC64jS/palta-hub-logo-white-transparent.png" alt="Palta Hub logo" height="35">
-        </a>
-        <div class="d-flex align-items-center gap-3">
-          <a class="nav-link" href="#features">Features</a>
-          <a class="nav-link" href="#how-it-works">How It Works</a>
-          <a class="nav-link" href="#integrations">Integrations</a>
-          <a class="nav-link" href="#about">About Us</a>
-          <a class="btn btn-signin" href="#signin">Sign in</a>
-          <a class="btn btn-primary" href="#demo">Book a Demo</a>
+    <header role="banner">
+        <nav class="navbar navbar-expand-lg fixed-top" aria-label="Main navigation">
+            <div class="container-fluid px-3 px-lg-5">
+                <a class="navbar-brand me-auto" href="/" aria-label="Palta Hub home">
+                    <img src="https://i.postimg.cc/mZcC64jS/palta-hub-logo-white-transparent.png" alt="Palta Hub logo" height="38">
+                </a>
+
+                <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="offcanvas offcanvas-end d-lg-none" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="visually-hidden" id="offcanvasNavbarLabel">Menu</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav text-center flex-grow-1 justify-content-center">
+                            <li class="nav-item"><a class="nav-link" href="#features" data-bs-dismiss="offcanvas">Features</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#how-it-works" data-bs-dismiss="offcanvas">How It Works</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#integrations" data-bs-dismiss="offcanvas">Integrations</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#about" data-bs-dismiss="offcanvas">About Us</a></li>
+                        </ul>
+                        <div class="offcanvas-footer">
+                            <a class="btn btn-signin-offcanvas" href="#signin" data-bs-dismiss="offcanvas">Sign in</a>
+                            <a class="btn btn-primary" href="#demo" data-bs-dismiss="offcanvas">Book a Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#how-it-works">How It Works</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#integrations">Integrations</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
+                    </ul>
+                    <div class="d-flex align-items-center">
+                        <a class="btn btn-signin me-2" href="#signin">Sign in</a>
+                        <a class="btn btn-primary" href="#demo">Book a Demo</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main role="main">
+
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="container">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-6 text-center text-lg-start">
+                        <h1 id="hero-title" class="display-4">Leads move fast.<br>So should you.</h1>
+                        <p class="lead">Automate handoffs, booking, and routing in one place.</p>
+                        <form class="hero-form" action="#get-started" method="POST" autocomplete="off" aria-label="Get started form">
+                            <label for="email" class="visually-hidden">Work email</label>
+                            <input id="email" type="email" name="email" class="form-control" placeholder="What’s your work email?" required>
+                            <button type="submit" class="btn btn-primary">Get started for free</button>
+                        </form>
+                    </div>
+                    <div class="col-lg-6">
+                        <img src="https://placehold.co/600x400/1A202C/FFFFFF?text=Product+Screenshot" alt="Product screenshot" class="img-fluid rounded">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="stats" class="stats-section">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-md-4 mb-4 mb-md-0">
+                        <h3 class="stat-value">1,200+</h3>
+                        <p class="stat-label">Companies onboarded</p>
+                    </div>
+                    <div class="col-md-4 mb-4 mb-md-0">
+                        <h3 class="stat-value">98%+</h3>
+                        <p class="stat-label">Customer satisfaction</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h3 class="stat-value">10x</h3>
+                        <p class="stat-label">Faster meeting scheduling</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features-section">
+            <div class="container">
+                <h2 class="section-title text-center">Key Features</h2>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h4 class="card-title">Automated Routing</h4>
+                                <p class="card-text">Instantly assign leads to the right rep based on custom rules.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h4 class="card-title">One-Click Booking</h4>
+                                <p class="card-text">Let prospects schedule demos without back-and-forth emails.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h4 class="card-title">CRM Sync</h4>
+                                <p class="card-text">Keep your CRM up-to-date automatically with every interaction.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="how-it-works" class="how-it-works-section">
+            <div class="container">
+                <h2 class="section-title text-center">How It Works</h2>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h4 class="card-title">Step 1: Integrate</h4>
+                                <p>Connect your CRM & calendar in minutes. No code required.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100">
+                           <div class="card-body">
+                                <h4 class="card-title">Step 2: Automate</h4>
+                                <p>Define routing rules and booking templates to eliminate manual handoffs.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h4 class="card-title">Step 3: Scale</h4>
+                                <p>Track performance with our analytics dashboard and optimize workflows.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="integrations" class="integrations-section text-center">
+            <div class="container">
+                <h2 class="section-title">Seamlessly Integrates with Your Stack</h2>
+                <p class="lead mb-5">Works with HubSpot, Gmail, Outlook, Salesforce, Zoom, and more.</p>
+                <div class="integrations-grid">
+                    <img src="https://via.placeholder.com/110x50/FFFFFF/CCCCCC?text=HubSpot" alt="HubSpot Logo" class="integration-logo">
+                    <img src="https://via.placeholder.com/110x50/FFFFFF/CCCCCC?text=Gmail" alt="Gmail Logo" class="integration-logo">
+                    <img src="https://via.placeholder.com/110x50/FFFFFF/CCCCCC?text=Outlook" alt="Outlook Logo" class="integration-logo">
+                    <img src="https://via.placeholder.com/110x50/FFFFFF/CCCCCC?text=Salesforce" alt="Salesforce Logo" class="integration-logo">
+                    <img src="https://via.placeholder.com/110x50/FFFFFF/CCCCCC?text=Zoom" alt="Zoom Logo" class="integration-logo">
+                </div>
+            </div>
+        </section>
+
+        <section class="why-love-palta-section">
+            <div class="container">
+                <h2 class="section-title text-center">Why Teams Love Palta Hub</h2>
+                <div class="love-points-container mx-auto">
+                    <div class="love-point">Meetings happen faster.</div>
+                    <div class="love-point">Leads never fall through the cracks.</div>
+                    <div class="love-point">It works seamlessly with your CRM & calendar.</div>
+                    <div class="love-point">Focus on selling, not scheduling.</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="final-cta-section text-center">
+            <div class="container">
+                <h2 class="cta-title">Ready to Revolutionize Your Sales?</h2>
+                <p class="lead mb-4">Stop losing leads to manual processes.</p>
+                <a href="#get-started" class="btn btn-primary cta-button">Get started for free</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer role="contentinfo" class="footer-section">
+        <div class="container text-center">
+            <img src="https://i.postimg.cc/mZcC64jS/palta-hub-logo-white-transparent.png" alt="Palta Hub logo" height="35" class="mb-3">
+            <ul class="list-inline mb-3">
+                <li class="list-inline-item"><a href="#features">Features</a></li>
+                <li class="list-inline-item"><a href="#how-it-works">How It Works</a></li>
+                <li class="list-inline-item"><a href="#privacy">Privacy Policy</a></li>
+                <li class="list-inline-item"><a href="#terms">Terms of Service</a></li>
+            </ul>
+            <p class="mb-0">© 2025 Palta Hub. All rights reserved.</p>
         </div>
-      </div>
-    </nav>
-  </header>
+    </footer>
 
-  <main>
-
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="container-large">
-        <div class="hero-content">
-          <div class="hero-text">
-            <h1 id="hero-title">Leads move fast.<br>So should you.</h1>
-            <p>Automate handoffs, booking, and routing in one place.</p>
-            <form class="hero-form" action="#get-started" method="POST" autocomplete="off" aria-label="Get started form">
-              <input type="email" name="email" placeholder="What’s your work email?" required />
-              <button type="submit" class="btn btn-primary">Get started for free</button>
-            </form>
-          </div>
-          <div class="hero-image">
-            <img src="https://placehold.co/600x400/1A202C/FFFFFF?text=Product+Screenshot" alt="Product screenshot" class="img-fluid rounded">
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="stats" class="stats-section">
-      <div class="container-large stats-grid">
-        <div>
-          <h3 class="stat-value">1,200+</h3>
-          <p class="stat-label">Companies onboarded</p>
-        </div>
-        <div>
-          <h3 class="stat-value">98%+</h3>
-          <p class="stat-label">Customer satisfaction</p>
-        </div>
-        <div>
-          <h3 class="stat-value">10x</h3>
-          <p class="stat-label">Faster meeting scheduling</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="features" class="features-section">
-      <div class="container-large">
-        <h2 class="section-title">Key Features</h2>
-        <div class="love-points-container">
-          <div class="card">
-            <h4 class="card-title">Automated Routing</h4>
-            <p class="card-text">Instantly assign leads to the right rep based on custom rules.</p>
-          </div>
-          <div class="card">
-            <h4 class="card-title">One-Click Booking</h4>
-            <p class="card-text">Let prospects schedule demos without back-and-forth emails.</p>
-          </div>
-          <div class="card">
-            <h4 class="card-title">CRM Sync</h4>
-            <p class="card-text">Keep your CRM up-to-date automatically with every interaction.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="how-it-works" class="how-it-works-section">
-      <div class="container-large">
-        <h2 class="section-title">How It Works</h2>
-        <div class="love-points-container">
-          <div class="card">
-            <h4 class="card-title">Step 1: Integrate</h4>
-            <p>Connect your CRM & calendar in minutes. No code required.</p>
-          </div>
-          <div class="card">
-            <h4 class="card-title">Step 2: Automate</h4>
-            <p>Define routing rules and booking templates to eliminate manual handoffs.</p>
-          </div>
-          <div class="card">
-            <h4 class="card-title">Step 3: Scale</h4>
-            <p>Track performance with our analytics dashboard and optimize workflows.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="integrations" class="integrations-section">
-      <div class="container-large text-center">
-        <h2 class="section-title">Seamlessly Integrates with Your Stack</h2>
-        <p class="section-lead-text">Works with HubSpot, Gmail, Outlook, Salesforce, Zoom, and more.</p>
-        <div class="integrations-grid">
-          <img src="https://via.placeholder.com/110x50/FFFFFF/CCCCCC?text=HubSpot" alt="HubSpot Logo" class="integration-logo">
-          <img src="https://via.placeholder.com/110x50/FFFFFF/CCCCCC?text=Gmail" alt="Gmail Logo" class="integration-logo">
-          <img src="https://via.placeholder.com/110x50/FFFFFF/CCCCCC?text=Outlook" alt="Outlook Logo" class="integration-logo">
-          <img src="https://via.placeholder.com/110x50/FFFFFF/CCCCCC?text=Salesforce" alt="Salesforce Logo" class="integration-logo">
-          <img src="https://via.placeholder.com/110x50/FFFFFF/CCCCCC?text=Zoom" alt="Zoom Logo" class="integration-logo">
-        </div>
-      </div>
-    </section>
-
-    <section class="why-love-palta-section">
-      <div class="container-large">
-        <h2 class="section-title text-center">Why Teams Love Palta Hub</h2>
-        <div class="love-points-container">
-          <div class="love-point">Meetings happen faster.</div>
-          <div class="love-point">Leads never fall through the cracks.</div>
-          <div class="love-point">It works seamlessly with your CRM & calendar.</div>
-          <div class="love-point">Focus on selling, not scheduling.</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="final-cta-section">
-      <div class="container-large text-center">
-        <h2 class="cta-title">Ready to Revolutionize Your Sales?</h2>
-        <p class="lead">Stop losing leads to manual processes.</p>
-        <a href="#get-started" class="btn btn-primary cta-button">Get started for free</a>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="footer-section">
-    <div class="container-large text-center">
-      <img src="https://i.postimg.cc/mZcC64jS/palta-hub-logo-white-transparent.png" alt="Palta Hub logo" height="35" class="mb-3">
-      <ul class="list-inline mb-3">
-        <li class="list-inline-item"><a href="#features">Features</a></li>
-        <li class="list-inline-item"><a href="#how-it-works">How It Works</a></li>
-        <li class="list-inline-item"><a href="#privacy">Privacy Policy</a></li>
-        <li class="list-inline-item"><a href="#terms">Terms of Service</a></li>
-      </ul>
-      <p class="mb-0">© 2025 Palta Hub. All rights reserved.</p>
-    </div>
-  </footer>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
