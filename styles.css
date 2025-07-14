@@ -134,18 +134,19 @@ html, body {
 }
 
 /* ===== Hero & Forms ===== */
-/* now fills viewport minus navbar, and is vertically centered on ALL screens */
+/* fill remaining viewport and center vertically, on all screen sizes */
 .hero {
   background: var(--palta-dark-bg);
   color: var(--palta-white);
+
   min-height: calc(100vh - 60px);
   display: flex;
   align-items: center;
-  padding: 0 20px; /* only horizontal gutter */
+
+  padding: 0 20px; /* horizontal gutter only */
 }
-.hero .container {
-  padding: 0 50px;
-}
+.hero .container { padding: 0 50px; }
+
 .display-4 {
   font-size: 2.7rem;
   font-weight: 800;
@@ -198,9 +199,7 @@ html, body {
 }
 
 /* mobile-only form */
-.hero-form-responsive {
-  display: none;
-}
+.hero-form-responsive { display: none; }
 @media (max-width: 992px) {
   .hero-form-modern { display: none; }
   .hero-form-responsive {
@@ -230,18 +229,14 @@ html, body {
 }
 
 /* ===== Sections ===== */
-.stats-section {
-  background: var(--palta-white);
-  padding: 2rem 0;
-}
+.stats-section { background: var(--palta-white); padding: 2rem 0; }
 .stat-item h3 {
   font-size: 2.4rem;
   color: var(--palta-dark-bg);
   margin-bottom: .5rem;
 }
-.stat-item p {
-  color: var(--palta-text-medium);
-}
+.stat-item p { color: var(--palta-text-medium); }
+
 .section-title {
   font-size: 2.3rem;
   font-weight: 800;
@@ -260,6 +255,7 @@ html, body {
   transform: translateY(-10px);
   box-shadow: 0 15px 30px rgba(0,0,0,0.12);
 }
+
 .integrations-grid {
   display: flex;
   justify-content: center;
@@ -281,6 +277,7 @@ html, body {
   opacity: 1;
   transform: scale(1.04);
 }
+
 .why-love-palta {
   background: var(--palta-white);
   padding: 3.5rem 1rem;
@@ -371,4 +368,3 @@ footer a:hover {
     z-index: 1030;
   }
 }
-
