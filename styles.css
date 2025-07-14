@@ -37,70 +37,22 @@ html, body {
   padding: 0 var(--spacing);
 }
 
-/* ===== Navbar ===== */
+/* ===== Navbar Overrides ===== */
 .navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: var(--color-dark);
-  padding: var(--spacing);
-  display: flex;
-  align-items: center;
-  z-index: 1000;
-}
-.navbar-brand img {
-  height: 42px;
-}
-.navbar-toggler {
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-.navbar-menu {
-  display: flex;
-  gap: var(--spacing);
-  margin-left: auto;
-}
-.navbar-nav {
-  display: flex;
-  list-style: none;
-  gap: var(--spacing);
-  margin: 0;
-  padding: 0;
+  background: var(--color-dark) !important;
+  padding: var(--spacing) 0;
 }
 .nav-link {
-  color: var(--color-white);
-  text-decoration: none;
+  color: var(--color-white) !important;
   font-weight: 500;
 }
 .nav-link.active {
   border-bottom: 2px solid var(--color-accent);
 }
-.navbar-ctas {
-  display: flex;
-  gap: var(--spacing);
-}
-.btn {
-  border: none;
-  border-radius: 8px;
-  font-weight: 600;
-  text-decoration: none;
-  cursor: pointer;
+.btn-outline-light {
+  padding: var(--btn-padding);
 }
 .btn-primary {
-  background: var(--color-accent);
-  color: var(--color-text);
-  padding: var(--btn-padding);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(228, 242, 35, 0.3);
-}
-.btn-signin {
-  background: transparent;
-  color: var(--color-white);
-  border: 2px solid var(--color-white);
   padding: var(--btn-padding);
 }
 
@@ -137,17 +89,15 @@ html, body {
 }
 .hero-form {
   display: flex;
+  gap: 0.5rem;
 }
-.hero-form input {
+.hero-form .form-control {
   flex: 1;
   padding: 1rem;
-  border: none;
-  border-radius: 8px 0 0 8px;
-  font-size: 1rem;
+  border-radius: 8px;
 }
-.hero-form button {
-  border-radius: 0 8px 8px 0;
-  padding: 1rem 1.5rem;
+.hero-form .btn {
+  border-radius: 8px;
 }
 
 /* ===== Stats ===== */
@@ -167,7 +117,6 @@ html, body {
 }
 .stat-item p {
   margin: 0.5rem 0 0;
-  color: var(--color-text);
 }
 
 /* ===== Features ===== */
@@ -336,8 +285,8 @@ footer {
   .hero h1 { font-size: var(--h1-size); }
   .hero .lead { font-size: var(--lead-size); }
   .hero-form { flex-direction: column; gap: var(--spacing); }
-  .hero-form input,
-  .hero-form button { width: 100%; border-radius: 8px; }
+  .hero-form .form-control,
+  .hero-form .btn { width: 100%; border-radius: 8px; }
 }
 
 @media (max-width: 768px) {
