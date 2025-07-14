@@ -293,21 +293,22 @@ footer a:hover {
     margin: 0;
   }
 
-  /* white slide-down panel */
+  /* white slide-down panel above backdrop */
   .navbar-collapse {
-    background: #fff;
+    z-index: 1050;
+    background: #fff !important;
     position: absolute;
     top: 56px;
     left: 0;
     width: 100%;
-    max-height: calc(100vh - 56px);
-    overflow-y: auto;
+    /* allow panel to size to its contents */
+    height: auto !important;
+    overflow: visible !important;
     padding: 1.5rem;
     box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-    z-index: 1040;
   }
 
-  /* blurred dark backdrop */
+  /* blurred dark backdrop behind panel */
   body.menu-open::before {
     content: "";
     position: fixed;
@@ -317,7 +318,7 @@ footer a:hover {
     height: calc(100vh - 56px);
     background: rgba(0,0,0,0.4);
     backdrop-filter: blur(4px);
-    z-index: 1030;
+    z-index: 1040;
   }
 
   /* hide desktop-only Book a Demo inside sheet */
@@ -332,14 +333,13 @@ footer a:hover {
     font-weight: 600;
   }
 }
-/* ——— Third state: dark panel ——— */
+
+/* ——— Third state: solid dark panel ——— */
 .navbar.dark-bg {
   background: var(--palta-dark-bg) !important;
   box-shadow: 0 2px 16px rgba(0,0,0,0.3) !important;
   backdrop-filter: none;
 }
-
-/* white text & logo on dark */
 .navbar.dark-bg .nav-link,
 .navbar.dark-bg .btn-signin {
   color: #fff !important;
