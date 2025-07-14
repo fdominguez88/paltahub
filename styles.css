@@ -126,6 +126,53 @@ body {
     font-weight: 600;
     border-radius: 11px;
 }
+/* ─── START Transparent → Frosted NAVBAR ───────────────────────────────── */
+
+/* Make the navbar start out fully transparent */
+.navbar {
+  background: transparent !important;
+  box-shadow: none !important;
+  transition: background 0.3s, box-shadow 0.3s, backdrop-filter 0.3s;
+}
+
+/* Frosted state */
+.navbar.frosted {
+  background: rgba(255,255,255,0.7) !important;
+  backdrop-filter: saturate(180%) blur(10px);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08) !important;
+}
+
+/* Link and button colors in each state */
+.navbar .nav-link,
+.navbar .btn-signin {
+  color: #fff !important;
+}
+.navbar .btn-primary {
+  color: var(--palta-text-dark) !important;
+  background: var(--palta-accent-green) !important;
+}
+
+/* Frosted text colors */
+.navbar.frosted .nav-link,
+.navbar.frosted .btn-signin {
+  color: var(--palta-text-dark) !important;
+}
+.navbar.frosted .btn-primary {
+  color: var(--palta-text-dark) !important;
+  background: var(--palta-accent-green) !important;
+}
+
+/* Toggler icon invert on transparent, normal on frosted */
+.navbar-toggler-icon {
+  filter: invert(1) contrast(200%);
+  transition: filter 0.3s;
+}
+.navbar.frosted .navbar-toggler-icon {
+  filter: none;
+}
+
+/* ─── END Transparent → Frosted NAVBAR ─────────────────────────────── */
+
 
 /* ===== Section Styles ===== */
 .stats-section,
