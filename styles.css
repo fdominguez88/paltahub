@@ -21,13 +21,13 @@ html, body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
-  padding-top: 60px; /* navbar */
+  padding-top: 60px; /* navbar height */
 }
-::selection { background: var(--palta-accent-green) !important; color: var(--palta-text-dark) !important;}
-::-moz-selection { background: var(--palta-accent-green) !important; color: var(--palta-text-dark) !important;}
+::selection { background: var(--palta-accent-green) !important; color: var(--palta-text-dark) !important; }
+::-moz-selection { background: var(--palta-accent-green) !important; color: var(--palta-text-dark) !important; }
 
 /* ===== Navbar & CTAs ===== */
-/* Default: transparent */
+/* Default: solid dark */
 .navbar {
   position: fixed; top: 0; left: 0; width: 100%;
   z-index: 1000;
@@ -37,8 +37,7 @@ html, body {
   border-bottom: 1px solid rgba(180,180,180,0.08);
 }
 .navbar .navbar-brand img {
-  height: 38px; transition: filter 0.22s;
-  filter: none !important;
+  height: 38px; transition: filter 0.22s; filter: none !important;
 }
 .navbar .nav-link, .navbar .btn-signin { color: #fff !important; }
 .navbar .btn-primary {
@@ -60,7 +59,7 @@ html, body {
   border-radius: .375rem !important;
 }
 
-/* Light / frosted */
+/* Light / frosted-white */
 .navbar.light-bg {
   background: rgba(255,255,255,0.97) !important;
   backdrop-filter: saturate(180%) blur(10px);
@@ -72,9 +71,7 @@ html, body {
   background: var(--palta-accent-green) !important;
   color: var(--palta-text-dark) !important;
 }
-.navbar.light-bg .btn-primary:hover {
-  background: #D3E01E !important;
-}
+.navbar.light-bg .btn-primary:hover { background: #D3E01E !important; }
 
 /* Dark solid */
 .navbar.dark-bg {
@@ -91,11 +88,47 @@ html, body {
 
 /* Toggler icon */
 .navbar-toggler { border: none !important; background: transparent !important; }
-.navbar-toggler-icon {
-  filter: invert(1) contrast(200%);
+.navbar-toggler-icon { filter: invert(1) contrast(200%); }
+.navbar.light-bg .navbar-toggler-icon { filter: none; }
+
+/* ===== Offcanvas Mobile Menu (Step 1) ===== */
+/* Header: flex to align Sign in + × */
+.offcanvas-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0.5rem 1rem;
 }
-.navbar.light-bg .navbar-toggler-icon {
-  filter: none;
+/* Style the sign-in button in header */
+.btn-signin-offcanvas {
+  background: transparent;
+  border: none;
+  color: var(--palta-text-dark);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-right: 0.5rem;
+  padding: 0.375rem 1rem;
+  text-decoration: none;
+}
+.btn-signin-offcanvas:hover {
+  color: var(--palta-accent-green);
+}
+/* Keep the close “×” the default btn-close styles */
+
+/* Body spacing */
+.offcanvas-body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Footer: only “See a demo” */
+.offcanvas-footer {
+  width: 100%;
+  padding: 1rem 0;
+  text-align: center;
 }
 
 /* ===== Hero & Forms ===== */
@@ -113,7 +146,8 @@ html, body {
   font-size:1.02rem; color:rgba(255,255,255,0.7);
   margin-bottom:18px; max-width:600px;
 }
-/* desktop */
+
+/* Desktop form */
 .hero-form-modern {
   display:flex; max-width:500px; gap:0; margin-top:14px;
 }
@@ -132,8 +166,11 @@ html, body {
 .hero-form-modern-btn:hover {
   background:#D3E01E; color:#0C0A08;
 }
-/* mobile */
-.hero-form-responsive { display:flex; flex-direction:column; gap:12px; margin-top:14px; }
+
+/* Mobile form */
+.hero-form-responsive {
+  display:flex; flex-direction:column; gap:12px; margin-top:14px;
+}
 .hero-form-responsive input,
 .hero-form-responsive button {
   height:54px; border:none; border-radius:11px;
@@ -225,9 +262,10 @@ footer a:hover { color:var(--palta-accent-green); }
 }
 @media (max-width:576px) {
   .navbar-toggler[aria-expanded="true"] { display:none; }
-  /* offcanvas */
+  /* dark blur behind offcanvas */
   body.menu-open::before {
-    content:""; position:fixed; top:60px; left:0; width:100%; height:calc(100vh-60px);
+    content:""; position:fixed; top:60px; left:0; width:100%;
+    height:calc(100vh - 60px);
     background:rgba(0,0,0,.4); backdrop-filter:blur(4px); z-index:1030;
   }
 }
