@@ -1,239 +1,676 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Palta Hub - Revolutionize Your Sales Process</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+:root {
+  /* --- Color Palette --- */
+  --palta-blue: #00707F; /* Original blue, less used in this design */
+  --palta-accent-green: #E4F223; /* Primary vibrant accent color (Chili Piper/Qualified vibe) */
 
-    <nav class="navbar navbar-expand-lg dark-bg">
-        <div class="container-fluid container-large"> <a class="navbar-brand" href="#">
-                <img src="https://assets-global.website-files.com/657e7a552e1858a7b9736006/6580f14644558ec47d3d23f3_PaltaHub_Logo_Light_03.svg" alt="Palta Hub Logo Light">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#how-it-works">How It Works</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#integrations">Integrations</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
-                </ul>
-                <div class="d-flex ms-lg-3">
-                    <a href="#" class="btn btn-signin me-2">Sign In</a>
-                    <a href="#" class="btn btn-primary">Get Started Free</a>
-                </div>
-            </div>
-        </div>
-    </nav>
+  --palta-text-dark: #212529; /* Deep charcoal for text on light backgrounds (Notion/Ramp text) */
+  --palta-text-medium: #495057; /* Slightly lighter grey for secondary text */
+  --palta-text-light: #6C757D; /* Even lighter grey for tertiary text/placeholders */
 
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-        <div class="offcanvas-header">
-            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                <li class="nav-item"><a class="nav-link active" aria-current="page" href="#home">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
-                <li class="nav-item"><a class="nav-link" href="#how-it-works">How It Works</a></li>
-                <li class="nav-item"><a class="nav-link" href="#integrations">Integrations</a></li>
-                <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
-                <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
-            </ul>
-        </div>
-        <div class="offcanvas-footer">
-            <a href="#" class="btn btn-signin-offcanvas">Sign In</a>
-            <a href="#" class="btn btn-primary mt-3">Get Started Free</a>
-        </div>
-    </div>
+  --palta-white: #FFFFFF; /* Pure white for light sections */
+  --palta-bg-light: #F8F9FA; /* Off-white/light grey for alternating sections (Notion/Qualified light sections) */
+  --palta-dark-bg: #1A202C; /* Primary dark background (Ramp/Chili Piper dark sections) */
+  --palta-very-dark-bg: #151A23; /* Even darker for footer */
 
-    <section class="hero text-center text-lg-start" id="home">
-        <div class="container-large"> <div class="row align-items-center">
-                <div class="col-lg-7">
-                    <h1 class="display-4">Revolutionize Your Sales Process with Palta Hub</h1>
-                    <p class="lead">From lead generation to closed deals, Palta Hub provides an all-in-one platform to streamline your sales operations and boost your team's performance.</p>
-                    <form class="hero-form">
-                        <input type="email" class="form-control" placeholder="Enter your work email">
-                        <button type="submit" class="btn btn-primary">Get Started Free</button>
-                    </form>
-                    <small class="d-block text-white-50 mt-3">No credit card required. Cancel anytime.</small>
-                </div>
-                <div class="col-lg-5 d-none d-lg-block">
-                    <img src="image_5b6db7.png" alt="Palta Hub Dashboard" class="img-fluid mt-4">
-                </div>
-            </div>
-        </div>
-    </section>
+  /* --- Borders & Shadows --- */
+  --palta-border: #E9ECEF; /* Light border for elements on white/light backgrounds */
+  --palta-subtle-dark-border: rgba(255,255,255,0.15); /* Subtle border for elements on dark backgrounds */
+  --palta-card-shadow: 0 10px 30px rgba(0,0,0,0.08); /* General card shadow for depth */
+  --palta-button-shadow-green: 0 4px 15px rgba(228, 242, 35, 0.2); /* Accent button shadow */
+  --palta-button-hover-shadow-green: 0 8px 25px rgba(228, 242, 35, 0.35); /* Accent button hover shadow */
+}
 
-    <section class="stats-section" id="stats">
-        <div class="container-large">
-            <h2 class="section-title">Proven Results That Speak Volumes</h2>
-            <p class="section-lead-text">See how Palta Hub has transformed sales teams worldwide. Our platform drives real, measurable growth.</p>
-            <div class="row text-center mt-5">
-                <div class="col-md-4 mb-4 mb-md-0 stat-item">
-                    <div class="stat-value">30%</div>
-                    <div class="stat-label">Average Increase in Sales Efficiency</div>
-                </div>
-                <div class="col-md-4 mb-4 mb-md-0 stat-item">
-                    <div class="stat-value">50%</div>
-                    <div class="stat-label">Faster Lead-to-Conversion Time</div>
-                </div>
-                <div class="col-md-4 stat-item">
-                    <div class="stat-value">25%</div>
-                    <div class="stat-label">Reduction in Customer Acquisition Cost</div>
-                </div>
-            </div>
-        </div>
-    </section>
+/* ===== Global Reset & Base Styles ===== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-    <section class="features-section" id="features">
-        <div class="container-large">
-            <h2 class="section-title text-center">Unleash Your Team's Full Potential</h2>
-            <p class="section-lead-text text-center">Palta Hub's robust features are designed to empower your sales team at every stage of the funnel.</p>
-            <div class="features-grid">
-                <div class="card">
-                    <img src="https://placehold.co/64x64/E4F223/1A202C/svg?text=🚀" alt="Icon" class="card-icon mb-4">
-                    <h3 class="card-title">Intelligent Lead Scoring</h3>
-                    <p class="card-text">Prioritize high-value prospects with AI-driven lead scoring, ensuring your team focuses on the hottest opportunities.</p>
-                </div>
-                <div class="card">
-                    <img src="https://placehold.co/64x64/E4F223/1A202C/svg?text=📈" alt="Icon" class="card-icon mb-4">
-                    <h3 class="card-title">Automated Workflow Management</h3>
-                    <p class="card-text">Automate repetitive tasks, follow-ups, and data entry, freeing up your sales reps to do what they do best: sell.</p>
-                </div>
-                <div class="card">
-                    <img src="https://placehold.co/64x64/E4F223/1A202C/svg?text=📊" alt="Icon" class="card-icon mb-4">
-                    <h3 class="card-title">Real-time Performance Analytics</h3>
-                    <p class="card-text">Gain deep insights into individual and team performance with customizable dashboards and real-time reporting.</p>
-                </div>
-                <div class="card">
-                    <img src="https://placehold.co/64x64/E4F223/1A202C/svg?text=🤝" alt="Icon" class="card-icon mb-4">
-                    <h3 class="card-title">Seamless CRM Integration</h3>
-                    <p class="card-text">Connect effortlessly with your existing CRM to ensure all your customer data is synchronized and accessible.</p>
-                </div>
-                <div class="card">
-                    <img src="https://placehold.co/64x64/E4F223/1A202C/svg?text=💬" alt="Icon" class="card-icon mb-4">
-                    <h3 class="card-title">Integrated Communication Tools</h3>
-                    <p class="card-text">Centralize emails, calls, and chat, ensuring all client interactions are tracked and easily reviewed.</p>
-                </div>
-                <div class="card">
-                    <img src="https://placehold.co/64x64/E4F223/1A202C/svg?text=🎯" alt="Icon" class="card-icon mb-4">
-                    <h3 class="card-title">Predictive Forecasting</h3>
-                    <p class="card-text">Leverage AI to accurately predict future sales trends and adjust your strategy for maximum impact.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+html, body {
+  min-height: 100vh;
+  background: var(--palta-dark-bg); /* Global body background is dark by default */
+  font-family: 'Inter', sans-serif;
+  color: var(--palta-text-dark); /* Default text color for areas without specific override */
+  line-height: 1.6; /* Improved readability for body text */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  padding-top: 70px; /* Space for fixed navbar */
+}
 
-    <section class="how-it-works-section" id="how-it-works">
-        <div class="container-large">
-            <h2 class="section-title text-center">Simple Steps to Sales Mastery</h2>
-            <p class="section-lead-text text-center">Getting started with Palta Hub is intuitive. Follow our streamlined process to optimize your sales from day one.</p>
-            <div class="how-it-works-grid">
-                <div class="card">
-                    <img src="https://placehold.co/64x64/E4F223/1A202C/svg?text=1️⃣" alt="Step 1" class="card-icon mb-4">
-                    <h3 class="card-title">Connect & Onboard</h3>
-                    <p class="card-text">Integrate your existing tools and import your data with our guided onboarding. Our team is here to help every step of the way.</p>
-                </div>
-                <div class="card">
-                    <img src="https://placehold.co/64x64/E4F223/1A202C/svg?text=2️⃣" alt="Step 2" class="card-icon mb-4">
-                    <h3 class="card-title">Automate & Streamline</h3>
-                    <p class="card-text">Set up custom workflows, automate routine tasks, and let Palta Hub optimize your outreach and follow-up sequences.</p>
-                </div>
-                <div class="card">
-                    <img src="https://placehold.co/64x64/E4F223/1A202C/svg?text=3️⃣" alt="Step 3" class="card-icon mb-4">
-                    <h3 class="card-title">Analyze & Grow</h3>
-                    <p class="card-text">Utilize real-time analytics to identify strengths and weaknesses, continuously refine your strategy, and scale your success.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+::selection {
+  background: var(--palta-accent-green);
+  color: var(--palta-text-dark);
+}
+::-moz-selection {
+  background: var(--palta-accent-green);
+  color: var(--palta-text-dark);
+}
 
-    <section class="integrations-section" id="integrations">
-        <div class="container-large">
-            <h2 class="section-title text-center">Seamlessly Integrate with Your Ecosystem</h2>
-            <p class="section-lead-text text-center">Palta Hub plays well with others. Connect your favorite tools and keep your entire tech stack aligned.</p>
-            <div class="integrations-grid">
-                <img src="https://assets-global.website-files.com/657e7a552e1858a7b9736006/65823126f555e51025539757_Slack_mark.svg" alt="Slack" class="integration-logo">
-                <img src="https://assets-global.website-files.com/657e7a552e1858a7b9736006/658231268b8e2170c1fc9ec0_stripe_logo.svg" alt="Stripe" class="integration-logo">
-                <img src="https://assets-global.website-files.com/657e7a552e1858a7b9736006/658231262d147321ac86f918_Google_logo.svg" alt="Google" class="integration-logo">
-                <img src="https://assets-global.website-files.com/657e7a552e1858a7b9736006/6582312630138ffcefc7928b_zoom_logo.svg" alt="Zoom" class="integration-logo">
-                <img src="https://assets-global.website-files.com/657e7a552e1858a7b9736006/658231269389e13a4836f32e_Hubspot_mark.svg" alt="HubSpot" class="integration-logo">
-                <img src="https://assets-global.website-files.com/657e7a552e1858a7b9736006/6582312629b35b62b10ec87d_salesforce_logo.svg" alt="Salesforce" class="integration-logo">
-                <img src="https://assets-global.website-files.com/657e7a552e1858a7b9736006/65823126b896b02660a5e8e8_Intercom_logo.svg" alt="Intercom" class="integration-logo">
-                <img src="https://assets-global.website-files.com/657e7a552e1858a7b9736006/658231264c7e63b6528d258b_Zapier_mark.svg" alt="Zapier" class="integration-logo">
-            </div>
-        </div>
-    </section>
+/* Consistent max width container for main content - Crucial for spacious layouts */
+.container-large {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
 
-    <section class="why-love-palta-section" id="why-love-palta">
-        <div class="container-large">
-            <h2 class="section-title text-center">Why Leading Teams Choose Palta Hub</h2>
-            <p class="section-lead-text text-center">Don't just take our word for it. Here's what sets us apart and why sales teams are thriving with our platform.</p>
-            <div class="love-points-container">
-                <div class="love-point">Intuitive Interface & Easy Adoption</div>
-                <div class="love-point">Dedicated 24/7 Customer Support</div>
-                <div class="love-point">Scalable for Teams of All Sizes</div>
-                <div class="love-point">Robust Security & Data Privacy</div>
-                <div class="love-point">Constant Innovation & Updates</div>
-                <div class="love-point">Proven ROI for Sales Leaders</div>
-            </div>
-        </div>
-    </section>
+/* ===== Navbar & CTAs ===== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: var(--palta-dark-bg); /* Default dark background for navbar */
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15); /* Subtle shadow for depth */
+  border-bottom: none;
+  padding: 0.5rem 1rem; /* Generous padding */
+}
 
-    <section class="final-cta-section text-center">
-        <div class="container-large">
-            <h2 class="cta-title">Ready to Revolutionize Your Sales?</h2>
-            <p class="lead">Join thousands of successful sales teams who are achieving unprecedented growth with Palta Hub.</p>
-            <a href="#" class="btn cta-button">Get Started for Free Today</a>
-        </div>
-    </section>
+.navbar .navbar-brand img {
+  height: 42px; /* Slightly larger logo */
+  transition: filter 0.22s ease;
+  filter: none; /* No filter by default */
+}
 
-    <footer class="footer-section">
-        <div class="container-large text-center">
-            <ul class="list-inline mb-3">
-                <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
-                <li class="list-inline-item mx-3">|</li>
-                <li class="list-inline-item"><a href="#">Terms of Service</a></li>
-                <li class="list-inline-item mx-3">|</li>
-                <li class="list-inline-item"><a href="#">Support</a></li>
-            </ul>
-            <p class="mb-0">&copy; 2025 Palta Hub. All rights reserved.</p>
-        </div>
-    </footer>
+.navbar .nav-link {
+  color: var(--palta-white);
+  font-weight: 500; /* Medium weight for navigation links */
+  padding: 0.5rem 1rem; /* More padding for nav links */
+  transition: color 0.2s ease;
+}
+.navbar .nav-link:hover {
+  color: var(--palta-accent-green);
+}
+.navbar .nav-link.active {
+    color: var(--palta-accent-green);
+    border-bottom: 2px solid var(--palta-accent-green);
+    padding-bottom: calc(0.5rem - 2px); /* Adjust padding to keep vertical alignment */
+}
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Optional: JS for navbar background change on scroll (similar to some inspiration sites)
-        const navbar = document.querySelector('.navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) { // Adjust scroll threshold as needed
-                navbar.classList.add('light-bg'); // Or 'dark-bg' if you want a different style
-                navbar.classList.remove('dark-bg');
-            } else {
-                navbar.classList.remove('light-bg');
-                navbar.classList.add('dark-bg');
-            }
-        });
+/* Primary CTA Button (used widely) */
+.btn-primary, .cta-button {
+  background: var(--palta-accent-green);
+  color: var(--palta-text-dark);
+  border: none;
+  padding: 0.8rem 2rem; /* Generous padding for prominence */
+  border-radius: 0.625rem; /* 10px - Rounded corners */
+  font-weight: 700; /* Bold text */
+  font-size: 1.05rem; /* Slightly larger text */
+  white-space: nowrap; /* Prevent text wrapping */
+  transition: background 0.2s ease-in-out, transform 0.15s ease-out, box-shadow 0.2s ease-in-out;
+  display: inline-flex; /* Use flex for vertical alignment of text/icon */
+  align-items: center;
+  justify-content: center;
+  text-decoration: none; /* Remove underline for anchor buttons */
+  box-shadow: var(--palta-button-shadow-green); /* Subtle glow/shadow */
+}
+.btn-primary:hover, .cta-button:hover {
+  background: #D3E01E; /* Slightly darker/more saturated on hover */
+  color: #0C0A08; /* Ensure good contrast */
+  transform: translateY(-2px); /* Noticeable lift on hover */
+  box-shadow: var(--palta-button-hover-shadow-green); /* Enhanced shadow on hover */
+}
+.btn-primary:active, .cta-button:active {
+  transform: translateY(0); /* Reset on click */
+  box-shadow: 0 2px 10px rgba(228, 242, 35, 0.2); /* Reduced shadow on active */
+}
 
-        // Ensure nav links close offcanvas on click
-        const offcanvasLinks = document.querySelectorAll('#offcanvasNavbar .nav-link');
-        const offcanvas = new bootstrap.Offcanvas(document.getElementById('offcanvasNavbar'));
+/* Sign-in Button (outlined style) */
+.btn-signin {
+  background: transparent;
+  color: var(--palta-white); /* White text by default on dark navbar */
+  border: 2px solid currentColor; /* Thicker border, color inherited from text */
+  padding: 0.8rem 2rem; /* Consistent with primary button padding */
+  border-radius: 0.625rem; /* More rounded corners */
+  font-weight: 600;
+  font-size: 1.05rem;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+.btn-signin:hover {
+  color: var(--palta-accent-green);
+  border-color: var(--palta-accent-green);
+}
 
-        offcanvasLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                offcanvas.hide();
-            });
-        });
+/* Navbar Scroll States (handled by main.js) */
+.navbar.light-bg {
+  background: rgba(255,255,255,0.97); /* Frosted glass effect */
+  backdrop-filter: saturate(180%) blur(12px);
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+}
+.navbar.light-bg .nav-link,
+.navbar.light-bg .btn-signin {
+  color: var(--palta-text-dark); /* Dark text on light navbar */
+}
+.navbar.light-bg .navbar-brand img {
+    filter: brightness(0.2); /* Darken logo for light background */
+}
+.navbar.light-bg .btn-primary {
+  background: var(--palta-accent-green);
+  color: var(--palta-text-dark);
+}
+.navbar.light-bg .btn-primary:hover {
+    background: #D3E01E;
+}
+.navbar.light-bg .navbar-toggler-icon {
+    filter: none; /* Reset filter for default dark icon */
+}
+.navbar.dark-bg { /* Explicitly define for consistency, though it's the default */
+  background: var(--palta-dark-bg);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  backdrop-filter: none;
+}
+.navbar.dark-bg .nav-link,
+.navbar.dark-bg .btn-signin {
+  color: var(--palta-white);
+}
+.navbar.dark-bg .navbar-toggler-icon {
+    filter: invert(1) contrast(200%); /* Ensure white icon on dark background */
+}
+.navbar-toggler {
+  border: none;
+  background: transparent;
+}
 
-    </script>
-</body>
-</html>
+
+/* ===== Offcanvas Mobile Menu ===== */
+.offcanvas-header {
+  padding: 1.5rem 1rem; /* More generous padding */
+}
+.offcanvas-body {
+  padding: 2rem 1rem; /* More generous padding */
+  background-color: var(--palta-white); /* White background for mobile menu */
+  align-items: flex-start; /* Align nav items to start */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.offcanvas-body .nav-link {
+    color: var(--palta-text-dark);
+    font-size: 1.3rem; /* Larger font for mobile links */
+    padding: 1rem 0; /* More vertical space */
+    width: 100%; /* Full width links */
+    text-align: left; /* Align text left */
+}
+.offcanvas-body .nav-link:hover {
+    color: var(--palta-accent-green);
+}
+.offcanvas-footer {
+  width: 100%;
+  padding: 2rem 1rem; /* More padding */
+  text-align: center;
+  background-color: var(--palta-white);
+  border-top: 1px solid var(--palta-border);
+}
+.offcanvas-footer .btn-primary,
+.offcanvas-footer .btn-signin-offcanvas {
+  width: 100%; /* Full width buttons */
+  margin: .75rem 0; /* More margin */
+  display: block;
+}
+/* Specific styling for sign-in button in offcanvas footer */
+.btn-signin-offcanvas {
+  border: 2px solid var(--palta-text-dark);
+  color: var(--palta-text-dark);
+  padding: 0.8rem 2rem;
+  border-radius: 0.625rem;
+  font-weight: 600;
+  text-decoration: none;
+  background: transparent;
+  transition: all 0.2s ease;
+}
+.btn-signin-offcanvas:hover {
+  border-color: var(--palta-accent-green);
+  color: var(--palta-accent-green);
+}
+
+
+/* ===== Hero Section ===== */
+.hero {
+  background: var(--palta-dark-bg); /* Dark background */
+  color: var(--palta-white);
+  padding-top: 140px; /* Generous padding for spacious feel */
+  padding-bottom: 140px;
+  display: flex;
+  align-items: center;
+  min-height: 650px; /* Ensure a good minimum height */
+  position: relative;
+  overflow: hidden; /* To contain any background elements or images */
+  text-align: center; /* Default center for mobile */
+}
+.hero .container-large { /* Explicitly use container-large within hero */
+    z-index: 1; /* Ensure content is above any background elements */
+    position: relative;
+}
+.hero .row {
+    align-items: center;
+}
+.hero .display-4 {
+  font-size: 3.8rem; /* Much larger, impactful headline */
+  font-weight: 900; /* Extra bold */
+  line-height: 1.05; /* Tighter line height for display text */
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.05em; /* Tighter letter spacing */
+}
+.hero p.lead {
+  font-size: 1.25rem; /* Larger, prominent lead text */
+  color: rgba(255,255,255,0.8); /* Slightly brighter white for lead */
+  margin-bottom: 2.5rem; /* More space before CTA */
+  max-width: 750px; /* Constrain width for readability */
+  margin-left: auto;
+  margin-right: auto; /* Center lead text */
+}
+
+/* Hero Form - prominent and well-defined */
+.hero-form {
+  display: flex;
+  max-width: 650px; /* Wider form container */
+  gap: 0; /* No gap between input and button */
+  margin-top: 2rem;
+  width: 100%; /* Ensure it takes available width up to max-width */
+  margin-left: auto; /* Center form on larger screens */
+  margin-right: auto; /* Center form on larger screens */
+}
+.hero-form .form-control {
+  flex-grow: 1;
+  height: 60px; /* Taller input field */
+  padding: 0 25px; /* More internal padding */
+  background: var(--palta-white);
+  border-radius: 0.75rem 0 0 0.75rem; /* 12px - More rounded, consistent */
+  border: 1px solid var(--palta-border); /* Subtle border */
+  color: var(--palta-text-dark);
+  font-size: 1.1rem; /* Larger font size inside input */
+  min-width: 300px; /* Ensure input has good minimum width */
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.hero-form .form-control::placeholder {
+    color: var(--palta-text-light); /* Darker placeholder text */
+    opacity: 0.8; /* Slight transparency */
+}
+.hero-form .form-control:focus {
+  border-color: var(--palta-accent-green);
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(228, 242, 35, 0.35); /* Prominent focus ring */
+}
+.hero-form .btn-primary {
+  height: 60px; /* Match input height */
+  min-width: 220px; /* Ensure button text fits well */
+  padding: 0 35px; /* More padding for button */
+  border-radius: 0 0.75rem 0.75rem 0; /* Match input rounding */
+  font-size: 1.15rem; /* Slightly larger button text */
+}
+
+/* Hero image/illustration */
+.hero .img-fluid {
+    display: block; /* Ensure it behaves as a block element */
+    max-width: 100%;
+    height: auto;
+    border-radius: 1rem; /* Consistent rounded corners for images */
+    box-shadow: 0 15px 40px rgba(0,0,0,0.25); /* Stronger shadow for hero image */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+/* Optional: slight hover effect for hero image */
+.hero .img-fluid:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+}
+
+
+/* ===== Sections (General Styling) ===== */
+section {
+    padding: 8rem 0; /* Generous vertical padding for all sections */
+    position: relative; /* For z-index if needed */
+    overflow: hidden; /* To contain content and backgrounds */
+}
+.section-title {
+    font-size: 3rem; /* Larger, impactful titles */
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 2rem; /* More space below title */
+    letter-spacing: -0.04em;
+    text-align: center; /* Generally center titles */
+    max-width: 900px; /* Constrain width of title */
+    margin-left: auto;
+    margin-right: auto;
+}
+.section-lead-text { /* For lead paragraphs below titles */
+    font-size: 1.25rem;
+    line-height: 1.6;
+    margin-bottom: 3.5rem; /* More space below lead text */
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    color: var(--palta-text-medium); /* Default for light backgrounds */
+}
+
+/* Title and Lead text colors based on section background */
+/* For sections with dark backgrounds (Hero, Features, Why Love Palta, Final CTA) */
+.hero .display-4,
+.features-section .section-title,
+.why-love-palta-section .section-title,
+.final-cta-section .cta-title {
+    color: var(--palta-white);
+}
+.features-section .section-lead-text,
+.why-love-palta-section .section-lead-text,
+.final-cta-section .lead {
+    color: rgba(255,255,255,0.7);
+}
+
+/* For sections with light backgrounds (Stats, How It Works, Integrations) */
+.stats-section .section-title,
+.how-it-works-section .section-title, /* How It Works is now light grey */
+.integrations-section .section-title {
+    color: var(--palta-text-dark);
+}
+.stats-section .section-lead-text,
+.how-it-works-section .section-lead-text,
+.integrations-section .section-lead-text {
+    color: var(--palta-text-medium);
+}
+
+
+/* ===== Specific Sections Styling ===== */
+
+/* Stats Section (White Background) */
+.stats-section {
+    background: var(--palta-white);
+    color: var(--palta-text-dark);
+    text-align: center;
+}
+.stat-item {
+    padding: 1.5rem;
+}
+.stat-value {
+    font-size: 3.5rem; /* Very large stats for impact */
+    color: var(--palta-dark-bg);
+    margin-bottom: .5rem;
+    font-weight: 800;
+    line-height: 1; /* Tighter line height for large numbers */
+}
+.stat-label {
+    color: var(--palta-text-medium);
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+/* Features Section (Dark Background) */
+.features-section {
+    background-color: var(--palta-dark-bg);
+    color: var(--palta-white);
+}
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px; /* Consistent gap for grid */
+    margin-top: 4rem; /* Spacing from title */
+}
+
+/* How It Works Section (Light Grey Background) */
+.how-it-works-section {
+    background-color: var(--palta-bg-light); /* Light grey background */
+    color: var(--palta-text-dark);
+}
+.how-it-works-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 4rem;
+}
+
+/* Card styles (for features, how-it-works, etc.) */
+.card {
+  background: var(--palta-white); /* Cards are white on both dark and light sections */
+  border: 1px solid var(--palta-border);
+  border-radius: 1rem; /* More rounded corners (16px) */
+  padding: 2.5rem; /* Generous internal padding */
+  transition: transform 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+  color: var(--palta-text-dark); /* Dark text inside cards */
+  box-shadow: var(--palta-card-shadow);
+  display: flex; /* For flexible content alignment within card */
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start; /* Align content to top-left */
+  text-align: left;
+}
+.card:hover {
+  transform: translateY(-8px); /* More noticeable lift on hover */
+  box-shadow: 0 16px 40px rgba(0,0,0,0.12); /* Enhanced shadow on hover */
+}
+.card-icon { /* Style for icon images within cards */
+    width: 64px; /* Fixed size */
+    height: 64px;
+    object-fit: contain; /* Ensure image fits */
+    margin-bottom: 1.5rem;
+}
+.card-title {
+    color: var(--palta-dark-bg);
+    font-weight: 700;
+    font-size: 1.5rem; /* Larger card titles */
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+.card-text {
+    color: var(--palta-text-medium);
+    font-size: 1.05rem; /* Slightly larger card text */
+    line-height: 1.7;
+    flex-grow: 1; /* Allow text to grow and fill space */
+}
+
+/* Integrations Section (White Background) */
+.integrations-section {
+    background: var(--palta-white);
+    color: var(--palta-text-dark);
+    text-align: center;
+}
+.integrations-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 50px; /* Increased gap between logos */
+  margin-top: 4rem;
+}
+.integration-logo {
+  height: 70px; /* Larger logos */
+  max-width: 150px; /* Wider */
+  object-fit: contain;
+  filter: grayscale(80%) contrast(120%); /* More muted initial state */
+  opacity: .7;
+  transition: filter .3s ease, transform .2s ease, opacity .3s ease;
+}
+.integration-logo:hover {
+  filter: none; /* Full color on hover */
+  opacity: 1;
+  transform: scale(1.12); /* More prominent hover effect */
+}
+
+/* Why Teams Love Palta Hub Section (Dark Background) */
+.why-love-palta-section {
+  background: var(--palta-dark-bg);
+  color: var(--palta-white);
+}
+.love-points-container {
+    display: grid; /* Use grid for better control */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px; /* Consistent gap */
+    margin-top: 4rem;
+}
+.love-point {
+    background: rgba(255, 255, 255, 0.08); /* Slightly transparent white on dark */
+    border-radius: 1rem; /* More rounded */
+    padding: 2rem; /* More padding */
+    font-size: 1.2rem; /* Larger font */
+    font-weight: 500;
+    color: var(--palta-white);
+    text-align: center;
+    border: 1px solid var(--palta-subtle-dark-border); /* Subtle border on dark bg */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Slight shadow for depth */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.love-point:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Final Call to Action Section (Dark Background, Centered) */
+.final-cta-section {
+  background: var(--palta-dark-bg);
+  padding: 8rem 0; /* More vertical padding for final CTA */
+  color: var(--palta-white);
+  text-align: center;
+}
+.final-cta-section .cta-title {
+  font-size: 3.5rem; /* Even larger, more impactful title */
+  font-weight: 800;
+  margin-bottom: 2rem;
+  line-height: 1.1;
+  letter-spacing: -0.05em;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.final-cta-section .lead {
+  font-size: 1.35rem; /* Larger lead text */
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 3.5rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.final-cta-section .cta-button {
+  padding: 1rem 2.5rem; /* Largest padding for this button */
+  font-size: 1.25rem; /* Largest font size for this button */
+  border-radius: 0.75rem; /* Largest border radius */
+}
+
+
+/* ===== Footer ===== */
+.footer-section {
+  background: var(--palta-very-dark-bg); /* Very dark background for footer */
+  padding: 5rem 0; /* More padding */
+  color: rgba(255,255,255,0.6);
+  font-size: 1rem; /* Clearer font size */
+}
+.footer-section .list-inline-item a {
+  color: rgba(255,255,255,0.85); /* Slightly brighter links */
+  text-decoration: none;
+  font-weight: 500;
+  transition: color .2s ease;
+}
+.footer-section .list-inline-item a:hover {
+  color: var(--palta-accent-green);
+}
+
+/* ===== Responsive Adjustments (Mobile First) ===== */
+@media (max-width: 1200px) {
+    .container-large {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+@media (max-width: 992px) { /* Medium devices (tablets) */
+  .hero {
+    padding: 100px 20px; /* Adjust mobile padding */
+    min-height: 550px;
+    flex-direction: column; /* Stack content for mobile */
+    text-align: center; /* Center align hero text on mobile */
+  }
+  .hero .display-4 {
+    font-size: 2.8rem; /* Smaller headline on mobile */
+    margin-bottom: 1rem;
+  }
+  .hero p.lead {
+    font-size: 1rem; /* Smaller lead on mobile */
+    margin-bottom: 1.5rem;
+  }
+  .hero-form {
+    flex-direction: column;
+    gap: 15px; /* More gap between stacked elements */
+    max-width: 100%;
+  }
+  .hero-form .form-control,
+  .hero-form .btn-primary {
+    width: 100%;
+    border-radius: 0.75rem; /* Full rounded corners for stacked elements */
+    min-width: auto;
+  }
+
+  /* Adjustments for section titles and leads on smaller screens */
+  .section-title {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+  .section-lead-text {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  section {
+      padding: 5rem 0; /* Reduced padding on mobile */
+  }
+
+  .stat-value {
+      font-size: 2.8rem;
+  }
+  .card {
+      padding: 1.5rem; /* Reduce card padding on mobile */
+      text-align: center; /* Center card content on mobile */
+      align-items: center; /* Center items within card */
+  }
+  .card-title {
+      font-size: 1.3rem;
+  }
+  .card-text {
+      font-size: 0.95rem;
+  }
+  .integrations-grid {
+      gap: 30px;
+  }
+  .integration-logo {
+      height: 50px;
+      max-width: 120px;
+  }
+  .love-point {
+      padding: 1.5rem;
+      font-size: 1.05rem;
+  }
+  .final-cta-section .cta-title {
+      font-size: 2.5rem;
+  }
+  .final-cta-section .lead {
+      font-size: 1.1rem;
+  }
+  .final-cta-section .cta-button {
+      padding: .8rem 1.8rem;
+      font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) { /* Small devices (portrait phones) */
+    .display-4 {
+        font-size: 2.2rem !important; /* Even smaller on very small screens */
+    }
+    .hero p.lead {
+        font-size: 0.95rem;
+    }
+    .section-title {
+        font-size: 2rem;
+    }
+    .love-points-container {
+        grid-template-columns: 1fr; /* Stack love points on very small screens */
+    }
+    .final-cta-section .cta-title {
+        font-size: 2rem;
+    }
+    .final-cta-section .lead {
+        font-size: 1rem;
+    }
+    .footer-section {
+        padding: 3rem 0;
+    }
+}
