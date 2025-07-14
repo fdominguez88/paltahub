@@ -1,247 +1,3 @@
-Yes, I can provide you with the updated HTML, CSS, and JavaScript files.
-
-Important: I'll provide the complete updated files for each, incorporating all the changes we've discussed so far. Please replace your existing files with these.
-
-1. index.html (Updated HTML File)
-HTML
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Palta Hub – Effortless Sales Automation</title>
-  <link rel="icon" href="https://i.postimg.cc/QtGd9cqM/Favicon.png" sizes="32x32">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-
-  <header role="banner">
-    <nav class="navbar navbar-expand-lg" aria-label="Main navigation">
-      <div class="container">
-        <a class="navbar-brand" href="/" aria-label="Palta Hub home">
-          <img src="https://i.postimg.cc/mZcC64jS/palta-hub-logo-white-transparent.png"
-                alt="Palta Hub logo" height="38">
-        </a>
-
-        <div class="d-none d-lg-flex me-auto ms-4"> <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
-                <li class="nav-item"><a class="nav-link" href="#how-it-works">How It Works</a></li>
-                <li class="nav-item"><a class="nav-link" href="#integrations">Integrations</a></li>
-                <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
-            </ul>
-        </div>
-
-
-        <div class="d-none d-lg-flex align-items-center ms-auto">
-          <a class="btn btn-signin me-2" href="#signin">Sign in</a>
-          <a class="btn btn-primary" href="#demo">Book a Demo</a>
-        </div>
-
-        <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas"
-                 data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
-             aria-labelledby="offcanvasNavbarLabel">
-          <div class="offcanvas-header">
-            <h5 class="offcanvas-title visually-hidden" id="offcanvasNavbarLabel">Palta Hub Menu</h5>
-            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-                    aria-label="Close"></button>
-          </div>
-          <div class="offcanvas-body d-flex flex-column justify-content-between">
-            <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
-              <li class="nav-item"><a class="nav-link" href="#features" data-bs-dismiss="offcanvas">Features</a></li>
-              <li class="nav-item"><a class="nav-link" href="#how-it-works" data-bs-dismiss="offcanvas">How It Works</a></li>
-              <li class="nav-item"><a class="nav-link" href="#integrations" data-bs-dismiss="offcanvas">Integrations</a></li>
-              <li class="nav-item"><a class="nav-link" href="#about" data-bs-dismiss="offcanvas">About Us</a></li>
-              <li class="nav-item"><a class="nav-link" href="#pricing" data-bs-dismiss="offcanvas">Pricing</a></li>
-            </ul>
-            <div class="offcanvas-footer w-100 p-3">
-                <a class="btn btn-signin-offcanvas w-100 mb-3" href="#signin" data-bs-dismiss="offcanvas">Sign in</a>
-                <a class="btn btn-primary-offcanvas w-100" href="#demo" data-bs-dismiss="offcanvas">See a demo</a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </nav>
-  </header>
-
-  <main role="main">
-
-    <section class="hero text-white" aria-label="Hero section">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-6 text-center text-lg-start">
-            <h1 class="display-4 fw-bold mb-3">Leads move fast.<br>So should you.</h1>
-            <p class="lead mb-4">Automate handoffs, booking, and routing in one place.</p>
-
-            <form class="hero-form-modern d-none d-lg-flex" action="#get-started" method="POST" autocomplete="off"
-                  aria-label="Get started form">
-              <label for="email" class="visually-hidden">Work email</label>
-              <input id="email" type="email" name="email" class="hero-form-modern-input"
-                     placeholder="What’s your work email?" required>
-              <button type="submit" class="hero-form-modern-btn">Get started for free</button>
-            </form>
-
-            <form class="hero-form-responsive d-lg-none mt-3" action="#get-started" method="POST"
-                  aria-label="Get started responsive form">
-              <label for="email-mob" class="visually-hidden">Work email</label>
-              <input id="email-mob" type="email" name="email"
-                     placeholder="What’s your work email?" required>
-              <button type="submit">Get started for free</button>
-            </form>
-          </div>
-          <div class="col-lg-6 text-center">
-            <img src="https://placehold.co/600x400/1A202C/FFFFFF?text=Product+Screenshot"
-                  alt="Product screenshot" class="img-fluid rounded">
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="stats" class="stats-section py-5">
-      <div class="container">
-        <div class="row text-center">
-          <div class="col-md-4 mb-4 mb-md-0">
-            <h3 class="stat-item">1,200+</h3>
-            <p>Companies onboarded</p>
-          </div>
-          <div class="col-md-4 mb-4 mb-md-0">
-            <h3 class="stat-item">98%+</h3>
-            <p>Customer satisfaction</p>
-          </div>
-          <div class="col-md-4">
-            <h3 class="stat-item">10x</h3>
-            <p>Faster meeting scheduling</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="features" class="py-5 bg-white">
-      <div class="container">
-        <h2 class="section-title text-center">Key Features</h2>
-        <div class="row g-4">
-          <div class="col-md-4">
-            <div class="feature-card p-4 h-100">
-              <h4>Automated Routing</h4>
-              <p>Instantly assign leads to the right rep based on custom rules.</p>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="feature-card p-4 h-100">
-              <h4>One-Click Booking</h4>
-              <p>Let prospects schedule demos without back-and-forth emails.</p>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="feature-card p-4 h-100">
-              <h4>CRM Sync</h4>
-              <p>Keep your CRM up-to-date automatically with every interaction.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="how-it-works" class="py-5">
-      <div class="container">
-        <h2 class="section-title text-center">How It Works</h2>
-        <div class="row g-4">
-          <div class="col-md-4">
-            <div class="how-it-works-item p-4 h-100">
-              <h4>Step 1: Integrate</h4>
-              <ul>
-                <li>Connect your CRM & calendar in minutes.</li>
-                <li>No code required.</li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="how-it-works-item p-4 h-100">
-              <h4>Step 2: Automate</h4>
-              <ul>
-                <li>Define routing rules and booking templates.</li>
-                <li>Eliminate manual handoffs.</li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="how-it-works-item p-4 h-100">
-              <h4>Step 3: Scale</h4>
-              <ul>
-                <li>Track performance with analytics dashboard.</li>
-                <li>Optimize workflows continuously.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="integrations" class="py-5 bg-white text-center">
-      <div class="container">
-        <h2 class="section-title">Seamlessly Integrates with Your Stack</h2>
-        <p class="mb-4">Works with HubSpot, Gmail, Outlook, Salesforce, Zoom, and more.</p>
-        <div class="integrations-grid justify-content-center">
-          <img src="hubspot.svg"    alt="HubSpot"     class="integration-logo">
-          <img src="gmail.svg"      alt="Gmail"       class="integration-logo">
-          <img src="outlook.svg"    alt="Outlook"     class="integration-logo">
-          <img src="salesforce.svg" alt="Salesforce" class="integration-logo">
-          <img src="zoom.svg"       alt="Zoom"         class="integration-logo">
-        </div>
-      </div>
-    </section>
-
-    <section class="why-love-palta py-5 bg-white">
-      <div class="container">
-        <h2 class="section-title text-center">Why Teams Love Palta Hub</h2>
-        <ul class="love-points mx-auto" style="max-width:700px;">
-          <li class="love-point">Meetings happen faster.</li>
-          <li class="love-point">Leads never fall through the cracks.</li>
-          <li class="love-point">It works seamlessly with your CRM & calendar.</li>
-          <li class="love-point">Automate administrative tasks and enhance team collaboration.</li>
-          <li class="love-point">Focus on selling, not scheduling.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="call-to-action py-5 d-none d-lg-block" aria-label="Final call to action">
-      <div class="container text-center">
-        <h2 class="mb-3">Ready to Revolutionize Your Sales?</h2>
-        <p class="mb-4">Stop losing leads to manual processes and start connecting effortlessly with prospects.</p>
-        <a href="#get-started" class="btn cta-button">Get started for free</a>
-      </div>
-    </section>
-
-  </main>
-
-  <footer role="contentinfo" class="bg-dark text-white py-4">
-    <div class="container text-center">
-      <img src="https://i.postimg.cc/mZcC64jS/palta-hub-logo-white-transparent.png"
-            alt="Palta Hub logo" height="35" class="mb-3">
-      <ul class="list-inline mb-3">
-        <li class="list-inline-item"><a href="#features" class="text-white-50">Features</a></li>
-        <li class="list-inline-item"><a href="#how-it-works" class="text-white-50">How It Works</a></li>
-        <li class="list-inline-item"><a href="#privacy" class="text-white-50">Privacy Policy</a></li>
-        <li class="list-inline-item"><a href="#terms" class="text-white-50">Terms of Service</a></li>
-      </ul>
-      <p class="mb-0 text-white-50">© 2025 Palta Hub. All rights reserved.</p>
-    </div>
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="main.js"></script>
-</body>
-</html>
-2. styles.css (Updated CSS File)
-CSS
-
 :root {
     --palta-blue: #00707F;
     --palta-accent-green: #E4F223;
@@ -306,6 +62,7 @@ input::-ms-selection, textarea::-ms-selection {
 #how-it-works .section-title, #how-it-works h2, #how-it-works h4, #how-it-works p, #how-it-works ul, #how-it-works li {
     color: var(--palta-text-dark) !important;
 }
+/* The .call-to-action display is now primarily controlled by Bootstrap classes in HTML */
 .call-to-action { background: #1A1919 !important; color: var(--palta-white);}
 
 section:not(.stats-section):not(#features):not(#how-it-works):not(#integrations):not(.why-love-palta):not(.call-to-action):not(.hero) {
@@ -322,13 +79,14 @@ section:not(.stats-section):not(#features):not(#how-it-works):not(#integrations)
     border-bottom: 1px solid rgba(180,180,180,0.08);
     transition: background 0.3s, box-shadow 0.3s, color 0.3s;
 }
+.navbar, .navbar .navbar-nav .nav-link, .navbar .navbar-brand, .navbar .navbar-toggler, .navbar .btn-primary, .navbar .cta-button, .navbar .btn-signin {
+    color: #fff !important; fill: #fff !important;
+    background: transparent; border-color: rgba(255,255,255,0.16);
+}
 .navbar .navbar-brand img { height: 38px; transition: filter 0.22s; filter: none !important;}
-
-/* Desktop Navbar elements (Sign In, Book a Demo) */
 .navbar .navbar-nav .nav-link, .navbar .navbar-brand {
     font-size: 0.97em !important; font-weight: 500; letter-spacing: 0.01em;
     padding-top: 3px !important; padding-bottom: 3px !important;
-    color: #fff !important; /* Ensure desktop nav links are white */
 }
 .navbar .btn-primary, .navbar .cta-button {
     font-size: 0.89em !important; padding: 5px 16px !important; min-width: unset;
@@ -351,12 +109,10 @@ section:not(.stats-section):not(#features):not(#how-it-works):not(#integrations)
     background: rgba(255,255,255,0.11); color: var(--palta-accent-green) !important; border-color: var(--palta-accent-green);
     text-decoration: none; outline: none;
 }
-
-/* Navbar background and text color changes for scrolling/light background */
 .navbar.light-bg {
     background: rgba(255,255,255,0.97) !important; color: var(--palta-text-dark) !important; box-shadow: 0 2px 14px rgba(52,58,64,0.09);
 }
-.navbar.light-bg .navbar-nav .nav-link, .navbar.light-bg .navbar-brand { /* Added nav-link here */
+.navbar.light-bg .navbar-nav .nav-link, .navbar.light-bg .navbar-brand, .navbar.light-bg .navbar-toggler {
     color: var(--palta-text-dark) !important; fill: var(--palta-text-dark) !important;
 }
 .navbar.light-bg .navbar-brand img { filter: none !important;}
@@ -372,153 +128,15 @@ section:not(.stats-section):not(#features):not(#how-it-works):not(#integrations)
 .navbar.light-bg .btn-signin:hover, .navbar.light-bg .btn-signin:focus {
     background: var(--palta-bg-light); color: var(--palta-blue) !important; border-color: var(--palta-accent-green);
 }
-
 /* Hamburger icon color swap */
-.navbar-toggler {
-    border: none !important; /* Remove border */
-    background: transparent !important; /* Ensure transparent background */
-    box-shadow: none !important; /* Remove shadow on focus */
+.navbar, .navbar.navbar-dark, .navbar:not(.light-bg) {
+    --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255,255,255,1%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
-.navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255,255,255,1%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+.navbar.light-bg {
+    --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2852,58,64,1%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
-.navbar.light-bg .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2852,58,64,1%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-}
-
-
-/* --- Offcanvas Menu (Mobile) --- */
-.offcanvas {
-    background-color: var(--palta-dark-bg); /* Dark background for the offcanvas */
-    width: 100vw; /* Full width */
-    height: 100vh; /* Full height */
-    max-width: 100%; /* Ensure it doesn't exceed viewport */
-    color: var(--palta-white);
-    padding: 20px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Pushes content and footer apart */
-}
-
-.offcanvas-header {
-    border-bottom: none; /* No border for header */
-    padding: 0;
-    display: flex;
-    justify-content: flex-end; /* Push close button to the right */
-    height: 60px; /* Allocate space for the close button */
-    align-items: center;
-}
-
-.offcanvas .btn-close {
-    background: none; /* Remove default close button background */
-    opacity: 1; /* Ensure visible */
-    font-size: 2.5rem; /* Larger 'X' */
-    color: rgba(255, 255, 255, 0.7); /* White color for 'X' */
-    font-weight: 200; /* Thinner 'X' */
-    padding: 0;
-    margin: 0; /* Remove default margin */
-    box-shadow: none !important; /* No shadow on focus */
-    outline: none !important; /* No outline on focus */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 48px; /* Make it a clickable square */
-    height: 48px;
-    border-radius: 50%; /* Make it circular */
-    transition: background-color 0.2s, color 0.2s;
-}
-
-.offcanvas .btn-close::before {
-    content: "×"; /* Custom 'X' character */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    line-height: 1; /* Align character properly */
-}
-
-.offcanvas .btn-close:hover {
-    color: var(--palta-accent-green);
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-.offcanvas-body {
-    padding-top: 0;
-    padding-bottom: 20px; /* Adjust padding as needed */
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Center content vertically */
-    align-items: center; /* Center content horizontally */
-}
-
-.offcanvas .navbar-nav {
-    width: 100%;
-    text-align: center;
-    flex-direction: column; /* Stack nav items vertically */
-    gap: 15px; /* Space between nav items */
-}
-
-.offcanvas .nav-item .nav-link {
-    color: var(--palta-white);
-    font-size: 1.8em; /* Larger text for menu items */
-    font-weight: 600;
-    padding: 15px 0;
-    display: block;
-    transition: color 0.2s;
-}
-
-.offcanvas .nav-item .nav-link:hover,
-.offcanvas .nav-item .nav-link:focus {
-    color: var(--palta-accent-green);
-    text-decoration: none;
-}
-
-.offcanvas-footer {
-    padding-top: 20px;
-    padding-bottom: 0;
-    border-top: none; /* No border for footer */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.offcanvas-footer .btn-signin-offcanvas,
-.offcanvas-footer .btn-primary-offcanvas {
-    font-size: 1.1em;
-    padding: 12px 24px;
-    border-radius: 8px;
-    font-weight: 600;
-    display: block;
-    text-align: center;
-    width: 80%; /* Control width of buttons */
-    max-width: 300px; /* Limit button width */
-    transition: background-color 0.2s, color 0.2s;
-}
-
-.offcanvas-footer .btn-signin-offcanvas {
-    background: transparent;
-    color: var(--palta-white);
-    border: 1.5px solid rgba(255,255,255,0.4);
-}
-
-.offcanvas-footer .btn-signin-offcanvas:hover {
-    background: rgba(255,255,255,0.1);
-    border-color: var(--palta-accent-green);
-    color: var(--palta-accent-green);
-}
-
-.offcanvas-footer .btn-primary-offcanvas {
-    background: var(--palta-accent-green);
-    color: #0C0A08;
-    border: none;
-}
-
-.offcanvas-footer .btn-primary-offcanvas:hover {
-    background: #D3E01E;
-    color: #0C0A08;
-}
+.navbar .navbar-toggler { border-color: transparent !important; background: transparent !important;}
+.navbar .navbar-toggler:focus { box-shadow: none !important;}
 
 /* --- HERO SECTION + MODERN FORM --- */
 .hero { padding: 110px 20px; border-radius: 0; margin: 0 auto 20px auto;}
@@ -535,7 +153,7 @@ section:not(.stats-section):not(#features):not(#how-it-works):not(#integrations)
 .hero-form-modern {
     display: flex; /* Kept as flex for internal layout when visible */
     gap: 0;
-    max-width: 500px; /* Increased max-width for the form container */
+    max-width: 430px;
     margin-top: 14px;
     margin-bottom: 0;
     padding: 0;
@@ -552,7 +170,7 @@ section:not(.stats-section):not(#features):not(#how-it-works):not(#integrations)
     background: #fff !important;
     color: #585858 !important;
     min-width: 0 !important;
-    flex: 1 1 auto; /* Changed flex-basis to 'auto' to allow it to grow more based on content/container */
+    flex: 1 1 0%;
     box-shadow: none !important;
     outline: none;
 }
@@ -585,13 +203,14 @@ section:not(.stats-section):not(#features):not(#how-it-works):not(#integrations)
 
 /* Styles for the responsive/mobile form, which is hidden on desktop via Bootstrap classes */
 .hero-form-responsive {
-    width: 100%;
+    /* display property is handled by Bootstrap utility classes (d-lg-none) */
+    width: 100%; /* Ensure it takes full width on mobile */
     max-width: 100%;
     box-sizing: border-box;
-    display: flex;
+    display: flex; /* To stack items, or use flex-direction: column for clearer intent */
     flex-direction: column;
     align-items: stretch;
-    gap: 12px;
+    gap: 12px; /* Space between input and button */
 }
 
 .hero-form-responsive input {
@@ -626,7 +245,7 @@ section:not(.stats-section):not(#features):not(#how-it-works):not(#integrations)
     outline: none !important;
     transition: background 0.17s, color 0.17s;
     width: 100%;
-    margin-top: 0;
+    margin-top: 0; /* Gap handles spacing */
 }
 .hero-form-responsive button:hover {
     background: #D3E01E !important;
@@ -671,6 +290,7 @@ section:not(.stats-section):not(#features):not(#how-it-works):not(#integrations)
 .love-point { background: var(--palta-bg-light); padding: 22px 24px; border-radius: 10px; text-align: left; font-size: 1.04em; color: var(--palta-text-dark); display: flex; align-items: center; gap: 18px; box-shadow: 0 1.5px 8px rgba(0,0,0,0.04); position: relative; padding-left: 50px;}
 .love-point::before { content: '✓'; position: absolute; left: 18px; color: var(--palta-accent-green); font-weight: bold; font-size: 1.25em; line-height: 1;}
 
+/* The .call-to-action display is handled by Bootstrap classes in HTML (d-none d-lg-block) */
 .call-to-action {
     background: #1A1919 !important;
     color: var(--palta-white);
@@ -716,15 +336,7 @@ footer .list-inline-item a:hover { color: var(--palta-accent-green) !important;}
     .container { padding: 0 3vw; }
     .hero h1, .display-4, .section-title, .why-love-palta h2, .call-to-action h2 { font-size: 2.5em; }
 }
-/* Adjustments for offcanvas buttons for smaller mobile screens */
-@media (max-width: 576px) {
-    .offcanvas-footer .btn-signin-offcanvas,
-    .offcanvas-footer .btn-primary-offcanvas {
-        width: 90%; /* Wider buttons on smaller screens */
-        max-width: unset; /* Remove max-width constraint */
-    }
-}
-
+@media (max-width: 991.98px) { .navbar-nav .btn-primary { display: none !important; }}
 
 /* Remove all box-shadows and borders from main sections, navbar, and hero */
 .navbar, .navbar.shadow-sm, .hero, .stats-section, .section, .why-love-palta, .call-to-action, footer,
