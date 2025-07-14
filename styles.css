@@ -93,7 +93,8 @@ html, body {
 .navbar.light-bg .navbar-toggler-icon {
   filter: none;
 }
-/* Hide mobile “×” by default */
+
+/* Hide our custom “×” by default */
 .navbar-close {
   display: none;
 }
@@ -277,24 +278,36 @@ footer a:hover {
 
 /* ============= Mobile Menu Sheet ============= */
 @media (max-width: 576px) {
-  /* hide hamburger when sheet open */
+  /* hide desktop hamburger when sheet open */
   .navbar-toggler[aria-expanded="true"] {
-    display: none;
+    display: none !important;
   }
 
-  /* white slide-down panel */
+  /* show the close-× in sheet header */
+  .navbar-close {
+    display: inline-block;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: var(--palta-text-dark);
+    margin: 0;
+  }
+
+  /* white slide-down panel (menu) */
   .navbar-collapse {
-    z-index: 1001; /* above blur, below navbar */
-    background: #fff !important;
+    background: #fff;
     position: absolute;
     top: 56px;
     left: 0;
     width: 100%;
+    max-height: calc(100vh - 56px);
+    overflow-y: auto;
     padding: 1.5rem;
     box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    z-index: 1040;
   }
 
-  /* blurred dark backdrop */
+  /* blurred dark backdrop behind the panel */
   body.menu-open::before {
     content: "";
     position: fixed;
@@ -304,33 +317,10 @@ footer a:hover {
     height: calc(100vh - 56px);
     background: rgba(0,0,0,0.4);
     backdrop-filter: blur(4px);
-    z-index: 900; /* under navbar & panel */
+    z-index: 1030;
   }
 
-  /* show the close-× in sheet header */
-  .navbar-close {
-    display: inline-block;
-    font-size: 1.5rem;
-    background: none;
-    border: none;
-    position: absolute;
-    top: 0.75rem;
-    right: 1rem;
-    color: var(--palta-text-dark);
-  }
-
-  /* pull sign-in into the same header bar */
-  .navbar-collapse .btn-signin {
-    display: inline-block !important;
-    position: absolute;
-    top: 0.75rem;
-    right: 5rem;
-    background: transparent !important;
-    border: 1.5px solid var(--palta-text-dark) !important;
-    color: var(--palta-text-dark) !important;
-  }
-
-  /* hide desktop-only Book a Demo inside sheet */
+  /* hide desktop-only “Book a Demo” inside sheet */
   .navbar-collapse .btn-primary {
     display: none !important;
   }
@@ -342,33 +332,29 @@ footer a:hover {
     font-weight: 600;
   }
 
-  /* ——— override navbar itself when menu is open ——— */
+  /* ===== When menu is open: override navbar itself to white + coloured logo ===== */
   body.menu-open .navbar {
     background: #fff !important;
     backdrop-filter: none !important;
-    box-shadow: none !important;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06) !important;
   }
-  body.menu-open .navbar .nav-link,
-  body.menu-open .navbar .btn-signin {
+  body.menu-open .navbar-brand img {
+    /* swap in your coloured logo here: */
+    content: url('https://i.postimg.cc/Y9PmYp3X/palta-hub-logo-colored.png');
+  }
+  body.menu-open .nav-link,
+  body.menu-open .btn-signin {
     color: var(--palta-text-dark) !important;
-  }
-  body.menu-open .navbar .btn-primary {
-    background: var(--palta-accent-green) !important;
-    color: var(--palta-text-dark) !important;
-  }
-  /* make sure the logo sits flush, no gradient slice */
-  body.menu-open .navbar-brand,
-  body.menu-open .navbar-light-bg {
-    background: none;
   }
 }
 
-/* ——— Third state: solid dark panel ——— */
+/* ——— Third state: dark panel after “Features” ——— */
 .navbar.dark-bg {
   background: var(--palta-dark-bg) !important;
   box-shadow: 0 2px 16px rgba(0,0,0,0.3) !important;
   backdrop-filter: none;
 }
+/* white text & logo on dark */
 .navbar.dark-bg .nav-link,
 .navbar.dark-bg .btn-signin {
   color: #fff !important;
