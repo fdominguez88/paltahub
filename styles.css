@@ -14,9 +14,9 @@
 html, body {
   margin: 0; padding: 0;
   height: 100%; min-height: 100vh;
-  background: var(--palta-dark-bg) !important;
+  background: var(--palta-dark-bg) !important; /* Keep the dark background for the main canvas */
   font-family: 'Inter', sans-serif;
-  color: var(--palta-white); /* Changed to white for better contrast on dark bg */
+  color: var(--palta-text-dark); /* Reverted to original text color for global scope */
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -43,20 +43,19 @@ html, body {
 }
 .navbar .nav-link,
 .navbar .btn-signin { color: #fff !important; }
-.btn-primary, .cta-button { /* Applied to general primary buttons and the specific cta-button */
+.navbar .btn-primary { /* This specifically styles the navbar's primary button */
   background: var(--palta-accent-green) !important;
   color: var(--palta-text-dark) !important;
   border: none !important;
   padding: .375rem 1rem !important;
   border-radius: .375rem !important;
-  font-weight: 600; /* Ensure consistent font-weight */
-  white-space: nowrap; /* Prevent text from wrapping */
+  font-weight: 600; /* Added consistent font-weight */
 }
-.btn-primary:hover, .cta-button:hover {
+.navbar .btn-primary:hover {
   background: #F5FF77 !important;
   color: #0D0A08 !important;
 }
-.btn-signin {
+.btn-signin { /* Applied to navbar and offcanvas sign-in */
   background: transparent !important;
   color: #fff !important;
   border: 1.5px solid currentColor !important;
@@ -110,12 +109,33 @@ html, body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: var(--palta-white); /* Ensure offcanvas has white background */
+}
+.offcanvas-body .nav-link { /* Target nav links within offcanvas */
+    color: var(--palta-text-dark) !important;
 }
 .offcanvas-footer {
   width: 100%;
   padding: 1rem 0;
   text-align: center;
 }
+.offcanvas-footer .btn-primary { /* Styling for primary button in offcanvas footer */
+  background: var(--palta-accent-green) !important;
+  color: var(--palta-text-dark) !important;
+  border: none !important;
+  padding: .375rem 1rem !important;
+  border-radius: .375rem !important;
+  font-weight: 600;
+}
+.offcanvas-footer .btn-signin-offcanvas { /* Styling for signin button in offcanvas footer */
+  border: 1.5px solid var(--palta-text-dark) !important;
+  color: var(--palta-text-dark) !important;
+}
+.offcanvas-footer .btn-signin-offcanvas:hover {
+  border-color: var(--palta-accent-green) !important;
+  color: var(--palta-accent-green) !important;
+}
+
 
 /* ===== Hero & Forms ===== */
 .hero {
@@ -142,15 +162,16 @@ html, body {
   max-width: 600px;
 }
 
-/* desktop “modern” form - Re-purposing hero-form for better control */
-.hero-form { /* Changed from .hero-form-modern */
+/* Hero form (desktop and mobile handling improved) */
+.hero-form {
   display: flex;
-  max-width: 600px; /* Increased width to accommodate longer text */
+  /* Adjust max-width to allow more space for both input and button */
+  max-width: 580px; /* Increased from 500px to allow more space */
   gap: 0;
   margin-top: 14px;
 }
-.hero-form .form-control { /* Targeted specific input within hero-form */
-  flex: 1;
+.hero-form .form-control { /* Targeting the input specifically within hero-form */
+  flex-grow: 1; /* Allow input to grow */
   height: 54px;
   padding: 0 20px;
   background: #fff;
@@ -158,11 +179,11 @@ html, body {
   border: none;
   color: #585858;
   font-size: 1rem;
-  min-width: 250px; /* Ensure minimum width for input */
+  min-width: 280px; /* Ensure input is wide enough for placeholder */
 }
-.hero-form .btn-primary { /* Targeted specific button within hero-form */
+.hero-form .btn-primary { /* Targeting the button specifically within hero-form */
   height: 54px;
-  min-width: 200px; /* Ensure button text fits */
+  min-width: 200px; /* Ensure "Get started for free" fits on one line */
   padding: 0 28px;
   background: var(--palta-accent-green);
   color: #0C0A08;
@@ -174,17 +195,14 @@ html, body {
   justify-content: center;
   border-radius: 0 11px 11px 0;
   transition: background .17s;
-  white-space: nowrap; /* Prevent text from wrapping */
+  white-space: nowrap; /* Keep button text on one line */
 }
 .hero-form .btn-primary:hover {
   background: #D3E01E;
   color: #0C0A08;
 }
 
-/* mobile-only form - Re-purposing hero-form-responsive for better control */
-/* The original HTML uses 'hero-form' directly, so the .hero-form-responsive class is not strictly needed if we adjust the main .hero-form for responsive behavior.
-   However, if there's a desire for different mobile-specific form styles, keeping it separate might be useful.
-   For now, I will ensure the main .hero-form is responsive. */
+/* Mobile responsive adjustments for hero form */
 @media (max-width: 992px) {
   .hero {
     padding: 40px 20px;
@@ -194,11 +212,10 @@ html, body {
     flex-direction: column;
   }
   .hero .container { padding: 0 20px; }
-  /* Ensure hero-form adapts for mobile */
   .hero-form {
     flex-direction: column; /* Stack input and button vertically */
     gap: 12px;
-    max-width: 100%; /* Allow form to take full width */
+    max-width: 100%; /* Allow form to take full width of container */
   }
   .hero-form .form-control,
   .hero-form .btn-primary {
@@ -208,37 +225,59 @@ html, body {
   }
 }
 
-
 /* ===== Sections ===== */
-.stats-section { background: var(--palta-white); padding: 2rem 0; color: var(--palta-text-dark); } /* Added text color */
+.stats-section {
+    background: var(--palta-white); /* Reverted to white background */
+    padding: 4rem 0; /* Added consistent padding */
+    color: var(--palta-text-dark); /* Ensure text is dark on white background */
+}
 .stat-value { font-size: 2.4rem; color: var(--palta-dark-bg); margin-bottom: .5rem; font-weight: 700; }
 .stat-label { color: var(--palta-text-medium); }
 
-.section-title { font-size: 2.3rem; font-weight: 800; margin-bottom: 2rem; color: var(--palta-white); } /* Added text color */
-.features-section, .how-it-works-section { padding: 4rem 0; } /* Added padding for sections */
-.feature-card,
-.how-it-works-item,
-.card { /* Combined for consistency and targeted Bootstrap cards */
+.section-title {
+    font-size: 2.3rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    color: var(--palta-white); /* Default for sections on dark background */
+}
+/* Specific title colors for sections on white background */
+.stats-section .section-title,
+.features-section .section-title,
+.how-it-works-section .section-title,
+.integrations-section .section-title {
+    color: var(--palta-dark-bg);
+}
+
+
+.features-section,
+.how-it-works-section {
+    padding: 4rem 0; /* Consistent padding */
+    background: var(--palta-dark-bg); /* Kept dark background as seen in screenshot */
+    color: var(--palta-white); /* Text color for these sections */
+}
+
+.card { /* Bootstrap cards */
   background: var(--palta-white);
   border: 1px solid var(--palta-border);
   border-radius: .75rem;
   padding: 1.5rem;
   transition: transform .3s, box-shadow .3s;
-  color: var(--palta-text-dark); /* Ensure card text is dark */
+  color: var(--palta-text-dark); /* Ensure text is dark inside cards */
 }
-.card-title { color: var(--palta-dark-bg); font-weight: 700; } /* Ensure card titles are dark */
-.card-text { color: var(--palta-text-medium); } /* Ensure card text is medium dark */
-
-.feature-card:hover,
-.how-it-works-item:hover,
 .card:hover {
   transform: translateY(-10px);
   box-shadow: 0 15px 30px rgba(0,0,0,0.12);
 }
+.card-title { color: var(--palta-dark-bg); font-weight: 700; } /* Card titles are dark */
+.card-text { color: var(--palta-text-medium); } /* Card text is medium dark */
 
-.integrations-section { padding: 4rem 0; background: var(--palta-white); color: var(--palta-text-dark); } /* Added padding and text color */
-.integrations-section .section-title { color: var(--palta-dark-bg); } /* Specific color for title */
-.integrations-section .lead { color: var(--palta-text-medium); } /* Specific color for lead text */
+
+.integrations-section {
+    padding: 4rem 0;
+    background: var(--palta-white); /* Reverted to white background */
+    color: var(--palta-text-dark); /* Ensure text is dark on white background */
+}
+.integrations-section .lead { color: var(--palta-text-medium); }
 
 .integrations-grid {
   display: flex;
@@ -246,7 +285,6 @@ html, body {
   flex-wrap: wrap;
   gap: 36px;
   margin-top: 32px;
-  /* background: var(--palta-white); - Removed this as it was on the grid, not the section */
 }
 .integration-logo {
   height: 50px;
@@ -262,8 +300,8 @@ html, body {
   transform: scale(1.04);
 }
 
-.why-love-palta-section { /* Renamed from .why-love-palta for consistency */
-  background: var(--palta-dark-bg); /* Ensured dark background as per wireframe */
+.why-love-palta-section {
+  background: var(--palta-dark-bg);
   padding: 4rem 0;
   color: var(--palta-white);
 }
@@ -294,7 +332,7 @@ html, body {
 }
 
 .final-cta-section {
-  background: var(--palta-dark-bg); /* Ensure dark background */
+  background: var(--palta-dark-bg);
   padding: 5rem 0;
   color: var(--palta-white);
 }
@@ -307,12 +345,26 @@ html, body {
 .final-cta-section .lead {
   color: rgba(255,255,255,0.7);
 }
-/* The .cta-button class is already defined above with .btn-primary */
+.final-cta-section .cta-button { /* Apply the consistent primary button style */
+  background: var(--palta-accent-green) !important;
+  color: var(--palta-text-dark) !important;
+  border: none !important;
+  padding: .75rem 1.5rem !important; /* Slightly more padding for a larger CTA */
+  border-radius: .375rem !important;
+  font-weight: 600;
+  white-space: nowrap; /* Keep button text on one line */
+  display: inline-block; /* Ensure padding and width work as expected */
+  text-decoration: none; /* Remove underline for anchor tag */
+}
+.final-cta-section .cta-button:hover {
+  background: #D3E01E !important;
+  color: #0C0A08 !important;
+}
 
 
 /* ===== Footer ===== */
 .footer-section {
-  background: #151A23; /* Slightly darker shade for footer */
+  background: #151A23;
   padding: 3rem 0;
   color: rgba(255,255,255,0.6);
   font-size: .9rem;
