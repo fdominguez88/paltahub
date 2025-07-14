@@ -356,3 +356,36 @@ footer {
   .final-cta-section .cta-title { font-size: var(--section-title-size); }
   .final-cta-section .btn-primary { padding: var(--btn-padding); }
 }
+/* ===== Fix text colors on light sections ===== */
+.stats-section,
+.how-it-works-section,
+.integrations-section {
+  color: var(--color-text) !important;
+}
+
+/* make sure headings and leads in those sections are dark */
+.stats-section h3,
+.stats-section p,
+.how-it-works-section h4,
+.how-it-works-section p,
+.integrations-section .section-title,
+.integrations-section .lead {
+  color: var(--color-text) !important;
+}
+
+/* footer on dark bg should stay light */
+footer {
+  color: rgba(255,255,255,0.6) !important;
+}
+footer a {
+  color: rgba(255,255,255,0.85) !important;
+}
+
+/* keep all other dark‑bg sections white */
+.navbar,
+.hero,
+.features-section,
+.why-love-palta-section,
+.final-cta-section {
+  color: var(--color-white) !important;
+}
