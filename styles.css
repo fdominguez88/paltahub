@@ -8,8 +8,8 @@
     --palta-border: #DEE2E6;
 }
 
-/* Everything sized in rem will shrink ~6% */
 html {
+  /* Everything sized in rem will shrink ~6% */
   font-size: 93%;
 }
 
@@ -34,16 +34,39 @@ body {
 }
 
 /* ===== Navbar ===== */
-/* Default: fully transparent over hero */
 .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
     background: transparent !important;
     box-shadow: none !important;
     transition: background 0.3s, box-shadow 0.3s, backdrop-filter 0.3s;
 }
-
-/* Brand & toggler */
+.navbar.frosted {
+    background: rgba(255,255,255,0.7) !important;
+    backdrop-filter: saturate(180%) blur(10px);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08) !important;
+}
 .navbar-brand img {
     height: 38px;
+}
+.navbar .nav-link,
+.navbar .btn-signin {
+    color: #fff !important;
+}
+.navbar .btn-primary {
+    color: var(--palta-text-dark) !important;
+    background: var(--palta-accent-green) !important;
+}
+.navbar.frosted .nav-link,
+.navbar.frosted .btn-signin {
+    color: var(--palta-text-dark) !important;
+}
+.navbar.frosted .btn-primary {
+    color: var(--palta-text-dark) !important;
+    background: var(--palta-accent-green) !important;
 }
 .navbar-toggler {
     border: none;
@@ -51,43 +74,6 @@ body {
 .navbar-toggler-icon {
     filter: invert(1) contrast(200%);
     transition: filter 0.3s;
-}
-
-/* Links & buttons (transparent state) */
-.navbar .nav-link,
-.navbar .btn-signin {
-    color: #fff !important;
-}
-.navbar .btn-primary {
-    background: var(--palta-accent-green) !important;
-    color: var(--palta-text-dark)  !important;
-    border: none !important;
-    border-radius: .375rem;
-    padding: .375rem 1rem;
-    font-weight: 600;
-}
-.navbar .btn-primary:hover {
-    background-color: #F5FF77 !important;
-}
-
-/* ===== Frosted‐white state ===== */
-.navbar.frosted {
-    background: rgba(255,255,255,0.7) !important;
-    backdrop-filter: saturate(180%) blur(10px);
-    box-shadow: 0 2px 12px rgba(0,0,0,0.08) !important;
-}
-
-/* Links & buttons (frosted state) */
-.navbar.frosted .nav-link,
-.navbar.frosted .btn-signin {
-    color: var(--palta-text-dark) !important;
-}
-.navbar.frosted .btn-primary {
-    background: var(--palta-accent-green) !important;
-    color: var(--palta-text-dark)  !important;
-}
-.navbar.frosted .btn-primary:hover {
-    background-color: #D3E01E !important;
 }
 .navbar.frosted .navbar-toggler-icon {
     filter: none;
@@ -125,7 +111,7 @@ body {
 }
 .hero .lead {
     color: rgba(255, 255, 255, 0.7);
-    margin: 0 auto 2rem;
+    margin: 0 auto 2rem auto;
     max-width: 500px;
 }
 .hero-form {
@@ -144,10 +130,19 @@ body {
     font-size: 1rem;
 }
 .hero-form .btn {
-    height: 54px;
-    font-size: 1rem;
-    font-weight: 600;
-    border-radius: 11px;
+    background-color: var(--palta-accent-green) !important;
+    color: var(--palta-text-dark) !important;
+    border: none !important;
+    border-radius: 11px !important;
+    height: 54px !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    padding: 0 28px !important;
+    min-width: 220px !important;
+    transition: background .17s !important;
+}
+.hero-form .btn:hover {
+    background-color: #D3E01E !important;
 }
 
 /* ===== Section Styles ===== */
@@ -251,17 +246,17 @@ body {
     color: rgba(255,255,255,0.8);
 }
 .final-cta-section .cta-button {
-    padding: .8rem 2rem;
-    font-size: 0.94rem;
-    font-weight: 600;
-    background-color: var(--palta-accent-green);
-    color: var(--palta-text-dark);
-    border: none;
-    border-radius: 11px;
-    transition: background 0.2s;
+    background-color: var(--palta-accent-green) !important;
+    color: var(--palta-text-dark) !important;
+    border: none !important;
+    border-radius: 11px !important;
+    padding: .8rem 2rem !important;
+    font-size: .94rem !important;
+    font-weight: 600 !important;
+    transition: background .2s !important;
 }
 .final-cta-section .cta-button:hover {
-    background-color: #D3E01E;
+    background-color: #D3E01E !important;
 }
 
 /* ===== Footer ===== */
