@@ -1,365 +1,352 @@
 :root {
-  --palta-blue: #00707F;
-  --palta-accent-green: #E4F223;
-  --palta-text-dark: #343A40;
-  --palta-text-medium: #6C757D;
-  --palta-white: #FFFFFF;
-  --palta-bg-light: #F8F9FA;
-  --palta-dark-bg: #1A202C;
-  --palta-border: #DEE2E6;
+    --palta-blue: #00707F;
+    --palta-accent-green: #E4F223;
+    --palta-text-dark: #343A40;
+    --palta-text-medium: #6C757D;
+    --palta-bg-light: #F8F9FA;
+    --palta-white: #FFFFFF;
+    --palta-border: #DEE2E6;
+    --palta-dark-bg: #1A202C;
+    --bs-primary: #00707F;
+    --bs-primary-rgb: 0,112,127;
+    --bs-btn-bg: #E4F223;
+    --bs-btn-color: #0C0A08;
+    --bs-btn-border-color: #E4F223;
 }
 
-/* ============= Global / Reset ============= */
-*, *::before, *::after {
-  box-sizing: border-box;
-}
+/* --- GLOBAL --- */
 html, body {
-  margin: 0;
-  padding: 0;
-  background: var(--palta-dark-bg) !important;
-  font-family: 'Inter', sans-serif;
-  scroll-behavior: smooth;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: var(--palta-text-dark);
-  line-height: 1.6;
-  padding-top: 60px; /* navbar height */
+    height: 100%;
+    min-height: 100vh;
+    background: var(--palta-dark-bg) !important;
+}
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: var(--palta-text-dark);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding-top: 60px;
+    background: var(--palta-dark-bg) !important;
 }
 
-/* Text selection */
-::selection, ::-moz-selection {
-  background: var(--palta-accent-green) !important;
-  color: var(--palta-text-dark) !important;
+/* --- SELECTION --- */
+::selection, body ::selection, html ::selection {
+    background: var(--palta-accent-green) !important;
+    color: #1A202C !important;
+}
+::-moz-selection, body ::-moz-selection, html ::-moz-selection {
+    background: var(--palta-accent-green) !important;
+    color: #1A202C !important;
+}
+input::selection, textarea::selection {
+    background: var(--palta-accent-green) !important;
+    color: #1A202C !important;
+}
+input::-moz-selection, textarea::-moz-selection {
+    background: var(--palta-accent-green) !important;
+    color: #1A202C !important;
+}
+input::-ms-selection, textarea::-ms-selection {
+    background: var(--palta-accent-green) !important;
+    color: #1A202C !important;
 }
 
-/* ============= Navbar & CTAs ============= */
-/* Default (over hero): transparent + white text */
-.navbar {
-  position: fixed;
-  top: 0; left: 0; width: 100%;
-  z-index: 1000;
-  background: transparent !important;
-  box-shadow: none !important;
-  transition: background 0.3s, box-shadow 0.3s;
+/* --- SECTIONS --- */
+.hero { background: var(--palta-dark-bg); color: var(--palta-white);}
+.stats-section, #features, #integrations, .why-love-palta { background: var(--palta-white) !important; }
+#how-it-works { background: var(--palta-bg-light) !important; color: var(--palta-text-dark) !important; }
+#how-it-works .section-title, #how-it-works h2, #how-it-works h4, #how-it-works p, #how-it-works ul, #how-it-works li {
+    color: var(--palta-text-dark) !important;
 }
-.navbar .nav-link,
-.navbar .btn-signin {
-  color: #fff !important;
-}
-.navbar .btn-primary {
-  background: var(--palta-accent-green) !important;
-  color: var(--palta-text-dark) !important;
-  border: none !important;
-  padding: .375rem 1rem !important;
-  border-radius: .375rem !important;
-  transition: background .2s, color .2s;
-}
-.navbar .btn-primary:hover {
-  background: #F5FF77 !important;
-  color: #0D0A08 !important;
+/* The .call-to-action display is now primarily controlled by Bootstrap classes in HTML */
+.call-to-action { background: #1A1919 !important; color: var(--palta-white);}
+
+section:not(.stats-section):not(#features):not(#how-it-works):not(#integrations):not(.why-love-palta):not(.call-to-action):not(.hero) {
+    background: transparent !important;
 }
 
-/* After scroll (light-bg): frosted white + dark text */
-.navbar.light-bg {
-  background: rgba(255,255,255,0.85) !important;
-  backdrop-filter: saturate(180%) blur(10px);
-  box-shadow: 0 2px 12px rgba(0,0,0,0.06) !important;
+/* --- NAVBAR --- */
+.navbar, nav.navbar {
+    position: fixed;
+    top: 0; left: 0; width: 100%; z-index: 999;
+    background: var(--palta-dark-bg) !important;
+    color: var(--palta-white);
+    box-shadow: 0 2px 16px 0 rgba(30, 30, 30, 0.10);
+    border-bottom: 1px solid rgba(180,180,180,0.08);
+    transition: background 0.3s, box-shadow 0.3s, color 0.3s;
 }
-.navbar.light-bg .nav-link,
-.navbar.light-bg .btn-signin {
-  color: var(--palta-text-dark) !important;
+.navbar, .navbar .navbar-nav .nav-link, .navbar .navbar-brand, .navbar .navbar-toggler, .navbar .btn-primary, .navbar .cta-button, .navbar .btn-signin {
+    color: #fff !important; fill: #fff !important;
+    background: transparent; border-color: rgba(255,255,255,0.16);
 }
-.navbar.light-bg .btn-primary {
-  background: var(--palta-accent-green) !important;
-  color: var(--palta-text-dark) !important;
+.navbar .navbar-brand img { height: 38px; transition: filter 0.22s; filter: none !important;}
+.navbar .navbar-nav .nav-link, .navbar .navbar-brand {
+    font-size: 0.97em !important; font-weight: 500; letter-spacing: 0.01em;
+    padding-top: 3px !important; padding-bottom: 3px !important;
 }
-
-/* Sign-in button */
+.navbar .btn-primary, .navbar .cta-button {
+    font-size: 0.89em !important; padding: 5px 16px !important; min-width: unset;
+    font-weight: 500 !important; border-radius: 6px !important;
+    background: var(--palta-accent-green) !important; color: #0C0A08 !important;
+    border: none !important; box-shadow: none !important;
+    transition: background-color 0.3s, transform 0.2s;
+}
+.navbar .btn-primary:hover, .navbar .cta-button:hover {
+    background: #D3E01E !important; color: #0C0A08 !important; transform: translateY(-2px);
+}
 .btn-signin {
-  background: transparent !important;
-  border: 1.5px solid currentColor !important;
-  padding: .375rem 1rem !important;
-  border-radius: .375rem !important;
-  transition: background .2s;
+    background: transparent; color: #fff !important;
+    border: 1.5px solid rgba(255,255,255,0.23); font-weight: 500 !important;
+    font-size: 0.89em !important; padding: 5px 16px !important; border-radius: 6px !important;
+    box-shadow: none !important; margin-right: 8px; display: inline-block; line-height: 1.1;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
 }
-.btn-signin:hover {
-  background: rgba(0,0,0,0.1) !important;
+.btn-signin:hover, .btn-signin:focus {
+    background: rgba(255,255,255,0.11); color: var(--palta-accent-green) !important; border-color: var(--palta-accent-green);
+    text-decoration: none; outline: none;
 }
+.navbar.light-bg {
+    background: rgba(255,255,255,0.97) !important; color: var(--palta-text-dark) !important; box-shadow: 0 2px 14px rgba(52,58,64,0.09);
+}
+.navbar.light-bg .navbar-nav .nav-link, .navbar.light-bg .navbar-brand, .navbar.light-bg .navbar-toggler {
+    color: var(--palta-text-dark) !important; fill: var(--palta-text-dark) !important;
+}
+.navbar.light-bg .navbar-brand img { filter: none !important;}
+.navbar.light-bg .btn-primary, .navbar.light-bg .cta-button {
+    color: #0C0A08 !important; background: var(--palta-accent-green) !important; border: none !important;
+}
+.navbar.light-bg .btn-primary:hover, .navbar.light-bg .cta-button:hover {
+    background: #D3E01E !important; color: #0C0A08 !important;
+}
+.navbar.light-bg .btn-signin {
+    background: transparent; color: var(--palta-text-dark) !important; border: 1.5px solid var(--palta-border);
+}
+.navbar.light-bg .btn-signin:hover, .navbar.light-bg .btn-signin:focus {
+    background: var(--palta-bg-light); color: var(--palta-blue) !important; border-color: var(--palta-accent-green);
+}
+/* Hamburger icon color swap */
+.navbar, .navbar.navbar-dark, .navbar:not(.light-bg) {
+    --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255,255,255,1%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+.navbar.light-bg {
+    --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2852,58,64,1%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+.navbar .navbar-toggler { border-color: transparent !important; background: transparent !important;}
+.navbar .navbar-toggler:focus { box-shadow: none !important;}
 
-/* Toggler icon contrast */
-.navbar .navbar-toggler-icon {
-  filter: invert(1) contrast(200%);
+/* --- HERO SECTION + MODERN FORM --- */
+.hero { padding: 110px 20px; border-radius: 0; margin: 0 auto 20px auto;}
+.hero .container { padding: 0 50px;}
+.hero h1, .display-4 {
+    font-size: 2.7em !important; color: var(--palta-white);
+    margin-bottom: 14px !important; font-weight: 800; line-height: 1.12; letter-spacing: -0.03em;
 }
-.navbar.light-bg .navbar-toggler-icon {
-  filter: none;
+.hero p, .hero .lead {
+    font-size: 1.02em !important; color: rgba(255,255,255,0.7); margin-bottom: 18px !important;
+    max-width: 600px; font-weight: 400;
 }
-
-/* Hide our custom “×” by default */
-.navbar-close {
-  display: none;
-}
-
-/* ============= Hero & Forms ============= */
-.hero {
-  background: var(--palta-dark-bg);
-  color: var(--palta-white);
-  padding: 6rem 1rem 4rem;
-}
-.hero h1 {
-  font-size: 2.5rem;
-  font-weight: 800;
-  line-height: 1.1;
-}
-.hero p.lead {
-  font-size: 1.125rem;
-  opacity: .8;
-}
-
-/* Desktop form */
+/* This styling applies to the desktop form, which is shown on desktop and hidden on mobile via Bootstrap classes */
 .hero-form-modern {
-  display: flex;
-  gap: 0;
-  max-width: 600px;
-  margin-top: 1rem;
+    display: flex; /* Kept as flex for internal layout when visible */
+    gap: 0;
+    max-width: 430px;
+    margin-top: 14px;
+    margin-bottom: 0;
+    padding: 0;
+    align-items: stretch;
+    background: none;
 }
 .hero-form-modern-input {
-  flex: 3;
-  border: none;
-  border-radius: .75rem 0 0 .75rem;
-  padding: 0 1rem;
-  font-size: 1rem;
-  height: 60px;
+    border-radius: 11px 0 0 11px !important;
+    border: none !important;
+    border-right: none !important;
+    padding: 0 20px !important;
+    font-size: 1em !important;
+    height: 54px !important;
+    background: #fff !important;
+    color: #585858 !important;
+    min-width: 0 !important;
+    flex: 1 1 0%;
+    box-shadow: none !important;
+    outline: none;
+}
+.hero-form-modern-input::placeholder {
+    color: #7d7d7d !important;
+    font-weight: 500;
+    opacity: 1;
 }
 .hero-form-modern-btn {
-  flex: 1;
-  min-width: 250px;
-  border: none;
-  border-radius: 0 .75rem .75rem 0;
-  padding: 0 1.5rem;
-  font-size: 1rem;
-  font-weight: 600;
-  background: var(--palta-accent-green);
-  height: 60px;
-  transition: background .2s;
+    border-radius: 0 11px 11px 0 !important;
+    background: var(--palta-accent-green) !important;
+    color: #0C0A08 !important;
+    border: none !important;
+    padding: 0 24px !important;
+    min-width: 170px;
+    height: 54px !important;
+    font-size: 1.08em !important;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: none !important;
+    outline: none !important;
+    transition: background 0.17s, color 0.17s;
 }
 .hero-form-modern-btn:hover {
-  background: #F5FF77 !important;
-  color: #0D0A08 !important;
+    background: #D3E01E !important;
+    color: #0C0A08 !important;
 }
 
-/* Mobile-only form */
+/* Styles for the responsive/mobile form, which is hidden on desktop via Bootstrap classes */
 .hero-form-responsive {
-  display: none;
-}
-@media (max-width: 576px) {
-  .hero-form-modern { display: none !important; }
-  .hero-form-responsive {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+    /* display property is handled by Bootstrap utility classes (d-lg-none) */
+    width: 100%; /* Ensure it takes full width on mobile */
     max-width: 100%;
-    margin-top: 1rem;
-  }
-  .hero-form-responsive input,
-  .hero-form-responsive button {
-    height: 50px !important;
-    width: 100%;
-    border-radius: .75rem;
-    font-size: 1rem;
-    border: none;
-    padding: 0 1rem;
-  }
-  .hero-form-responsive button {
-    background: var(--palta-accent-green);
-    color: var(--palta-text-dark);
-    transition: background .2s;
-  }
-  .hero-form-responsive button:hover {
-    background: #F5FF77;
-    color: #0D0A08;
-  }
+    box-sizing: border-box;
+    display: flex; /* To stack items, or use flex-direction: column for clearer intent */
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px; /* Space between input and button */
 }
 
-/* ============= Sections ============= */
-/* Stats */
-.stats-section {
-  padding: 2rem 0;
-  background: var(--palta-white);
-}
-.stat-item h3 {
-  font-size: 2.4rem;
-  color: var(--palta-dark-bg);
-}
-.stat-item p {
-  color: var(--palta-text-medium);
-}
-
-/* Features & How It Works */
-.section-title {
-  font-size: 2.3rem;
-  font-weight: 800;
-  margin-bottom: 2rem;
-}
-.feature-card,
-.how-it-works-item {
-  background: var(--palta-white);
-  border: 1px solid var(--palta-border);
-  border-radius: .75rem;
-  padding: 1.5rem;
-  transition: transform .3s;
-}
-.feature-card:hover,
-.how-it-works-item:hover {
-  transform: translateY(-5px);
-}
-
-/* Integrations */
-.integrations-grid {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
-  background: var(--palta-white);
-}
-.integration-logo {
-  height: 40px;
-  max-width: 80px;
-  object-fit: contain;
-  filter: grayscale(40%);
-  transition: all .2s;
-}
-.integration-logo:hover {
-  filter: none;
-  transform: scale(1.05);
-}
-
-/* Why teams love */
-.why-love-palta {
-  background: var(--palta-white);
-  padding: 3rem 1rem;
-}
-.love-point {
-  margin-bottom: 1rem;
-  line-height: 1.4;
-}
-
-/* Final CTA */
-.call-to-action {
-  background: var(--palta-dark-bg);
-  color: var(--palta-white);
-  padding: 3rem 1rem;
-  text-align: center;
-}
-.cta-button {
-  background: var(--palta-accent-green);
-  color: var(--palta-text-dark);
-  padding: .75rem 1.5rem;
-  border-radius: .75rem;
-  transition: background .2s;
-}
-.cta-button:hover {
-  background: #F5FF77 !important;
-  color: #0D0A08 !important;
-}
-
-/* Footer */
-footer {
-  background: var(--palta-dark-bg);
-  color: var(--palta-white);
-  padding: 2rem 1rem;
-  text-align: center;
-}
-footer a {
-  color: rgba(255,255,255,0.6);
-}
-footer a:hover {
-  color: var(--palta-accent-green);
-}
-
-/* ============= Mobile Menu Sheet ============= */
-@media (max-width: 576px) {
-  /* hide desktop hamburger when sheet open */
-  .navbar-toggler[aria-expanded="true"] {
-    display: none !important;
-  }
-
-  /* show the close-× in sheet header */
-  .navbar-close {
-    display: inline-block;
-    font-size: 1.5rem;
-    background: none;
-    border: none;
-    color: var(--palta-text-dark);
-    margin: 0;
-  }
-
-  /* white slide-down panel (menu) */
-  .navbar-collapse {
-    background: #fff;
-    position: absolute;
-    top: 56px;
-    left: 0;
-    width: 100%;
-    max-height: calc(100vh - 56px);
-    overflow-y: auto;
-    padding: 1.5rem;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-    z-index: 1040;
-  }
-
-  /* blurred dark backdrop behind the panel */
-  body.menu-open::before {
-    content: "";
-    position: fixed;
-    top: 56px;
-    left: 0;
-    width: 100%;
-    height: calc(100vh - 56px);
-    background: rgba(0,0,0,0.4);
-    backdrop-filter: blur(4px);
-    z-index: 1030;
-  }
-
-  /* hide desktop-only “Book a Demo” inside sheet */
-  .navbar-collapse .btn-primary {
-    display: none !important;
-  }
-
-  /* style nav links in sheet */
-  .navbar-collapse .nav-link {
-    color: var(--palta-text-dark) !important;
-    padding: .75rem 0;
-    font-weight: 600;
-  }
-
-  /* ===== When menu is open: override navbar itself to white + coloured logo ===== */
-  body.menu-open .navbar {
+.hero-form-responsive input {
+    border-radius: 11px !important;
+    border: none !important;
+    padding: 0 20px !important;
+    font-size: 1em !important;
+    height: 54px !important;
     background: #fff !important;
-    backdrop-filter: none !important;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.06) !important;
-  }
-  body.menu-open .navbar-brand img {
-    /* swap in your coloured logo here: */
-    content: url('https://i.postimg.cc/Y9PmYp3X/palta-hub-logo-colored.png');
-  }
-  body.menu-open .nav-link,
-  body.menu-open .btn-signin {
-    color: var(--palta-text-dark) !important;
-  }
+    color: #585858 !important;
+    min-width: 0 !important;
+    width: 100%;
+    box-shadow: none !important;
+    outline: none;
+    box-sizing: border-box;
 }
 
-/* ——— Third state: dark panel after “Features” ——— */
-.navbar.dark-bg {
-  background: var(--palta-dark-bg) !important;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.3) !important;
-  backdrop-filter: none;
+.hero-form-responsive button {
+    border-radius: 11px !important;
+    background: var(--palta-accent-green) !important;
+    color: #0C0A08 !important;
+    border: none !important;
+    padding: 0 24px !important;
+    min-width: unset;
+    height: 54px !important;
+    font-size: 1.08em !important;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: none !important;
+    outline: none !important;
+    transition: background 0.17s, color 0.17s;
+    width: 100%;
+    margin-top: 0; /* Gap handles spacing */
 }
-/* white text & logo on dark */
-.navbar.dark-bg .nav-link,
-.navbar.dark-bg .btn-signin {
-  color: #fff !important;
+.hero-form-responsive button:hover {
+    background: #D3E01E !important;
+    color: #0C0A08 !important;
 }
-.navbar.dark-bg .btn-primary {
-  background: var(--palta-accent-green) !important;
-  color: var(--palta-text-dark) !important;
+
+.hero-image img, .img-fluid {
+    max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
+
+/* --- STATS SECTION --- */
+.stats-section { min-height: 150px; box-shadow: none !important; border: none !important; border-bottom: none !important; padding: 0;}
+.stat-item h3 { font-size: 2.4em; color: var(--palta-dark-bg); margin-bottom: 5px; font-weight: 700;}
+.stat-item p { font-size: 1.1em; color: var(--palta-text-dark); margin: 0; font-weight: 500;}
+
+/* --- FEATURES, HOW IT WORKS, INTEGRATIONS, LOVE, CTA, FOOTER --- */
+.section-title { font-size: 2.3em; color: var(--palta-text-dark); margin-bottom: 48px; font-weight: 800; letter-spacing: -0.02em;}
+.feature-card, .how-it-works-item {
+    background: var(--palta-white); border: 1px solid var(--palta-border);
+    border-radius: 12px; box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.feature-card:hover, .how-it-works-item:hover {
+    transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+}
+.feature-card h1 { font-size: 1.68em; font-weight: 800; color: var(--palta-text-dark); margin-bottom: 8px; line-height: 1.1;}
+.feature-card .feature-subtitle, .feature-card p { font-size: 1.04em; color: var(--palta-text-medium); font-weight: 600; margin-bottom: 12px;}
+.feature-card p { font-weight: 400; color: var(--palta-text-medium); margin-bottom: 0; line-height: 1.5;}
+.how-it-works-item h4 { font-size: 1.16em; font-weight: 700; color: var(--palta-text-dark); margin-bottom: 10px;}
+.how-it-works-item ul { list-style: none; padding: 0; margin: 0;}
+.how-it-works-item ul li { margin-bottom: 12px; position: relative; padding-left: 35px; font-size: 1.04em; color: var(--palta-text-medium);}
+.how-it-works-item ul li::before { content: '✓'; position: absolute; left: 0; color: var(--palta-accent-green); font-weight: bold; font-size: 1.2em; line-height: 1;}
+.integrations-grid { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 36px; margin-top: 32px;}
+.integration-logo { height: 50px; max-width: 110px; width: auto; object-fit: contain; opacity: 0.85; filter: grayscale(40%); transition: opacity 0.22s, filter 0.22s, transform 0.17s; display: block;}
+.integration-logo:hover { opacity: 1; filter: none; transform: scale(1.04);}
+.integration-logo.zoom-logo { height: 50px; max-width: 105px; width: 105px; object-fit: contain;}
+.integrations-grid, #integrations p { font-size: 1.04em !important;}
+
+.why-love-palta { background: var(--palta-white) !important; padding: 3.5rem 1rem; margin: 32px auto; border-radius: 0; box-shadow: 0 6px 20px rgba(0,0,0,0.05); text-align: center;}
+.why-love-palta h2, .why-love-palta .section-title { color: var(--palta-text-dark); font-size: 2em; font-weight: 800;}
+.love-points { list-style: none; padding: 0; margin: 0 auto; max-width: 680px; display: flex; flex-direction: column; gap: 20px;}
+.love-point { background: var(--palta-bg-light); padding: 22px 24px; border-radius: 10px; text-align: left; font-size: 1.04em; color: var(--palta-text-dark); display: flex; align-items: center; gap: 18px; box-shadow: 0 1.5px 8px rgba(0,0,0,0.04); position: relative; padding-left: 50px;}
+.love-point::before { content: '✓'; position: absolute; left: 18px; color: var(--palta-accent-green); font-weight: bold; font-size: 1.25em; line-height: 1;}
+
+/* The .call-to-action display is handled by Bootstrap classes in HTML (d-none d-lg-block) */
+.call-to-action {
+    background: #1A1919 !important;
+    color: var(--palta-white);
+    border-radius: 0;
+    margin: 0;
+    padding: 3rem 1rem;
+    box-shadow: none !important;
+}
+.call-to-action h2 { font-size: 2.2em; color: var(--palta-white); font-weight: 800;}
+.call-to-action p { font-size: 1.04em; color: rgba(255,255,255,0.92); margin-bottom: 34px;}
+.call-to-action .btn, .call-to-action .cta-button {
+    background: var(--palta-accent-green); color: #0C0A08; border-radius: 8px;
+    font-size: 0.89em !important; padding: 5px 16px !important; min-width: unset !important;
+    font-weight: 500 !important; border-radius: 6px !important; box-shadow: none !important; letter-spacing: 0.01em; border: none;
+    transition: background 0.3s, transform 0.2s; display: inline-block;
+}
+.call-to-action .btn:hover, .call-to-action .cta-button:hover { background: #D3E01E; color: #0C0A08;}
+footer.bg-dark { background: var(--palta-text-dark) !important; color: var(--palta-white); border: none !important; box-shadow: none !important;}
+footer .logo img { height: 35px; filter: brightness(0) invert(1);}
+footer .list-inline-item a { color: rgba(255,255,255,0.6) !important; font-weight: 500; text-decoration: none; transition: color 0.2s;}
+footer .list-inline-item a:hover { color: var(--palta-accent-green) !important;}
+.footer-copyright { color: rgba(255,255,255,0.43); font-size: 0.98em; margin-top: 12px;}
+
+/* --- RESPONSIVE / UTILITY --- */
+@media (max-width: 1200px) { .container { max-width: 100%; }}
+@media (max-width: 992px) {
+    .hero .container { padding: 0 30px; }
+    .hero h1, .display-4 { font-size: 3.5em; }
+}
+@media (max-width: 768px) {
+    .section-title, .why-love-palta h2 { font-size: 1.4em; }
+    .call-to-action h2 { font-size: 1.3em; }
+    .hero .container { padding: 0 12px; }
+}
+@media (max-width: 600px) {
+    .hero { padding: 50px 20px 30px 20px !important; }
+    .hero h1, .display-4 { font-size: 3em; }
+    .feature-card h1 { font-size: 1.25em; }
+    .integration-logo, .integration-logo.zoom-logo { height: 32px; max-width: 65px; width: 65px;}
+    .integrations-grid { gap: 18px; }
+}
+@media (max-width: 400px) {
+    .container { padding: 0 3vw; }
+    .hero h1, .display-4, .section-title, .why-love-palta h2, .call-to-action h2 { font-size: 2.5em; }
+}
+@media (max-width: 991.98px) { .navbar-nav .btn-primary { display: none !important; }}
+
+/* Remove all box-shadows and borders from main sections, navbar, and hero */
+.navbar, .navbar.shadow-sm, .hero, .stats-section, .section, .why-love-palta, .call-to-action, footer,
+.bg-white, .bg-light, .shadow, .shadow-sm, .shadow-lg, .container, main, body {
+    box-shadow: none !important; border: none !important;
+}
+/* Remove top and bottom margin/padding between sections if any */
+section, .section, .stats-section, .why-love-palta, .call-to-action, footer {
+    margin-top: 0 !important; margin-bottom: 0 !important; padding-top: unset; padding-bottom: unset;
+}
+/* Remove background gradient Bootstrap sometimes adds to navbars */
+.navbar, .bg-white, .bg-light { background-image: none !important; }
+footer, footer.bg-dark { border: none !important; box-shadow: none !important; }
