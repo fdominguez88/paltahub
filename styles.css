@@ -1,70 +1,83 @@
 :root {
-  --palta-accent-yellow: #E4F223;
-  --palta-text-dark: #343A40;
+  --palta-blue: #00707F;
+  --palta-accent-green: #E4F223;
+  --palta-text-dark: #212529;
+  --palta-text-medium: #495057;
+  --palta-bg-light: #F9FAFB;
+  --palta-dark-bg: #1A202C;
   --palta-white: #FFFFFF;
-  --palta-bg: #F9FAFB;
-  --palta-border: #E0E0E0;
+  --palta-border: #E9ECEF;
+}
+
+/* Base Styles */
+* {
+  box-sizing: border-box;
 }
 
 body {
   font-family: 'Inter', sans-serif;
-  font-size: 16px;
-  background-color: var(--palta-bg);
-  color: var(--palta-text-dark);
   margin: 0;
   padding: 0;
+  background-color: var(--palta-bg-light);
+  color: var(--palta-text-dark);
+  line-height: 1.6;
 }
 
-.container-large {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
+/* Typography */
+h1, h2, h3, h4 {
+  font-weight: 600;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 /* Navbar */
 .navbar {
   background-color: var(--palta-white);
-  padding: 1rem 0;
+  padding: 0.75rem 1rem;
   border-bottom: 1px solid var(--palta-border);
-  position: sticky;
-  top: 0;
-  z-index: 999;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
 }
 
 .navbar-brand img {
-  height: 32px;
+  height: 36px;
+  display: block;
 }
 
-.nav-link {
-  margin-right: 1.5rem;
+.navbar-nav .nav-link {
+  padding: 0.5rem 0.75rem;
+  font-size: 15px;
   color: var(--palta-text-dark);
-  font-size: 14px;
-  text-decoration: none;
 }
 
-.nav-link:hover {
+.navbar-nav .nav-link:hover {
   text-decoration: underline;
 }
 
 /* Buttons */
 .btn {
   font-size: 14px;
-  padding: 8px 16px;
-  border-radius: 6px;
+  padding: 6px 14px;
   font-weight: 500;
-  transition: all 0.2s ease;
-  line-height: 1.2;
-  text-decoration: none;
+  border-radius: 6px;
+  transition: all 0.2s ease-in-out;
 }
 
 .btn-primary {
-  background-color: var(--palta-accent-yellow);
+  background-color: var(--palta-accent-green);
   color: #0C0A08;
-  border: 1px solid var(--palta-accent-yellow);
+  border: 1px solid var(--palta-accent-green);
 }
 
 .btn-primary:hover {
   background-color: #d3e71f;
+  border-color: #d3e71f;
 }
 
 .btn-signin {
@@ -79,147 +92,171 @@ body {
   text-decoration: underline;
 }
 
-/* Hero section */
+.btn-signin-offcanvas {
+  display: block;
+  margin-bottom: 1rem;
+  color: var(--palta-text-dark);
+  text-align: center;
+}
+
+/* Hero Section */
 .hero {
-  padding: 4rem 0;
+  padding: 6rem 0 4rem;
+  background-color: var(--palta-bg-light);
 }
 
-.hero-content {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-@media (min-width: 992px) {
-  .hero-content {
-    flex-direction: row;
-    align-items: center;
-  }
-}
-
-.hero-text h1 {
-  font-size: 2.5rem;
+.hero h1 {
   font-weight: 700;
+  font-size: 2.5rem;
   margin-bottom: 1rem;
 }
 
-.hero-text p {
+.hero .lead {
   font-size: 1.125rem;
-  margin-bottom: 1rem;
-  color: #555;
+  color: var(--palta-text-medium);
 }
 
 .hero-form {
-  max-width: 400px;
+  max-width: 480px;
   display: flex;
-  gap: 8px;
+  gap: 10px;
   flex-wrap: wrap;
+  margin-top: 1.5rem;
 }
 
-.hero-form input {
+.hero-form .form-control {
   flex: 1;
   padding: 8px 12px;
   font-size: 14px;
-  border: 1px solid var(--palta-border);
-  border-radius: 6px;
 }
 
-/* Stats */
-.stats-grid {
-  display: flex;
-  justify-content: space-between;
-  text-align: center;
-  gap: 1rem;
+/* Stats Section */
+.stats-section {
+  background: var(--palta-white);
+  padding: 4rem 0;
 }
 
 .stat-value {
-  font-size: 1.75rem;
+  font-size: 2rem;
   font-weight: 600;
 }
 
 .stat-label {
-  font-size: 14px;
-  color: #666;
+  font-size: 1rem;
+  color: var(--palta-text-medium);
 }
 
-/* Sections */
-.section-title {
-  text-align: center;
-  font-size: 1.75rem;
-  font-weight: 600;
-  margin-bottom: 2rem;
-}
-
+/* Features / How It Works */
 .features-section,
-.how-it-works-section,
-.why-love-palta-section,
-.final-cta-section {
+.how-it-works-section {
   padding: 4rem 0;
 }
 
-.love-points-container,
-.integrations-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
-}
-
-/* Cards */
 .card {
-  background: white;
   border: 1px solid var(--palta-border);
   border-radius: 8px;
-  padding: 1.5rem;
+  box-shadow: none;
+  transition: box-shadow 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
 }
 
 .card-title {
-  font-size: 1rem;
+  font-size: 1.25rem;
   font-weight: 600;
-  margin-bottom: 0.5rem;
-}
-
-.card-text {
-  font-size: 14px;
-  color: #555;
 }
 
 /* Integrations */
-.integration-logo {
-  max-width: 100%;
-  height: auto;
-  margin: 0 auto;
+.integrations-section {
+  padding: 4rem 0;
 }
 
-/* CTA */
-.final-cta-section .cta-title {
-  font-size: 1.75rem;
+.integrations-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.integration-logo {
+  max-height: 50px;
+  opacity: 0.9;
+}
+
+/* Why Palta */
+.why-love-palta-section {
+  background: var(--palta-white);
+  padding: 4rem 0;
+}
+
+.love-points-container {
+  max-width: 700px;
+  display: grid;
+  gap: 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--palta-text-medium);
+}
+
+/* CTA Section */
+.final-cta-section {
+  padding: 4rem 0;
+  background-color: var(--palta-bg-light);
+}
+
+.cta-title {
+  font-size: 2rem;
   font-weight: 600;
-  margin-bottom: 1rem;
 }
 
 /* Footer */
 .footer-section {
-  padding: 2rem 0;
-  background-color: #f1f1f1;
-  border-top: 1px solid var(--palta-border);
-}
-
-.footer-section ul {
-  padding: 0;
-  list-style: none;
-}
-
-.footer-section li {
-  display: inline-block;
-  margin: 0 1rem;
+  padding: 3rem 0;
+  background-color: var(--palta-dark-bg);
+  color: var(--palta-white);
 }
 
 .footer-section a {
-  font-size: 14px;
-  color: var(--palta-text-dark);
-  text-decoration: none;
+  color: var(--palta-white);
 }
 
 .footer-section a:hover {
   text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .hero {
+    text-align: center;
+  }
+
+  .hero .row {
+    flex-direction: column-reverse;
+  }
+
+  .hero-form {
+    flex-direction: column;
+  }
+
+  .hero-form .form-control {
+    width: 100%;
+  }
+
+  .btn-primary {
+    width: 100%;
+  }
+
+  .love-points-container {
+    padding: 0 1rem;
+  }
+
+  .footer-section ul {
+    padding-left: 0;
+  }
+
+  .navbar-nav .nav-link {
+    padding: 0.75rem 1rem;
+  }
 }
