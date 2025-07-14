@@ -28,17 +28,21 @@ html, body {
 
 /* ===== Navbar & CTAs ===== */
 .navbar {
-  position: fixed; top: 0; left: 0; width: 100%;
+  position: fixed;
+  top: 0; left: 0; width: 100%;
   z-index: 1000;
   background: var(--palta-dark-bg) !important;
   transition: background 0.3s, box-shadow 0.3s;
   box-shadow: 0 2px 16px rgba(30,30,30,0.10);
-  border-bottom: none !important; /* removed divider */
+  border-bottom: none !important; /* removed the divider */
 }
 .navbar .navbar-brand img {
-  height: 38px; transition: filter 0.22s; filter: none !important;
+  height: 38px;
+  transition: filter 0.22s;
+  filter: none !important;
 }
-.navbar .nav-link, .navbar .btn-signin {
+.navbar .nav-link,
+.navbar .btn-signin {
   color: #fff !important;
 }
 .navbar .btn-primary {
@@ -60,7 +64,7 @@ html, body {
   border-radius: .375rem !important;
 }
 
-/* scrolled → frosted */
+/* frosted-white after scroll */
 .navbar.light-bg {
   background: rgba(255,255,255,0.97) !important;
   backdrop-filter: saturate(180%) blur(10px);
@@ -78,7 +82,7 @@ html, body {
   background: #D3E01E !important;
 }
 
-/* scrolled past features → solid dark */
+/* solid-dark past features */
 .navbar.dark-bg {
   background: var(--palta-dark-bg) !important;
   box-shadow: 0 2px 16px rgba(0,0,0,0.3) !important;
@@ -93,7 +97,7 @@ html, body {
   color: var(--palta-text-dark) !important;
 }
 
-/* hamburger */
+/* toggler icon contrast */
 .navbar-toggler { border: none !important; background: transparent !important; }
 .navbar-toggler-icon { filter: invert(1) contrast(200%); }
 .navbar.light-bg .navbar-toggler-icon { filter: none; }
@@ -130,14 +134,14 @@ html, body {
 }
 
 /* ===== Hero & Forms ===== */
-/* now full-height minus navbar, centered vertically on ALL screens */
+/* now fills viewport minus navbar, and is vertically centered on ALL screens */
 .hero {
   background: var(--palta-dark-bg);
   color: var(--palta-white);
   min-height: calc(100vh - 60px);
   display: flex;
   align-items: center;
-  padding: 0 20px; /* horizontal gutter only */
+  padding: 0 20px; /* only horizontal gutter */
 }
 .hero .container {
   padding: 0 50px;
@@ -156,7 +160,7 @@ html, body {
   max-width: 600px;
 }
 
-/* desktop form */
+/* desktop “modern” form */
 .hero-form-modern {
   display: flex;
   max-width: 500px;
@@ -167,25 +171,25 @@ html, body {
   flex: 1;
   height: 54px;
   padding: 0 20px;
-  border-radius: 11px 0 0 11px;
   background: #fff;
-  color: #585858;
+  border-radius: 11px 0 0 11px;
   border: none;
+  color: #585858;
   font-size: 1rem;
 }
 .hero-form-modern-btn {
   height: 54px;
   min-width: 200px;
   padding: 0 28px;
-  border-radius: 0 11px 11px 0;
   background: var(--palta-accent-green);
   color: #0C0A08;
-  font-weight: 600;
   font-size: 1.08rem;
+  font-weight: 600;
   border: none;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 0 11px 11px 0;
   transition: background .17s;
 }
 .hero-form-modern-btn:hover {
@@ -193,9 +197,9 @@ html, body {
   color: #0C0A08;
 }
 
-/* mobile form */
+/* mobile-only form */
 .hero-form-responsive {
-  display: none; /* hidden on desktop */
+  display: none;
 }
 @media (max-width: 992px) {
   .hero-form-modern { display: none; }
@@ -243,14 +247,16 @@ html, body {
   font-weight: 800;
   margin-bottom: 2rem;
 }
-.feature-card, .how-it-works-item {
+.feature-card,
+.how-it-works-item {
   background: var(--palta-white);
   border: 1px solid var(--palta-border);
   border-radius: .75rem;
   padding: 1.5rem;
   transition: transform .3s, box-shadow .3s;
 }
-.feature-card:hover, .how-it-works-item:hover {
+.feature-card:hover,
+.how-it-works-item:hover {
   transform: translateY(-10px);
   box-shadow: 0 15px 30px rgba(0,0,0,0.12);
 }
@@ -357,8 +363,7 @@ footer a:hover {
   body.menu-open::before {
     content: "";
     position: fixed;
-    top: 60px;
-    left: 0;
+    top: 60px; left: 0;
     width: 100%;
     height: calc(100vh - 60px);
     background: rgba(0,0,0,.4);
