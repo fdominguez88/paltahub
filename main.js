@@ -1,50 +1,66 @@
 // main.js
+document.addEventListener('DOMContentLoaded', function() {
+    // --- Modal logic unchanged ---
+    document.querySelectorAll('.cta-button, .btn-primary').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            var modal = document.getElementById('booking-modal');
+            if (modal) {
+                e.preventDefault();
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            }
+        });
+    });
 
-document.addEventListener('DOMContentLoaded', () => {
-  const navbar    = document.querySelector('.navbar');
-  const logoImg   = navbar.querySelector('.navbar-brand img');
-  const hero      = document.querySelector('.hero');
-  const offcanvas = document.getElementById('offcanvasNavbar');
+    var bookingModal = document.getElementById('booking-modal');
+    if (bookingModal) {
+        bookingModal.addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.style.display = 'none';
+                document.body.style.overflow = '';
+            }
+        });
 
-  const logoWhite = 'https://i.postimg.cc/mZcC64jS/palta-hub-logo-white-transparent.png';
-  const logoDark  = 'https://i.postimg.cc/Fzy2TNc9/palta-hub-logo-transparent.png';
-  const logoColor = 'https://i.postimg.cc/Y9PmYp3X/palta-hub-logo-colored.png';
+        document.addEventListener('keydown', function(e) {
+            if (e.key === "Escape" && bookingModal.style.display === 'flex') {
+                bookingModal.style.display = 'none';
+                document.body.style.overflow = '';
+            }
+        });
+    }
 
-  // Transparent ↔ Frosted at hero boundary, with logo swap
-  if (navbar && hero) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.target === hero) {
-          if (entry.isIntersecting) {
-            navbar.classList.remove('frosted');
-            logoImg.src = logoWhite;
-          } else {
-            navbar.classList.add('frosted');
-            logoImg.src = logoDark;
-          }
+    // --- Glass navbar & logo swap on scroll ---
+    var navbar = document.querySelector('.navbar');
+    var hero = document.querySelector('.hero');
+    var logoImg = navbar ? navbar.querySelector('.navbar-brand img') : null;
+
+    // Put your actual logo URLs here:
+    var logoWhiteUrl = "https://i.postimg.cc/mZcC64jS/palta-hub-logo-white-transparent.png";
+    var logoDarkUrl = "https://i.postimg.cc/Fzy2TNc9/palta-hub-logo-transparent.png"; 
+
+    if (navbar && hero) {
+        // Helper: how far from top is bottom of hero?
+        function heroEnd() {
+            var rect = hero.getBoundingClientRect();
+            return rect.bottom + window.scrollY;
         }
-      });
-    }, {
-      rootMargin: `-${navbar.offsetHeight}px 0 0 0`,
-      threshold: 0
-    });
-    observer.observe(hero);
-  }
 
-  // Offcanvas open/close: backdrop + colored logo
-  if (offcanvas) {
-    offcanvas.addEventListener('show.bs.offcanvas', () => {
-      document.body.classList.add('menu-open');
-      logoImg.src = logoColor;
-    });
-    offcanvas.addEventListener('hide.bs.offcanvas', () => {
-      document.body.classList.remove('menu-open');
-      // restore based on navbar state
-      if (navbar.classList.contains('frosted')) {
-        logoImg.src = logoDark;
-      } else {
-        logoImg.src = logoWhite;
-      }
-    });
-  }
+        function updateNavbar() {
+            // If nav is over hero (dark): glass + white
+            // If nav is over light bg: .light-bg (white)
+            var switchPoint = heroEnd() - navbar.offsetHeight;
+
+            if (window.scrollY < switchPoint) {
+                navbar.classList.remove('light-bg');
+                if (logoImg) logoImg.src = logoWhiteUrl;
+            } else {
+                navbar.classList.add('light-bg');
+                if (logoImg) logoImg.src = logoDarkUrl;
+            }
+        }
+
+        updateNavbar();
+        window.addEventListener('scroll', updateNavbar);
+        window.addEventListener('resize', updateNavbar);
+    }
 });
