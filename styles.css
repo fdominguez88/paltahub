@@ -8,8 +8,8 @@
     --palta-border: #DEE2E6;
 }
 
+/* Everything sized in rem will shrink ~6% */
 html {
-  /* Everything sized in rem will shrink ~6% */
   font-size: 93%;
 }
 
@@ -34,40 +34,63 @@ body {
 }
 
 /* ===== Navbar ===== */
+/* Default: fully transparent over hero */
 .navbar {
-    background-color: var(--palta-dark-bg);
-    box-shadow: 0 2px 16px rgba(30, 30, 30, 0.1);
+    background: transparent !important;
+    box-shadow: none !important;
+    transition: background 0.3s, box-shadow 0.3s, backdrop-filter 0.3s;
 }
+
+/* Brand & toggler */
 .navbar-brand img {
     height: 38px;
-}
-.navbar .nav-link {
-    color: var(--palta-white);
-    margin: 0 0.5rem;
-}
-.navbar .btn-primary {
-    background-color: var(--palta-accent-green);
-    color: var(--palta-text-dark);
-    border: none;
-    border-radius: .375rem;
-    padding: .375rem 1rem;
-    font-weight: 600;
-}
-.navbar .btn-primary:hover {
-    background-color: #F5FF77;
-}
-.btn-signin {
-    color: var(--palta-white);
-    border: 1.5px solid currentColor;
-    border-radius: .375rem;
-    padding: .375rem 1rem;
-    text-decoration: none;
 }
 .navbar-toggler {
     border: none;
 }
 .navbar-toggler-icon {
     filter: invert(1) contrast(200%);
+    transition: filter 0.3s;
+}
+
+/* Links & buttons (transparent state) */
+.navbar .nav-link,
+.navbar .btn-signin {
+    color: #fff !important;
+}
+.navbar .btn-primary {
+    background: var(--palta-accent-green) !important;
+    color: var(--palta-text-dark)  !important;
+    border: none !important;
+    border-radius: .375rem;
+    padding: .375rem 1rem;
+    font-weight: 600;
+}
+.navbar .btn-primary:hover {
+    background-color: #F5FF77 !important;
+}
+
+/* ===== Frosted‐white state ===== */
+.navbar.frosted {
+    background: rgba(255,255,255,0.7) !important;
+    backdrop-filter: saturate(180%) blur(10px);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08) !important;
+}
+
+/* Links & buttons (frosted state) */
+.navbar.frosted .nav-link,
+.navbar.frosted .btn-signin {
+    color: var(--palta-text-dark) !important;
+}
+.navbar.frosted .btn-primary {
+    background: var(--palta-accent-green) !important;
+    color: var(--palta-text-dark)  !important;
+}
+.navbar.frosted .btn-primary:hover {
+    background-color: #D3E01E !important;
+}
+.navbar.frosted .navbar-toggler-icon {
+    filter: none;
 }
 
 /* ===== Offcanvas Mobile Menu ===== */
@@ -102,7 +125,7 @@ body {
 }
 .hero .lead {
     color: rgba(255, 255, 255, 0.7);
-    margin: 0 auto 2rem auto;
+    margin: 0 auto 2rem;
     max-width: 500px;
 }
 .hero-form {
@@ -126,53 +149,6 @@ body {
     font-weight: 600;
     border-radius: 11px;
 }
-/* ─── START Transparent → Frosted NAVBAR ───────────────────────────────── */
-
-/* Make the navbar start out fully transparent */
-.navbar {
-  background: transparent !important;
-  box-shadow: none !important;
-  transition: background 0.3s, box-shadow 0.3s, backdrop-filter 0.3s;
-}
-
-/* Frosted state */
-.navbar.frosted {
-  background: rgba(255,255,255,0.7) !important;
-  backdrop-filter: saturate(180%) blur(10px);
-  box-shadow: 0 2px 12px rgba(0,0,0,0.08) !important;
-}
-
-/* Link and button colors in each state */
-.navbar .nav-link,
-.navbar .btn-signin {
-  color: #fff !important;
-}
-.navbar .btn-primary {
-  color: var(--palta-text-dark) !important;
-  background: var(--palta-accent-green) !important;
-}
-
-/* Frosted text colors */
-.navbar.frosted .nav-link,
-.navbar.frosted .btn-signin {
-  color: var(--palta-text-dark) !important;
-}
-.navbar.frosted .btn-primary {
-  color: var(--palta-text-dark) !important;
-  background: var(--palta-accent-green) !important;
-}
-
-/* Toggler icon invert on transparent, normal on frosted */
-.navbar-toggler-icon {
-  filter: invert(1) contrast(200%);
-  transition: filter 0.3s;
-}
-.navbar.frosted .navbar-toggler-icon {
-  filter: none;
-}
-
-/* ─── END Transparent → Frosted NAVBAR ─────────────────────────────── */
-
 
 /* ===== Section Styles ===== */
 .stats-section,
@@ -256,7 +232,7 @@ body {
     position: absolute;
     left: 18px;
     font-size: 1.25rem;
-    color: #AACC00; /* A slightly softer green for checkmarks */
+    color: #AACC00; /* A slightly softer green */
     font-weight: bold;
 }
 
@@ -278,6 +254,14 @@ body {
     padding: .8rem 2rem;
     font-size: 0.94rem;
     font-weight: 600;
+    background-color: var(--palta-accent-green);
+    color: var(--palta-text-dark);
+    border: none;
+    border-radius: 11px;
+    transition: background 0.2s;
+}
+.final-cta-section .cta-button:hover {
+    background-color: #D3E01E;
 }
 
 /* ===== Footer ===== */
@@ -308,35 +292,4 @@ body {
         flex-direction: row;
         margin: 0;
     }
-}
-/* ===== Hero CTA button ===== */
-.hero-form .btn {
-  background-color: var(--palta-accent-green) !important;
-  color:            var(--palta-text-dark)  !important;
-  border:           none                    !important;
-  border-radius:    11px                    !important;
-  height:           54px                    !important;
-  font-size:        1.08rem                 !important;
-  font-weight:      600                     !important;
-  padding:          0 28px                  !important;
-  transition:       background .17s         !important;
-  min-width:        220px                   !important;
-}
-.hero-form .btn:hover {
-  background-color: #D3E01E !important;
-}
-
-/* ===== Bottom “Final CTA” button ===== */
-.final-cta-section .cta-button {
-  background-color: var(--palta-accent-green) !important;
-  color:            var(--palta-text-dark)  !important;
-  border:           none                    !important;
-  border-radius:    11px                    !important;
-  padding:          .8rem 2rem              !important;
-  font-size:        1rem                    !important;
-  font-weight:      600                     !important;
-  transition:       background .2s          !important;
-}
-.final-cta-section .cta-button:hover {
-  background-color: #D3E01E !important;
 }
