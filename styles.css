@@ -1,26 +1,14 @@
 :root {
-  /* --- Color Palette --- */
-  --palta-blue: #00707F; /* Original blue, less used in this design */
-  --palta-accent-green: #E4F223; /* Primary vibrant accent color (Chili Piper/Qualified vibe) */
-
-  --palta-text-dark: #212529; /* Deep charcoal for text on light backgrounds (Notion/Ramp text) */
-  --palta-text-medium: #495057; /* Slightly lighter grey for secondary text */
-  --palta-text-light: #6C757D; /* Even lighter grey for tertiary text/placeholders */
-
-  --palta-white: #FFFFFF; /* Pure white for light sections */
-  --palta-bg-light: #F8F9FA; /* Off-white/light grey for alternating sections (Notion/Qualified light sections) */
-  --palta-dark-bg: #1A202C; /* Primary dark background (Ramp/Chili Piper dark sections) */
-  --palta-very-dark-bg: #151A23; /* Even darker for footer */
-
-  /* --- Borders & Shadows --- */
-  --palta-border: #E9ECEF; /* Light border for elements on white/light backgrounds */
-  --palta-subtle-dark-border: rgba(255,255,255,0.15); /* Subtle border for elements on dark backgrounds */
-  --palta-card-shadow: 0 10px 30px rgba(0,0,0,0.08); /* General card shadow for depth */
-  --palta-button-shadow-green: 0 4px 15px rgba(228, 242, 35, 0.2); /* Accent button shadow */
-  --palta-button-hover-shadow-green: 0 8px 25px rgba(228, 242, 35, 0.35); /* Accent button hover shadow */
+  --font-main: 'Inter', sans-serif;
+  --color-bg: #FFFFFF;
+  --color-bg-alt: #F7F6F3;
+  --color-text: #37352F;
+  --color-text-light: #6B6B6B;
+  --color-border: #E3E2E0;
+  --color-accent: #D5C455;
+  --radius: 8px;
 }
 
-/* ===== Global Reset & Base Styles ===== */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -28,649 +16,236 @@
 }
 
 html, body {
-  min-height: 100vh;
-  background: var(--palta-dark-bg); /* Global body background is dark by default */
-  font-family: 'Inter', sans-serif;
-  color: var(--palta-text-dark); /* Default text color for areas without specific override */
-  line-height: 1.6; /* Improved readability for body text */
+  font-family: var(--font-main);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-size: 16px;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
-  padding-top: 70px; /* Space for fixed navbar */
 }
 
-::selection {
-  background: var(--palta-accent-green);
-  color: var(--palta-text-dark);
+a {
+  color: inherit;
+  text-decoration: none;
 }
-::-moz-selection {
-  background: var(--palta-accent-green);
-  color: var(--palta-text-dark);
+a:hover {
+  text-decoration: underline;
 }
 
-/* Consistent max width container for main content - Crucial for spacious layouts */
 .container-large {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 20px;
-  padding-right: 20px;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 2rem;
 }
 
-/* ===== Navbar & CTAs ===== */
+/* ===== Navbar ===== */
 .navbar {
+  background-color: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+  padding: 1rem 2rem;
   position: fixed;
   top: 0;
-  left: 0;
   width: 100%;
   z-index: 1000;
-  background: var(--palta-dark-bg); /* Default dark background for navbar */
-  transition: background 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.15); /* Subtle shadow for depth */
-  border-bottom: none;
-  padding: 0.5rem 1rem; /* Generous padding */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-
-.navbar .navbar-brand img {
-  height: 42px; /* Slightly larger logo */
-  transition: filter 0.22s ease;
-  filter: none; /* No filter by default */
-}
-
 .navbar .nav-link {
-  color: var(--palta-white);
-  font-weight: 500; /* Medium weight for navigation links */
-  padding: 0.5rem 1rem; /* More padding for nav links */
-  transition: color 0.2s ease;
+  margin: 0 1rem;
+  font-weight: 500;
+  color: var(--color-text);
 }
 .navbar .nav-link:hover {
-  color: var(--palta-accent-green);
-}
-.navbar .nav-link.active {
-    color: var(--palta-accent-green);
-    border-bottom: 2px solid var(--palta-accent-green);
-    padding-bottom: calc(0.5rem - 2px); /* Adjust padding to keep vertical alignment */
+  color: var(--color-accent);
 }
 
-/* Primary CTA Button (used widely) */
-.btn-primary, .cta-button {
-  background: var(--palta-accent-green);
-  color: var(--palta-text-dark);
+/* ===== Buttons ===== */
+.btn, .cta-button {
+  background-color: var(--color-accent);
+  color: var(--color-text);
+  padding: 0.6rem 1.4rem;
   border: none;
-  padding: 0.8rem 2rem; /* Generous padding for prominence */
-  border-radius: 0.625rem; /* 10px - Rounded corners */
-  font-weight: 700; /* Bold text */
-  font-size: 1.05rem; /* Slightly larger text */
-  white-space: nowrap; /* Prevent text wrapping */
-  transition: background 0.2s ease-in-out, transform 0.15s ease-out, box-shadow 0.2s ease-in-out;
-  display: inline-flex; /* Use flex for vertical alignment of text/icon */
-  align-items: center;
-  justify-content: center;
-  text-decoration: none; /* Remove underline for anchor buttons */
-  box-shadow: var(--palta-button-shadow-green); /* Subtle glow/shadow */
+  border-radius: var(--radius);
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 1rem;
 }
-.btn-primary:hover, .cta-button:hover {
-  background: #D3E01E; /* Slightly darker/more saturated on hover */
-  color: #0C0A08; /* Ensure good contrast */
-  transform: translateY(-2px); /* Noticeable lift on hover */
-  box-shadow: var(--palta-button-hover-shadow-green); /* Enhanced shadow on hover */
+.btn:hover {
+  opacity: 0.9;
 }
-.btn-primary:active, .cta-button:active {
-  transform: translateY(0); /* Reset on click */
-  box-shadow: 0 2px 10px rgba(228, 242, 35, 0.2); /* Reduced shadow on active */
-}
-
-/* Sign-in Button (outlined style) */
 .btn-signin {
   background: transparent;
-  color: var(--palta-white); /* White text by default on dark navbar */
-  border: 2px solid currentColor; /* Thicker border, color inherited from text */
-  padding: 0.8rem 2rem; /* Consistent with primary button padding */
-  border-radius: 0.625rem; /* More rounded corners */
-  font-weight: 600;
-  font-size: 1.05rem;
-  transition: border-color 0.2s ease, color 0.2s ease;
-}
-.btn-signin:hover {
-  color: var(--palta-accent-green);
-  border-color: var(--palta-accent-green);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
 }
 
-/* Navbar Scroll States (handled by main.js) */
-.navbar.light-bg {
-  background: rgba(255,255,255,0.97); /* Frosted glass effect */
-  backdrop-filter: saturate(180%) blur(12px);
-  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
-}
-.navbar.light-bg .nav-link,
-.navbar.light-bg .btn-signin {
-  color: var(--palta-text-dark); /* Dark text on light navbar */
-}
-.navbar.light-bg .navbar-brand img {
-    filter: brightness(0.2); /* Darken logo for light background */
-}
-.navbar.light-bg .btn-primary {
-  background: var(--palta-accent-green);
-  color: var(--palta-text-dark);
-}
-.navbar.light-bg .btn-primary:hover {
-    background: #D3E01E;
-}
-.navbar.light-bg .navbar-toggler-icon {
-    filter: none; /* Reset filter for default dark icon */
-}
-.navbar.dark-bg { /* Explicitly define for consistency, though it's the default */
-  background: var(--palta-dark-bg);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-  backdrop-filter: none;
-}
-.navbar.dark-bg .nav-link,
-.navbar.dark-bg .btn-signin {
-  color: var(--palta-white);
-}
-.navbar.dark-bg .navbar-toggler-icon {
-    filter: invert(1) contrast(200%); /* Ensure white icon on dark background */
-}
-.navbar-toggler {
-  border: none;
-  background: transparent;
-}
-
-
-/* ===== Offcanvas Mobile Menu ===== */
-.offcanvas-header {
-  padding: 1.5rem 1rem; /* More generous padding */
-}
-.offcanvas-body {
-  padding: 2rem 1rem; /* More generous padding */
-  background-color: var(--palta-white); /* White background for mobile menu */
-  align-items: flex-start; /* Align nav items to start */
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-.offcanvas-body .nav-link {
-    color: var(--palta-text-dark);
-    font-size: 1.3rem; /* Larger font for mobile links */
-    padding: 1rem 0; /* More vertical space */
-    width: 100%; /* Full width links */
-    text-align: left; /* Align text left */
-}
-.offcanvas-body .nav-link:hover {
-    color: var(--palta-accent-green);
-}
-.offcanvas-footer {
-  width: 100%;
-  padding: 2rem 1rem; /* More padding */
-  text-align: center;
-  background-color: var(--palta-white);
-  border-top: 1px solid var(--palta-border);
-}
-.offcanvas-footer .btn-primary,
-.offcanvas-footer .btn-signin-offcanvas {
-  width: 100%; /* Full width buttons */
-  margin: .75rem 0; /* More margin */
-  display: block;
-}
-/* Specific styling for sign-in button in offcanvas footer */
-.btn-signin-offcanvas {
-  border: 2px solid var(--palta-text-dark);
-  color: var(--palta-text-dark);
-  padding: 0.8rem 2rem;
-  border-radius: 0.625rem;
-  font-weight: 600;
-  text-decoration: none;
-  background: transparent;
-  transition: all 0.2s ease;
-}
-.btn-signin-offcanvas:hover {
-  border-color: var(--palta-accent-green);
-  color: var(--palta-accent-green);
-}
-
-
-/* ===== Hero Section ===== */
+/* ===== Hero ===== */
 .hero {
-  background: var(--palta-dark-bg); /* Dark background */
-  color: var(--palta-white);
-  padding-top: 140px; /* Generous padding for spacious feel */
-  padding-bottom: 140px;
-  display: flex;
-  align-items: center;
-  min-height: 650px; /* Ensure a good minimum height */
-  position: relative;
-  overflow: hidden; /* To contain any background elements or images */
-  text-align: center; /* Default center for mobile */
+  background: var(--color-bg-alt);
+  padding: 6rem 2rem 4rem;
+  text-align: center;
 }
-.hero .container-large { /* Explicitly use container-large within hero */
-    z-index: 1; /* Ensure content is above any background elements */
-    position: relative;
+.hero h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
 }
-.hero .row {
-    align-items: center;
+.hero p {
+  color: var(--color-text-light);
+  font-size: 1.1rem;
+  max-width: 640px;
+  margin: 0 auto 2rem;
 }
-.hero .display-4 {
-  font-size: 3.8rem; /* Much larger, impactful headline */
-  font-weight: 900; /* Extra bold */
-  line-height: 1.05; /* Tighter line height for display text */
-  margin-bottom: 1.5rem;
-  letter-spacing: -0.05em; /* Tighter letter spacing */
-}
-.hero p.lead {
-  font-size: 1.25rem; /* Larger, prominent lead text */
-  color: rgba(255,255,255,0.8); /* Slightly brighter white for lead */
-  margin-bottom: 2.5rem; /* More space before CTA */
-  max-width: 750px; /* Constrain width for readability */
-  margin-left: auto;
-  margin-right: auto; /* Center lead text */
-}
-
-/* Hero Form - prominent and well-defined */
 .hero-form {
   display: flex;
-  max-width: 650px; /* Wider form container */
-  gap: 0; /* No gap between input and button */
-  margin-top: 2rem;
-  width: 100%; /* Ensure it takes available width up to max-width */
-  margin-left: auto; /* Center form on larger screens */
-  margin-right: auto; /* Center form on larger screens */
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
 }
-.hero-form .form-control {
-  flex-grow: 1;
-  height: 60px; /* Taller input field */
-  padding: 0 25px; /* More internal padding */
-  background: var(--palta-white);
-  border-radius: 0.75rem 0 0 0.75rem; /* 12px - More rounded, consistent */
-  border: 1px solid var(--palta-border); /* Subtle border */
-  color: var(--palta-text-dark);
-  font-size: 1.1rem; /* Larger font size inside input */
-  min-width: 300px; /* Ensure input has good minimum width */
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+.hero-form input[type="email"] {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  min-width: 280px;
 }
-.hero-form .form-control::placeholder {
-    color: var(--palta-text-light); /* Darker placeholder text */
-    opacity: 0.8; /* Slight transparency */
-}
-.hero-form .form-control:focus {
-  border-color: var(--palta-accent-green);
-  outline: none;
-  box-shadow: 0 0 0 4px rgba(228, 242, 35, 0.35); /* Prominent focus ring */
-}
-.hero-form .btn-primary {
-  height: 60px; /* Match input height */
-  min-width: 220px; /* Ensure button text fits well */
-  padding: 0 35px; /* More padding for button */
-  border-radius: 0 0.75rem 0.75rem 0; /* Match input rounding */
-  font-size: 1.15rem; /* Slightly larger button text */
+.hero-form .btn {
+  min-width: 180px;
 }
 
-/* Hero image/illustration */
-.hero .img-fluid {
-    display: block; /* Ensure it behaves as a block element */
-    max-width: 100%;
-    height: auto;
-    border-radius: 1rem; /* Consistent rounded corners for images */
-    box-shadow: 0 15px 40px rgba(0,0,0,0.25); /* Stronger shadow for hero image */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-/* Optional: slight hover effect for hero image */
-.hero .img-fluid:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.35);
-}
-
-
-/* ===== Sections (General Styling) ===== */
+/* ===== Sections ===== */
 section {
-    padding: 8rem 0; /* Generous vertical padding for all sections */
-    position: relative; /* For z-index if needed */
-    overflow: hidden; /* To contain content and backgrounds */
+  padding: 4rem 2rem;
 }
 .section-title {
-    font-size: 3rem; /* Larger, impactful titles */
-    font-weight: 800;
-    line-height: 1.1;
-    margin-bottom: 2rem; /* More space below title */
-    letter-spacing: -0.04em;
-    text-align: center; /* Generally center titles */
-    max-width: 900px; /* Constrain width of title */
-    margin-left: auto;
-    margin-right: auto;
-}
-.section-lead-text { /* For lead paragraphs below titles */
-    font-size: 1.25rem;
-    line-height: 1.6;
-    margin-bottom: 3.5rem; /* More space below lead text */
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    color: var(--palta-text-medium); /* Default for light backgrounds */
-}
-
-/* Title and Lead text colors based on section background */
-/* For sections with dark backgrounds (Hero, Features, Why Love Palta, Final CTA) */
-.hero .display-4,
-.features-section .section-title,
-.why-love-palta-section .section-title,
-.final-cta-section .cta-title {
-    color: var(--palta-white);
-}
-.features-section .section-lead-text,
-.why-love-palta-section .section-lead-text,
-.final-cta-section .lead {
-    color: rgba(255,255,255,0.7);
-}
-
-/* For sections with light backgrounds (Stats, How It Works, Integrations) */
-.stats-section .section-title,
-.how-it-works-section .section-title, /* How It Works is now light grey */
-.integrations-section .section-title {
-    color: var(--palta-text-dark);
-}
-.stats-section .section-lead-text,
-.how-it-works-section .section-lead-text,
-.integrations-section .section-lead-text {
-    color: var(--palta-text-medium);
-}
-
-
-/* ===== Specific Sections Styling ===== */
-
-/* Stats Section (White Background) */
-.stats-section {
-    background: var(--palta-white);
-    color: var(--palta-text-dark);
-    text-align: center;
-}
-.stat-item {
-    padding: 1.5rem;
-}
-.stat-value {
-    font-size: 3.5rem; /* Very large stats for impact */
-    color: var(--palta-dark-bg);
-    margin-bottom: .5rem;
-    font-weight: 800;
-    line-height: 1; /* Tighter line height for large numbers */
-}
-.stat-label {
-    color: var(--palta-text-medium);
-    font-size: 1.1rem;
-    font-weight: 500;
-}
-
-/* Features Section (Dark Background) */
-.features-section {
-    background-color: var(--palta-dark-bg);
-    color: var(--palta-white);
-}
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px; /* Consistent gap for grid */
-    margin-top: 4rem; /* Spacing from title */
-}
-
-/* How It Works Section (Light Grey Background) */
-.how-it-works-section {
-    background-color: var(--palta-bg-light); /* Light grey background */
-    color: var(--palta-text-dark);
-}
-.how-it-works-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin-top: 4rem;
-}
-
-/* Card styles (for features, how-it-works, etc.) */
-.card {
-  background: var(--palta-white); /* Cards are white on both dark and light sections */
-  border: 1px solid var(--palta-border);
-  border-radius: 1rem; /* More rounded corners (16px) */
-  padding: 2.5rem; /* Generous internal padding */
-  transition: transform 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
-  color: var(--palta-text-dark); /* Dark text inside cards */
-  box-shadow: var(--palta-card-shadow);
-  display: flex; /* For flexible content alignment within card */
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start; /* Align content to top-left */
-  text-align: left;
-}
-.card:hover {
-  transform: translateY(-8px); /* More noticeable lift on hover */
-  box-shadow: 0 16px 40px rgba(0,0,0,0.12); /* Enhanced shadow on hover */
-}
-.card-icon { /* Style for icon images within cards */
-    width: 64px; /* Fixed size */
-    height: 64px;
-    object-fit: contain; /* Ensure image fits */
-    margin-bottom: 1.5rem;
-}
-.card-title {
-    color: var(--palta-dark-bg);
-    font-weight: 700;
-    font-size: 1.5rem; /* Larger card titles */
-    margin-bottom: 1rem;
-    line-height: 1.2;
-}
-.card-text {
-    color: var(--palta-text-medium);
-    font-size: 1.05rem; /* Slightly larger card text */
-    line-height: 1.7;
-    flex-grow: 1; /* Allow text to grow and fill space */
-}
-
-/* Integrations Section (White Background) */
-.integrations-section {
-    background: var(--palta-white);
-    color: var(--palta-text-dark);
-    text-align: center;
-}
-.integrations-grid {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 50px; /* Increased gap between logos */
-  margin-top: 4rem;
-}
-.integration-logo {
-  height: 70px; /* Larger logos */
-  max-width: 150px; /* Wider */
-  object-fit: contain;
-  filter: grayscale(80%) contrast(120%); /* More muted initial state */
-  opacity: .7;
-  transition: filter .3s ease, transform .2s ease, opacity .3s ease;
-}
-.integration-logo:hover {
-  filter: none; /* Full color on hover */
-  opacity: 1;
-  transform: scale(1.12); /* More prominent hover effect */
-}
-
-/* Why Teams Love Palta Hub Section (Dark Background) */
-.why-love-palta-section {
-  background: var(--palta-dark-bg);
-  color: var(--palta-white);
-}
-.love-points-container {
-    display: grid; /* Use grid for better control */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px; /* Consistent gap */
-    margin-top: 4rem;
-}
-.love-point {
-    background: rgba(255, 255, 255, 0.08); /* Slightly transparent white on dark */
-    border-radius: 1rem; /* More rounded */
-    padding: 2rem; /* More padding */
-    font-size: 1.2rem; /* Larger font */
-    font-weight: 500;
-    color: var(--palta-white);
-    text-align: center;
-    border: 1px solid var(--palta-subtle-dark-border); /* Subtle border on dark bg */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Slight shadow for depth */
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.love-point:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-}
-
-/* Final Call to Action Section (Dark Background, Centered) */
-.final-cta-section {
-  background: var(--palta-dark-bg);
-  padding: 8rem 0; /* More vertical padding for final CTA */
-  color: var(--palta-white);
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
   text-align: center;
 }
-.final-cta-section .cta-title {
-  font-size: 3.5rem; /* Even larger, more impactful title */
-  font-weight: 800;
-  margin-bottom: 2rem;
-  line-height: 1.1;
-  letter-spacing: -0.05em;
-  max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.final-cta-section .lead {
-  font-size: 1.35rem; /* Larger lead text */
-  color: rgba(255,255,255,0.7);
-  margin-bottom: 3.5rem;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.final-cta-section .cta-button {
-  padding: 1rem 2.5rem; /* Largest padding for this button */
-  font-size: 1.25rem; /* Largest font size for this button */
-  border-radius: 0.75rem; /* Largest border radius */
+.section-lead-text {
+  text-align: center;
+  color: var(--color-text-light);
+  max-width: 640px;
+  margin: 0 auto 3rem;
+  font-size: 1.1rem;
 }
 
+/* ===== Cards ===== */
+.card {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+.card-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+.card-text {
+  color: var(--color-text-light);
+  font-size: 1rem;
+}
+
+/* ===== Stats ===== */
+.stats-section {
+  background-color: var(--color-bg);
+  text-align: center;
+}
+.stat-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+.stat-label {
+  font-size: 1rem;
+  color: var(--color-text-light);
+}
+
+/* ===== Integrations ===== */
+.integrations-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.integration-logo {
+  max-height: 40px;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+.integration-logo:hover {
+  opacity: 1;
+}
+
+/* ===== Love Section ===== */
+.love-points-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.love-point {
+  border: 1px solid var(--color-border);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  background-color: var(--color-bg);
+  text-align: center;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+/* ===== Final CTA ===== */
+.final-cta-section {
+  background: var(--color-bg-alt);
+  text-align: center;
+  padding: 4rem 2rem;
+}
+.final-cta-section .cta-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.final-cta-section .lead {
+  color: var(--color-text-light);
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
 
 /* ===== Footer ===== */
 .footer-section {
-  background: var(--palta-very-dark-bg); /* Very dark background for footer */
-  padding: 5rem 0; /* More padding */
-  color: rgba(255,255,255,0.6);
-  font-size: 1rem; /* Clearer font size */
+  text-align: center;
+  padding: 3rem 2rem;
+  border-top: 1px solid var(--color-border);
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+}
+.footer-section .list-inline-item {
+  margin: 0 0.5rem;
 }
 .footer-section .list-inline-item a {
-  color: rgba(255,255,255,0.85); /* Slightly brighter links */
-  text-decoration: none;
-  font-weight: 500;
-  transition: color .2s ease;
+  color: var(--color-text-light);
 }
 .footer-section .list-inline-item a:hover {
-  color: var(--palta-accent-green);
+  color: var(--color-accent);
 }
 
-/* ===== Responsive Adjustments (Mobile First) ===== */
-@media (max-width: 1200px) {
-    .container-large {
-        padding-left: 15px;
-        padding-right: 15px;
-    }
-}
-
-@media (max-width: 992px) { /* Medium devices (tablets) */
-  .hero {
-    padding: 100px 20px; /* Adjust mobile padding */
-    min-height: 550px;
-    flex-direction: column; /* Stack content for mobile */
-    text-align: center; /* Center align hero text on mobile */
+/* ===== Responsive Adjustments ===== */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
   }
-  .hero .display-4 {
-    font-size: 2.8rem; /* Smaller headline on mobile */
-    margin-bottom: 1rem;
-  }
-  .hero p.lead {
-    font-size: 1rem; /* Smaller lead on mobile */
-    margin-bottom: 1.5rem;
+  .section-title {
+    font-size: 1.5rem;
   }
   .hero-form {
     flex-direction: column;
-    gap: 15px; /* More gap between stacked elements */
-    max-width: 100%;
+    align-items: center;
   }
-  .hero-form .form-control,
-  .hero-form .btn-primary {
-    width: 100%;
-    border-radius: 0.75rem; /* Full rounded corners for stacked elements */
-    min-width: auto;
-  }
-
-  /* Adjustments for section titles and leads on smaller screens */
-  .section-title {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-  }
-  .section-lead-text {
-    font-size: 1rem;
-    margin-bottom: 2rem;
-  }
-  section {
-      padding: 5rem 0; /* Reduced padding on mobile */
-  }
-
-  .stat-value {
-      font-size: 2.8rem;
-  }
-  .card {
-      padding: 1.5rem; /* Reduce card padding on mobile */
-      text-align: center; /* Center card content on mobile */
-      align-items: center; /* Center items within card */
-  }
-  .card-title {
-      font-size: 1.3rem;
-  }
-  .card-text {
-      font-size: 0.95rem;
-  }
-  .integrations-grid {
-      gap: 30px;
-  }
-  .integration-logo {
-      height: 50px;
-      max-width: 120px;
-  }
-  .love-point {
-      padding: 1.5rem;
-      font-size: 1.05rem;
-  }
-  .final-cta-section .cta-title {
-      font-size: 2.5rem;
-  }
-  .final-cta-section .lead {
-      font-size: 1.1rem;
-  }
-  .final-cta-section .cta-button {
-      padding: .8rem 1.8rem;
-      font-size: 1.1rem;
-  }
-}
-
-@media (max-width: 768px) { /* Small devices (portrait phones) */
-    .display-4 {
-        font-size: 2.2rem !important; /* Even smaller on very small screens */
-    }
-    .hero p.lead {
-        font-size: 0.95rem;
-    }
-    .section-title {
-        font-size: 2rem;
-    }
-    .love-points-container {
-        grid-template-columns: 1fr; /* Stack love points on very small screens */
-    }
-    .final-cta-section .cta-title {
-        font-size: 2rem;
-    }
-    .final-cta-section .lead {
-        font-size: 1rem;
-    }
-    .footer-section {
-        padding: 3rem 0;
-    }
 }
