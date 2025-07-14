@@ -36,45 +36,52 @@ html, body {
   box-shadow: 0 2px 16px rgba(30,30,30,0.10);
   border-bottom: none !important; /* removed the divider */
 }
-/* Ensure navbar content reaches edges with padding */
-.navbar .container-fluid {
-    padding-left: 1rem; /* Default Bootstrap gutter */
-    padding-right: 1rem; /* Default Bootstrap gutter */
-}
-
-@media (min-width: 992px) { /* Adjust for large screens and up */
-    .navbar .container-fluid {
-        padding-left: 50px; /* Matches hero container padding */
-        padding-right: 50px; /* Matches hero container padding */
-    }
-}
 
 .navbar .navbar-brand img {
   height: 38px;
   transition: filter 0.22s;
   filter: none !important;
 }
-.navbar .nav-link,
-.navbar .btn-signin {
-  color: #fff !important;
+/* Desktop Nav Links */
+.navbar .navbar-nav .nav-link {
+    font-size: 0.97em !important; font-weight: 500; letter-spacing: 0.01em;
+    padding-top: 3px !important; padding-bottom: 3px !important;
+    color: #fff !important; /* Ensure desktop nav links are white */
+    transition: color 0.2s;
 }
+.navbar .navbar-nav .nav-link:hover {
+    color: var(--palta-accent-green) !important;
+}
+
 .navbar .btn-primary {
   background: var(--palta-accent-green) !important;
   color: var(--palta-text-dark) !important;
   border: none !important;
   padding: .375rem 1rem !important;
   border-radius: .375rem !important;
+  font-size: 0.89em !important;
+  font-weight: 500 !important;
+  transition: background 0.3s, color 0.3s, transform 0.2s;
 }
 .navbar .btn-primary:hover {
   background: #F5FF77 !important;
   color: #0D0A08 !important;
+  transform: translateY(-2px);
 }
 .btn-signin {
   background: transparent !important;
   color: #fff !important;
-  border: 1.5px solid currentColor !important;
+  border: 1.5px solid rgba(255,255,255,0.23) !important;
   padding: .375rem 1rem !important;
   border-radius: .375rem !important;
+  font-size: 0.89em !important;
+  font-weight: 500 !important;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.btn-signin:hover {
+    background: rgba(255,255,255,0.11);
+    color: var(--palta-accent-green) !important;
+    border-color: var(--palta-accent-green);
 }
 
 /* frosted-white after scroll */
@@ -83,6 +90,7 @@ html, body {
   backdrop-filter: saturate(180%) blur(10px);
   box-shadow: 0 2px 12px rgba(0,0,0,0.06) !important;
 }
+.navbar.light-bg .navbar-brand img { filter: none !important; }
 .navbar.light-bg .nav-link,
 .navbar.light-bg .btn-signin {
   color: var(--palta-text-dark) !important;
@@ -94,6 +102,14 @@ html, body {
 .navbar.light-bg .btn-primary:hover {
   background: #D3E01E !important;
 }
+.navbar.light-bg .btn-signin {
+    border-color: var(--palta-border) !important;
+}
+.navbar.light-bg .btn-signin:hover {
+    background: var(--palta-bg-light);
+    color: var(--palta-blue) !important;
+    border-color: var(--palta-accent-green);
+}
 
 /* solid-dark past features */
 .navbar.dark-bg {
@@ -101,6 +117,7 @@ html, body {
   box-shadow: 0 2px 16px rgba(0,0,0,0.3) !important;
   backdrop-filter: none;
 }
+.navbar.dark-bg .navbar-brand img { filter: none !important; }
 .navbar.dark-bg .nav-link,
 .navbar.dark-bg .btn-signin {
   color: #fff !important;
@@ -112,142 +129,127 @@ html, body {
 
 /* toggler icon contrast */
 .navbar-toggler { border: none !important; background: transparent !important; }
-.navbar-toggler-icon { filter: invert(1) contrast(200%); }
-.navbar.light-bg .navbar-toggler-icon { filter: none; }
-
-/* ===== Offcanvas Mobile Menu ===== */
-.offcanvas {
-    background-color: var(--palta-dark-bg);
-    width: 100vw;
-    height: 100vh;
-    max-width: 100%;
-    color: var(--palta-white);
-    padding: 20px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255,255,255,1%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+.navbar.light-bg .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2852,58,64,1%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
-.offcanvas-header {
-    border-bottom: none;
-    padding: 0;
-    display: flex;
-    justify-content: flex-end;
-    height: 60px;
-    align-items: center;
+
+/* ===== Mobile Menu (navbar-collapse for small screens) ===== */
+@media (max-width: 991.98px) { /* Apply these styles only on small screens for Bootstrap's 'lg' breakpoint */
+    .navbar-collapse {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: var(--palta-dark-bg); /* Match header background */
+        z-index: 1040; /* Above regular content and backdrop */
+        display: flex; /* Use flexbox for centering */
+        flex-direction: column;
+        justify-content: center; /* Center content vertically */
+        align-items: center; /* Center content horizontally */
+        overflow-y: auto; /* Allow scrolling if content overflows */
+        padding: 20px; /* Add some padding */
+        visibility: hidden; /* Hide by default */
+        opacity: 0; /* Fade out effect */
+        transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    }
+
+    .navbar-collapse.show {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    /* Adjust the internal mobile menu header/footer */
+    .navbar-collapse > div:first-child { /* Targets the d-lg-none d-flex justify-content-end mb-4 div */
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: auto;
+        margin-bottom: 0 !important; /* Remove default mb-4 */
+        display: flex;
+        align-items: center;
+        gap: 15px; /* Space between sign-in and close */
+    }
+
+    /* Mobile Close Button (x) */
+    .navbar-close {
+        background: none;
+        border: none;
+        font-size: 2.5rem; /* Larger 'X' */
+        color: rgba(255, 255, 255, 0.7); /* White color for 'X' */
+        font-weight: 200; /* Thinner 'X' */
+        padding: 0;
+        margin: 0;
+        box-shadow: none !important;
+        outline: none !important;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px; /* Make it a clickable square */
+        height: 48px;
+        border-radius: 50%; /* Make it circular */
+        transition: background-color 0.2s, color 0.2s;
+    }
+    .navbar-close:hover {
+        color: var(--palta-accent-green);
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+
+    /* Mobile Sign In Button inside collapse (d-lg-none) */
+    .navbar-collapse .btn-signin {
+        background: transparent;
+        color: var(--palta-white) !important;
+        border: 1.5px solid rgba(255,255,255,0.4) !important;
+        padding: 10px 20px !important;
+        font-size: 1.1em !important;
+        border-radius: 8px !important;
+        font-weight: 600 !important;
+        width: auto;
+        min-width: 120px;
+        text-align: center;
+    }
+    .navbar-collapse .btn-signin:hover {
+        background: rgba(255,255,255,0.1);
+        border-color: var(--palta-accent-green) !important;
+        color: var(--palta-accent-green) !important;
+    }
+
+    .navbar-collapse .navbar-nav {
+        width: 100%;
+        text-align: center;
+        flex-direction: column; /* Stack nav items vertically */
+        gap: 15px; /* Space between nav items */
+        margin-top: -60px; /* Pull nav items up, considering the absolute positioned header/footer */
+        margin-bottom: 20px;
+    }
+
+    .navbar-collapse .nav-item .nav-link {
+        color: var(--palta-white);
+        font-size: 1.8em; /* Larger text for menu items */
+        font-weight: 600;
+        padding: 15px 0;
+        display: block;
+        transition: color 0.2s;
+    }
+
+    .navbar-collapse .nav-item .nav-link:hover,
+    .navbar-collapse .nav-item .nav-link:focus {
+        color: var(--palta-accent-green);
+        text-decoration: none;
+    }
+
+    /* Hide desktop buttons within collapse on mobile */
+    .navbar-collapse .nav-item.d-none.d-lg-block {
+        display: none !important;
+    }
 }
 
-/* Custom close button styling based on Ramp example */
-.offcanvas .btn-close {
-    background: none;
-    opacity: 1;
-    font-size: 2.5rem;
-    color: rgba(255, 255, 255, 0.7);
-    font-weight: 200;
-    padding: 0;
-    margin: 0;
-    box-shadow: none !important;
-    outline: none !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    transition: background-color 0.2s, color 0.2s;
-}
-
-.offcanvas .btn-close::before {
-    content: "×";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    line-height: 1;
-}
-
-.offcanvas .btn-close:hover {
-    color: var(--palta-accent-green);
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-.offcanvas-body {
-    padding-top: 0;
-    padding-bottom: 20px;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.offcanvas .navbar-nav {
-    width: 100%;
-    text-align: center;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.offcanvas .nav-item .nav-link {
-    color: var(--palta-white);
-    font-size: 1.8em;
-    font-weight: 600;
-    padding: 15px 0;
-    display: block;
-    transition: color 0.2s;
-}
-
-.offcanvas .nav-item .nav-link:hover,
-.offcanvas .nav-item .nav-link:focus {
-    color: var(--palta-accent-green);
-    text-decoration: none;
-}
-
-.offcanvas-footer {
-    padding-top: 20px;
-    padding-bottom: 0;
-    border-top: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.offcanvas-footer .btn-signin-offcanvas,
-.offcanvas-footer .btn-primary-offcanvas {
-    font-size: 1.1em;
-    padding: 12px 24px;
-    border-radius: 8px;
-    font-weight: 600;
-    display: block;
-    text-align: center;
-    width: 80%;
-    max-width: 300px;
-    transition: background-color 0.2s, color 0.2s;
-}
-
-.offcanvas-footer .btn-signin-offcanvas {
-    background: transparent;
-    color: var(--palta-white);
-    border: 1.5px solid rgba(255,255,255,0.4);
-}
-
-.offcanvas-footer .btn-signin-offcanvas:hover {
-    background: rgba(255,255,255,0.1);
-    border-color: var(--palta-accent-green);
-    color: var(--palta-accent-green);
-}
-
-.offcanvas-footer .btn-primary-offcanvas {
-    background: var(--palta-accent-green);
-    color: #0C0A08;
-    border: none;
-}
-
-.offcanvas-footer .btn-primary-offcanvas:hover {
-    background: #D3E01E;
-    color: #0C0A08;
-}
 
 /* ===== Hero & Forms ===== */
 .hero {
@@ -313,7 +315,7 @@ html, body {
 .hero-form-responsive {
   display: none;
 }
-@media (max-width: 992px) {
+@media (max-width: 991.98px) { /* Correct Bootstrap breakpoint for <lg */
   .hero-form-modern { display: none; }
   .hero-form-responsive {
     display: flex;
@@ -467,23 +469,45 @@ footer a:hover {
 }
 
 /* ===== Mobile Utilities ===== */
-@media (max-width: 992px) {
-    .navbar-collapse { display: none !important; }
+@media (max-width: 991.98px) { /* Adjusted to 991.98px for Bootstrap lg breakpoint */
+    /* Navbar styles for mobile are now within the .navbar-collapse section above */
     .hero { padding: 60px 0; /* Adjust hero padding for mobile */ }
     .hero .container { padding: 0 20px; /* Adjust container padding for mobile */ }
     .display-4 { font-size: 2.2rem; /* Make heading smaller on mobile */ }
     .hero p.lead { font-size: 0.95rem; /* Adjust lead text size on mobile */ }
+
+    /* Ensure desktop-only elements are hidden */
+    .d-lg-block { display: none !important; }
+    .d-lg-none { display: flex !important; } /* Ensure mobile-only elements show as flex */
 }
-@media (max-width: 576px) {
-  .navbar-toggler[aria-expanded="true"] { display: none; }
-  body.offcanvas-open::before { /* Changed from menu-open to offcanvas-open */
-    content: "";
-    position: fixed;
-    top: 60px; left: 0;
-    width: 100%;
-    height: calc(100vh - 60px);
-    background: rgba(0,0,0,.4);
-    backdrop-filter: blur(4px);
-    z-index: 1030;
-  }
+
+@media (max-width: 767.98px) { /* md breakpoint for smaller font sizes */
+    .display-4 { font-size: 2rem; }
+    .hero p.lead { font-size: 0.9rem; }
+}
+
+@media (max-width: 575.98px) { /* sm breakpoint for even smaller adjustments */
+    .hero { padding: 40px 0; }
+    .hero .container { padding: 0 15px; }
+    .display-4 { font-size: 1.8rem; }
+    .hero p.lead { font-size: 0.85rem; }
+}
+
+/* The body.offcanvas-open class (toggled by JS) will trigger this backdrop */
+body.offcanvas-open::before {
+    content: "";
+    position: fixed;
+    top: 0; /* Cover full screen */
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.4);
+    backdrop-filter: blur(4px);
+    z-index: 1030; /* Below the full-screen menu (z-index: 1040) */
+    pointer-events: none; /* Allow clicks on content below if needed */
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+body.offcanvas-open::before {
+    opacity: 1;
 }
