@@ -9,6 +9,7 @@
   --radius: 8px;
 }
 
+/* Reset */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -21,8 +22,8 @@ html, body {
   color: var(--color-text);
   font-size: 16px;
   line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
   scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
@@ -33,68 +34,60 @@ a:hover {
   text-decoration: underline;
 }
 
-.container-large {
+.container {
   max-width: 1080px;
   margin: 0 auto;
   padding: 2rem;
 }
 
-/* ===== Navbar ===== */
+/* Navbar */
 .navbar {
   background-color: var(--color-bg);
   border-bottom: 1px solid var(--color-border);
   padding: 1rem 2rem;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 .navbar .nav-link {
-  margin: 0 1rem;
   font-weight: 500;
   color: var(--color-text);
 }
 .navbar .nav-link:hover {
   color: var(--color-accent);
 }
-
-/* ===== Buttons ===== */
-.btn, .cta-button {
-  background-color: var(--color-accent);
-  color: var(--color-text);
-  padding: 0.6rem 1.4rem;
-  border: none;
-  border-radius: var(--radius);
+.btn-signin,
+.btn-primary {
   font-weight: 600;
-  cursor: pointer;
+  border-radius: var(--radius);
+  padding: 0.5rem 1.2rem;
   font-size: 1rem;
-}
-.btn:hover {
-  opacity: 0.9;
 }
 .btn-signin {
   background: transparent;
   border: 1px solid var(--color-border);
   color: var(--color-text);
 }
+.btn-primary {
+  background-color: var(--color-accent);
+  border: none;
+  color: var(--color-text);
+}
+.btn-primary:hover {
+  opacity: 0.9;
+}
 
-/* ===== Hero ===== */
+/* Hero */
 .hero {
   background: var(--color-bg-alt);
   padding: 6rem 2rem 4rem;
   text-align: center;
 }
 .hero h1 {
-  font-size: 2.8rem;
+  font-size: 2.6rem;
   font-weight: 700;
   margin-bottom: 1rem;
 }
 .hero p {
+  font-size: 1.2rem;
   color: var(--color-text-light);
-  font-size: 1.1rem;
   max-width: 640px;
   margin: 0 auto 2rem;
 }
@@ -103,28 +96,21 @@ a:hover {
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
-  margin-top: 1.5rem;
 }
-.hero-form input[type="email"] {
+.hero-form input {
   padding: 0.75rem 1rem;
-  font-size: 1rem;
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
+  font-size: 1rem;
   min-width: 280px;
 }
-.hero-form .btn {
-  min-width: 180px;
-}
 
-/* ===== Sections ===== */
-section {
-  padding: 4rem 2rem;
-}
+/* Section titles */
 .section-title {
   font-size: 2rem;
   font-weight: 600;
-  margin-bottom: 2rem;
   text-align: center;
+  margin-bottom: 2rem;
 }
 .section-lead-text {
   text-align: center;
@@ -134,49 +120,51 @@ section {
   font-size: 1.1rem;
 }
 
-/* ===== Cards ===== */
-.card {
-  background: var(--color-bg);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  padding: 2rem;
-  margin-bottom: 2rem;
-}
-.card-title {
-  font-size: 1.3rem;
-  font-weight: 600;
-  margin-bottom: 0.75rem;
-}
-.card-text {
-  color: var(--color-text-light);
-  font-size: 1rem;
-}
-
-/* ===== Stats ===== */
+/* Stats */
 .stats-section {
-  background-color: var(--color-bg);
+  background: var(--color-bg);
   text-align: center;
+  padding: 4rem 2rem;
 }
 .stat-value {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   font-weight: 700;
-  margin-bottom: 0.25rem;
 }
 .stat-label {
   font-size: 1rem;
   color: var(--color-text-light);
 }
 
-/* ===== Integrations ===== */
+/* Cards (Features, How It Works) */
+.card {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 2rem;
+}
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+.card-text {
+  font-size: 1rem;
+  color: var(--color-text-light);
+}
+
+/* Integrations */
+.integrations-section {
+  background: var(--color-bg);
+  padding: 4rem 2rem;
+}
 .integrations-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
-  margin-top: 2rem;
 }
 .integration-logo {
-  max-height: 40px;
+  height: 40px;
   opacity: 0.7;
   transition: opacity 0.2s ease;
 }
@@ -184,24 +172,27 @@ section {
   opacity: 1;
 }
 
-/* ===== Love Section ===== */
+/* Love Section */
+.why-love-palta-section {
+  background: var(--color-bg-alt);
+  padding: 4rem 2rem;
+}
 .love-points-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
   margin-top: 2rem;
 }
 .love-point {
-  border: 1px solid var(--color-border);
   padding: 1.5rem;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius);
-  background-color: var(--color-bg);
   text-align: center;
   font-weight: 500;
-  color: var(--color-text);
 }
 
-/* ===== Final CTA ===== */
+/* Final CTA */
 .final-cta-section {
   background: var(--color-bg-alt);
   text-align: center;
@@ -213,21 +204,18 @@ section {
   margin-bottom: 1rem;
 }
 .final-cta-section .lead {
-  color: var(--color-text-light);
   font-size: 1.1rem;
+  color: var(--color-text-light);
   margin-bottom: 2rem;
 }
 
-/* ===== Footer ===== */
+/* Footer */
 .footer-section {
-  text-align: center;
   padding: 3rem 2rem;
   border-top: 1px solid var(--color-border);
+  text-align: center;
   font-size: 0.9rem;
   color: var(--color-text-light);
-}
-.footer-section .list-inline-item {
-  margin: 0 0.5rem;
 }
 .footer-section .list-inline-item a {
   color: var(--color-text-light);
@@ -236,7 +224,7 @@ section {
   color: var(--color-accent);
 }
 
-/* ===== Responsive Adjustments ===== */
+/* Responsive */
 @media (max-width: 768px) {
   .hero h1 {
     font-size: 2rem;
@@ -246,6 +234,5 @@ section {
   }
   .hero-form {
     flex-direction: column;
-    align-items: center;
   }
 }
