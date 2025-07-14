@@ -256,3 +256,33 @@ body {
         margin: 0;
     }
 }
+/* ===== Hero CTA button ===== */
+.hero-form .btn {
+  background-color: var(--palta-accent-green) !important;
+  color:            var(--palta-text-dark)  !important;
+  border:           none                    !important;
+  border-radius:    11px                    !important;
+  height:           54px                    !important;
+  font-size:        1.08rem                 !important;
+  font-weight:      600                     !important;
+  padding:          0 28px                  !important;
+  transition:       background .17s         !important;
+}
+.hero-form .btn:hover {
+  background-color: #D3E01E !important;
+}
+
+/* ===== Bottom “Final CTA” button ===== */
+.final-cta-section .cta-button {
+  background-color: var(--palta-accent-green) !important;
+  color:            var(--palta-text-dark)  !important;
+  border:           none                    !important;
+  border-radius:    11px                    !important;
+  padding:          .8rem 2rem              !important;
+  font-size:        1rem                    !important;
+  font-weight:      600                     !important;
+  transition:       background .2s          !important;
+}
+.final-cta-section .cta-button:hover {
+  background-color: #D3E01E !important;
+}
