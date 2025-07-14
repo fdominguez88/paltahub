@@ -141,11 +141,14 @@ html, body {
 .hero {
   background: var(--palta-dark-bg);
   color: var(--palta-white);
-  /* fill viewport minus navbar and center */
-  min-height: calc(100vh - 60px);
+  /* Removed min-height to prevent excessive height */
+  /* Added padding to ensure content has space */
+  padding-top: 80px; /* Adjust as needed */
+  padding-bottom: 80px; /* Adjust as needed */
   display: flex;
   align-items: center;
-  padding: 0 20px;
+  padding-left: 20px; /* Kept original horizontal padding */
+  padding-right: 20px; /* Kept original horizontal padding */
 }
 .hero .container { padding: 0 50px; }
 .display-4 {
@@ -162,10 +165,9 @@ html, body {
   max-width: 600px;
 }
 
-/* Hero form (desktop and mobile handling improved) */
+/* Hero form (desktop and mobile improved) */
 .hero-form {
   display: flex;
-  /* Adjust max-width to allow more space for both input and button */
   max-width: 580px; /* Increased from 500px to allow more space */
   gap: 0;
   margin-top: 14px;
@@ -205,10 +207,10 @@ html, body {
 /* Mobile responsive adjustments for hero form */
 @media (max-width: 992px) {
   .hero {
-    padding: 40px 20px;
+    padding: 40px 20px; /* Adjusted padding for smaller screens */
     display: flex;
     align-items: center;
-    min-height: calc(100vh - 60px);
+    /* min-height: calc(100vh - 60px); REMOVED */
     flex-direction: column;
   }
   .hero .container { padding: 0 20px; }
@@ -227,7 +229,7 @@ html, body {
 
 /* ===== Sections ===== */
 .stats-section {
-    background: var(--palta-white); /* Reverted to white background */
+    background: var(--palta-white); /* Set to white background */
     padding: 4rem 0; /* Added consistent padding */
     color: var(--palta-text-dark); /* Ensure text is dark on white background */
 }
@@ -245,15 +247,15 @@ html, body {
 .features-section .section-title,
 .how-it-works-section .section-title,
 .integrations-section .section-title {
-    color: var(--palta-dark-bg);
+    color: var(--palta-dark-bg); /* Titles on white backgrounds should be dark */
 }
 
 
 .features-section,
 .how-it-works-section {
     padding: 4rem 0; /* Consistent padding */
-    background: var(--palta-dark-bg); /* Kept dark background as seen in screenshot */
-    color: var(--palta-white); /* Text color for these sections */
+    background-color: var(--palta-white); /* Changed to white background */
+    color: var(--palta-text-dark); /* Text color for these sections on white background */
 }
 
 .card { /* Bootstrap cards */
@@ -274,7 +276,7 @@ html, body {
 
 .integrations-section {
     padding: 4rem 0;
-    background: var(--palta-white); /* Reverted to white background */
+    background: var(--palta-white); /* Set to white background */
     color: var(--palta-text-dark); /* Ensure text is dark on white background */
 }
 .integrations-section .lead { color: var(--palta-text-medium); }
@@ -301,7 +303,7 @@ html, body {
 }
 
 .why-love-palta-section {
-  background: var(--palta-dark-bg);
+  background: var(--palta-dark-bg); /* This section should be dark */
   padding: 4rem 0;
   color: var(--palta-white);
 }
@@ -332,7 +334,7 @@ html, body {
 }
 
 .final-cta-section {
-  background: var(--palta-dark-bg);
+  background: var(--palta-dark-bg); /* This section should be dark */
   padding: 5rem 0;
   color: var(--palta-white);
 }
@@ -364,7 +366,7 @@ html, body {
 
 /* ===== Footer ===== */
 .footer-section {
-  background: #151A23;
+  background: #151A23; /* This section should be dark */
   padding: 3rem 0;
   color: rgba(255,255,255,0.6);
   font-size: .9rem;
