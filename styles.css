@@ -267,6 +267,7 @@ body {
   font-weight:      600                     !important;
   padding:          0 28px                  !important;
   transition:       background .17s         !important;
+  min-width:        250px                   !important;
 }
 .hero-form .btn:hover {
   background-color: #D3E01E !important;
