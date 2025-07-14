@@ -62,3 +62,28 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+document.addEventListener('DOMContentLoaded', () => {
+  const navbar = document.querySelector('.navbar');
+  const hero   = document.querySelector('.hero');
+
+  if (!navbar || !hero) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navbar.classList.remove('frosted');
+        } else {
+          navbar.classList.add('frosted');
+        }
+      });
+    },
+    {
+      // when the hero scrolls completely out of view (minus navbar height)
+      rootMargin: `-${navbar.offsetHeight}px 0 0 0`,
+      threshold: 0
+    }
+  );
+
+  observer.observe(hero);
+});
