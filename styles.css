@@ -79,22 +79,18 @@ section:not(.stats-section):not(#features):not(#how-it-works):not(#integrations)
     transition: background 0.3s, box-shadow 0.3s, color 0.3s;
 }
 
-/* New wrapper to control padding for full-width content */
-.navbar-content-wrapper {
-    max-width: 100% !important; /* Ensure it takes full width of the navbar */
+/* Adjustments for the container-fluid within the navbar to match the hero padding */
+.navbar .container-fluid {
     padding-left: var(--bs-gutter-x, 1.5rem); /* Default Bootstrap gutter */
     padding-right: var(--bs-gutter-x, 1.5rem); /* Default Bootstrap gutter */
-    margin-left: auto;
-    margin-right: auto;
 }
-/* Adjust padding for larger screens to match hero container */
+
 @media (min-width: 992px) { /* Adjust for large screens and up */
-    .navbar-content-wrapper {
+    .navbar .container-fluid {
         padding-left: 50px; /* Matches hero container padding */
         padding-right: 50px; /* Matches hero container padding */
     }
 }
-
 
 .navbar .navbar-brand img { height: 38px; transition: filter 0.22s; filter: none !important;}
 
@@ -184,6 +180,7 @@ section:not(.stats-section):not(#features):not(#how-it-works):not(#integrations)
     align-items: center;
 }
 
+/* Custom close button styling based on Ramp example */
 .offcanvas .btn-close {
     background: none; /* Remove default close button background */
     opacity: 1; /* Ensure visible */
@@ -307,9 +304,9 @@ section:not(.stats-section):not(#features):not(#how-it-works):not(#integrations)
 }
 /* This styling applies to the desktop form, which is shown on desktop and hidden on mobile via Bootstrap classes */
 .hero-form-modern {
-    display: flex; /* Kept as flex for internal layout when visible */
+    display: flex;
     gap: 0;
-    max-width: 500px; /* Increased max-width for the form container */
+    max-width: 500px;
     margin-top: 14px;
     margin-bottom: 0;
     padding: 0;
@@ -326,7 +323,7 @@ section:not(.stats-section):not(#features):not(#how-it-works):not(#integrations)
     background: #fff !important;
     color: #585858 !important;
     min-width: 0 !important;
-    flex: 1 1 auto; /* Changed flex-basis to 'auto' to allow it to grow more based on content/container */
+    flex: 1 1 auto;
     box-shadow: none !important;
     outline: none;
 }
@@ -470,13 +467,16 @@ footer .list-inline-item a:hover { color: var(--palta-accent-green) !important;}
 .footer-copyright { color: rgba(255,255,255,0.43); font-size: 0.98em; margin-top: 12px;}
 
 /* --- RESPONSIVE / UTILITY --- */
-/* Removed max-width on .container to allow nav content to reach edges */
 @media (max-width: 1200px) {
-    /* .container { max-width: 100%; } This rule is now covered by .navbar-content-wrapper for the navbar specifically */
+    .container { max-width: 100%; } /* Keep this for general sections */
 }
 @media (max-width: 992px) {
     .hero .container { padding: 0 30px; }
     .hero h1, .display-4 { font-size: 3.5em; }
+    /* Hide desktop nav elements on smaller screens */
+    .navbar-collapse {
+        display: none !important;
+    }
 }
 @media (max-width: 768px) {
     .section-title, .why-love-palta h2 { font-size: 1.4em; }
@@ -494,14 +494,7 @@ footer .list-inline-item a:hover { color: var(--palta-accent-green) !important;}
     .container { padding: 0 3vw; }
     .hero h1, .display-4, .section-title, .why-love-palta h2, .call-to-action h2 { font-size: 2.5em; }
 }
-/* Adjustments for offcanvas buttons for smaller mobile screens */
-@media (max-width: 576px) {
-    .offcanvas-footer .btn-signin-offcanvas,
-    .offcanvas-footer .btn-primary-offcanvas {
-        width: 90%; /* Wider buttons on smaller screens */
-        max-width: unset; /* Remove max-width constraint */
-    }
-}
+/* Removed .navbar-nav .btn-primary display: none !important; from here as it's handled by desktop collapse */
 
 
 /* Remove all box-shadows and borders from main sections, navbar, and hero */
