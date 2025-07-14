@@ -1,36 +1,41 @@
 :root {
   --palta-blue: #00707F;
-  --palta-accent-green: #E4F223; /* This will be our vibrant accent */
-  --palta-text-dark: #343A40;
-  --palta-text-medium: #6C757D;
+  --palta-accent-green: #E4F223; /* Primary accent color */
+  --palta-text-dark: #212529; /* Deeper dark text for better contrast on light backgrounds */
+  --palta-text-medium: #495057; /* Slightly darker medium text */
   --palta-white: #FFFFFF;
   --palta-bg-light: #F8F9FA; /* Light grey for alternating sections */
   --palta-dark-bg: #1A202C; /* Primary dark background */
-  --palta-border: #DEE2E6;
-  --palta-subtle-dark-border: rgba(255,255,255,0.1); /* For borders on dark backgrounds */
-  --palta-card-shadow: 0 8px 24px rgba(0,0,0,0.06); /* For subtle card lift */
+  --palta-border: #E9ECEF; /* Lighter border for clean look */
+  --palta-subtle-dark-border: rgba(255,255,255,0.15); /* For elements on dark backgrounds */
+  --palta-card-shadow: 0 10px 30px rgba(0,0,0,0.08); /* More pronounced, but still subtle shadow */
 }
 
-/* ===== Global Reset ===== */
+/* ===== Global Reset & Base Styles ===== */
 *, *::before, *::after { box-sizing: border-box; }
 html, body {
   margin: 0; padding: 0;
   height: 100%; min-height: 100vh;
-  background: var(--palta-dark-bg); /* Global body background is dark */
+  background: var(--palta-dark-bg); /* Global body background is dark by default */
   font-family: 'Inter', sans-serif;
-  color: var(--palta-text-dark); /* Default text color for light sections */
-  line-height: 1.6;
+  color: var(--palta-text-dark); /* Default text color for areas without specific override */
+  line-height: 1.6; /* Improved readability */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
-  padding-top: 60px; /* navbar height */
+  padding-top: 70px; /* Adjusted for navbar height + more space */
 }
 ::selection { background: var(--palta-accent-green); color: var(--palta-text-dark); }
 ::-moz-selection { background: var(--palta-accent-green); color: var(--palta-text-dark); }
 
-/* General typography for dark sections */
-.section-dark-text { color: var(--palta-white); }
-.section-light-text { color: var(--palta-text-dark); }
+/* Utility class for content width */
+.container-large {
+  max-width: 1200px; /* Consistent max width for main content */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
 
 /* ===== Navbar & CTAs ===== */
 .navbar {
@@ -39,49 +44,69 @@ html, body {
   z-index: 1000;
   background: var(--palta-dark-bg);
   transition: background 0.3s, box-shadow 0.3s;
-  box-shadow: 0 2px 16px rgba(30,30,30,0.10);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15); /* Slightly stronger shadow */
   border-bottom: none;
+  padding: 0.5rem 1rem; /* More generous padding */
 }
 .navbar .navbar-brand img {
-  height: 38px;
+  height: 42px; /* Slightly larger logo */
   transition: filter 0.22s;
   filter: none;
 }
-.navbar .nav-link,
-.navbar .btn-signin { color: var(--palta-white); } /* Nav links are white on dark navbar */
+.navbar .nav-link {
+  color: var(--palta-white);
+  font-weight: 500; /* Medium weight */
+  padding: 0.5rem 1rem; /* More padding for nav links */
+  transition: color 0.2s ease;
+}
+.navbar .nav-link:hover {
+  color: var(--palta-accent-green);
+}
+/* Active nav link style for clarity */
+.navbar .nav-link.active {
+    color: var(--palta-accent-green);
+    border-bottom: 2px solid var(--palta-accent-green);
+    padding-bottom: calc(0.5rem - 2px); /* Adjust padding to keep alignment */
+}
 
-/* Consistent button styling for primary CTAs */
+
+/* Consistent button styling for primary CTAs - more prominent */
 .btn-primary, .cta-button {
   background: var(--palta-accent-green);
   color: var(--palta-text-dark);
   border: none;
-  padding: .625rem 1.5rem; /* Slightly larger padding for prominence */
-  border-radius: .5rem; /* More rounded corners */
-  font-weight: 600;
-  white-space: nowrap; /* Prevent text wrapping */
-  transition: background .17s ease-in-out, transform .1s ease-in-out;
-  display: inline-flex; /* Use flex for alignment, consistent with Ramp's buttons */
+  padding: 0.8rem 2rem; /* Larger padding for significant CTAs */
+  border-radius: 0.625rem; /* 10px - More rounded, consistent */
+  font-weight: 700; /* Bolder text */
+  font-size: 1.05rem; /* Slightly larger text */
+  white-space: nowrap;
+  transition: background 0.2s ease-in-out, transform 0.15s ease-out, box-shadow 0.2s ease-in-out;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  text-decoration: none; /* Ensure no underline for anchor buttons */
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(228, 242, 35, 0.2); /* Subtle glow/shadow */
 }
 .btn-primary:hover, .cta-button:hover {
   background: #D3E01E; /* Slightly darker/more saturated on hover */
   color: #0C0A08;
-  transform: translateY(-1px); /* Subtle lift on hover */
+  transform: translateY(-2px); /* More noticeable lift on hover */
+  box-shadow: 0 8px 25px rgba(228, 242, 35, 0.35); /* Enhanced shadow on hover */
 }
 .btn-primary:active, .cta-button:active {
   transform: translateY(0); /* Reset on click */
+  box-shadow: 0 2px 10px rgba(228, 242, 35, 0.2);
 }
 
 .btn-signin {
   background: transparent;
   color: var(--palta-white);
-  border: 1.5px solid currentColor;
-  padding: .625rem 1.5rem; /* Consistent padding */
-  border-radius: .5rem; /* More rounded corners */
+  border: 2px solid currentColor; /* Thicker border */
+  padding: 0.8rem 2rem; /* Consistent with primary button padding */
+  border-radius: 0.625rem; /* More rounded corners */
   font-weight: 600;
-  transition: border-color .2s ease-in-out, color .2s ease-in-out;
+  font-size: 1.05rem; /* Consistent font size */
+  transition: border-color 0.2s ease, color 0.2s ease;
 }
 .btn-signin:hover {
   color: var(--palta-accent-green);
@@ -91,8 +116,8 @@ html, body {
 /* Frosted and dark states */
 .navbar.light-bg {
   background: rgba(255,255,255,0.97);
-  backdrop-filter: saturate(180%) blur(10px);
-  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  backdrop-filter: saturate(180%) blur(12px); /* Slightly more blur */
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08); /* Stronger shadow */
 }
 .navbar.light-bg .nav-link,
 .navbar.light-bg .btn-signin { color: var(--palta-text-dark); }
@@ -100,55 +125,53 @@ html, body {
 .navbar.light-bg .btn-primary:hover { background: #D3E01E; }
 .navbar.dark-bg {
   background: var(--palta-dark-bg);
-  box-shadow: 0 2px 16px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
   backdrop-filter: none;
 }
 .navbar.dark-bg .nav-link,
 .navbar.dark-bg .btn-signin { color: var(--palta-white); }
 .navbar.dark-bg .btn-primary { background: var(--palta-accent-green); color: var(--palta-text-dark); }
 .navbar-toggler { border: none; background: transparent; }
-.navbar-toggler-icon { filter: invert(1) contrast(200%); }
-.navbar.light-bg .navbar-toggler-icon { filter: none; }
+.navbar-toggler-icon { filter: invert(1) contrast(200%); } /* Keep for dark bg */
+.navbar.light-bg .navbar-toggler-icon { filter: none; } /* Reset for light bg */
 
 /* ===== Offcanvas Mobile Menu ===== */
 .offcanvas-header {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 1rem; /* Adjusted padding */
+  padding: 1.5rem 1rem; /* More generous padding */
 }
 .offcanvas-body {
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--palta-white); /* Ensure offcanvas has white background */
+  padding: 2rem 1rem; /* More generous padding */
+  background-color: var(--palta-white);
+  align-items: flex-start; /* Align nav items to start */
 }
 .offcanvas-body .nav-link {
-    color: var(--palta-text-dark); /* Nav links within offcanvas */
-    padding: .75rem 0; /* More vertical space for links */
-    font-size: 1.1rem;
+    color: var(--palta-text-dark);
+    font-size: 1.3rem; /* Larger font for mobile links */
+    padding: 1rem 0; /* More vertical space */
+    width: 100%; /* Full width links */
+    text-align: left; /* Align text left */
+}
+.offcanvas-body .nav-link:hover {
+    color: var(--palta-accent-green);
 }
 .offcanvas-footer {
   width: 100%;
-  padding: 1.5rem 0; /* More padding */
+  padding: 2rem 1rem; /* More padding */
   text-align: center;
-  background-color: var(--palta-white); /* Ensure footer is white */
+  background-color: var(--palta-white);
   border-top: 1px solid var(--palta-border);
 }
 .offcanvas-footer .btn-primary,
 .offcanvas-footer .btn-signin-offcanvas {
-  width: calc(100% - 2rem); /* Max width for buttons in footer */
-  margin: .5rem auto; /* Center buttons */
-  display: block; /* Stack buttons */
+  width: 100%; /* Full width buttons */
+  margin: .75rem 0; /* More margin */
+  display: block;
 }
-.btn-signin-offcanvas { /* Re-using primary btn-signin for offcanvas */
-  background: transparent;
-  border: 1.5px solid var(--palta-text-dark);
+.btn-signin-offcanvas {
+  border: 2px solid var(--palta-text-dark);
   color: var(--palta-text-dark);
-  padding: .625rem 1.5rem;
-  border-radius: .5rem;
+  padding: 0.8rem 2rem;
+  border-radius: 0.625rem;
   font-weight: 600;
   text-decoration: none;
 }
@@ -158,270 +181,379 @@ html, body {
 }
 
 
-/* ===== Hero & Forms ===== */
+/* ===== Hero Section ===== */
 .hero {
   background: var(--palta-dark-bg);
   color: var(--palta-white);
-  /* Adjusted padding for a smaller, more balanced hero section */
-  padding-top: 120px; /* Adjust as needed for desired height */
-  padding-bottom: 120px; /* Adjust as needed for desired height */
+  padding-top: 140px; /* Increased padding for more spacious feel */
+  padding-bottom: 140px;
   display: flex;
   align-items: center;
-  padding-left: 20px;
-  padding-right: 20px;
-  min-height: 500px; /* Added a min-height to prevent it from becoming too short on very small content */
+  min-height: 650px; /* Ensure a good minimum height */
+  position: relative; /* For potential background effects */
+  overflow: hidden; /* To contain any background elements */
 }
-.hero .container { padding: 0 50px; }
+.hero .container { padding: 0; /* Container in hero is now controlled by container-large */ }
+.hero .container-large { /* Explicitly use container-large within hero */
+    z-index: 1; /* Ensure content is above any background elements */
+    position: relative;
+}
 .display-4 {
-  font-size: 3rem; /* Slightly larger for impact */
-  font-weight: 800;
-  line-height: 1.1; /* Tighter line height for large headlines */
-  margin-bottom: 1rem; /* More consistent spacing */
-  letter-spacing: -0.04em; /* Subtle tightening for display text */
+  font-size: 3.8rem; /* Much larger, impactful headline */
+  font-weight: 900; /* Extra bold */
+  line-height: 1.05; /* Tighter line height */
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.05em; /* Tighter letter spacing for display */
 }
 .hero p.lead {
-  font-size: 1.1rem; /* Slightly larger lead text */
-  color: rgba(255,255,255,0.7);
-  margin-bottom: 1.5rem; /* More spacing */
-  max-width: 650px; /* Slightly wider text block */
+  font-size: 1.25rem; /* Larger, prominent lead text */
+  color: rgba(255,255,255,0.8); /* Slightly brighter white for lead */
+  margin-bottom: 2.5rem; /* More space before CTA */
+  max-width: 750px; /* Wider text block for lead */
 }
 
-/* Hero form (desktop and mobile improved) */
+/* Hero Form - prominent and well-defined */
 .hero-form {
   display: flex;
-  max-width: 600px; /* Slightly increased max-width for the form container */
+  max-width: 650px; /* Wider form container */
   gap: 0;
-  margin-top: 1.5rem; /* More spacing */
+  margin-top: 2rem;
+  width: 100%; /* Ensure it takes available width up to max-width */
 }
 .hero-form .form-control {
   flex-grow: 1;
-  height: 56px; /* Slightly taller input */
-  padding: 0 20px;
-  background: #fff;
-  border-radius: .5rem 0 0 .5rem; /* More rounded corners, consistent with buttons */
-  border: 1px solid transparent; /* Add a subtle border */
-  color: #585858;
-  font-size: 1rem;
-  min-width: 280px;
-  transition: border-color .2s ease-in-out, box-shadow .2s ease-in-out;
+  height: 60px; /* Taller input */
+  padding: 0 25px; /* More internal padding */
+  background: var(--palta-white);
+  border-radius: 0.75rem 0 0 0.75rem; /* 12px - More rounded, consistent */
+  border: 1px solid var(--palta-border); /* Subtle border */
+  color: var(--palta-text-dark);
+  font-size: 1.1rem; /* Larger font size */
+  min-width: 300px; /* Ensure input has good minimum width */
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.hero-form .form-control::placeholder {
+    color: var(--palta-text-medium); /* Darker placeholder */
+    opacity: 0.7;
 }
 .hero-form .form-control:focus {
   border-color: var(--palta-accent-green);
   outline: none;
-  box-shadow: 0 0 0 3px rgba(228, 242, 35, 0.3); /* Subtle focus ring */
+  box-shadow: 0 0 0 4px rgba(228, 242, 35, 0.35); /* Prominent focus ring */
 }
 .hero-form .btn-primary {
-  height: 56px; /* Match input height */
-  min-width: 200px; /* Ensure "Get started for free" fits on one line */
-  padding: 0 28px;
-  background: var(--palta-accent-green);
-  color: #0C0A08;
-  font-size: 1.08rem;
-  font-weight: 600;
-  border-radius: 0 .5rem .5rem 0; /* More rounded corners */
-  white-space: nowrap;
+  height: 60px; /* Match input height */
+  min-width: 220px; /* Ensure button text fits well */
+  padding: 0 35px; /* More padding for button */
+  border-radius: 0 0.75rem 0.75rem 0; /* Match input rounding */
+  font-size: 1.15rem; /* Slightly larger button text */
 }
 
 /* Mobile responsive adjustments for hero form */
 @media (max-width: 992px) {
   .hero {
-    padding: 80px 20px; /* Adjusted padding for smaller screens on mobile */
+    padding: 100px 20px; /* Adjust mobile padding */
+    min-height: 550px;
+    flex-direction: column; /* Stack content for mobile */
+    text-align: center; /* Center align hero text on mobile */
+  }
+  .hero .display-4 {
+    font-size: 2.8rem; /* Smaller headline on mobile */
+    margin-bottom: 1rem;
+  }
+  .hero p.lead {
+    font-size: 1rem; /* Smaller lead on mobile */
+    margin-bottom: 1.5rem;
   }
   .hero-form {
     flex-direction: column;
-    gap: 12px;
+    gap: 15px; /* More gap between stacked elements */
     max-width: 100%;
   }
   .hero-form .form-control,
   .hero-form .btn-primary {
     width: 100%;
-    border-radius: .5rem; /* Full rounded corners for stacked elements */
+    border-radius: 0.75rem; /* Full rounded corners for stacked elements */
     min-width: auto;
   }
 }
 
-/* ===== Sections ===== */
-.stats-section {
-    background: var(--palta-white); /* White background */
-    padding: 6rem 0; /* More vertical padding */
-    color: var(--palta-text-dark);
-}
-.stat-value { font-size: 2.8rem; color: var(--palta-dark-bg); margin-bottom: .5rem; font-weight: 700; } /* Larger stats */
-.stat-label { color: var(--palta-text-medium); font-size: 1.1rem; }
 
-.section-title {
-    font-size: 2.5rem; /* Consistent size for section titles */
-    font-weight: 800;
-    margin-bottom: 2.5rem; /* More spacing */
-    letter-spacing: -0.03em;
+/* ===== Sections (General Styling) ===== */
+section {
+    padding: 8rem 0; /* Generous vertical padding for all sections */
+    position: relative; /* For z-index if needed */
 }
-/* Titles on dark backgrounds */
+.section-title {
+    font-size: 3rem; /* Larger, impactful titles */
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 3.5rem; /* More space below title */
+    letter-spacing: -0.04em;
+    text-align: center; /* Generally center titles */
+}
+.section-lead-text { /* For lead paragraphs below titles */
+    font-size: 1.25rem;
+    line-height: 1.6;
+    margin-bottom: 3.5rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    color: var(--palta-text-medium); /* Default for light backgrounds */
+}
+/* Titles/leads on dark backgrounds */
 .features-section .section-title,
 .why-love-palta-section .section-title,
 .final-cta-section .cta-title {
     color: var(--palta-white);
 }
-/* Titles on light backgrounds */
+.features-section .section-lead-text,
+.why-love-palta-section .section-lead-text,
+.final-cta-section .lead {
+    color: rgba(255,255,255,0.7);
+}
+/* Titles/leads on light backgrounds */
 .stats-section .section-title,
-.how-it-works-section .section-title, /* How It Works is now light grey */
+.how-it-works-section .section-title,
 .integrations-section .section-title {
     color: var(--palta-text-dark);
 }
+.stats-section .section-lead-text,
+.how-it-works-section .section-lead-text,
+.integrations-section .section-lead-text {
+    color: var(--palta-text-medium);
+}
 
+
+/* ===== Specific Sections ===== */
+.stats-section {
+    background: var(--palta-white); /* White background */
+    color: var(--palta-text-dark);
+    text-align: center;
+}
+.stat-item { /* Assuming each stat is an item */
+    padding: 1.5rem;
+}
+.stat-value {
+    font-size: 3.5rem; /* Very large stats for impact */
+    color: var(--palta-dark-bg);
+    margin-bottom: .5rem;
+    font-weight: 800;
+    line-height: 1; /* Tighter line height for large numbers */
+}
+.stat-label {
+    color: var(--palta-text-medium);
+    font-size: 1.1rem;
+    font-weight: 500;
+}
 
 .features-section {
-    padding: 6rem 0; /* More vertical padding */
     background-color: var(--palta-dark-bg); /* Dark background */
-    color: var(--palta-white); /* White text on dark background */
+    color: var(--palta-white);
 }
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px; /* Consistent gap for grid */
+    margin-top: 4rem; /* Spacing from title */
+}
+
 .how-it-works-section {
-    padding: 6rem 0; /* More vertical padding */
     background-color: var(--palta-bg-light); /* Light grey background */
-    color: var(--palta-text-dark); /* Dark text on light background */
+    color: var(--palta-text-dark);
+}
+.how-it-works-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 4rem;
 }
 
 
-/* Card styles for sections that have cards */
+/* Card styles (for features, how-it-works, etc.) */
 .card {
   background: var(--palta-white); /* Cards within dark/light sections are white */
   border: 1px solid var(--palta-border);
-  border-radius: .75rem; /* Consistent rounded corners */
-  padding: 2rem; /* More internal padding */
-  transition: transform .3s ease-in-out, box-shadow .3s ease-in-out;
-  color: var(--palta-text-dark); /* Ensure text is dark inside cards */
-  box-shadow: var(--palta-card-shadow); /* Apply subtle shadow */
+  border-radius: 1rem; /* More rounded corners (16px) */
+  padding: 2.5rem; /* More internal padding */
+  transition: transform 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+  color: var(--palta-text-dark);
+  box-shadow: var(--palta-card-shadow);
+  display: flex; /* For flexible content alignment within card */
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start; /* Align content to top-left */
+  text-align: left;
 }
 .card:hover {
-  transform: translateY(-5px); /* Slightly less aggressive lift */
-  box-shadow: 0 12px 36px rgba(0,0,0,0.1); /* Enhanced shadow on hover */
+  transform: translateY(-8px); /* More noticeable lift on hover */
+  box-shadow: 0 16px 40px rgba(0,0,0,0.12); /* Enhanced shadow on hover */
+}
+.card-icon { /* If you have icons in cards */
+    font-size: 3rem; /* Large icon size */
+    color: var(--palta-accent-green);
+    margin-bottom: 1.5rem;
 }
 .card-title {
     color: var(--palta-dark-bg);
     font-weight: 700;
-    font-size: 1.35rem; /* Slightly larger card titles */
+    font-size: 1.5rem; /* Larger card titles */
     margin-bottom: 1rem;
+    line-height: 1.2;
 }
 .card-text {
     color: var(--palta-text-medium);
-    font-size: 1rem;
-    line-height: 1.6;
-}
-/* Specific card adjustments for features (if needed, otherwise .card handles it) */
-.features-section .card {
-    /* No specific overrides needed if .card handles general styling */
-}
-/* Specific card adjustments for how-it-works (if needed) */
-.how-it-works-section .card {
-    /* No specific overrides needed */
+    font-size: 1.05rem; /* Slightly larger card text */
+    line-height: 1.7;
+    flex-grow: 1; /* Allow text to grow and fill space */
 }
 
 .integrations-section {
-    padding: 6rem 0; /* More vertical padding */
-    background: var(--palta-white); /* White background */
+    background: var(--palta-white);
     color: var(--palta-text-dark);
+    text-align: center;
 }
-.integrations-section .lead { color: var(--palta-text-medium); }
-
 .integrations-grid {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 40px; /* Increased gap */
-  margin-top: 3rem; /* More spacing */
+  gap: 50px; /* Increased gap between logos */
+  margin-top: 4rem; /* More spacing */
 }
 .integration-logo {
-  height: 60px; /* Slightly larger logos */
-  max-width: 130px; /* Slightly wider */
+  height: 70px; /* Larger logos */
+  max-width: 150px; /* Wider */
   object-fit: contain;
-  filter: grayscale(60%); /* More grayscale initially */
-  opacity: .8;
-  transition: filter .22s, transform .17s, opacity .22s;
+  filter: grayscale(80%) contrast(120%); /* More muted initial state */
+  opacity: .7;
+  transition: filter .3s ease, transform .2s ease, opacity .3s ease;
 }
 .integration-logo:hover {
-  filter: none;
+  filter: none; /* Full color on hover */
   opacity: 1;
-  transform: scale(1.08); /* More prominent hover effect */
+  transform: scale(1.12); /* More prominent hover effect */
 }
 
 .why-love-palta-section {
-  background: var(--palta-dark-bg); /* Dark background */
-  padding: 6rem 0; /* More vertical padding */
+  background: var(--palta-dark-bg);
   color: var(--palta-white);
 }
 .love-points-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 25px; /* Increased gap */
-    margin-top: 3rem; /* More spacing */
+    display: grid; /* Use grid for better control */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px; /* Consistent gap */
+    margin-top: 4rem;
 }
 .love-point {
-    background: rgba(255, 255, 255, 0.08); /* Slightly less opaque white for points */
-    border-radius: 10px; /* More rounded */
-    padding: 18px 25px; /* More padding */
-    font-size: 1.15rem; /* Slightly larger font */
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 1rem; /* More rounded */
+    padding: 2rem; /* More padding */
+    font-size: 1.2rem; /* Larger font */
     font-weight: 500;
     color: var(--palta-white);
     text-align: center;
-    flex-basis: calc(50% - 12.5px);
-    max-width: 360px; /* Control max width of each point */
-    border: 1px solid rgba(255, 255, 255, 0.15); /* Slightly more prominent border */
+    border: 1px solid var(--palta-subtle-dark-border); /* Subtle border on dark bg */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Slight shadow for depth */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-@media (max-width: 768px) {
-    .love-point {
-        flex-basis: 100%;
-    }
+.love-point:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
 .final-cta-section {
-  background: var(--palta-dark-bg); /* Dark background */
-  padding: 7rem 0; /* More vertical padding for final CTA */
+  background: var(--palta-dark-bg);
+  padding: 8rem 0; /* More vertical padding for final CTA */
   color: var(--palta-white);
-  text-align: center; /* Center align all content */
+  text-align: center;
 }
 .final-cta-section .cta-title {
-  font-size: 3rem; /* Larger, more impactful title */
+  font-size: 3.5rem; /* Even larger, more impactful title */
   font-weight: 800;
-  margin-bottom: 2rem; /* More spacing */
-  color: var(--palta-white);
+  margin-bottom: 2rem;
   line-height: 1.1;
-  letter-spacing: -0.04em;
-  max-width: 800px; /* Constrain width of title */
+  letter-spacing: -0.05em;
+  max-width: 900px;
   margin-left: auto;
   margin-right: auto;
 }
 .final-cta-section .lead {
-  font-size: 1.2rem; /* Larger lead text */
+  font-size: 1.35rem; /* Larger lead text */
   color: rgba(255,255,255,0.7);
-  margin-bottom: 3rem; /* More spacing before button */
-  max-width: 700px; /* Constrain width of lead */
+  margin-bottom: 3.5rem;
+  max-width: 800px;
   margin-left: auto;
   margin-right: auto;
 }
 .final-cta-section .cta-button {
-  padding: .85rem 2rem; /* Even larger padding for the main CTA */
-  font-size: 1.15rem; /* Larger font size */
-  border-radius: .625rem; /* Even more rounded for prominence */
-}
-.final-cta-section .cta-button:hover {
-  transform: translateY(-2px); /* Slightly more prominent lift */
-  box-shadow: 0 8px 16px rgba(228, 242, 35, 0.2); /* Subtle glow effect */
+  padding: 1rem 2.5rem; /* Largest padding for this button */
+  font-size: 1.25rem; /* Largest font size for this button */
+  border-radius: 0.75rem; /* Largest border radius */
 }
 
 
 /* ===== Footer ===== */
 .footer-section {
   background: #151A23; /* Very dark background */
-  padding: 4rem 0; /* More padding */
+  padding: 5rem 0; /* More padding */
   color: rgba(255,255,255,0.6);
-  font-size: .95rem; /* Slightly larger footer text */
+  font-size: 1rem; /* Clearer font size */
 }
 .footer-section .list-inline-item a {
-  color: rgba(255,255,255,0.85); /* Slightly brighter links */
+  color: rgba(255,255,255,0.85);
   text-decoration: none;
   font-weight: 500;
   transition: color .2s;
 }
 .footer-section .list-inline-item a:hover {
   color: var(--palta-accent-green);
+}
+
+/* Responsive adjustments for section titles and leads */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+  .section-lead-text {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  section {
+      padding: 5rem 0; /* Reduced padding on mobile */
+  }
+  .stat-value {
+      font-size: 2.8rem;
+  }
+  .card {
+      padding: 1.5rem; /* Reduce card padding on mobile */
+  }
+  .card-title {
+      font-size: 1.3rem;
+  }
+  .card-text {
+      font-size: 0.95rem;
+  }
+  .integrations-grid {
+      gap: 30px;
+  }
+  .integration-logo {
+      height: 50px;
+      max-width: 120px;
+  }
+  .love-point {
+      padding: 1.5rem;
+      font-size: 1.05rem;
+  }
+  .final-cta-section .cta-title {
+      font-size: 2.5rem;
+  }
+  .final-cta-section .lead {
+      font-size: 1.1rem;
+  }
+  .final-cta-section .cta-button {
+      padding: .8rem 1.8rem;
+      font-size: 1.1rem;
+  }
 }
