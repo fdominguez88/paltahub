@@ -94,7 +94,7 @@ html, body {
   filter: none;
 }
 
-/* Hide the mobile “×” by default */
+/* Hide mobile “×” by default */
 .navbar-close {
   display: none;
 }
@@ -293,15 +293,14 @@ footer a:hover {
     margin: 0;
   }
 
-  /* white slide-down panel above backdrop */
+  /* white slide-down panel above blur backdrop */
   .navbar-collapse {
-    z-index: 1050;
+    z-index: 1001; /* under navbar (1000) but above blur (900) */
     background: #fff !important;
     position: absolute;
     top: 56px;
     left: 0;
     width: 100%;
-    /* allow panel to size to its contents */
     height: auto !important;
     overflow: visible !important;
     padding: 1.5rem;
@@ -318,7 +317,7 @@ footer a:hover {
     height: calc(100vh - 56px);
     background: rgba(0,0,0,0.4);
     backdrop-filter: blur(4px);
-    z-index: 1040;
+    z-index: 900; /* under navbar & panel */
   }
 
   /* hide desktop-only Book a Demo inside sheet */
