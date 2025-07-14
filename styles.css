@@ -269,3 +269,16 @@ footer a:hover { color:var(--palta-accent-green); }
     background:rgba(0,0,0,.4); backdrop-filter:blur(4px); z-index:1030;
   }
 }
+/* 1) Remove the navbar’s bottom border/shadow line */
+.navbar {
+  border-bottom: none !important;
+}
+
+/* 2) Make .hero fill the remaining viewport and center its content */
+.hero {
+  /* fill viewport minus navbar */
+  min-height: calc(100vh - 60px);
+  /* switch into flex mode and center */
+  display: flex;
+  align-items: center;
+}
