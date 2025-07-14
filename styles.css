@@ -8,6 +8,11 @@
     --palta-border: #DEE2E6;
 }
 
+html {
+  /* Everything sized in rem will shrink ~6% */
+  font-size: 93%;
+}
+
 /* ===== Global Styles ===== */
 body {
     background-color: var(--palta-bg-light);
