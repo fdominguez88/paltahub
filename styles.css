@@ -34,7 +34,7 @@ html, body {
   background: var(--palta-dark-bg) !important;
   transition: background 0.3s, box-shadow 0.3s;
   box-shadow: 0 2px 16px rgba(30,30,30,0.10);
-  border-bottom: none !important; /* removed the divider */
+  border-bottom: none !important; /* removed divider */
 }
 .navbar .navbar-brand img {
   height: 38px;
@@ -134,19 +134,15 @@ html, body {
 }
 
 /* ===== Hero & Forms ===== */
-/* fill remaining viewport and center vertically, on all screen sizes */
+/* desktop: padded content height */
 .hero {
   background: var(--palta-dark-bg);
   color: var(--palta-white);
-
-  min-height: calc(100vh - 60px);
-  display: flex;
-  align-items: center;
-
-  padding: 0 20px; /* horizontal gutter only */
+  padding: 110px 20px 40px; /* restore original vertical padding */
 }
-.hero .container { padding: 0 50px; }
-
+.hero .container {
+  padding: 0 50px;
+}
 .display-4 {
   font-size: 2.7rem;
   font-weight: 800;
@@ -198,10 +194,20 @@ html, body {
   color: #0C0A08;
 }
 
-/* mobile-only form */
-.hero-form-responsive { display: none; }
+/* mobile: fullscreen hero & center content */
 @media (max-width: 992px) {
-  .hero-form-modern { display: none; }
+  .hero {
+    min-height: calc(100vh - 60px);
+    display: flex;
+    align-items: center;
+    padding: 0 20px; /* only gutter on mobile */
+  }
+  .hero .container {
+    padding: 0 20px;
+  }
+  .hero-form-modern {
+    display: none;
+  }
   .hero-form-responsive {
     display: flex;
     flex-direction: column;
