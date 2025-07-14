@@ -218,4 +218,116 @@ footer {
   transform: none;
 }
 
-/* Responsive tweaks omitted for brevity… */
+/* ----- Tablet / small‑desktop ----- */
+@media (max-width: 992px) {
+  /* Hero */
+  .hero {
+    padding: 6rem var(--spacing);
+    min-height: 500px;
+    text-align: center;
+  }
+  .hero h1 {
+    font-size: 2.8rem;
+  }
+  .hero .lead {
+    font-size: 1rem;
+  }
+  .hero-form {
+    flex-direction: column;
+    gap: var(--spacing);
+  }
+  .hero-form input,
+  .hero-form button {
+    width: 100%;
+    border-radius: 8px;
+  }
+
+  /* Navbar menu stacking */
+  .navbar-menu {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing);
+  }
+}
+
+/* ----- Mobile ----- */
+@media (max-width: 768px) {
+  /* Sections */
+  section {
+    padding: 4rem 0;
+  }
+  .section-title {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing);
+  }
+  .lead,
+  .section-lead-text {
+    font-size: 1rem;
+    margin-bottom: var(--spacing);
+  }
+
+  /* Stats */
+  .stats-grid h3 {
+    font-size: 2.5rem;
+  }
+
+  /* Cards */
+  .features-grid .card,
+  .how-it-works-grid .card {
+    padding: 1.5rem;
+  }
+  .features-grid .card h4,
+  .how-it-works-grid .card h4 {
+    font-size: 1.3rem;
+  }
+  .features-grid .card p,
+  .how-it-works-grid .card p {
+    font-size: 0.95rem;
+  }
+
+  /* Integrations */
+  .integrations-grid {
+    gap: 2rem;
+  }
+  .integration-logo {
+    max-height: 50px;
+  }
+
+  /* Love Points */
+  .love-points-grid {
+    gap: 1.5rem;
+  }
+  .love-point {
+    padding: 1.5rem;
+    font-size: 1.05rem;
+  }
+
+  /* Final CTA */
+  .final-cta-section .cta-title {
+    font-size: 2.5rem;
+  }
+  .final-cta-section .lead {
+    font-size: 1.1rem;
+  }
+  .final-cta-section .btn-primary {
+    padding: 0.8rem 1.8rem;
+    font-size: 1.1rem;
+  }
+}
+
+/* ----- Extra small phones ----- */
+@media (max-width: 576px) {
+  .navbar-menu {
+    padding: var(--spacing) 0;
+  }
+  .navbar-nav {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing);
+  }
+  .navbar-ctas {
+    flex-direction: column;
+    gap: var(--spacing);
+  }
+}
+
