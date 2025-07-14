@@ -11,19 +11,22 @@ document.addEventListener('DOMContentLoaded', () => {
   // swap in your multi-colour logo here:
   const logoColor = 'https://i.postimg.cc/Y9PmYp3X/palta-hub-logo-colored.png';
 
-  // OBSERVE hero & features to toggle .light-bg / .dark-bg
+  // 1) Transparent ↔ frosted-white at hero boundary
+  // 2) Frosted-white ↔ solid-dark at features boundary
   if (navbar && hero && features) {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
+        // hero boundary
         if (entry.target === hero) {
           if (entry.isIntersecting) {
-            navbar.classList.remove('light-bg','dark-bg');
+            navbar.classList.remove('light-bg', 'dark-bg');
             logoImg.src = logoWhite;
           } else {
             navbar.classList.add('light-bg');
             logoImg.src = logoDark;
           }
         }
+        // features boundary
         if (entry.target === features) {
           if (entry.isIntersecting) {
             navbar.classList.add('dark-bg');
@@ -37,11 +40,12 @@ document.addEventListener('DOMContentLoaded', () => {
       rootMargin: `-${navbar.offsetHeight}px 0 0 0`,
       threshold: 0
     });
+
     observer.observe(hero);
     observer.observe(features);
   }
 
-  // OFFCANVAS open/close → add menu-open + swap logo
+  // OFFCANVAS open/close → add menu-open backdrop & swap logo
   if (offcanvas) {
     offcanvas.addEventListener('show.bs.offcanvas', () => {
       document.body.classList.add('menu-open');
@@ -49,8 +53,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     offcanvas.addEventListener('hide.bs.offcanvas', () => {
       document.body.classList.remove('menu-open');
-      // restore based on scroll state
-      if (navbar.classList.contains('light-bg') || navbar.classList.contains('dark-bg')) {
+      // restore logo based on current navbar state
+      if (navbar.classList.contains('dark-bg') || navbar.classList.contains('light-bg')) {
         logoImg.src = logoDark;
       } else {
         logoImg.src = logoWhite;
