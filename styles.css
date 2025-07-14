@@ -120,7 +120,10 @@ html, body {
 .hero {
   background: var(--palta-dark-bg);
   color: var(--palta-white);
-  padding: 110px 20px 40px;
+  padding: 60px 20px 40px;
+  min-height: calc(100vh - 60px);
+  display: flex;
+  align-items: center;     /* center vertically */
 }
 .hero .container { padding: 0 50px; }
 .display-4 {
