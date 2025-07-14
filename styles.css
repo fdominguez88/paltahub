@@ -93,7 +93,6 @@ html, body {
 .navbar.light-bg .navbar-toggler-icon {
   filter: none;
 }
-
 /* Hide mobile “×” by default */
 .navbar-close {
   display: none;
@@ -283,17 +282,7 @@ footer a:hover {
     display: none;
   }
 
-  /* show the close-× in sheet header */
-  .navbar-close {
-    display: inline-block;
-    font-size: 1.5rem;
-    background: none;
-    border: none;
-    color: var(--palta-text-dark);
-    margin: 0;
-  }
-
-  /* white slide-down panel above blur backdrop */
+  /* white slide-down panel */
   .navbar-collapse {
     z-index: 1001; /* above blur, below navbar */
     background: #fff !important;
@@ -301,13 +290,11 @@ footer a:hover {
     top: 56px;
     left: 0;
     width: 100%;
-    height: auto !important;
-    overflow: visible !important;
     padding: 1.5rem;
     box-shadow: 0 4px 16px rgba(0,0,0,0.1);
   }
 
-  /* blurred dark backdrop behind panel */
+  /* blurred dark backdrop */
   body.menu-open::before {
     content: "";
     position: fixed;
@@ -318,6 +305,29 @@ footer a:hover {
     background: rgba(0,0,0,0.4);
     backdrop-filter: blur(4px);
     z-index: 900; /* under navbar & panel */
+  }
+
+  /* show the close-× in sheet header */
+  .navbar-close {
+    display: inline-block;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    position: absolute;
+    top: 0.75rem;
+    right: 1rem;
+    color: var(--palta-text-dark);
+  }
+
+  /* pull sign-in into the same header bar */
+  .navbar-collapse .btn-signin {
+    display: inline-block !important;
+    position: absolute;
+    top: 0.75rem;
+    right: 5rem;
+    background: transparent !important;
+    border: 1.5px solid var(--palta-text-dark) !important;
+    color: var(--palta-text-dark) !important;
   }
 
   /* hide desktop-only Book a Demo inside sheet */
@@ -332,11 +342,11 @@ footer a:hover {
     font-weight: 600;
   }
 
-  /* ————————— override navbar itself when menu is open ————————— */
+  /* ——— override navbar itself when menu is open ——— */
   body.menu-open .navbar {
-    background: rgba(255,255,255,0.97) !important;
-    backdrop-filter: saturate(180%) blur(10px);
-    box-shadow: 0 2px 12px rgba(0,0,0,0.06) !important;
+    background: #fff !important;
+    backdrop-filter: none !important;
+    box-shadow: none !important;
   }
   body.menu-open .navbar .nav-link,
   body.menu-open .navbar .btn-signin {
@@ -346,8 +356,10 @@ footer a:hover {
     background: var(--palta-accent-green) !important;
     color: var(--palta-text-dark) !important;
   }
-  body.menu-open .navbar-close {
-    color: var(--palta-text-dark);
+  /* make sure the logo sits flush, no gradient slice */
+  body.menu-open .navbar-brand,
+  body.menu-open .navbar-light-bg {
+    background: none;
   }
 }
 
