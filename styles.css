@@ -96,15 +96,16 @@ a {
   text-decoration: none;
 }
 
+/* ✅ Updated CTA Button Style */
 .btn-primary {
-  background-color: var(--palta-accent-green);
-  color: #0C0A08;
-  border: 1px solid var(--palta-accent-green);
+  background-color: #53d92e;
+  color: #0D0A08;
+  border: 1px solid #53d92e;
 }
 
 .btn-primary:hover {
-  background-color: #d3e71f;
-  border-color: #d3e71f;
+  background-color: #47c628;
+  border-color: #47c628;
 }
 
 .btn-signin {
