@@ -1,158 +1,186 @@
 :root {
-  /* Brand Colors */
-  --palta-blue: #00707F;
-  --palta-accent-green: #E4F223;
-  --palta-text-dark: #212529;
-  --palta-text-medium: #495057;
-  --palta-bg-light: #F9FAFB;
-  --palta-dark-bg: #1A202C;
-  --palta-white: #FFFFFF;
-  --palta-border: #E9ECEF;
+  /* Core Palette */
+  --color-header-bg:      #1A202C;  /* Navbar background */
+  --color-footer-bg:      #151A23;  /* Footer background */
+  --color-bg:             #F8F9FA;  /* Page background */
+  --color-surface:        #FFFFFF;  /* Card / panel background */
+  --color-border:         #E9ECEF;  /* Dividers, card borders */
+
+  --color-text:           #212529;  /* Primary text on light bg */
+  --color-text-secondary: #6C757D;  /* Secondary text */
+  --color-text-inverse:   #FFFFFF;  /* Text on dark bg */
+
+  --color-primary:        #00707F;  /* Links, secondary buttons */
+  --color-primary-hover:  #005A66;
+
+  --color-accent:         #E4F223;  /* Main CTA */
+  --color-accent-hover:   #C1B200;
 }
 
-/* Green Highlight */
+/* Selection highlight */
 ::selection {
-  background-color: #53d92e;
-  color: #0D0A08;
+  background-color: var(--color-accent);
+  color: var(--color-text);
 }
 ::-moz-selection {
-  background-color: #53d92e;
-  color: #0D0A08;
+  background-color: var(--color-accent);
+  color: var(--color-text);
 }
 
-/* ===== Base Styles ===== */
-* {
+/* ===== Reset & Base ===== */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
+
 html, body {
   margin: 0;
   padding: 0;
   font-family: 'Inter', sans-serif;
-  background-color: var(--palta-bg-light);
-  color: var(--palta-text-dark);
+  background: var(--color-bg);
+  color: var(--color-text);
   line-height: 1.6;
   scroll-behavior: smooth;
-  /* space for fixed navbar */
-  padding-top: 56px;
+  padding-top: 56px; /* offset for fixed navbar */
 }
+
 a {
+  color: var(--color-primary);
   text-decoration: none;
-  color: inherit;
+  transition: color 0.2s;
 }
+a:hover {
+  color: var(--color-primary-hover);
+}
+
+/* ===== Typography ===== */
 h1, h2, h3, h4 {
-  font-weight: 600;
   margin: 0;
+  font-weight: 600;
+}
+.lead {
+  color: var(--color-text-secondary);
 }
 
 /* ===== Navbar ===== */
 .navbar {
-  background-color: var(--palta-white) !important;
+  background: var(--color-header-bg) !important;
   padding: 0.75rem 1rem;
-  border-bottom: 1px solid var(--palta-border);
-}
-.navbar-brand {
-  display: flex;
-  align-items: center;
+  border-bottom: 1px solid var(--color-border);
 }
 .navbar-brand img {
   height: 36px;
 }
 .navbar-nav .nav-link {
+  color: var(--color-text-inverse) !important;
   padding: 0.5rem 0.75rem;
   font-size: 15px;
-  color: var(--palta-text-dark) !important;
 }
-.navbar-nav .nav-link:hover {
-  text-decoration: underline;
-}
-.nav-link.active {
-  font-weight: 600;
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: var(--color-accent) !important;
 }
 
 /* ===== Buttons ===== */
 .btn {
   font-size: 14px;
-  padding: 6px 14px;
   font-weight: 500;
   border-radius: 6px;
-  transition: all 0.2s ease-in-out;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
 }
-.btn-signin-outline {
-  background-color: #FFFFFF;
-  border: 1px solid #000;
-  color: #000;
-}
-.btn-signin-outline:hover {
-  background-color: #F5F5F5;
-}
+
+/* Primary CTA */
 .btn-primary {
-  background-color: #606C38;
-  color: #FFFFFF;
-  border: 1px solid #606C38;
+  background: var(--color-accent);
+  border: 1px solid var(--color-accent);
+  color: var(--color-text);
+  padding: 6px 14px;
 }
 .btn-primary:hover {
-  background-color: #739405;
-  border-color: #739405;
+  background: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
+}
+
+/* Secondary / link button */
+.btn-signin,
+.btn-signin-outline {
+  padding: 6px 14px;
+  font-size: 14px;
 }
 .btn-signin {
   background: none;
   border: none;
-  color: var(--palta-text-dark);
-  padding: 6px 12px;
+  color: var(--color-text);
 }
 .btn-signin:hover {
-  text-decoration: underline;
+  color: var(--color-primary);
 }
-.btn-signin-offcanvas {
-  display: block;
-  margin-bottom: 1rem;
-  text-align: center;
-  color: var(--palta-text-dark);
+.btn-signin-outline {
+  background: var(--color-surface);
+  border: 1px solid var(--color-text);
+  color: var(--color-text);
+}
+.btn-signin-outline:hover {
+  background: var(--color-bg);
 }
 
 /* ===== Hero Section ===== */
 .hero {
-  background-color: var(--palta-bg-light);
-  padding: 6rem 0 4rem;
+  background: var(--color-bg);
+  padding: 6rem 1rem 4rem;
+  text-align: center;
 }
 @media (min-width: 992px) {
   .hero {
     min-height: 65vh;
     display: flex;
     align-items: center;
+    text-align: left;
+    padding: 8rem 2rem 6rem;
   }
 }
 .hero h1 {
-  font-weight: 700;
   font-size: 2.5rem;
+  font-weight: 700;
   margin-bottom: 1rem;
+  color: var(--color-text);
 }
 .hero .lead {
   font-size: 1.125rem;
-  color: var(--palta-text-medium);
+  margin-bottom: 1.5rem;
 }
 .hero-form {
   max-width: 480px;
   display: flex;
-  gap: 10px;
+  gap: 0.5rem;
   flex-wrap: wrap;
-  margin-top: 1.5rem;
+  margin: 0 auto;
+}
+@media (min-width: 992px) {
+  .hero-form { margin: 1.5rem 0 0; }
 }
 .hero-form .form-control {
   flex: 1;
   padding: 8px 12px;
   font-size: 14px;
 }
-.hero-image {
-  max-width: 80%;
-  margin: 2rem auto 0;
+.hero-image img {
+  max-width: 100%;
+  height: auto;
 }
 
-/* ===== Stats Section ===== */
+/* ===== Stats ===== */
 .stats-section {
-  background: var(--palta-white);
-  padding: 4rem 0;
+  background: var(--color-surface);
+  padding: 4rem 1rem;
   text-align: center;
+  color: var(--color-text);
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+  gap: 1.5rem;
 }
 .stat-value {
   font-size: 2rem;
@@ -160,31 +188,40 @@ h1, h2, h3, h4 {
 }
 .stat-label {
   font-size: 1rem;
-  color: var(--palta-text-medium);
+  color: var(--color-text-secondary);
 }
 
 /* ===== Features & How It Works ===== */
 .features-section,
 .how-it-works-section {
-  padding: 4rem 0;
+  padding: 4rem 1rem;
+  background: var(--color-surface);
+}
+.features-grid,
+.how-it-works-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+  gap: 1.5rem;
 }
 .card {
-  border: 1px solid var(--palta-border);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
   border-radius: 8px;
-  box-shadow: none;
-  transition: box-shadow 0.2s ease;
+  transition: box-shadow 0.2s;
 }
 .card:hover {
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
 }
 .card-title {
   font-size: 1.25rem;
   font-weight: 600;
+  margin-bottom: 0.5rem;
 }
 
 /* ===== Integrations ===== */
 .integrations-section {
-  padding: 4rem 0;
+  padding: 4rem 1rem;
+  background: var(--color-surface);
   text-align: center;
 }
 .integrations-grid {
@@ -201,8 +238,9 @@ h1, h2, h3, h4 {
 
 /* ===== Why Teams Love Palta ===== */
 .why-love-palta-section {
-  background: var(--palta-white);
-  padding: 4rem 0;
+  background: var(--color-surface);
+  padding: 4rem 1rem;
+  color: var(--color-text);
 }
 .love-points-container {
   max-width: 700px;
@@ -211,86 +249,42 @@ h1, h2, h3, h4 {
   gap: 1.5rem;
   font-size: 1.1rem;
   font-weight: 500;
-  color: var(--palta-text-medium);
+  color: var(--color-text-secondary);
 }
 
 /* ===== Final CTA ===== */
 .final-cta-section {
-  padding: 4rem 0;
-  background-color: var(--palta-bg-light);
+  background: var(--color-bg);
+  padding: 4rem 1rem;
   text-align: center;
 }
 .cta-title {
   font-size: 2rem;
   font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--color-text);
 }
 
 /* ===== Footer ===== */
 .footer-section {
-  padding: 3rem 0;
-  background-color: #719979;
-  color: var(--palta-white);
+  background: var(--color-footer-bg);
+  padding: 3rem 1rem;
+  color: var(--color-text-inverse);
   text-align: center;
 }
 .footer-section a {
-  color: var(--palta-white);
+  color: var(--color-text-inverse);
 }
 .footer-section a:hover {
   text-decoration: underline;
 }
 
-/* ===== Text Color Fix for Light Sections ===== */
-.stats-section,
-.how-it-works-section,
-.integrations-section {
-  color: var(--palta-text-dark);
-}
-.stats-section h3,
-.stats-section p,
-.how-it-works-section h4,
-.how-it-works-section p,
-.integrations-section .section-title,
-.integrations-section .lead {
-  color: var(--palta-text-dark);
-}
-.navbar,
-.hero,
-.features-section,
-.why-love-palta-section,
-.final-cta-section {
-  color: var(--palta-text-dark);
-}
-
-/* ===== Responsive ===== */
+/* ===== Responsive Tweaks ===== */
 @media (max-width: 991px) {
-  .hero {
-    text-align: center;
-  }
-  .hero .row {
-    flex-direction: column-reverse;
-  }
-  .hero-form {
-    flex-direction: column;
-  }
-  .hero-form .form-control,
-  .btn-primary {
-    width: 100%;
-  }
-  .love-points-container {
-    padding: 0 1rem;
-  }
-  .navbar-nav .nav-link {
-    padding: 0.75rem 1rem;
-  }
-  .integrations-grid {
-    gap: 1rem;
-    padding: 0 1rem;
-  }
-  .integration-logo {
-    flex: 0 1 30%;
-    max-width: 90px;
-  }
-  body.offcanvas-open .navbar-collapse {
-    display: none !important;
-  }
+  .hero { text-align: center; padding: 6rem 1rem 4rem; }
+  .hero .row { flex-direction: column-reverse; }
+  .hero-form { flex-direction: column; }
+  .btn-primary { width: 100%; }
+  .integrations-grid { gap: 1rem; }
+  .integration-logo { max-width: 90px; }
 }
