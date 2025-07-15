@@ -1,23 +1,27 @@
 :root {
-  /* Core Palette */
-  --color-header-bg:      #1A202C;  /* Navbar background */
-  --color-footer-bg:      #151A23;  /* Footer background */
-  --color-bg:             #F8F9FA;  /* Page background */
-  --color-surface:        #FFFFFF;  /* Card / panel background */
-  --color-border:         #E9ECEF;  /* Dividers, card borders */
+  /* ==== White‑First Palette ==== */
+  --color-header-bg:      #FFFFFF;  /* Navbar background */
+  --color-footer-bg:      #F1F3F5;  /* Footer background */
+  --color-bg:             #FFFFFF;  /* Page background */
+  --color-surface:        #F9FAFB;  /* Card / panel background */
+  --color-border:         #E5E7EB;  /* Dividers, card borders */
 
-  --color-text:           #212529;  /* Primary text on light bg */
-  --color-text-secondary: #6C757D;  /* Secondary text */
-  --color-text-inverse:   #FFFFFF;  /* Text on dark bg */
+  --color-text:           #111827;  /* Primary text on white */
+  --color-text-secondary: #6B7280;  /* Secondary text */
+  --color-text-inverse:   #FFFFFF;  /* Text on dark backgrounds */
 
-  --color-primary:        #00707F;  /* Links, secondary buttons */
-  --color-primary-hover:  #005A66;
+  --color-primary:        #2563EB;  /* Links, secondary buttons */
+  --color-primary-hover:  #1D4ED8;
 
-  --color-accent:         #E4F223;  /* Main CTA */
-  --color-accent-hover:   #C1B200;
+  --color-accent:         #10B981;  /* Main CTA */
+  --color-accent-hover:   #059669;
+
+  /* Spacing tokens */
+  --spacing: 1rem;
+  --container-max: 1000px;
 }
 
-/* Selection highlight */
+/* ==== Selection Highlight ==== */
 ::selection {
   background-color: var(--color-accent);
   color: var(--color-text);
@@ -27,13 +31,12 @@
   color: var(--color-text);
 }
 
-/* ===== Reset & Base ===== */
+/* ==== Reset & Base ==== */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
-
 html, body {
   margin: 0;
   padding: 0;
@@ -42,9 +45,8 @@ html, body {
   color: var(--color-text);
   line-height: 1.6;
   scroll-behavior: smooth;
-  padding-top: 56px; /* offset for fixed navbar */
+  padding-top: 56px; /* space for fixed navbar */
 }
-
 a {
   color: var(--color-primary);
   text-decoration: none;
@@ -54,7 +56,7 @@ a:hover {
   color: var(--color-primary-hover);
 }
 
-/* ===== Typography ===== */
+/* ==== Typography ==== */
 h1, h2, h3, h4 {
   margin: 0;
   font-weight: 600;
@@ -63,7 +65,7 @@ h1, h2, h3, h4 {
   color: var(--color-text-secondary);
 }
 
-/* ===== Navbar ===== */
+/* ==== Navbar ==== */
 .navbar {
   background: var(--color-header-bg) !important;
   padding: 0.75rem 1rem;
@@ -73,7 +75,7 @@ h1, h2, h3, h4 {
   height: 36px;
 }
 .navbar-nav .nav-link {
-  color: var(--color-text-inverse) !important;
+  color: var(--color-text) !important;
   padding: 0.5rem 0.75rem;
   font-size: 15px;
 }
@@ -82,7 +84,7 @@ h1, h2, h3, h4 {
   color: var(--color-accent) !important;
 }
 
-/* ===== Buttons ===== */
+/* ==== Buttons ==== */
 .btn {
   font-size: 14px;
   font-weight: 500;
@@ -100,9 +102,10 @@ h1, h2, h3, h4 {
 .btn-primary:hover {
   background: var(--color-accent-hover);
   border-color: var(--color-accent-hover);
+  transform: translateY(-1px);
 }
 
-/* Secondary / link button */
+/* Secondary (link) button */
 .btn-signin,
 .btn-signin-outline {
   padding: 6px 14px;
@@ -118,14 +121,14 @@ h1, h2, h3, h4 {
 }
 .btn-signin-outline {
   background: var(--color-surface);
-  border: 1px solid var(--color-text);
+  border: 1px solid var(--color-text-secondary);
   color: var(--color-text);
 }
 .btn-signin-outline:hover {
   background: var(--color-bg);
 }
 
-/* ===== Hero Section ===== */
+/* ==== Hero Section ==== */
 .hero {
   background: var(--color-bg);
   padding: 6rem 1rem 4rem;
@@ -144,7 +147,6 @@ h1, h2, h3, h4 {
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  color: var(--color-text);
 }
 .hero .lead {
   font-size: 1.125rem;
@@ -152,30 +154,31 @@ h1, h2, h3, h4 {
 }
 .hero-form {
   max-width: 480px;
+  margin: 0 auto;
   display: flex;
   gap: 0.5rem;
   flex-wrap: wrap;
-  margin: 0 auto;
-}
-@media (min-width: 992px) {
-  .hero-form { margin: 1.5rem 0 0; }
 }
 .hero-form .form-control {
   flex: 1;
   padding: 8px 12px;
-  font-size: 14px;
 }
 .hero-image img {
   max-width: 100%;
   height: auto;
+  margin-top: 2rem;
+}
+@media (min-width: 992px) {
+  .hero-image {
+    margin-top: 0;
+  }
 }
 
-/* ===== Stats ===== */
+/* ==== Stats Section ==== */
 .stats-section {
   background: var(--color-surface);
   padding: 4rem 1rem;
   text-align: center;
-  color: var(--color-text);
 }
 .stats-grid {
   display: grid;
@@ -191,11 +194,11 @@ h1, h2, h3, h4 {
   color: var(--color-text-secondary);
 }
 
-/* ===== Features & How It Works ===== */
+/* ==== Features & How It Works ==== */
 .features-section,
 .how-it-works-section {
-  padding: 4rem 1rem;
   background: var(--color-surface);
+  padding: 4rem 1rem;
 }
 .features-grid,
 .how-it-works-grid {
@@ -218,10 +221,10 @@ h1, h2, h3, h4 {
   margin-bottom: 0.5rem;
 }
 
-/* ===== Integrations ===== */
+/* ==== Integrations ==== */
 .integrations-section {
-  padding: 4rem 1rem;
   background: var(--color-surface);
+  padding: 4rem 1rem;
   text-align: center;
 }
 .integrations-grid {
@@ -236,11 +239,10 @@ h1, h2, h3, h4 {
   object-fit: contain;
 }
 
-/* ===== Why Teams Love Palta ===== */
+/* ==== Why Teams Love Palta ==== */
 .why-love-palta-section {
   background: var(--color-surface);
   padding: 4rem 1rem;
-  color: var(--color-text);
 }
 .love-points-container {
   max-width: 700px;
@@ -252,7 +254,7 @@ h1, h2, h3, h4 {
   color: var(--color-text-secondary);
 }
 
-/* ===== Final CTA ===== */
+/* ==== Final CTA ==== */
 .final-cta-section {
   background: var(--color-bg);
   padding: 4rem 1rem;
@@ -265,7 +267,7 @@ h1, h2, h3, h4 {
   color: var(--color-text);
 }
 
-/* ===== Footer ===== */
+/* ==== Footer ==== */
 .footer-section {
   background: var(--color-footer-bg);
   padding: 3rem 1rem;
@@ -279,12 +281,22 @@ h1, h2, h3, h4 {
   text-decoration: underline;
 }
 
-/* ===== Responsive Tweaks ===== */
+/* ==== Responsive Tweaks ==== */
 @media (max-width: 991px) {
-  .hero { text-align: center; padding: 6rem 1rem 4rem; }
-  .hero .row { flex-direction: column-reverse; }
-  .hero-form { flex-direction: column; }
-  .btn-primary { width: 100%; }
-  .integrations-grid { gap: 1rem; }
-  .integration-logo { max-width: 90px; }
+  .hero {
+    text-align: center;
+    padding: 6rem 1rem 4rem;
+  }
+  .hero-form {
+    flex-direction: column;
+  }
+  .btn-primary {
+    width: 100%;
+  }
+  .integrations-grid {
+    gap: 1rem;
+  }
+  .integration-logo {
+    max-width: 90px;
+  }
 }
