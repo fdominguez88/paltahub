@@ -253,14 +253,11 @@ a:hover {
 .footer-section {
   background-color: var(--palta-dark-bg);
   padding: 3rem 0;
-  color: var(--palta-text-inverse);
+  color: var(--palta-white);
   text-align: center;
 }
 .footer-section a {
-  color: var(--palta-text-inverse);
-}
-.footer-section a:hover {
-  text-decoration: underline;
+  color: var(--palta-white);
 }
 
 /* Responsive */
