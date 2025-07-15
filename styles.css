@@ -1,19 +1,19 @@
 :root {
-  /* ==== White‑First Palette ==== */
-  --color-header-bg:      #FFFFFF;  /* Navbar background */
-  --color-footer-bg:      #F1F3F5;  /* Footer background */
-  --color-bg:             #FFFFFF;  /* Page background */
-  --color-surface:        #F9FAFB;  /* Card / panel background */
-  --color-border:         #E5E7EB;  /* Dividers, card borders */
+  /* ==== White‑First Palette with Dark Header ==== */
+  --color-header-bg:      #1A202C;  /* Navbar background (dark charcoal) */
+  --color-footer-bg:      #F1F3F5;  /* Footer background (light gray) */
+  --color-bg:             #FFFFFF;  /* Page background (white) */
+  --color-surface:        #F9FAFB;  /* Cards & panels (off‑white) */
+  --color-border:         #E5E7EB;  /* Dividers, card borders (light gray) */
 
   --color-text:           #111827;  /* Primary text on white */
   --color-text-secondary: #6B7280;  /* Secondary text */
   --color-text-inverse:   #FFFFFF;  /* Text on dark backgrounds */
 
-  --color-primary:        #2563EB;  /* Links, secondary buttons */
+  --color-primary:        #2563EB;  /* Links, secondary buttons (blue) */
   --color-primary-hover:  #1D4ED8;
 
-  --color-accent:         #10B981;  /* Main CTA */
+  --color-accent:         #10B981;  /* Main CTA (green) */
   --color-accent-hover:   #059669;
 
   /* Spacing tokens */
@@ -58,10 +58,11 @@ a:hover {
 
 /* ==== Typography ==== */
 h1, h2, h3, h4 {
-  margin: 0;
+  margin: 0 0 1rem;
   font-weight: 600;
 }
 .lead {
+  margin-bottom: 1rem;
   color: var(--color-text-secondary);
 }
 
@@ -69,13 +70,13 @@ h1, h2, h3, h4 {
 .navbar {
   background: var(--color-header-bg) !important;
   padding: 0.75rem 1rem;
-  border-bottom: 1px solid var(--color-border);
+  /* remove border for cleaner look */
 }
 .navbar-brand img {
   height: 36px;
 }
 .navbar-nav .nav-link {
-  color: var(--color-text) !important;
+  color: var(--color-text-inverse) !important;
   padding: 0.5rem 0.75rem;
   font-size: 15px;
 }
