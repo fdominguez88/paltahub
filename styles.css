@@ -1,143 +1,127 @@
 :root {
-  /* ==== White‑First Palette with Dark Footer ==== */
-  --color-header-bg:      #FFFFFF;  /* Navbar background (white) */
-  --color-footer-bg:      #1A202C;  /* Footer background (dark charcoal) */
-  --color-bg:             #FFFFFF;  /* Page background (white) */
-  --color-surface:        #F9FAFB;  /* Cards & panels (off‑white) */
-  --color-border:         #E5E7EB;  /* Dividers & card borders */
-
-  --color-text:           #111827;  /* Primary text on white */
-  --color-text-secondary: #6B7280;  /* Secondary/caption text */
-  --color-text-inverse:   #FFFFFF;  /* Text on dark backgrounds */
-
-  --color-primary:        #2563EB;  /* Links & secondary buttons (blue) */
-  --color-primary-hover:  #1D4ED8;
-
-  --color-accent:         #10B981;  /* Main CTA (green) */
-  --color-accent-hover:   #059669;
-
-  --spacing: 1rem;
-  --container-max: 1000px;
+  /* ==== Updated Palette ==== */
+  --palta-blue:        #2563EB;  /* Primary links & secondary buttons */
+  --palta-blue-hover:  #1D4ED8;  /* Hover state for links */
+  --palta-accent-green: #10B981; /* Main CTA */
+  --palta-accent-hover: #059669; /* Hover state for CTA */
+  --palta-text-dark:   #111827;  /* Primary body text */
+  --palta-text-medium: #6B7280;  /* Secondary/caption text */
+  --palta-bg-light:    #FFFFFF;  /* Page background */
+  --palta-dark-bg:     #1A202C;  /* Footer background */
+  --palta-white:       #F9FAFB;  /* Card & panel background */
+  --palta-border:      #E5E7EB;  /* Dividers & card borders */
 }
 
-/* ==== Selection Highlight ==== */
+/* Green Highlight */
 ::selection {
-  background-color: var(--color-accent);
-  color: var(--color-text);
+  background-color: var(--palta-accent-green);
+  color: var(--palta-text-dark);
 }
 ::-moz-selection {
-  background-color: var(--color-accent);
-  color: var(--color-text);
+  background-color: var(--palta-accent-green);
+  color: var(--palta-text-dark);
 }
 
-/* ==== Reset & Base ==== */
-*,
-*::before,
-*::after {
+/* Base Styles */
+* {
   box-sizing: border-box;
 }
 
-html, body {
+body {
+  font-family: 'Inter', sans-serif;
   margin: 0;
   padding: 0;
-  font-family: 'Inter', sans-serif;
-  background: var(--color-bg);
-  color: var(--color-text);
+  background-color: var(--palta-bg-light);
+  color: var(--palta-text-dark);
   line-height: 1.6;
-  scroll-behavior: smooth;
-  padding-top: 56px; /* space for fixed navbar */
 }
 
-/* ==== Links ==== */
+/* Typography */
+h1, h2, h3, h4 {
+  font-weight: 600;
+  margin: 0 0 1rem;
+}
 a {
-  color: var(--color-primary);
   text-decoration: none;
+  color: var(--palta-blue);
   transition: color 0.2s;
 }
 a:hover {
-  color: var(--color-primary-hover);
+  color: var(--palta-blue-hover);
 }
 
-/* ==== Typography ==== */
-h1, h2, h3, h4 {
-  margin: 0 0 1rem;
-  font-weight: 600;
-}
-.lead {
-  margin-bottom: 1rem;
-  color: var(--color-text-secondary);
-}
-
-/* ==== Navbar ==== */
+/* Navbar */
 .navbar {
-  background: var(--color-header-bg) !important;
+  background-color: var(--palta-white);
   padding: 0.75rem 1rem;
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--palta-border);
+}
+.navbar-brand {
+  display: flex;
+  align-items: center;
 }
 .navbar-brand img {
   height: 36px;
+  display: block;
 }
 .navbar-nav .nav-link {
-  color: var(--color-text) !important;
   padding: 0.5rem 0.75rem;
   font-size: 15px;
+  color: var(--palta-text-dark);
 }
-.navbar-nav .nav-link:hover,
-.navbar-nav .nav-link.active {
-  color: var(--color-accent) !important;
+.navbar-nav .nav-link:hover {
+  text-decoration: underline;
+  color: var(--palta-accent-green);
 }
 
-/* ==== Buttons ==== */
+/* Buttons */
 .btn {
   font-size: 14px;
+  padding: 6px 14px;
   font-weight: 500;
   border-radius: 6px;
-  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+  transition: all 0.2s ease-in-out;
 }
-
+/* Outlined sign-in */
+.btn-signin-outline {
+  background-color: var(--palta-white);
+  border: 1px solid var(--palta-text-dark);
+  color: var(--palta-text-dark);
+}
+.btn-signin-outline:hover {
+  background-color: #F5F5F5;
+}
 /* Primary CTA */
 .btn-primary {
-  background: var(--color-accent);
-  border: 1px solid var(--color-accent);
-  color: var(--color-text);
-  padding: 6px 14px;
+  background-color: var(--palta-accent-green);
+  color: var(--palta-text-dark);
+  border: 1px solid var(--palta-accent-green);
 }
 .btn-primary:hover {
-  background: var(--color-accent-hover);
-  border-color: var(--color-accent-hover);
-  transform: translateY(-1px);
+  background-color: var(--palta-accent-hover);
+  border-color: var(--palta-accent-hover);
 }
-
-/* Secondary / link buttons */
+/* Text‑link sign in */
 .btn-signin {
   background: none;
   border: none;
-  color: var(--color-text);
-  padding: 6px 12px;
+  color: var(--palta-text-dark);
 }
 .btn-signin:hover {
-  color: var(--color-primary);
+  text-decoration: underline;
 }
-.btn-signin-outline {
-  background: var(--color-surface);
-  border: 1px solid var(--color-text-secondary);
-  color: var(--color-text);
-  padding: 6px 14px;
-}
-.btn-signin-outline:hover {
-  background: var(--color-bg);
-}
+/* Offcanvas sign‑in */
 .btn-signin-offcanvas {
   display: block;
   margin-bottom: 1rem;
-  color: var(--color-text);
+  color: var(--palta-text-dark);
   text-align: center;
 }
 
-/* ==== Hero Section ==== */
+/* Hero Section */
 .hero {
-  background: var(--color-bg);
-  padding: 6rem 1rem 4rem;
+  background-color: var(--palta-bg-light);
+  padding: 6rem 0 4rem;
   text-align: center;
 }
 .hero h1 {
@@ -147,6 +131,7 @@ h1, h2, h3, h4 {
 }
 .hero .lead {
   font-size: 1.125rem;
+  color: var(--palta-text-medium);
   margin-bottom: 1.5rem;
 }
 .hero-form {
@@ -171,15 +156,16 @@ h1, h2, h3, h4 {
   display: block;
 }
 
-/* ==== Desktop Hero Centering ==== */
+/* Desktop Hero Centering */
 @media (min-width: 992px) {
   .hero {
     display: flex;
     align-items: center;
     justify-content: space-between;
     text-align: left;
-    padding: 8rem 2rem 6rem;
     min-height: 65vh;
+    /* retain original vertical padding */
+    padding: 6rem 1rem 4rem;
   }
   .hero-form {
     margin: 1.5rem 0 0;
@@ -190,16 +176,10 @@ h1, h2, h3, h4 {
   }
 }
 
-/* ==== Stats Section ==== */
+/* Stats Section */
 .stats-section {
-  background: var(--color-surface);
-  padding: 4rem 1rem;
-  text-align: center;
-}
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1.5rem;
+  background: var(--palta-white);
+  padding: 4rem 0;
 }
 .stat-value {
   font-size: 2rem;
@@ -207,26 +187,19 @@ h1, h2, h3, h4 {
 }
 .stat-label {
   font-size: 1rem;
-  color: var(--color-text-secondary);
+  color: var(--palta-text-medium);
 }
 
-/* ==== Features & How It Works ==== */
+/* Features / How It Works */
 .features-section,
 .how-it-works-section {
-  background: var(--color-surface);
-  padding: 4rem 1rem;
-}
-.features-grid,
-.how-it-works-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
+  padding: 4rem 0;
 }
 .card {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--palta-border);
   border-radius: 8px;
-  transition: box-shadow 0.2s;
+  box-shadow: none;
+  transition: box-shadow 0.2s ease;
 }
 .card:hover {
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
@@ -234,19 +207,17 @@ h1, h2, h3, h4 {
 .card-title {
   font-size: 1.25rem;
   font-weight: 600;
-  margin-bottom: 0.5rem;
 }
 
-/* ==== Integrations ==== */
+/* Integrations */
 .integrations-section {
-  background: var(--color-surface);
-  padding: 4rem 1rem;
-  text-align: center;
+  padding: 4rem 0;
 }
 .integrations-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   gap: 1.5rem;
 }
 .integration-logo {
@@ -255,10 +226,9 @@ h1, h2, h3, h4 {
   object-fit: contain;
 }
 
-/* ==== Why Teams Love Palta ==== */
+/* Why Teams Love Palta */
 .why-love-palta-section {
-  background: var(--color-surface);
-  padding: 4rem 1rem;
+  padding: 4rem 0;
 }
 .love-points-container {
   max-width: 700px;
@@ -267,37 +237,35 @@ h1, h2, h3, h4 {
   gap: 1.5rem;
   font-size: 1.1rem;
   font-weight: 500;
-  color: var(--color-text-secondary);
+  color: var(--palta-text-medium);
 }
 
-/* ==== Final CTA ==== */
+/* Final CTA */
 .final-cta-section {
-  background: var(--color-bg);
-  padding: 4rem 1rem;
+  padding: 4rem 0;
+  background-color: var(--palta-bg-light);
   text-align: center;
 }
 .cta-title {
   font-size: 2rem;
   font-weight: 600;
-  margin-bottom: 1rem;
-  color: var(--color-text);
 }
 
-/* ==== Footer ==== */
+/* Footer */
 .footer-section {
-  background: var(--color-footer-bg);
-  padding: 3rem 1rem;
-  color: var(--color-text-inverse);
+  background-color: var(--palta-dark-bg);
+  padding: 3rem 0;
+  color: var(--palta-text-inverse);
   text-align: center;
 }
 .footer-section a {
-  color: var(--color-text-inverse);
+  color: var(--palta-text-inverse);
 }
 .footer-section a:hover {
   text-decoration: underline;
 }
 
-/* ==== Responsive Tweaks ==== */
+/* Responsive */
 @media (max-width: 991px) {
   .hero {
     text-align: center;
