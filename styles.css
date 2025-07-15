@@ -1,15 +1,13 @@
 :root {
-  /* ==== Updated Palette ==== */
-  --palta-blue:        #2563EB;  /* Primary links & secondary buttons */
-  --palta-blue-hover:  #1D4ED8;  /* Hover state for links */
-  --palta-accent-green: #10B981; /* Main CTA */
-  --palta-accent-hover: #059669; /* Hover state for CTA */
-  --palta-text-dark:   #111827;  /* Primary body text */
-  --palta-text-medium: #6B7280;  /* Secondary/caption text */
-  --palta-bg-light:    #FFFFFF;  /* Page background */
-  --palta-dark-bg:     #1A202C;  /* Footer background */
-  --palta-white:       #F9FAFB;  /* Card & panel background */
-  --palta-border:      #E5E7EB;  /* Dividers & card borders */
+  --palta-accent-green: #2CE080;    /* primary CTA background */
+  --palta-accent-hover: #24B06D;    /* hover state */
+  --palta-blue:        #2563EB;
+  --palta-text-dark:   #111827;
+  --palta-text-medium: #6B7280;
+  --palta-bg-light:    #FFFFFF;
+  --palta-dark-bg:     #1A202C;
+  --palta-white:       #F9FAFB;
+  --palta-border:      #E5E7EB;
 }
 
 /* Green Highlight */
@@ -94,8 +92,8 @@ a:hover {
 /* Primary CTA */
 .btn-primary {
   background-color: var(--palta-accent-green);
+  border-color: var(--palta-accent-green);
   color: var(--palta-text-dark);
-  border: 1px solid var(--palta-accent-green);
 }
 .btn-primary:hover {
   background-color: var(--palta-accent-hover);
