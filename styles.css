@@ -1,4 +1,5 @@
 :root {
+  /* Brand Colors */
   --palta-blue: #00707F;
   --palta-accent-green: #E4F223;
   --palta-text-dark: #212529;
@@ -8,69 +9,67 @@
   --palta-white: #FFFFFF;
   --palta-border: #E9ECEF;
 }
+
 /* Green Highlight */
 ::selection {
   background-color: #53d92e;
   color: #0D0A08;
 }
-
 ::-moz-selection {
   background-color: #53d92e;
   color: #0D0A08;
 }
 
-/* Base Styles */
+/* ===== Base Styles ===== */
 * {
   box-sizing: border-box;
 }
-
-body {
-  font-family: 'Inter', sans-serif;
+html, body {
   margin: 0;
   padding: 0;
+  font-family: 'Inter', sans-serif;
   background-color: var(--palta-bg-light);
   color: var(--palta-text-dark);
   line-height: 1.6;
+  scroll-behavior: smooth;
+  /* space for fixed navbar */
+  padding-top: 56px;
 }
-
-/* Typography */
-h1, h2, h3, h4 {
-  font-weight: 600;
-}
-
 a {
   text-decoration: none;
   color: inherit;
 }
+h1, h2, h3, h4 {
+  font-weight: 600;
+  margin: 0;
+}
 
-/* Navbar */
+/* ===== Navbar ===== */
 .navbar {
-  background-color: var(--palta-white);
+  background-color: var(--palta-white) !important;
   padding: 0.75rem 1rem;
   border-bottom: 1px solid var(--palta-border);
 }
-
 .navbar-brand {
   display: flex;
   align-items: center;
 }
-
 .navbar-brand img {
   height: 36px;
-  display: block;
 }
-
 .navbar-nav .nav-link {
   padding: 0.5rem 0.75rem;
   font-size: 15px;
-  color: var(--palta-text-dark);
+  color: var(--palta-text-dark) !important;
 }
-
 .navbar-nav .nav-link:hover {
   text-decoration: underline;
 }
+.nav-link.active {
+  font-weight: 600;
+}
 
-/* Buttons */
+/* ===== Buttons ===== */
 .btn {
   font-size: 14px;
   padding: 6px 14px;
@@ -78,249 +77,44 @@ a {
   border-radius: 6px;
   transition: all 0.2s ease-in-out;
 }
-
-/* New outlined sign-in button */
 .btn-signin-outline {
   background-color: #FFFFFF;
-  border: 1px solid #000000;
-  color: #000000;
-  padding: 6px 14px;
-  font-size: 14px;
-  font-weight: 500;
-  border-radius: 6px;
-  transition: all 0.2s ease-in-out;
+  border: 1px solid #000;
+  color: #000;
 }
-
 .btn-signin-outline:hover {
   background-color: #F5F5F5;
-  text-decoration: none;
 }
-
-/* Updated CTA Button Style */
 .btn-primary {
   background-color: #606C38;
   color: #FFFFFF;
   border: 1px solid #606C38;
 }
-
 .btn-primary:hover {
   background-color: #739405;
   border-color: #739405;
 }
-
 .btn-signin {
   background: none;
   border: none;
   color: var(--palta-text-dark);
   padding: 6px 12px;
-  font-size: 14px;
 }
-
 .btn-signin:hover {
   text-decoration: underline;
 }
-
 .btn-signin-offcanvas {
   display: block;
   margin-bottom: 1rem;
-  color: var(--palta-text-dark);
   text-align: center;
+  color: var(--palta-text-dark);
 }
 
-/* Hero Section */
+/* ===== Hero Section ===== */
 .hero {
+  background-color: var(--palta-bg-light);
   padding: 6rem 0 4rem;
-  background-color: var(--palta-bg-light);
 }
-
-.hero h1 {
-  font-weight: 700;
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-
-.hero .lead {
-  font-size: 1.125rem;
-  color: var(--palta-text-medium);
-}
-
-.hero-form {
-  max-width: 480px;
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-top: 1.5rem;
-}
-
-.hero-form .form-control {
-  flex: 1;
-  padding: 8px 12px;
-  font-size: 14px;
-}
-
-/* Hero image size control */
-.hero-image {
-  max-width: 80%;
-  height: auto;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Stats Section */
-.stats-section {
-  background: var(--palta-white);
-  padding: 4rem 0;
-}
-
-.stat-value {
-  font-size: 2rem;
-  font-weight: 600;
-}
-
-.stat-label {
-  font-size: 1rem;
-  color: var(--palta-text-medium);
-}
-
-/* Features / How It Works */
-.features-section,
-.how-it-works-section {
-  padding: 4rem 0;
-}
-
-.card {
-  border: 1px solid var(--palta-border);
-  border-radius: 8px;
-  box-shadow: none;
-  transition: box-shadow 0.2s ease;
-}
-
-.card:hover {
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
-}
-
-.card-title {
-  font-size: 1.25rem;
-  font-weight: 600;
-}
-
-/* Integrations */
-.integrations-section {
-  padding: 4rem 0;
-}
-
-.integrations-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 1.5rem;
-}
-
-.integration-logo {
-  max-height: 48px;
-  max-width: 100px;
-  height: auto;
-  width: auto;
-  object-fit: contain;
-  display: block;
-}
-
-/* Why Palta */
-.why-love-palta-section {
-  background: var(--palta-white);
-  padding: 4rem 0;
-}
-
-.love-points-container {
-  max-width: 700px;
-  display: grid;
-  gap: 1.5rem;
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: var(--palta-text-medium);
-}
-
-/* CTA Section */
-.final-cta-section {
-  padding: 4rem 0;
-  background-color: var(--palta-bg-light);
-}
-
-.cta-title {
-  font-size: 2rem;
-  font-weight: 600;
-}
-
-/* Footer */
-.footer-section {
-  padding: 3rem 0;
-  color: var(--palta-white);
-}
-
-.footer-dark {
-  background-color: #719979;
-}
-
-.footer-section a {
-  color: var(--palta-white);
-}
-
-.footer-section a:hover {
-  text-decoration: underline;
-}
-
-/* Responsive */
-@media (max-width: 991px) {
-  .hero {
-    text-align: center;
-  }
-
-  .hero .row {
-    flex-direction: column-reverse;
-  }
-
-  .hero-form {
-    flex-direction: column;
-  }
-
-  .hero-form .form-control {
-    width: 100%;
-  }
-
-  .btn-primary {
-    width: 100%;
-  }
-
-  .love-points-container {
-    padding: 0 1rem;
-  }
-
-  .footer-section ul {
-    padding-left: 0;
-  }
-
-  .navbar-nav .nav-link {
-    padding: 0.75rem 1rem;
-  }
-
-  .integrations-grid {
-    gap: 1rem;
-    padding: 0 1rem;
-  }
-
-  .integration-logo {
-    flex: 0 1 30%;
-    max-width: 90px;
-  }
-
-  body.offcanvas-open .navbar-collapse {
-    display: none !important;
-  }
-}
-
-/* Make the hero taller on large screens */
 @media (min-width: 992px) {
   .hero {
     min-height: 65vh;
@@ -328,4 +122,175 @@ a {
     align-items: center;
   }
 }
+.hero h1 {
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+.hero .lead {
+  font-size: 1.125rem;
+  color: var(--palta-text-medium);
+}
+.hero-form {
+  max-width: 480px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+.hero-form .form-control {
+  flex: 1;
+  padding: 8px 12px;
+  font-size: 14px;
+}
+.hero-image {
+  max-width: 80%;
+  margin: 2rem auto 0;
+}
 
+/* ===== Stats Section ===== */
+.stats-section {
+  background: var(--palta-white);
+  padding: 4rem 0;
+  text-align: center;
+}
+.stat-value {
+  font-size: 2rem;
+  font-weight: 600;
+}
+.stat-label {
+  font-size: 1rem;
+  color: var(--palta-text-medium);
+}
+
+/* ===== Features & How It Works ===== */
+.features-section,
+.how-it-works-section {
+  padding: 4rem 0;
+}
+.card {
+  border: 1px solid var(--palta-border);
+  border-radius: 8px;
+  box-shadow: none;
+  transition: box-shadow 0.2s ease;
+}
+.card:hover {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+/* ===== Integrations ===== */
+.integrations-section {
+  padding: 4rem 0;
+  text-align: center;
+}
+.integrations-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+.integration-logo {
+  max-height: 48px;
+  max-width: 100px;
+  object-fit: contain;
+}
+
+/* ===== Why Teams Love Palta ===== */
+.why-love-palta-section {
+  background: var(--palta-white);
+  padding: 4rem 0;
+}
+.love-points-container {
+  max-width: 700px;
+  margin: 0 auto;
+  display: grid;
+  gap: 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--palta-text-medium);
+}
+
+/* ===== Final CTA ===== */
+.final-cta-section {
+  padding: 4rem 0;
+  background-color: var(--palta-bg-light);
+  text-align: center;
+}
+.cta-title {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+/* ===== Footer ===== */
+.footer-section {
+  padding: 3rem 0;
+  background-color: #719979;
+  color: var(--palta-white);
+  text-align: center;
+}
+.footer-section a {
+  color: var(--palta-white);
+}
+.footer-section a:hover {
+  text-decoration: underline;
+}
+
+/* ===== Text Color Fix for Light Sections ===== */
+.stats-section,
+.how-it-works-section,
+.integrations-section {
+  color: var(--palta-text-dark);
+}
+.stats-section h3,
+.stats-section p,
+.how-it-works-section h4,
+.how-it-works-section p,
+.integrations-section .section-title,
+.integrations-section .lead {
+  color: var(--palta-text-dark);
+}
+.navbar,
+.hero,
+.features-section,
+.why-love-palta-section,
+.final-cta-section {
+  color: var(--palta-text-dark);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 991px) {
+  .hero {
+    text-align: center;
+  }
+  .hero .row {
+    flex-direction: column-reverse;
+  }
+  .hero-form {
+    flex-direction: column;
+  }
+  .hero-form .form-control,
+  .btn-primary {
+    width: 100%;
+  }
+  .love-points-container {
+    padding: 0 1rem;
+  }
+  .navbar-nav .nav-link {
+    padding: 0.75rem 1rem;
+  }
+  .integrations-grid {
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+  .integration-logo {
+    flex: 0 1 30%;
+    max-width: 90px;
+  }
+  body.offcanvas-open .navbar-collapse {
+    display: none !important;
+  }
+}
