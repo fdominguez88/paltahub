@@ -1,22 +1,21 @@
 :root {
-  /* ==== White‑First Palette with Dark Header ==== */
-  --color-header-bg:      #1A202C;  /* Navbar background (dark charcoal) */
-  --color-footer-bg:      #F1F3F5;  /* Footer background (light gray) */
+  /* ==== Palette ==== */
+  --color-header-bg:      #FFFFFF;  /* Navbar background (white) */
+  --color-footer-bg:      #1A202C;  /* Footer background (dark charcoal) */
   --color-bg:             #FFFFFF;  /* Page background (white) */
   --color-surface:        #F9FAFB;  /* Cards & panels (off‑white) */
-  --color-border:         #E5E7EB;  /* Dividers, card borders (light gray) */
+  --color-border:         #E5E7EB;  /* Dividers & card borders */
 
   --color-text:           #111827;  /* Primary text on white */
-  --color-text-secondary: #6B7280;  /* Secondary text */
+  --color-text-secondary: #6B7280;  /* Secondary/caption text */
   --color-text-inverse:   #FFFFFF;  /* Text on dark backgrounds */
 
-  --color-primary:        #2563EB;  /* Links, secondary buttons (blue) */
-  --color-primary-hover:  #1D4ED8;
+  --color-primary:        #2563EB;  /* Links & secondary buttons */
+  --color-primary-hover:  #1D4ED8;  
 
-  --color-accent:         #10B981;  /* Main CTA (green) */
-  --color-accent-hover:   #059669;
+  --color-accent:         #10B981;  /* Main CTA */
+  --color-accent-hover:   #059669;  
 
-  /* Spacing tokens */
   --spacing: 1rem;
   --container-max: 1000px;
 }
@@ -45,7 +44,7 @@ html, body {
   color: var(--color-text);
   line-height: 1.6;
   scroll-behavior: smooth;
-  padding-top: 56px; /* space for fixed navbar */
+  padding-top: 56px; /* offset for fixed navbar */
 }
 a {
   color: var(--color-primary);
@@ -70,13 +69,13 @@ h1, h2, h3, h4 {
 .navbar {
   background: var(--color-header-bg) !important;
   padding: 0.75rem 1rem;
-  /* remove border for cleaner look */
+  border-bottom: 1px solid var(--color-border);
 }
 .navbar-brand img {
   height: 36px;
 }
 .navbar-nav .nav-link {
-  color: var(--color-text-inverse) !important;
+  color: var(--color-text) !important;
   padding: 0.5rem 0.75rem;
   font-size: 15px;
 }
