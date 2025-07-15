@@ -319,3 +319,13 @@ a {
     display: none !important;
   }
 }
+
+/* Make the hero taller on large screens */
+@media (min-width: 992px) {
+  .hero {
+    min-height: 75vh;
+    /* if you want more spacing too, uncomment: */
+    /* padding-top: 10rem;
+       padding-bottom: 10rem; */
+  }
+}
