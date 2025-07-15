@@ -1,189 +1,168 @@
 :root {
-  /* ==== Palette ==== */
-  --color-header-bg:      #FFFFFF;  /* Navbar background (white) */
-  --color-footer-bg:      #1A202C;  /* Footer background (dark charcoal) */
-  --color-bg:             #FFFFFF;  /* Page background (white) */
-  --color-surface:        #F9FAFB;  /* Cards & panels (off‑white) */
-  --color-border:         #E5E7EB;  /* Dividers & card borders */
-
-  --color-text:           #111827;  /* Primary text on white */
-  --color-text-secondary: #6B7280;  /* Secondary/caption text */
-  --color-text-inverse:   #FFFFFF;  /* Text on dark backgrounds */
-
-  --color-primary:        #2563EB;  /* Links & secondary buttons */
-  --color-primary-hover:  #1D4ED8;
-
-  --color-accent:         #10B981;  /* Main CTA */
-  --color-accent-hover:   #059669;
-
-  --spacing: 1rem;
-  --container-max: 1000px;
+  /* ==== Updated Palette ==== */
+  --palta-blue:        #2563EB;  /* Primary links & secondary buttons */
+  --palta-accent-green: #10B981; /* Main CTA */
+  --palta-text-dark:   #111827;  /* Primary body text */
+  --palta-text-medium: #6B7280;  /* Secondary/caption text */
+  --palta-bg-light:    #FFFFFF;  /* Page background */
+  --palta-dark-bg:     #1A202C;  /* Footer background */
+  --palta-white:       #F9FAFB;  /* Card & surface background */
+  --palta-border:      #E5E7EB;  /* Dividers & card borders */
 }
 
-/* ==== Selection Highlight ==== */
+/* Green Highlight */
 ::selection {
-  background-color: var(--color-accent);
-  color: var(--color-text);
+  background-color: var(--palta-accent-green);
+  color: var(--palta-text-dark);
 }
 ::-moz-selection {
-  background-color: var(--color-accent);
-  color: var(--color-text);
+  background-color: var(--palta-accent-green);
+  color: var(--palta-text-dark);
 }
 
-/* ==== Reset & Base ==== */
-*,
-*::before,
-*::after {
+/* Base Styles */
+* {
   box-sizing: border-box;
 }
-html, body {
+
+body {
+  font-family: 'Inter', sans-serif;
   margin: 0;
   padding: 0;
-  font-family: 'Inter', sans-serif;
-  background: var(--color-bg);
-  color: var(--color-text);
+  background-color: var(--palta-bg-light);
+  color: var(--palta-text-dark);
   line-height: 1.6;
-  scroll-behavior: smooth;
-  padding-top: 56px; /* offset for fixed navbar */
 }
 
-/* ==== Links ==== */
-a {
-  color: var(--color-primary);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-a:hover {
-  color: var(--color-primary-hover);
-}
-
-/* ==== Typography ==== */
+/* Typography */
 h1, h2, h3, h4 {
-  margin: 0 0 1rem;
   font-weight: 600;
 }
-.lead {
-  margin-bottom: 1rem;
-  color: var(--color-text-secondary);
+
+a {
+  text-decoration: none;
+  color: var(--palta-blue);
+}
+a:hover {
+  color: #1D4ED8; /* darker blue on hover */
 }
 
-/* ==== Navbar ==== */
+/* Navbar */
 .navbar {
-  background: var(--color-header-bg) !important;
+  background-color: var(--palta-white);
   padding: 0.75rem 1rem;
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--palta-border);
 }
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
 .navbar-brand img {
   height: 36px;
-}
-.navbar-nav .nav-link {
-  color: var(--color-text) !important;
-  padding: 0.5rem 0.75rem;
-  font-size: 15px;
-}
-.navbar-nav .nav-link:hover,
-.navbar-nav .nav-link.active {
-  color: var(--color-accent) !important;
+  display: block;
 }
 
-/* ==== Buttons ==== */
+.navbar-nav .nav-link {
+  padding: 0.5rem 0.75rem;
+  font-size: 15px;
+  color: var(--palta-text-dark);
+}
+
+.navbar-nav .nav-link:hover {
+  text-decoration: underline;
+  color: var(--palta-accent-green);
+}
+
+/* Buttons */
 .btn {
   font-size: 14px;
+  padding: 6px 14px;
   font-weight: 500;
   border-radius: 6px;
-  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+  transition: all 0.2s ease-in-out;
 }
+
+/* Outlined sign-in */
+.btn-signin-outline {
+  background-color: var(--palta-white);
+  border: 1px solid var(--palta-text-dark);
+  color: var(--palta-text-dark);
+}
+.btn-signin-outline:hover {
+  background-color: #F5F5F5;
+}
+
 /* Primary CTA */
 .btn-primary {
-  background: var(--color-accent);
-  border: 1px solid var(--color-accent);
-  color: var(--color-text);
-  padding: 6px 14px;
+  background-color: var(--palta-accent-green);
+  color: var(--palta-text-dark);
+  border: 1px solid var(--palta-accent-green);
 }
 .btn-primary:hover {
-  background: var(--color-accent-hover);
-  border-color: var(--color-accent-hover);
-  transform: translateY(-1px);
+  background-color: #059669;
+  border-color: #059669;
 }
-/* Secondary (link) button */
-.btn-signin,
-.btn-signin-outline {
-  padding: 6px 14px;
-  font-size: 14px;
-}
+
+/* Sign in text link */
 .btn-signin {
   background: none;
   border: none;
-  color: var(--color-text);
+  color: var(--palta-text-dark);
 }
 .btn-signin:hover {
-  color: var(--color-primary);
-}
-.btn-signin-outline {
-  background: var(--color-surface);
-  border: 1px solid var(--color-text-secondary);
-  color: var(--color-text);
-}
-.btn-signin-outline:hover {
-  background: var(--color-bg);
+  text-decoration: underline;
 }
 
-/* ==== Hero Section ==== */
-.hero {
-  background: var(--color-bg);
-  padding: 6rem 1rem 4rem;
+/* Offcanvas sign‑in */
+.btn-signin-offcanvas {
+  display: block;
+  margin-bottom: 1rem;
+  color: var(--palta-text-dark);
   text-align: center;
 }
-@media (min-width: 992px) {
-  .hero {
-    min-height: 65vh;
-    display: flex;
-    align-items: center;
-    text-align: left;
-    padding: 8rem 2rem 6rem;
-  }
+
+/* Hero Section */
+.hero {
+  padding: 6rem 0 4rem;
+  background-color: var(--palta-bg-light);
 }
 .hero h1 {
-  font-size: 2.5rem;
   font-weight: 700;
+  font-size: 2.5rem;
   margin-bottom: 1rem;
 }
 .hero .lead {
   font-size: 1.125rem;
-  margin-bottom: 1.5rem;
+  color: var(--palta-text-medium);
 }
 .hero-form {
   max-width: 480px;
-  margin: 0 auto;
   display: flex;
-  gap: 0.5rem;
+  gap: 10px;
   flex-wrap: wrap;
+  margin-top: 1.5rem;
 }
 .hero-form .form-control {
   flex: 1;
   padding: 8px 12px;
+  font-size: 14px;
 }
-.hero-image img {
-  max-width: 100%;
-  height: auto;
-  margin-top: 2rem;
+.hero-image {
+  max-width: 80%;
+  margin: 2rem auto 0;
 }
 @media (min-width: 992px) {
   .hero-image {
-    margin-top: 0;
+    margin: 0;
   }
 }
 
-/* ==== Stats Section ==== */
+/* Stats Section */
 .stats-section {
-  background: var(--color-surface);
-  padding: 4rem 1rem;
-  text-align: center;
-}
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
-  gap: 1.5rem;
+  background: var(--palta-white);
+  padding: 4rem 0;
 }
 .stat-value {
   font-size: 2rem;
@@ -191,26 +170,18 @@ h1, h2, h3, h4 {
 }
 .stat-label {
   font-size: 1rem;
-  color: var(--color-text-secondary);
+  color: var(--palta-text-medium);
 }
 
-/* ==== Features & How It Works ==== */
+/* Features / How It Works */
 .features-section,
 .how-it-works-section {
-  background: var(--color-surface);
-  padding: 4rem 1rem;
-}
-.features-grid,
-.how-it-works-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
-  gap: 1.5rem;
+  padding: 4rem 0;
 }
 .card {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--palta-border);
   border-radius: 8px;
-  transition: box-shadow 0.2s;
+  transition: box-shadow 0.2s ease;
 }
 .card:hover {
   box-shadow: 0 2px 12px rgba(0,0,0,0.04);
@@ -218,14 +189,11 @@ h1, h2, h3, h4 {
 .card-title {
   font-size: 1.25rem;
   font-weight: 600;
-  margin-bottom: 0.5rem;
 }
 
-/* ==== Integrations ==== */
+/* Integrations */
 .integrations-section {
-  background: var(--color-surface);
-  padding: 4rem 1rem;
-  text-align: center;
+  padding: 4rem 0;
 }
 .integrations-grid {
   display: flex;
@@ -239,10 +207,10 @@ h1, h2, h3, h4 {
   object-fit: contain;
 }
 
-/* ==== Why Teams Love Palta ==== */
+/* Why Palta */
 .why-love-palta-section {
-  background: var(--color-surface);
-  padding: 4rem 1rem;
+  background: var(--palta-white);
+  padding: 4rem 0;
 }
 .love-points-container {
   max-width: 700px;
@@ -251,41 +219,37 @@ h1, h2, h3, h4 {
   gap: 1.5rem;
   font-size: 1.1rem;
   font-weight: 500;
-  color: var(--color-text-secondary);
+  color: var(--palta-text-medium);
 }
 
-/* ==== Final CTA ==== */
+/* CTA Section */
 .final-cta-section {
-  background: var(--color-bg);
-  padding: 4rem 1rem;
-  text-align: center;
+  padding: 4rem 0;
+  background-color: var(--palta-bg-light);
 }
 .cta-title {
   font-size: 2rem;
   font-weight: 600;
-  margin-bottom: 1rem;
-  color: var(--color-text);
 }
 
-/* ==== Footer ==== */
+/* Footer */
 .footer-section {
-  background: var(--color-footer-bg);
-  padding: 3rem 1rem;
-  color: var(--color-text-inverse);
+  background-color: var(--palta-dark-bg);
+  padding: 3rem 0;
+  color: var(--palta-text-inverse);
   text-align: center;
 }
 .footer-section a {
-  color: var(--color-text-inverse);
+  color: var(--palta-text-inverse);
 }
 .footer-section a:hover {
   text-decoration: underline;
 }
 
-/* ==== Responsive Tweaks ==== */
+/* Responsive */
 @media (max-width: 991px) {
   .hero {
     text-align: center;
-    padding: 6rem 1rem 4rem;
   }
   .hero-form {
     flex-direction: column;
