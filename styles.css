@@ -8,6 +8,16 @@
   --palta-white: #FFFFFF;
   --palta-border: #E9ECEF;
 }
+/* Green Highlight */
+::selection {
+  background-color: #53d92e;
+  color: #0D0A08;
+}
+
+::-moz-selection {
+  background-color: #53d92e;
+  color: #0D0A08;
+}
 
 /* Base Styles */
 * {
