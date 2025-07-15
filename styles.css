@@ -6,18 +6,18 @@
   --palta-text-medium: #6B7280;  /* Secondary/caption text */
   --palta-bg-light:    #FFFFFF;  /* Page background */
   --palta-dark-bg:     #1A202C;  /* Footer background */
-  --palta-white:       #F9FAFB;  /* Card & surface background */
+  --palta-white:       #F9FAFB;  /* Card & panel background */
   --palta-border:      #E5E7EB;  /* Dividers & card borders */
 }
 
 /* Green Highlight */
 ::selection {
-  background-color: var(--palta-accent-green);
-  color: var(--palta-text-dark);
+  background-color: #53d92e;
+  color: #0D0A08;
 }
 ::-moz-selection {
-  background-color: var(--palta-accent-green);
-  color: var(--palta-text-dark);
+  background-color: #53d92e;
+  color: #0D0A08;
 }
 
 /* Base Styles */
@@ -41,10 +41,7 @@ h1, h2, h3, h4 {
 
 a {
   text-decoration: none;
-  color: var(--palta-blue);
-}
-a:hover {
-  color: #1D4ED8; /* darker blue on hover */
+  color: inherit;
 }
 
 /* Navbar */
@@ -72,7 +69,6 @@ a:hover {
 
 .navbar-nav .nav-link:hover {
   text-decoration: underline;
-  color: var(--palta-accent-green);
 }
 
 /* Buttons */
@@ -84,38 +80,46 @@ a:hover {
   transition: all 0.2s ease-in-out;
 }
 
-/* Outlined sign-in */
+/* New outlined sign-in button */
 .btn-signin-outline {
   background-color: var(--palta-white);
   border: 1px solid var(--palta-text-dark);
   color: var(--palta-text-dark);
-}
-.btn-signin-outline:hover {
-  background-color: #F5F5F5;
+  padding: 6px 14px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 6px;
 }
 
-/* Primary CTA */
+.btn-signin-outline:hover {
+  background-color: #F5F5F5;
+  text-decoration: none;
+}
+
+/* Updated CTA Button Style */
 .btn-primary {
   background-color: var(--palta-accent-green);
   color: var(--palta-text-dark);
   border: 1px solid var(--palta-accent-green);
 }
+
 .btn-primary:hover {
   background-color: #059669;
   border-color: #059669;
 }
 
-/* Sign in text link */
 .btn-signin {
   background: none;
   border: none;
   color: var(--palta-text-dark);
+  padding: 6px 12px;
+  font-size: 14px;
 }
+
 .btn-signin:hover {
   text-decoration: underline;
 }
 
-/* Offcanvas sign‑in */
 .btn-signin-offcanvas {
   display: block;
   margin-bottom: 1rem;
@@ -128,15 +132,18 @@ a:hover {
   padding: 6rem 0 4rem;
   background-color: var(--palta-bg-light);
 }
+
 .hero h1 {
   font-weight: 700;
   font-size: 2.5rem;
   margin-bottom: 1rem;
 }
+
 .hero .lead {
   font-size: 1.125rem;
   color: var(--palta-text-medium);
 }
+
 .hero-form {
   max-width: 480px;
   display: flex;
@@ -144,19 +151,20 @@ a:hover {
   flex-wrap: wrap;
   margin-top: 1.5rem;
 }
+
 .hero-form .form-control {
   flex: 1;
   padding: 8px 12px;
   font-size: 14px;
 }
+
+/* Hero image size control */
 .hero-image {
   max-width: 80%;
-  margin: 2rem auto 0;
-}
-@media (min-width: 992px) {
-  .hero-image {
-    margin: 0;
-  }
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Stats Section */
@@ -164,10 +172,12 @@ a:hover {
   background: var(--palta-white);
   padding: 4rem 0;
 }
+
 .stat-value {
   font-size: 2rem;
   font-weight: 600;
 }
+
 .stat-label {
   font-size: 1rem;
   color: var(--palta-text-medium);
@@ -178,14 +188,18 @@ a:hover {
 .how-it-works-section {
   padding: 4rem 0;
 }
+
 .card {
   border: 1px solid var(--palta-border);
   border-radius: 8px;
+  box-shadow: none;
   transition: box-shadow 0.2s ease;
 }
+
 .card:hover {
-  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
 }
+
 .card-title {
   font-size: 1.25rem;
   font-weight: 600;
@@ -195,16 +209,22 @@ a:hover {
 .integrations-section {
   padding: 4rem 0;
 }
+
 .integrations-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   gap: 1.5rem;
 }
+
 .integration-logo {
   max-height: 48px;
   max-width: 100px;
+  height: auto;
+  width: auto;
   object-fit: contain;
+  display: block;
 }
 
 /* Why Palta */
@@ -212,9 +232,9 @@ a:hover {
   background: var(--palta-white);
   padding: 4rem 0;
 }
+
 .love-points-container {
   max-width: 700px;
-  margin: 0 auto;
   display: grid;
   gap: 1.5rem;
   font-size: 1.1rem;
@@ -227,6 +247,7 @@ a:hover {
   padding: 4rem 0;
   background-color: var(--palta-bg-light);
 }
+
 .cta-title {
   font-size: 2rem;
   font-weight: 600;
@@ -236,12 +257,14 @@ a:hover {
 .footer-section {
   background-color: var(--palta-dark-bg);
   padding: 3rem 0;
-  color: var(--palta-text-inverse);
+  color: var(--palta-white);
   text-align: center;
 }
+
 .footer-section a {
-  color: var(--palta-text-inverse);
+  color: var(--palta-white);
 }
+
 .footer-section a:hover {
   text-decoration: underline;
 }
@@ -251,16 +274,51 @@ a:hover {
   .hero {
     text-align: center;
   }
+
+  .hero .row {
+    flex-direction: column-reverse;
+  }
+
   .hero-form {
     flex-direction: column;
   }
+
+  .hero-form .form-control {
+    width: 100%;
+  }
+
   .btn-primary {
     width: 100%;
   }
+
+  .love-points-container {
+    padding: 0 1rem;
+  }
+
+  .navbar-nav .nav-link {
+    padding: 0.75rem 1rem;
+  }
+
   .integrations-grid {
     gap: 1rem;
+    padding: 0 1rem;
   }
+
   .integration-logo {
+    flex: 0 1 30%;
     max-width: 90px;
+  }
+
+  body.offcanvas-open .navbar-collapse {
+    display: none !important;
+  }
+}
+
+/* Make the hero taller on large screens */
+@media (min-width: 992px) {
+  .hero {
+    min-height: 65vh;
+    display: flex;
+    align-items: center;
   }
 }
