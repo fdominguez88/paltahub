@@ -157,14 +157,16 @@ a:hover {
 /* Desktop Hero Centering */
 @media (min-width: 992px) {
   .hero {
+    /* make hero taller on large screens */
+    min-height: 75vh; 
+    /* everything else stays the same */
     display: flex;
     align-items: center;
     justify-content: space-between;
     text-align: left;
-    min-height: 65vh;
-    /* retain original vertical padding */
     padding: 6rem 1rem 4rem;
   }
+}
   .hero-form {
     margin: 1.5rem 0 0;
   }
