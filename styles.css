@@ -281,3 +281,7 @@ a:hover {
     max-width: 90px;
   }
 }
+.stats-section {
+  /* change from white back to off-white/grey */
+  background-color: var(--palta-bg-light) !important;
+}
