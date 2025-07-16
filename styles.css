@@ -1,16 +1,18 @@
 :root {
-  --palta-accent-green: #2CE080;    /* primary CTA background */
-  --palta-accent-hover: #24B06D;    /* hover state */
-  --palta-blue:        #2563EB;
-  --palta-text-dark:   #111827;
-  --palta-text-medium: #6B7280;
-  --palta-bg-light:    #FFFFFF;
-  --palta-dark-bg:     #1A202C;
-  --palta-white:       #F9FAFB;
-  --palta-border:      #E5E7EB;
+  /* Brand palette */
+  --palta-blue:         #2563EB;  /* links & secondary buttons */
+  --palta-blue-hover:   #1D4ED8;
+  --palta-accent-green: #2CE080;  /* Ramp-style CTA */
+  --palta-accent-hover: #24B06D;
+  --palta-text-dark:    #111827;  /* body text */
+  --palta-text-medium:  #6B7280;  /* secondary text */
+  --palta-bg-light:     #FFFFFF;  /* page background */
+  --palta-white:        #F9FAFB;  /* card/panel background */
+  --palta-dark-bg:      #1A202C;  /* footer background */
+  --palta-border:       #E5E7EB;  /* dividers, borders */
 }
 
-/* Green Highlight */
+/* Selection highlight */
 ::selection {
   background-color: var(--palta-accent-green);
   color: var(--palta-text-dark);
@@ -20,28 +22,27 @@
   color: var(--palta-text-dark);
 }
 
-/* Base Styles */
-* {
+/* Base reset */
+*, *::before, *::after {
   box-sizing: border-box;
 }
-
 body {
-  font-family: 'Inter', sans-serif;
   margin: 0;
   padding: 0;
+  font-family: 'Inter', sans-serif;
   background-color: var(--palta-bg-light);
   color: var(--palta-text-dark);
   line-height: 1.6;
 }
 
-/* Typography */
+/* Typography & links */
 h1, h2, h3, h4 {
-  font-weight: 600;
   margin: 0 0 1rem;
+  font-weight: 600;
 }
 a {
-  text-decoration: none;
   color: var(--palta-blue);
+  text-decoration: none;
   transition: color 0.2s;
 }
 a:hover {
@@ -50,75 +51,69 @@ a:hover {
 
 /* Navbar */
 .navbar {
-  background-color: var(--palta-white);
+  background-color: var(--palta-bg-light);
   padding: 0.75rem 1rem;
   border-bottom: 1px solid var(--palta-border);
 }
-.navbar-brand {
-  display: flex;
-  align-items: center;
-}
 .navbar-brand img {
   height: 36px;
-  display: block;
 }
 .navbar-nav .nav-link {
+  color: var(--palta-text-dark) !important;
   padding: 0.5rem 0.75rem;
   font-size: 15px;
-  color: var(--palta-text-dark);
 }
-.navbar-nav .nav-link:hover {
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: var(--palta-accent-green) !important;
   text-decoration: underline;
-  color: var(--palta-accent-green);
 }
 
 /* Buttons */
 .btn {
   font-size: 14px;
-  padding: 6px 14px;
   font-weight: 500;
+  padding: 6px 14px;
   border-radius: 6px;
   transition: all 0.2s ease-in-out;
 }
-/* Outlined sign-in */
 .btn-signin-outline {
-  background-color: var(--palta-white);
+  background: var(--palta-bg-light);
   border: 1px solid var(--palta-text-dark);
   color: var(--palta-text-dark);
 }
 .btn-signin-outline:hover {
-  background-color: #F5F5F5;
+  background: #F5F5F5;
 }
-/* Primary CTA */
 .btn-primary {
-  background-color: var(--palta-accent-green);
-  border-color: var(--palta-accent-green);
+  background: var(--palta-accent-green);
+  border: 1px solid var(--palta-accent-green);
   color: var(--palta-text-dark);
 }
 .btn-primary:hover {
-  background-color: var(--palta-accent-hover);
+  background: var(--palta-accent-hover);
   border-color: var(--palta-accent-hover);
+  transform: translateY(-1px);
 }
-/* Text‑link sign in */
 .btn-signin {
   background: none;
   border: none;
   color: var(--palta-text-dark);
+  padding: 6px 12px;
 }
 .btn-signin:hover {
   text-decoration: underline;
 }
-/* Offcanvas sign‑in */
 .btn-signin-offcanvas {
   display: block;
   margin-bottom: 1rem;
-  color: var(--palta-text-dark);
   text-align: center;
+  color: var(--palta-text-dark);
 }
 
-/* Hero Section */
+/* Hero */
 .hero {
-  background-color: var(--palta-bg-light);
+  background: var(--palta-bg-light);
   padding: 6rem 0 4rem;
   text-align: center;
 }
@@ -154,19 +149,16 @@ a:hover {
   display: block;
 }
 
-/* Desktop Hero Centering */
+/* Desktop hero flex + height + reset padding */
 @media (min-width: 992px) {
   .hero {
-    /* make hero taller on large screens */
-    min-height: 75vh; 
-    /* everything else stays the same */
     display: flex;
     align-items: center;
     justify-content: space-between;
     text-align: left;
-    padding: 6rem 1rem 4rem;
+    padding: 6rem 1rem 4rem;  /* your original vertical padding */
+    min-height: 75vh;         /* bump up as desired */
   }
-}
   .hero-form {
     margin: 1.5rem 0 0;
   }
@@ -176,10 +168,11 @@ a:hover {
   }
 }
 
-/* Stats Section */
+/* Stats */
 .stats-section {
-  background: var(--palta-white);
+  background-color: var(--palta-white);
   padding: 4rem 0;
+  text-align: center;
 }
 .stat-value {
   font-size: 2rem;
@@ -190,7 +183,7 @@ a:hover {
   color: var(--palta-text-medium);
 }
 
-/* Features / How It Works */
+/* Features & How It Works */
 .features-section,
 .how-it-works-section {
   padding: 4rem 0;
@@ -198,11 +191,10 @@ a:hover {
 .card {
   border: 1px solid var(--palta-border);
   border-radius: 8px;
-  box-shadow: none;
   transition: box-shadow 0.2s ease;
 }
 .card:hover {
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
 }
 .card-title {
   font-size: 1.25rem;
@@ -212,12 +204,12 @@ a:hover {
 /* Integrations */
 .integrations-section {
   padding: 4rem 0;
+  text-align: center;
 }
 .integrations-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
   gap: 1.5rem;
 }
 .integration-logo {
@@ -242,8 +234,8 @@ a:hover {
 
 /* Final CTA */
 .final-cta-section {
+  background: var(--palta-bg-light);
   padding: 4rem 0;
-  background-color: var(--palta-bg-light);
   text-align: center;
 }
 .cta-title {
@@ -253,16 +245,19 @@ a:hover {
 
 /* Footer */
 .footer-section {
-  background-color: var(--palta-dark-bg);
+  background: var(--palta-dark-bg);
   padding: 3rem 0;
-  color: var(--palta-white);
+  color: var(--palta-text-inverse);
   text-align: center;
 }
 .footer-section a {
-  color: var(--palta-white);
+  color: var(--palta-text-inverse);
+}
+.footer-section a:hover {
+  text-decoration: underline;
 }
 
-/* Responsive */
+/* Responsive tweaks */
 @media (max-width: 991px) {
   .hero {
     text-align: center;
@@ -280,8 +275,4 @@ a:hover {
   .integration-logo {
     max-width: 90px;
   }
-}
-.stats-section {
-  /* change from white back to off-white/grey */
-  background-color: var(--palta-bg-light) !important;
 }
