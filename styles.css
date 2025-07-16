@@ -245,13 +245,13 @@ a:hover {
 
 /* Footer */
 .footer-section {
-  background: var(--palta-dark-bg);
+  background-color: var(--palta-dark-bg);
   padding: 3rem 0;
-  color: var(--palta-text-inverse);
+  color: var(--palta-white);
   text-align: center;
 }
 .footer-section a {
-  color: var(--palta-text-inverse);
+  color: var(--palta-white);
 }
 .footer-section a:hover {
   text-decoration: underline;
