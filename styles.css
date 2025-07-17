@@ -216,6 +216,17 @@ a:hover {
   max-height: 48px;
   max-width: 100px;
   object-fit: contain;
+
+  /* make them greyed out by default */
+  filter: grayscale(80%);
+  opacity: 0.7;
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.integration-logo:hover {
+  /* restore full color on hover */
+  filter: none;
+  opacity: 1;
 }
 
 /* Why Teams Love Palta */
