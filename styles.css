@@ -2,9 +2,9 @@
   /* Brand palette */
   --palta-blue:         #2563EB;  /* links & secondary buttons */
   --palta-blue-hover:   #1D4ED8;
-  --palta-accent-green: #2CE080;  /* Ramp-style CTA */
-  --palta-accent-hover: #24B06D;
-  --palta-text-dark:    #111827;  /* body text */
+  --palta-accent-green: #EFFF9E;  /* updated CTA background */
+  --palta-accent-hover: #DEEF86;  /* updated CTA hover background */
+  --palta-text-dark:    #111827;  /* body & CTA text */
   --palta-text-medium:  #6B7280;  /* secondary text */
   --palta-bg-light:     #FFFFFF;  /* page background */
   --palta-white:        #F9FAFB;  /* card/panel background */
@@ -12,7 +12,7 @@
   --palta-border:       #E5E7EB;  /* dividers, borders */
 }
 
-/* Selection highlight */
+/* ===== Selection highlight ===== */
 ::selection {
   background-color: var(--palta-accent-green);
   color: var(--palta-text-dark);
@@ -22,7 +22,7 @@
   color: var(--palta-text-dark);
 }
 
-/* Base reset */
+/* ===== Base reset ===== */
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -35,7 +35,7 @@ body {
   line-height: 1.6;
 }
 
-/* Typography & links */
+/* ===== Typography & Links ===== */
 h1, h2, h3, h4 {
   margin: 0 0 1rem;
   font-weight: 600;
@@ -49,7 +49,7 @@ a:hover {
   color: var(--palta-blue-hover);
 }
 
-/* Navbar */
+/* ===== Navbar ===== */
 .navbar {
   background-color: var(--palta-bg-light);
   padding: 0.75rem 1rem;
@@ -69,7 +69,7 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Buttons */
+/* ===== Buttons ===== */
 .btn {
   font-size: 14px;
   font-weight: 500;
@@ -77,6 +77,8 @@ a:hover {
   border-radius: 6px;
   transition: all 0.2s ease-in-out;
 }
+
+/* Sign-in outline */
 .btn-signin-outline {
   background: var(--palta-bg-light);
   border: 1px solid var(--palta-text-dark);
@@ -85,16 +87,22 @@ a:hover {
 .btn-signin-outline:hover {
   background: #F5F5F5;
 }
-.btn-primary {
+
+/* Primary CTA & Final CTA */
+.btn-primary,
+.cta-button {
   background: var(--palta-accent-green);
   border: 1px solid var(--palta-accent-green);
   color: var(--palta-text-dark);
 }
-.btn-primary:hover {
+.btn-primary:hover,
+.cta-button:hover {
   background: var(--palta-accent-hover);
   border-color: var(--palta-accent-hover);
   transform: translateY(-1px);
 }
+
+/* Sign-in text link */
 .btn-signin {
   background: none;
   border: none;
@@ -111,7 +119,7 @@ a:hover {
   color: var(--palta-text-dark);
 }
 
-/* Hero */
+/* ===== Hero Section ===== */
 .hero {
   background: var(--palta-bg-light);
   padding: 6rem 0 4rem;
@@ -148,16 +156,14 @@ a:hover {
   height: auto;
   display: block;
 }
-
-/* Desktop hero flex + height + reset padding */
 @media (min-width: 992px) {
   .hero {
     display: flex;
     align-items: center;
     justify-content: space-between;
     text-align: left;
-    padding: 6rem 1rem 4rem;  /* your original vertical padding */
-    min-height: 75vh;         /* bump up as desired */
+    padding: 6rem 1rem 4rem;
+    min-height: 75vh;
   }
   .hero-form {
     margin: 1.5rem 0 0;
@@ -168,7 +174,7 @@ a:hover {
   }
 }
 
-/* Stats */
+/* ===== Stats ===== */
 .stats-section {
   background-color: var(--palta-white);
   padding: 4rem 0;
@@ -183,7 +189,7 @@ a:hover {
   color: var(--palta-text-medium);
 }
 
-/* Features & How It Works */
+/* ===== Features & How It Works ===== */
 .features-section,
 .how-it-works-section {
   padding: 4rem 0;
@@ -201,7 +207,7 @@ a:hover {
   font-weight: 600;
 }
 
-/* Integrations */
+/* ===== Integrations ===== */
 .integrations-section {
   padding: 4rem 0;
   text-align: center;
@@ -216,20 +222,16 @@ a:hover {
   max-height: 48px;
   max-width: 100px;
   object-fit: contain;
-
-  /* make them greyed out by default */
   filter: grayscale(80%);
   opacity: 0.7;
   transition: filter 0.3s ease, opacity 0.3s ease;
 }
-
 .integration-logo:hover {
-  /* restore full color on hover */
   filter: none;
   opacity: 1;
 }
 
-/* Why Teams Love Palta */
+/* ===== Why Teams Love Palta ===== */
 .why-love-palta-section {
   padding: 4rem 0;
 }
@@ -243,7 +245,7 @@ a:hover {
   color: var(--palta-text-medium);
 }
 
-/* Final CTA */
+/* ===== Final CTA ===== */
 .final-cta-section {
   background: var(--palta-bg-light);
   padding: 4rem 0;
@@ -254,7 +256,7 @@ a:hover {
   font-weight: 600;
 }
 
-/* Footer */
+/* ===== Footer ===== */
 .footer-section {
   background-color: var(--palta-dark-bg);
   padding: 3rem 0;
@@ -268,7 +270,7 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Responsive tweaks */
+/* ===== Responsive Tweaks ===== */
 @media (max-width: 991px) {
   .hero {
     text-align: center;
@@ -277,7 +279,8 @@ a:hover {
   .hero-form {
     flex-direction: column;
   }
-  .btn-primary {
+  .btn-primary,
+  .cta-button {
     width: 100%;
   }
   .integrations-grid {
