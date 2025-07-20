@@ -99,6 +99,7 @@ a:hover {
 .cta-button:hover {
   background: var(--palta-accent-hover);
   border-color: var(--palta-accent-hover);
+  color: var(--palta-text-dark); 
   transform: translateY(-1px);
 }
 
